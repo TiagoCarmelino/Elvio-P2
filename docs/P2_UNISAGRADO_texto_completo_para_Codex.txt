@@ -1,0 +1,1720 @@
+PROJETO INTEGRADO P2 — TESTES E QUALIDADE DE SOFTWARE — UNISAGRADO
+Transcrição textual integral extraída do PDF original (26 páginas).
+IMPORTANTE: a versão PDF original prevalece em caso de ambiguidades de formatação, tabelas ou imagens.
+
+========================================================================
+PÁGINA 1 DE 26
+========================================================================
+                                                          TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+
+
+                                   UNISAGRADO
+                             Curso de Ciência da Computação
+                      Disciplina: Testes e Qualidade de Software
+
+
+
+
+                           PROJETO INTEGRADO P2
+        Planejamento, execução e avaliação da qualidade de um sistema de
+                                   software
+
+
+          Manual completo de desenvolvimento e entrega para os estudantes
+Projeto semestral - apresentação no primeiro dia de aula e entrega final na data oficial da Prova
+                     Regimental 2 (P2), conforme o calendário da disciplina.
+
+
+                   Informação                                                 Definição
+
+Professor                                              Prof. Dr. Elvio Gilberto da Silva
+
+Formação dos grupos                                    Duplas ou trios
+
+Período de desenvolvimento                             Ao longo do semestre letivo
+
+Entrega final                                          Na data da P2, conforme o calendário da disciplina
+
+                                                       Pasta do Google Drive disponibilizada pelo
+Forma oficial de entrega
+                                                       professor
+
+                                                       Nota de 0,0 a 10,0, lançada como P2 e
+Valor                                                  considerada conforme o peso previsto no Plano de
+                                                       Ensino
+
+
+
+
+                             UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 2 DE 26
+========================================================================
+                                                            TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+SUMÁRIO
+1. Apresentação do projeto
+2. Base formativa e conteúdos contemplados
+3. Tema, problema e objetivo geral
+4. Organização dos grupos, responsabilidades e comunicação
+5. Escolha e aprovação do sistema que será testado
+6. Produtos obrigatórios do projeto
+7. Fases e marcos de acompanhamento durante o semestre
+8. Infraestrutura, softwares e organização do ambiente
+9. Roteiro detalhado de desenvolvimento
+10. Quantidades mínimas e critérios técnicos
+11. Organização e entrega no Google Drive
+12. Estrutura obrigatória do relatório final
+13. Apresentação e demonstração na data da P2
+14. Critérios de avaliação
+15. Regras de segurança, ética e integridade acadêmica
+16. Checklist final do grupo
+Apêndices: modelos obrigatórios para preenchimento
+
+ LEIA ANTES DE COMEÇAR
+ No primeiro dia de aula, nenhum software específico precisa estar instalado. A apresentação inicial
+ servirá para compreender o projeto, formar os grupos, conhecer as etapas e iniciar a seleção do
+ sistema. As ferramentas serão configuradas progressivamente, após as demonstrações e orientações
+ do professor em cada tópico da disciplina.
+
+
+
+
+1. APRESENTAÇÃO DO PROJETO
+Este projeto constitui a atividade prática de maior abrangência da disciplina Testes e Qualidade
+de Software. Ele será apresentado no primeiro dia de aula, desenvolvido progressivamente
+durante o semestre e entregue integralmente na data oficial da Prova Regimental 2 (P2). O
+trabalho deverá demonstrar que o grupo foi capaz de planejar, projetar, executar, registrar,
+automatizar e avaliar testes de software de maneira organizada, rastreável e baseada em
+evidências.
+O projeto não consiste em desenvolver um sistema complexo do zero. O objeto principal de
+avaliação será o processo de qualidade e testes aplicado a um sistema escolhido pelo próprio
+grupo e aprovado pelo professor. Uma pequena alteração funcional será realizada somente na
+etapa de TDD, para que o grupo vivencie o ciclo teste primeiro, implementação e refatoração.
+O projeto será desenvolvido em duplas ou trios. Todos os integrantes deverão participar de todas
+as etapas, compreender os documentos e os testes produzidos e estar preparados para
+responder às perguntas do professor durante a apresentação final.
+
+1.1 Resultado esperado ao final do semestre
+  • Um sistema de software executável e devidamente identificado como objeto de teste.
+  • Um plano de testes completo e coerente com o escopo selecionado.
+  • Casos de teste manuais especificados por técnicas adequadas.
+
+                               UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 3 DE 26
+========================================================================
+                                                              TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+ • Evidências de execução, resultados obtidos e defeitos registrados.
+ • Testes automatizados em diferentes níveis, com código-fonte e instruções de execução.
+ • Testes de integração, sistema, aceitação e não funcionais.
+ • Métricas e indicadores de qualidade calculados a partir dos dados reais do projeto.
+ • Uma experiência documentada de TDD e uma integração CI/CD funcional ou, mediante
+   autorização, simulada de forma completa.
+ • Relatório final, apresentação e demonstração do projeto.
+
+ IMPORTANTE
+ A qualidade da documentação será avaliada juntamente com a qualidade técnica. Resultados sem
+ evidências, arquivos sem instruções de execução, links inacessíveis, testes que não possam ser
+ reproduzidos ou dados inventados comprometem a avaliação.
+
+
+
+
+2. BASE FORMATIVA E CONTEÚDOS CONTEMPLADOS
+O projeto foi estruturado exclusivamente com base no conteúdo programático da disciplina. Cada
+etapa corresponde a um dos nove tópicos previstos no Plano de Ensino e deverá ser incorporada
+ao produto final.
+
+             Tópico do Plano de Ensino                               Aplicação obrigatória no projeto
+
+                                                           Definição dos níveis aplicados, finalidade de cada teste
+1. Fundamentos e níveis de teste
+                                                           e justificativa da estratégia.
+
+                                                           Escopo, objetivos, riscos, responsabilidades,
+2. Planejamento e gestão de testes
+                                                           cronograma, critérios de entrada e saída.
+
+                                                           Particionamento de equivalência, valores limite e outras
+3. Técnicas de especificação de casos de teste
+                                                           técnicas demonstradas em aula.
+
+                                                           Execução controlada, evidências, comparação
+4. Execução de testes e registro de defeitos
+                                                           esperado/obtido e relatórios de defeitos.
+
+                                                           Uso de ferramentas de automação, gestão de defeitos,
+5. Ferramentas de automação e suporte
+                                                           versionamento e análise de qualidade.
+
+                                                           Validação da comunicação entre componentes e dos
+6. Testes de integração e sistema
+                                                           fluxos ponta a ponta.
+
+                                                           Cenários do ponto de vista do usuário e verificações não
+7. Testes de aceitação e não funcionais
+                                                           funcionais compatíveis com o sistema.
+
+                                                           Cálculo, interpretação e apresentação dos resultados do
+8. Métricas e indicadores de qualidade
+                                                           processo de teste.
+
+                                                           Pequena evolução orientada por testes, pipeline e
+9. TDD, CI/CD e melhoria contínua
+                                                           proposta de aperfeiçoamento.
+
+
+
+
+                                 UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 4 DE 26
+========================================================================
+                                                             TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+3. TEMA, PROBLEMA E OBJETIVO GERAL
+3.1 Tema do projeto
+Planejamento, execução e avaliação da qualidade de um sistema web com código-fonte
+acessível ao grupo, utilizando testes manuais e automatizados, registro de defeitos, métricas,
+TDD, CI/CD e melhoria contínua.
+
+3.2 Problema orientador
+Como demonstrar, por meio de um processo de teste planejado, executado e documentado, que
+um sistema atende aos requisitos selecionados e quais riscos, defeitos e oportunidades de
+melhoria permanecem antes de sua disponibilização aos usuários?
+
+3.3 Objetivo geral
+Elaborar e executar uma estratégia integrada de testes e qualidade para um sistema real ou
+acadêmico, produzindo evidências técnicas e gerenciais que permitam avaliar seu
+comportamento, sua confiabilidade, sua usabilidade e sua prontidão para uso dentro do escopo
+definido.
+
+3.4 Objetivos específicos
+ • Definir o escopo, os riscos, os recursos e os critérios do processo de teste.
+ • Especificar e executar casos de teste em diferentes níveis.
+ • Registrar e acompanhar defeitos de forma reproduzível e rastreável.
+ • Automatizar testes selecionados e integrar sua execução a um pipeline.
+ • Calcular métricas, interpretar resultados e propor melhorias contínuas.
+
+4. ORGANIZAÇÃO DOS GRUPOS, RESPONSABILIDADES E
+COMUNICAÇÃO
+4.1 Formação
+O projeto será realizado em duplas ou trios. A composição do grupo deverá ser informada ao
+professor no prazo estabelecido em aula. Alterações posteriores dependerão de autorização
+expressa.
+
+4.2 Papéis sugeridos
+Os papéis servem para organizar o trabalho, mas não limitam a participação. Todos os
+integrantes devem compreender o projeto completo. Em grupos de dois integrantes, os papéis
+poderão ser acumulados.
+
+                        Papel                                        Responsabilidades principais
+
+                                                          Organizar prazos, plano de testes, riscos, reuniões,
+Coordenação e planejamento
+                                                          versões e integração dos documentos.
+
+                                                          Modelar requisitos, especificar casos, preparar
+Análise e execução manual
+                                                          dados, executar testes e registrar defeitos.
+
+                                                          Configurar ferramentas, criar scripts, coletar métricas,
+Automação e qualidade
+                                                          apoiar TDD e CI/CD.
+
+
+
+
+                                UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 5 DE 26
+========================================================================
+                                                            TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+4.3 Registro da participação
+O grupo deverá manter um Diário de Participação, contendo data, atividade realizada,
+responsável principal, colaboradores, tempo aproximado e evidência associada. O diário não
+deve ser preenchido apenas no final do semestre.
+
+4.4 Comunicação com o professor
+ • Dúvidas conceituais e técnicas deverão ser apresentadas nas aulas ou pelos canais definidos
+   pelo professor.
+ • Aprovações de sistema, mudanças de escopo e exceções deverão ser registradas por escrito.
+ • O grupo deverá acompanhar continuamente os avisos publicados no Connect+ e no ambiente de
+   comunicação adotado na disciplina.
+
+5. ESCOLHA E APROVAÇÃO DO SISTEMA QUE SERÁ TESTADO
+O próprio grupo escolherá o sistema que será utilizado como objeto de estudo. O professor não
+fornecerá necessariamente um sistema piloto. A escolha deverá ocorrer no início do semestre e
+somente será considerada válida após aprovação do professor.
+
+5.1 Tipo de sistema obrigatório
+O sistema deverá ser, preferencialmente, uma aplicação web com interface de usuário, código-
+fonte acessível ao grupo, persistência de dados e pelo menos uma comunicação entre
+componentes, camadas ou serviços. Essa configuração permite aplicar os níveis e as
+ferramentas previstas na disciplina.
+
+5.2 Origens permitidas
+ • Sistema desenvolvido anteriormente por um ou mais integrantes em outra disciplina.
+ • Sistema acadêmico em desenvolvimento pelo grupo, desde que exista uma versão executável e
+   estável para testes.
+ • Projeto de código aberto, utilizado somente em ambiente local ou de testes, com licença que
+   permita estudo e alteração.
+ • Sistema de terceiro, somente com autorização expressa do responsável e acesso legal ao
+   ambiente de testes e ao código necessário.
+
+5.3 Requisitos mínimos do sistema
+[ ] Possuir código-fonte disponível para instalação, execução, automação, TDD e análise de qualidade.
+[ ] Executar em ambiente local, de homologação ou de testes; não utilizar diretamente ambiente de
+    produção.
+[ ] Apresentar no mínimo quatro fluxos funcionais relevantes, incluindo ao menos dois formulários ou
+    operações de entrada de dados.
+[ ] Possuir persistência de dados ou integração com banco de dados, arquivo, API ou serviço.
+[ ] Possuir ao menos uma integração entre componentes, como interface e serviço, serviço e banco,
+    cliente e API ou módulos internos.
+[ ] Permitir criação de dados fictícios e repetição dos testes sem afetar usuários reais.
+[ ] Permanecer disponível ao grupo durante todo o semestre.
+[ ] Dispor de instruções de instalação ou permitir que o grupo as produza.
+
+5.4 Sistemas que não serão aceitos
+ • Páginas estáticas sem regras, formulários ou comportamento testável suficiente.
+ • Sistemas em produção utilizados por pessoas reais, quando não houver autorização e ambiente
+   separado.
+
+                               UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 6 DE 26
+========================================================================
+                                                           TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+ • Sistemas bancários, governamentais, hospitalares ou institucionais reais acessados sem
+   autorização.
+ • Sistemas sem código-fonte, quando isso impedir testes unitários, TDD, CI/CD e análise de
+   qualidade.
+ • Sistemas grandes demais para o período da disciplina ou impossíveis de instalar no ambiente
+   disponível.
+ • Aplicações cuja licença proíba o uso acadêmico ou a modificação necessária.
+
+5.5 Procedimento de aprovação
+ 1. Selecionar duas opções de sistema e verificar os requisitos mínimos.
+ 2. Preencher a Ficha de Proposta do Sistema, disponível no Apêndice A.
+ 3. Apresentar a proposta ao professor com link do repositório, descrição e forma de execução.
+ 4. Aguardar a aprovação antes de iniciar a documentação definitiva.
+ 5. Caso nenhuma opção seja aprovada, selecionar nova alternativa no prazo definido pelo
+    professor.
+
+6. PRODUTOS OBRIGATÓRIOS DO PROJETO
+A entrega final deverá conter todos os produtos abaixo. Os itens são complementares e devem
+estar conectados por identificadores, links, referências e evidências.
+
+            Código                               Produto                          Conteúdo essencial
+
+                                                                          Identifica grupo, sistema, repositório,
+                                  Ficha de identificação e aprovação do
+P01                                                                       tecnologias, versão e autorização do
+                                  sistema
+                                                                          professor.
+
+
+                                                                          Apresenta funcionalidades
+                                  Documento de requisitos, escopo e
+P02                                                                       selecionadas, exclusões, riscos e
+                                  riscos
+                                                                          prioridades.
+
+
+                                                                          Define estratégia, níveis, recursos,
+P03                               Plano de testes                         ambiente, responsabilidades,
+                                                                          cronograma e critérios.
+
+
+                                                                          Contém casos manuais e
+P04                               Catálogo de casos de teste              automatizáveis, dados, passos e
+                                                                          resultados esperados.
+
+
+                                                                          Relaciona requisitos, riscos, casos,
+P05                               Matriz de rastreabilidade
+                                                                          execuções e defeitos.
+
+
+                                                                          Apresenta resultados, capturas, logs e
+P06                               Evidências de execução manual
+                                                                          situação de cada caso.
+
+
+                                                                          Mantém relatórios reproduzíveis em
+                                  Registro e acompanhamento de
+P07                                                                       Jira ou GitHub Issues e exportação
+                                  defeitos
+                                                                          final.
+
+
+                                                                          Inclui testes unitários, integração/API e
+P08                               Scripts de automação                    sistema/interface, com instruções de
+                                                                          execução.
+
+
+                                                                          Registra cenários do usuário e
+P09                               Testes de aceitação e não funcionais    verificações não funcionais adequadas
+                                                                          ao sistema.
+
+
+                            UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 7 DE 26
+========================================================================
+                                                 TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+      Código                           Produto                       Conteúdo essencial
+
+                                                             Calcula, interpreta e apresenta os
+P10                  Relatório de métricas e indicadores
+                                                             resultados reais do processo.
+
+
+                     Evidências de TDD, CI/CD e melhoria     Mostra ciclo Red-Green-Refactor,
+P11
+                     contínua                                pipeline e ações de aperfeiçoamento.
+
+
+                                                             Integra todo o trabalho, resultados,
+P12                  Relatório final                         limitações, conclusões e
+                                                             recomendações.
+
+
+                     Apresentação final e roteiro de         Organiza a exposição, a demonstração
+P13
+                     demonstração                            e a participação dos integrantes.
+
+
+                                                             Registra a contribuição dos integrantes
+P14                  Diário de participação
+                                                             durante o semestre.
+
+
+
+
+               UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 8 DE 26
+========================================================================
+                                                               TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+7. FASES E MARCOS DE ACOMPANHAMENTO DURANTE O
+SEMESTRE
+O projeto deverá avançar de acordo com os conteúdos trabalhados. O professor informará no
+calendário da disciplina os prazos específicos de cada marco. As entregas parciais não
+substituem a entrega final e poderão compor os instrumentos de acompanhamento previstos no
+Plano de Ensino.
+
+                Marco                                 Momento                           Entrega esperada
+
+                                                                               Leitura do manual, formação preliminar
+                                                                               dos grupos e levantamento de
+Marco 0 - Lançamento                    Primeiro dia de aula
+                                                                               possíveis sistemas. Nenhuma
+                                                                               instalação específica é exigida.
+
+
+                                                                               Grupo definido, duas opções de
+                                                                               sistema, classificação preliminar dos
+Marco 1 - Fundamentos                   Após o Tópico 1
+                                                                               níveis de teste e justificativa da
+                                                                               escolha.
+
+
+                                                                               Sistema aprovado, escopo, riscos,
+Marco 2 - Planejamento                  Após o Tópico 2                        prioridades e primeira versão do plano
+                                                                               de testes.
+
+
+                                                                               Requisitos selecionados, técnicas
+Marco 3 - Especificação                 Após o Tópico 3                        aplicadas e primeira versão do
+                                                                               catálogo de casos.
+
+
+                                                                               Execução manual inicial, evidências e
+Marco 4 - Execução e defeitos           Após o Tópico 4                        registros de defeitos na ferramenta
+                                                                               escolhida.
+
+
+                                                                               Ambiente configurado, repositório
+                                                                               organizado, primeiros scripts
+Marco 5 - Automação e suporte           Após o Tópico 5
+                                                                               automatizados e análise inicial com
+                                                                               ferramenta de qualidade.
+
+
+                                                                               Testes de integração/API e fluxos
+Marco 6 - Integração e sistema          Após o Tópico 6
+                                                                               ponta a ponta executados.
+
+
+                                                                               Cenários de aceitação e verificações
+Marco 7 - Aceitação e não funcionais    Após o Tópico 7
+                                                                               não funcionais com evidências.
+
+
+                                                                               Planilha de resultados, indicadores
+Marco 8 - Métricas                      Após o Tópico 8
+                                                                               calculados, gráficos e interpretação.
+
+
+                                                                               Pequena evolução por TDD, pipeline
+Marco 9 - TDD, CI/CD e melhoria         Após o Tópico 9                        executado e plano de melhoria
+                                                                               contínua.
+
+
+                                                                               Drive completo, relatório final,
+Entrega final                           Data oficial da P2
+                                                                               demonstração e apresentação.
+
+
+
+
+                                  UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 9 DE 26
+========================================================================
+                                                          TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+ REGRA DE ACOMPANHAMENTO
+ Cada versão parcial deverá ser armazenada no Drive ou no repositório com identificação de data e
+ versão. Não substitua arquivos anteriores sem manter histórico. O professor deve conseguir observar a
+ evolução do projeto.
+
+
+
+
+8. INFRAESTRUTURA, SOFTWARES E ORGANIZAÇÃO DO
+AMBIENTE
+8.1 Princípio de implantação gradual
+As ferramentas não precisam estar instaladas no primeiro dia. A configuração deverá ocorrer
+progressivamente, conforme cada conteúdo for apresentado e demonstrado em aula. O grupo
+deverá registrar as versões utilizadas e manter um arquivo README com instruções suficientes
+para que outra pessoa consiga preparar o ambiente.
+
+8.2 Infraestrutura mínima
+                       Recurso                                      Especificação ou orientação
+
+                                                       Equipamento do laboratório ou computador pessoal
+Computador
+                                                       capaz de executar o sistema e as ferramentas.
+
+                                                       Recomenda-se pelo menos 8 GB de RAM e 10 GB
+Memória e armazenamento
+                                                       livres; ajustar conforme o sistema escolhido.
+
+                                                       Necessária para repositório, Drive, instalação inicial e
+Internet                                               pipeline; os testes locais devem ser reproduzíveis
+                                                       sempre que possível.
+
+                                                       Chrome, Edge ou Firefox atualizado para testes e
+Navegador
+                                                       ferramentas web.
+
+                                                       Conta institucional ou pessoal no GitHub, salvo
+Conta de repositório
+                                                       autorização para outra plataforma.
+
+Conta de Drive                                         Conta com acesso à pasta fornecida pelo professor.
+
+                                                       Somente dados fictícios, sem informações pessoais,
+Dados de teste
+                                                       senhas reais ou documentos verdadeiros.
+
+
+
+
+8.3 Softwares e finalidade
+       Software ou recurso                  Obrigatoriedade                       Finalidade no projeto
+
+                                                                           Abrir o sistema, escrever testes,
+                                                                           executar comandos e organizar o
+Editor/IDE                         Obrigatório
+                                                                           código. Exemplos: IntelliJ IDEA,
+                                                                           Eclipse ou Visual Studio Code.
+
+
+                                                                           Versionar código, scripts,
+Git e GitHub                       Obrigatório                             documentação técnica, issues e
+                                                                           histórico de alterações.
+
+
+                             UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 10 DE 26
+========================================================================
+                                                               TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+       Software ou recurso                       Obrigatoriedade                       Finalidade no projeto
+
+                                                                               JUnit quando o sistema for Java; em
+Framework de teste unitário             Obrigatório                            outra linguagem, framework
+                                                                               equivalente aprovado pelo professor.
+
+
+                                                                               Automatizar fluxos de interface e
+Selenium                                Obrigatório para sistema web
+                                                                               testes de sistema ponta a ponta.
+
+
+                                                                               Criar coleções, executar testes de
+Postman                                 Obrigatório quando houver API          integração e validar contratos e
+                                                                               respostas.
+
+
+                                                                               Obter métricas e indicadores de
+                                        Obrigatório quando tecnicamente
+SonarQube                                                                      qualidade do código e acompanhar
+                                        compatível
+                                                                               melhorias.
+
+
+                                                                               Registrar, classificar, acompanhar e
+Jira ou GitHub Issues                   Obrigatório
+                                                                               encerrar defeitos.
+
+
+                                                                               Controlar casos, execuções,
+Planilha                                Obrigatório
+                                                                               rastreabilidade e métricas.
+
+
+                                                                               Produzir relatório, anexos e
+Editor de texto/apresentação            Obrigatório
+                                                                               apresentação final.
+
+
+                                                                               Executar testes automaticamente a
+Recurso de CI/CD do repositório         Obrigatório
+                                                                               partir de eventos do repositório.
+
+
+
+
+8.4 Plano de contingência para restrições do laboratório
+ • Caso o estudante não possua permissão administrativa, a instalação deverá ser solicitada com
+   antecedência ao responsável pelo laboratório.
+ • O grupo poderá utilizar computador pessoal durante as etapas que exijam ferramentas
+   indisponíveis no laboratório, desde que o professor autorize e a demonstração seja reproduzível.
+ • Se uma ferramenta específica for incompatível com o sistema, o grupo deverá solicitar
+   autorização para ferramenta equivalente antes de substituí-la.
+ • A indisponibilidade de internet no dia da apresentação não elimina a obrigação de demonstrar o
+   projeto; mantenha execução local, capturas, logs e vídeo de contingência.
+
+
+
+
+                                  UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 11 DE 26
+========================================================================
+                                                          TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+9. ROTEIRO DETALHADO DE DESENVOLVIMENTO
+9.1 Preparar o repositório e o ambiente
+ 1. Criar ou obter uma cópia legal do repositório do sistema.
+ 2. Criar uma ramificação própria do grupo para o projeto de testes.
+ 3. Executar o sistema e confirmar que as funções selecionadas estão disponíveis.
+ 4. Registrar sistema operacional, versões, dependências, banco, navegador e comandos.
+ 5. Criar o arquivo README com passos de instalação, configuração, execução, teste e solução de
+    problemas comuns.
+ 6. Criar uma massa inicial de dados fictícios e definir como o ambiente será restaurado entre
+    execuções.
+
+9.2 Levantar requisitos e delimitar o escopo
+O grupo deverá reunir documentação existente, observar o comportamento do sistema e
+conversar com o responsável pelo produto, quando houver. Cada requisito selecionado deverá
+possuir um identificador único, descrição clara e critério de aceitação verificável.
+ • Exemplo de identificador: RF-01 para requisito funcional; RNF-01 para requisito não funcional.
+ • Não utilizar frases vagas como "o sistema deve funcionar bem". Escrever condições observáveis e
+   mensuráveis.
+ • Registrar também o que ficará fora do escopo, para evitar que o trabalho se torne inviável.
+
+9.3 Identificar riscos e prioridades
+Para cada requisito ou fluxo, o grupo deverá identificar o risco de falha, a probabilidade e o
+impacto. Os testes mais críticos devem ser planejados e executados primeiro.
+
+        Classificação          Probabilidade                    Impacto                Prioridade sugerida
+
+                                                       Consequência pequena e        Executar após os fluxos
+Baixo                     Pouco provável
+                                                       reversível                    principais
+
+
+                                                       Prejudica parte do uso, mas
+Médio                     Possível                                                   Executar no ciclo principal
+                                                       há alternativa
+
+
+                                                       Bloqueia tarefa importante    Executar primeiro e repetir
+Alto                      Provável ou recorrente
+                                                       ou compromete dados           após correções
+
+
+
+
+9.4 Elaborar o plano de testes
+O plano de testes deve orientar todo o trabalho. Ele deverá conter: identificação do sistema;
+objetivo; escopo e fora do escopo; riscos; níveis; tipos; técnicas; ambiente; ferramentas;
+responsabilidades; dados; critérios de entrada; critérios de saída; critérios de suspensão e
+retomada; cronograma; produtos; controle de versão e comunicação.
+
+9.5 Especificar os casos de teste
+Cada caso deverá ser independente, reproduzível e rastreável a um requisito. Os passos devem
+ser escritos de forma que outra pessoa consiga executar o teste sem depender de explicações
+orais.
+ • Incluir casos positivos, negativos, alternativos, de exceção e de fronteira.
+ • Aplicar particionamento de equivalência e análise de valor limite sempre que houver intervalos,
+   tamanhos, quantidades, datas ou regras de entrada.
+                             UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 12 DE 26
+========================================================================
+                                                           TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+ • Identificar os casos candidatos à automação.
+ • Não criar casos repetidos apenas para atingir quantidade mínima.
+
+9.6 Executar os testes manuais
+ 1. Confirmar que o ambiente atende aos critérios de entrada.
+ 2. Preparar ou restaurar os dados de teste.
+ 3. Executar cada passo exatamente como especificado.
+ 4. Comparar o resultado obtido com o resultado esperado.
+ 5. Classificar o caso como Aprovado, Reprovado, Bloqueado ou Não executado.
+ 6. Anexar evidência adequada, com identificação do caso e data.
+ 7. Quando houver falha, registrar um defeito e relacioná-lo ao caso e ao requisito.
+ 8. Após correção, executar reteste e regressão relevante.
+
+9.7 Registrar e acompanhar defeitos
+Todo defeito deverá ser registrado na ferramenta selecionada, preferencialmente GitHub Issues
+ou Jira. O relatório deve possibilitar reprodução e correção. Um defeito não deve ser descrito
+apenas como "não funciona".
+ • Título objetivo e específico.
+ • Ambiente e versão do sistema.
+ • Pré-condições, dados utilizados e passos para reproduzir.
+ • Resultado esperado e resultado obtido.
+ • Evidências: imagem, vídeo curto, log, resposta ou mensagem.
+ • Severidade, prioridade, requisito, caso de teste e responsável.
+ • Status: Novo, Em análise, Em correção, Pronto para reteste, Encerrado ou Reaberto.
+
+ NÃO INVENTE DEFEITOS
+ A quantidade de defeitos encontrada não determina, isoladamente, a nota. Se um sistema apresentar
+ poucos defeitos, registre os resultados reais. Criar defeitos fictícios ou alterar evidências constitui
+ irregularidade acadêmica.
+
+
+
+9.8 Automatizar testes unitários
+Os testes unitários devem verificar métodos, funções ou classes isoladas. O grupo deverá
+selecionar regras relevantes, preparar entradas, definir resultados esperados e executar os
+testes de forma repetível. Quando o sistema for Java, utilizar JUnit. Em outra linguagem, o
+framework equivalente deverá ser aprovado pelo professor.
+ • Cada teste deve possuir nome descritivo e uma única intenção principal.
+ • Evitar dependência de interface, rede ou banco quando o objetivo for unidade.
+ • Executar os testes antes e depois das alterações de TDD.
+ • Documentar comando de execução e resultado obtido.
+
+9.9 Automatizar testes de integração e API
+Os testes de integração deverão verificar a comunicação entre componentes. Quando houver
+API, criar uma coleção no Postman com variáveis de ambiente, requisições, testes de status,
+conteúdo, contrato básico, mensagens de erro e encadeamento de dados.
+ • Incluir ao menos um fluxo positivo e um fluxo negativo por operação crítica.
+ • Evitar dependência de dados permanentes; preparar e limpar dados sempre que possível.
+ • Exportar a coleção e o ambiente utilizados para a pasta de entrega.
+
+
+                              UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 13 DE 26
+========================================================================
+                                                               TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+9.10 Automatizar testes de sistema/interface
+Os testes com Selenium deverão representar fluxos ponta a ponta do usuário. A automação deve
+localizar elementos de forma estável, aguardar os estados necessários e validar resultados
+relevantes. Não automatize apenas cliques sem verificação.
+ • Priorizar fluxos críticos e repetitivos.
+ • Utilizar dados de teste controlados.
+ • Evitar esperas fixas excessivas quando houver mecanismos de espera adequada.
+ • Salvar capturas ou logs quando um teste falhar.
+
+9.11 Realizar testes de aceitação
+Os testes de aceitação devem ser escritos do ponto de vista do usuário ou do negócio. O grupo
+deverá convidar, quando possível, uma pessoa que não tenha produzido os testes para executar
+os cenários. Caso não haja cliente real, outro grupo poderá atuar como representante do usuário.
+ • Definir objetivo da tarefa, dados e critério de sucesso.
+ • Registrar observações, dificuldades e decisão de Aceito, Aceito com ressalvas ou Não aceito.
+
+9.12 Realizar testes não funcionais
+O grupo deverá selecionar verificações não funcionais compatíveis com o sistema e com os
+recursos disponíveis. Não será exigido teste destrutivo, invasivo ou que gere risco a terceiros.
+
+                  Categoria possível                                  Exemplo de verificação segura
+
+                                                          Medir tempo de resposta de operações selecionadas em
+Desempenho básico
+                                                          ambiente controlado e repetir medições.
+
+                                                          Aplicar roteiro de tarefas, observar erros, tempo,
+Usabilidade
+                                                          compreensão e satisfação do usuário.
+
+                                                          Executar fluxos principais em navegadores ou
+Compatibilidade
+                                                          resoluções diferentes.
+
+                                                          Repetir fluxos, validar tratamento de falhas e
+Confiabilidade
+                                                          recuperação após reinício controlado.
+
+                                                          Verificar validações, mensagens, controle de acesso e
+Segurança básica
+                                                          exposição indevida sem realizar ataques.
+
+
+
+
+9.13 Calcular métricas e indicadores
+As métricas deverão ser calculadas com os dados reais do projeto e acompanhadas de
+interpretação. Um gráfico sem explicação não atende ao requisito.
+
+              Indicador                              Cálculo                              Interpretação
+
+                                       casos executados / casos planejados x
+Percentual de execução                                                         Mostra o avanço da execução.
+                                       100
+
+
+                                       casos aprovados / casos executados x    Indica a proporção de resultados
+Taxa de aprovação
+                                       100                                     conformes.
+
+
+                                       casos reprovados / casos executados     Indica a proporção de falhas
+Taxa de reprovação
+                                       x 100                                   observadas.
+
+
+                              UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 14 DE 26
+========================================================================
+                                                           TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+               Indicador                         Cálculo                                Interpretação
+
+                                  requisitos com teste executado /
+ Cobertura de requisitos                                                     Avalia a rastreabilidade do escopo.
+                                  requisitos no escopo x 100
+
+
+                                  casos automatizados / casos                Avalia o avanço da automação
+ Taxa de automação
+                                  planejados para automação x 100            definida.
+
+
+                                                                             Ajuda a compreender o impacto dos
+ Defeitos por severidade          contagem por categoria
+                                                                             problemas.
+
+
+                                                                             Mostra o andamento das correções e
+ Defeitos por status              contagem por estado
+                                                                             retestes.
+
+
+                                  defeitos reabertos / defeitos retestados   Indica correções incompletas ou
+ Taxa de reabertura
+                                  x 100                                      regressões.
+
+
+
+
+9.14 Executar uma pequena evolução por TDD
+O grupo deverá selecionar uma pequena regra, validação, cálculo, filtro ou comportamento que
+possa ser incluído ou corrigido no sistema. A atividade deverá seguir o ciclo Red-Green-Refactor.
+ 1. RED: escrever um teste automatizado que represente o comportamento desejado e confirmar
+    que ele falha pelo motivo esperado.
+ 2. GREEN: implementar somente o código necessário para que o teste seja aprovado.
+ 3. REFACTOR: melhorar a organização do código sem alterar o comportamento, mantendo todos
+    os testes aprovados.
+  • Registrar commits, capturas e resultados de cada etapa.
+  • Não apresentar um teste criado depois da implementação como se fosse TDD.
+
+9.15 Configurar CI/CD
+O repositório deverá possuir um pipeline simples que instale dependências e execute
+automaticamente os testes selecionados. O grupo deverá demonstrar uma execução bem-
+sucedida e, de forma controlada, uma execução com falha seguida da correção.
+  • Gatilho mínimo: envio de código ou abertura/atualização de solicitação de alteração.
+  • Etapas mínimas: preparação do ambiente, instalação, execução de testes e publicação do
+    resultado.
+  • Quando uma limitação técnica impedir pipeline real, o grupo deverá solicitar autorização
+    antecipada para pipeline simulado, apresentando fluxo, arquivo de configuração, logs esperados e
+    demonstração local equivalente.
+
+9.16 Analisar qualidade e propor melhoria contínua
+Executar a ferramenta de análise de qualidade compatível com o sistema, registrar a linha de
+base e comparar com a situação após as correções e a etapa de TDD. O grupo deverá propor
+ações de melhoria priorizadas, responsáveis e critérios de verificação.
+
+10. QUANTIDADES MÍNIMAS E CRITÉRIOS TÉCNICOS
+As quantidades abaixo constituem o mínimo obrigatório para demonstrar amplitude sem
+transformar o projeto em mera contagem. O professor poderá autorizar ajustes quando o sistema
+justificar tecnicamente.
+
+
+                            UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 15 DE 26
+========================================================================
+                                                              TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                 Item                          Mínimo obrigatório                          Observação
+
+                                                                              Ao menos 6 funcionais e 2 não
+Requisitos no escopo                   8
+                                                                              funcionais, todos testáveis.
+
+
+                                                                              Relacionados aos requisitos e
+Riscos documentados                    8
+                                                                              priorizados.
+
+
+                                                                              Incluindo positivos, negativos, limites,
+Casos de teste manuais                 24
+                                                                              alternativas e exceções.
+
+
+                                                                              Uma execução completa; repetir casos
+Execuções manuais                      24
+                                                                              afetados por correções.
+
+
+Testes unitários automatizados         6                                      Regras relevantes e independentes.
+
+
+Testes de integração/API                                                      Comunicação entre componentes e
+                                       5
+automatizados                                                                 respostas válidas/inválidas.
+
+
+Testes de sistema/interface
+                                       4                                      Fluxos ponta a ponta com verificações.
+automatizados
+
+
+                                                                              Executados por representante do
+Cenários de aceitação                  4
+                                                                              usuário, quando possível.
+
+
+                                                                              Distribuídos em pelo menos três
+Testes não funcionais                  6
+                                                                              categorias compatíveis.
+
+
+                                                                              As listadas na seção 9.13 ou
+Métricas obrigatórias                  8
+                                                                              substituições autorizadas.
+
+
+                                                                              Com evidências Red, Green e
+Evolução por TDD                       1
+                                                                              Refactor.
+
+
+Pipeline CI/CD                         1                                      Com execução de testes e evidências.
+
+
+Análise de qualidade                   2 execuções                            Linha de base e análise posterior.
+
+
+
+
+ATENÇÃO À RASTREABILIDADE
+Os números mínimos não bastam. Cada requisito deverá estar ligado a risco, caso, execução,
+evidência e, quando houver, defeito. Casos automatizados deverão indicar qual caso manual ou
+requisito representam.
+
+
+
+
+                                 UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 16 DE 26
+========================================================================
+                                                        TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+11. ORGANIZAÇÃO E ENTREGA NO GOOGLE DRIVE
+11.1 Forma oficial de entrega
+A entrega oficial será realizada exclusivamente na pasta do Google Drive disponibilizada pelo
+professor. O link e a organização de acesso serão informados em aula ou no Connect+. O grupo
+não deverá criar uma pasta diferente e enviar outro link sem autorização.
+
+11.2 Nome da pasta do grupo
+
+ PADRÃO OBRIGATÓRIO
+ P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA
+ Exemplo: P2_TQS_2026_CC_GRUPO03_SISTEMA-ACADEMICO
+
+
+
+11.3 Estrutura obrigatória de pastas
+00_IDENTIFICACAO_E_README
+01_SISTEMA_ALVO
+02_REQUISITOS_ESCOPO_RISCOS
+03_PLANO_DE_TESTES
+04_CASOS_E_RASTREABILIDADE
+05_EXECUCAO_MANUAL
+06_DEFEITOS
+07_AUTOMACAO_UNITARIA
+08_INTEGRACAO_API
+09_SISTEMA_INTERFACE
+10_ACEITACAO_NAO_FUNCIONAIS
+11_METRICAS_E_QUALIDADE
+12_TDD_CICD_MELHORIA
+13_RELATORIO_FINAL
+14_APRESENTACAO_E_VIDEO_CONTINGENCIA
+15_DIARIO_DE_PARTICIPACAO
+16_BACKUP_ENTREGA
+
+11.4 Arquivo README obrigatório
+O README deverá ficar na pasta 00 e conter, nesta ordem: identificação dos integrantes; nome
+e versão do sistema; link do repositório; tecnologias; pré-requisitos; instalação; configuração;
+banco e dados; execução; execução dos testes; acesso ao pipeline; localização dos
+documentos; credenciais fictícias; problemas conhecidos e contato do grupo.
+
+11.5 Formatos obrigatórios
+                   Conteúdo                                           Formato de entrega
+
+Relatório final                                      DOCX editável e PDF idêntico.
+
+                                                     XLSX ou formato equivalente editável; PDF
+Planilhas
+                                                     complementar quando necessário.
+
+                                                     Arquivos-fonte completos, dependências declaradas e
+Código e testes
+                                                     link do repositório.
+
+
+                           UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 17 DE 26
+========================================================================
+                                                                TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                          Conteúdo                                               Formato de entrega
+
+                                                             Coleção e ambiente exportados em JSON, além de
+ Postman
+                                                             evidências.
+
+                                                             Exportação em PDF/CSV ou relatório consolidado, além
+ Defeitos
+                                                             do acesso à ferramenta.
+
+                                                             Planilha de cálculo e imagens/tabelas incorporadas ao
+ Métricas e gráficos
+                                                             relatório.
+
+ Apresentação                                                PPTX e PDF.
+
+                                                             MP4 ou link acessível, com demonstração curta dos
+ Vídeo de contingência
+                                                             principais testes.
+
+
+
+
+11.6 Procedimento de entrega
+ 1. Concluir todos os arquivos e realizar a revisão final.
+ 2. Verificar se o Drive contém a estrutura obrigatória e se nenhum arquivo está vazio ou corrompido.
+ 3. Testar os links do repositório, issues, pipeline e vídeo em janela anônima ou conta sem
+    privilégios especiais.
+ 4. Garantir permissão de visualização e download ao professor sem solicitação adicional.
+ 5. Criar um arquivo PDF denominado COMPROVANTE_DE_ENTREGA com data, hora, integrantes
+    e checklist assinado digitalmente pelo grupo.
+ 6. Não modificar os arquivos após o horário oficial da P2, salvo autorização expressa do professor.
+ 7. Manter uma cópia de segurança na pasta 16 e em local próprio do grupo.
+
+ LINK INACESSÍVEL
+ É responsabilidade do grupo verificar o acesso. Um link que exige solicitação, uma pasta vazia ou
+ arquivos sem permissão poderão ser considerados como entrega incompleta até que a situação seja
+ regularizada, observadas as regras institucionais e o horário limite.
+
+
+
+
+12. ESTRUTURA OBRIGATÓRIA DO RELATÓRIO FINAL
+O relatório deve ser claro, objetivo, coeso e escrito rigorosamente em português do Brasil. Todas
+as figuras, tabelas e gráficos devem ser legíveis e identificados. O relatório não substitui os
+arquivos técnicos; ele os organiza e interpreta.
+
+                           Seção                                                Conteúdo obrigatório
+
+                                                             Instituição, curso, disciplina, título, sistema, integrantes,
+ Capa
+                                                             professor e ano.
+
+
+                                                             Dados do grupo, links principais e declaração de
+ Folha de identificação
+                                                             participação.
+
+
+ Sumário                                                     Seções e subseções.
+
+
+ 1. Introdução                                               Contexto, problema, justificativa e objetivo do projeto.
+
+
+
+
+                                   UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 18 DE 26
+========================================================================
+                                                                  TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                             Seção                                               Conteúdo obrigatório
+
+                                                               Finalidade, usuários, tecnologias, arquitetura resumida e
+2. Caracterização do sistema
+                                                               versão testada.
+
+
+3. Escopo, requisitos e riscos                                 Itens incluídos, excluídos, prioridades e matriz de riscos.
+
+
+                                                               Estratégia, níveis, técnicas, ambiente, dados, recursos e
+4. Planejamento dos testes
+                                                               critérios.
+
+
+5. Especificação dos casos                                     Síntese das técnicas e referência ao catálogo completo.
+
+
+                                                               Resultados, evidências, problemas relevantes, retestes e
+6. Execução manual e defeitos
+                                                               regressão.
+
+
+                                                               Arquitetura dos testes, ferramentas, scripts, resultados e
+7. Automação
+                                                               limitações.
+
+
+8. Integração e sistema                                        Comunicações validadas e fluxos ponta a ponta.
+
+
+9. Aceitação e não funcionais                                  Cenários, participantes, medidas, resultados e decisões.
+
+
+10. Métricas e indicadores                                     Fórmulas, dados, gráficos e interpretação.
+
+
+                                                               Ciclo, commits, pipeline, análise de qualidade e plano de
+11. TDD, CI/CD e melhoria contínua
+                                                               melhoria.
+
+
+12. Discussão dos resultados                                   Riscos residuais, limitações, pontos fortes e pontos frágeis.
+
+
+13. Conclusão                                                  Síntese, prontidão do sistema e recomendações.
+
+
+Referências                                                    Materiais efetivamente utilizados.
+
+
+Apêndices e anexos                                             Modelos, exportações, evidências e documentos extensos.
+
+
+
+
+13. APRESENTAÇÃO E DEMONSTRAÇÃO NA DATA DA P2
+A entrega final será acompanhada de apresentação e demonstração na data oficial da P2. O
+professor informará a ordem e o tempo definitivo. Como referência de planejamento, o grupo
+deverá preparar exposição de 12 a 15 minutos e reservar até 5 minutos para perguntas.
+
+13.1 Estrutura recomendada
+ 1. Identificação do sistema, objetivo e escopo.
+ 2. Principais riscos e estratégia de teste.
+ 3. Exemplo de caso manual, evidência e defeito relevante.
+ 4. Demonstração de testes automatizados em pelo menos dois níveis.
+ 5. Resultados de aceitação, não funcionais e métricas.
+ 6. Demonstração do TDD e do pipeline CI/CD.
+ 7. Conclusão: situação do sistema e melhorias propostas.
+
+13.2 Regras da apresentação
+ • Todos os integrantes deverão falar e responder perguntas.
+
+                                     UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 19 DE 26
+========================================================================
+                                                                   TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+ • A apresentação não deve ser apenas leitura dos slides.
+ • A demonstração deverá usar ambiente preparado e dados fictícios.
+ • O grupo deverá possuir vídeo de contingência, capturas e logs caso haja falha de rede ou
+   equipamento.
+ • A ausência de um integrante será tratada conforme as regras institucionais e as orientações do
+   professor.
+
+14. CRITÉRIOS DE AVALIAÇÃO
+O projeto será avaliado de 0,0 a 10,0 e lançado como nota da P2, observando-se o peso definido
+no Plano de Ensino. A rubrica considera aspectos conceituais, procedimentais e atitudinais.
+
+               Critério                                    Valor                          O que será observado
+
+                                                                                  Coerência, viabilidade, prioridades,
+Planejamento, escopo e riscos              1,0
+                                                                                  ambiente, critérios e gestão.
+
+
+                                                                                  Clareza, rastreabilidade, cobertura e
+Requisitos, técnicas e casos               1,5
+                                                                                  aplicação correta das técnicas.
+
+
+                                                                                  Disciplina de execução, evidências,
+Execução manual e defeitos                 1,0                                    qualidade dos registros, reteste e
+                                                                                  regressão.
+
+
+                                                                                  Testes unitários, integração/API e
+Automação                                  2,0                                    sistema, qualidade dos scripts e
+                                                                                  reprodutibilidade.
+
+
+Integração, sistema, aceitação e não                                              Adequação, resultados, critérios e
+                                           1,25
+funcionais                                                                        interpretação.
+
+
+                                                                                  Cálculos corretos, gráficos legíveis e
+Métricas e análise de qualidade            0,75
+                                                                                  interpretação.
+
+
+                                                                                  Evidências do ciclo, pipeline,
+TDD, CI/CD e melhoria contínua             1,0
+                                                                                  comparação e plano de melhoria.
+
+
+                                                                                  Organização, completude, links,
+Relatório, Drive e rastreabilidade         0,75
+                                                                                  instruções e conexão entre produtos.
+
+
+                                                                                  Clareza, demonstração, participação e
+Apresentação e domínio individual          0,75
+                                                                                  respostas.
+
+
+
+                                                                                               TOTAL: 10,0 pontos
+
+14.1 Situações que comprometem a nota
+ • Entrega incompleta, sem acesso, sem código ou sem instruções de execução.
+ • Ausência de evidências ou resultados que não possam ser reproduzidos.
+ • Casos de teste genéricos, repetidos ou desconectados dos requisitos.
+ • Automação que apenas navega ou executa comandos sem validar resultados.
+ • Dados, defeitos, métricas ou capturas fabricados.
+ • Cópia de outro grupo, de trabalhos anteriores ou de materiais externos sem identificação e
+   autorização.
+ • Uso de dados reais ou teste não autorizado em sistemas de terceiros.
+ • Participação insuficiente ou incapacidade de explicar a própria contribuição.
+
+                                     UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 20 DE 26
+========================================================================
+                                                             TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+15. REGRAS DE SEGURANÇA, ÉTICA E INTEGRIDADE
+ACADÊMICA
+ • Utilizar exclusivamente ambientes locais, de desenvolvimento, homologação ou teste.
+ • Não executar testes de carga, invasão, exploração, exclusão massiva ou indisponibilidade em
+   sistemas de terceiros.
+ • Não armazenar senhas reais, documentos, dados pessoais ou informações confidenciais no Drive
+   ou no repositório.
+ • Utilizar contas fictícias e dados preparados para o projeto.
+ • Respeitar licenças de software, direitos autorais e termos de uso.
+ • Identificar claramente bibliotecas, códigos, modelos e materiais utilizados como apoio.
+ • O uso de ferramentas de inteligência artificial deverá seguir as orientações do professor e não
+   substitui a compreensão, a autoria e a validação do grupo.
+ • Todos os resultados apresentados deverão corresponder a execuções reais e verificáveis.
+
+16. CHECKLIST FINAL DO GRUPO
+[ ] O sistema aprovado está executável e corresponde à versão informada.
+[ ] O README permite instalar, configurar, executar e testar o projeto.
+[ ] O escopo, requisitos e riscos estão identificados e rastreáveis.
+[ ] O plano de testes está completo e atualizado.
+[ ] Os casos manuais atendem às quantidades e às técnicas exigidas.
+[ ] As execuções possuem resultados e evidências.
+[ ] Todos os defeitos encontrados estão registrados e vinculados.
+[ ] Os testes unitários, integração/API e sistema/interface podem ser executados.
+[ ] As coleções, ambientes, dependências e configurações foram exportados.
+[ ] Os testes de aceitação e não funcionais estão documentados.
+[ ] As métricas foram calculadas com dados reais e interpretadas.
+[ ] O ciclo de TDD possui evidências Red, Green e Refactor.
+[ ] O pipeline CI/CD possui execução documentada.
+[ ] A análise de qualidade possui linha de base e comparação final.
+[ ] O relatório final está em DOCX e PDF e corresponde aos arquivos técnicos.
+[ ] A apresentação e o vídeo de contingência estão na pasta correta.
+[ ] O Diário de Participação está atualizado e coerente.
+[ ] O Drive possui a estrutura obrigatória e todos os links funcionam.
+[ ] As permissões foram testadas sem solicitar acesso.
+[ ] A entrega foi concluída antes do horário limite da P2.
+
+
+
+
+                               UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 21 DE 26
+========================================================================
+                                                                TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+APÊNDICES - MODELOS OBRIGATÓRIOS PARA
+PREENCHIMENTO
+Os modelos a seguir poderão ser copiados para documentos ou planilhas próprias, desde que
+todos os campos sejam mantidos. O professor poderá disponibilizar versões editáveis separadas
+durante o semestre.
+
+Apêndice A - Ficha de proposta e aprovação do sistema
+                           Campo                                           Preenchimento do grupo
+
+Turma e grupo
+
+
+Integrantes
+
+
+Nome do sistema
+
+
+Origem do sistema
+
+
+Link do repositório
+
+
+Licença/autorização
+
+
+Tecnologias principais
+
+
+Como executar
+
+
+Fluxos selecionados
+
+
+Integrações existentes
+
+
+Justificativa da escolha
+
+
+Riscos de viabilidade
+
+
+Decisão do professor                                         Aprovado / Aprovado com ajustes / Não aprovado
+
+
+Ajustes solicitados
+
+
+Data da aprovação
+
+
+
+
+Apêndice B - Catálogo de requisitos
+                             Descrição                                                            Critério de
+         ID                                              Tipo                Prioridade
+                             verificável                                                          aceitação
+
+RF-01                                            Funcional
+
+
+RF-02                                            Funcional
+
+
+
+                                   UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 22 DE 26
+========================================================================
+                                                              TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                           Descrição                                                         Critério de
+           ID                                         Tipo                Prioridade
+                           verificável                                                       aceitação
+
+ RNF-01                                       Não funcional
+
+
+
+
+Apêndice C - Matriz de riscos
+          ID            Risco            Probabilidade        Impacto           Prioridade   Resposta/teste
+
+ R-01
+
+
+ R-02
+
+
+
+
+Apêndice D - Plano de teste resumido
+Identificação e versão do sistema:
+________________________________________________________________________________
+Objetivo:
+________________________________________________________________________________
+Escopo:
+________________________________________________________________________________
+Fora do escopo:
+________________________________________________________________________________
+Níveis e tipos de teste:
+________________________________________________________________________________
+Técnicas:
+________________________________________________________________________________
+Ambiente e ferramentas:
+________________________________________________________________________________
+Dados de teste:
+________________________________________________________________________________
+Responsabilidades:
+________________________________________________________________________________
+Critérios de entrada:
+________________________________________________________________________________
+Critérios de saída:
+________________________________________________________________________________
+Critérios de suspensão e retomada:
+________________________________________________________________________________
+Cronograma:
+________________________________________________________________________________
+Riscos do processo:
+________________________________________________________________________________
+Produtos e comunicação:
+________________________________________________________________________________
+
+Apêndice E - Modelo de caso de teste
+                        Campo                                                    Conteúdo
+
+                                UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 23 DE 26
+========================================================================
+                                                             TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                        Campo                                                     Conteúdo
+
+ID do caso
+
+
+Título
+
+
+Requisito relacionado
+
+
+Nível/tipo
+
+
+Técnica aplicada
+
+
+Prioridade
+
+
+Pré-condições
+
+
+Dados de entrada
+
+
+Passos numerados
+
+
+Resultado esperado
+
+
+Candidato à automação                                     Sim / Não e justificativa
+
+
+Responsável
+
+
+
+
+Apêndice F - Registro de execução
+   Execução              Caso           Data/versão          Resultado            Evidência   Defeito
+
+                                                          Aprovado/Reprova
+EX-001              CT-001
+                                                          do/Bloqueado
+
+
+EX-002              CT-002
+
+
+
+
+Apêndice G - Modelo de relatório de defeito
+                        Campo                                                     Conteúdo
+
+ID e título
+
+
+Requisito/caso relacionado
+
+
+Ambiente e versão
+
+
+Pré-condições
+
+
+Dados utilizados
+
+
+
+                                UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 24 DE 26
+========================================================================
+                                                                 TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                            Campo                                                     Conteúdo
+
+Passos para reproduzir
+
+
+Resultado esperado
+
+
+Resultado obtido
+
+
+Severidade                                                    Baixa / Média / Alta / Crítica
+
+Prioridade                                                    Baixa / Média / Alta
+
+
+Evidências
+
+
+Status
+
+
+Responsável
+
+
+Reteste e conclusão
+
+
+
+
+Apêndice H - Matriz de rastreabilidade
+   Requisito                Risco             Caso(s)         Execução(ões)           Defeito(s)          Situação
+
+RF-01                R-01                 CT-001; CT-002
+
+
+RF-02
+
+
+
+
+Apêndice I - Registro de teste não funcional
+                            Campo                                                     Conteúdo
+
+ID e categoria
+
+
+Objetivo
+
+
+Ambiente
+
+
+Métrica/critério
+
+
+Procedimento
+
+
+Dados e repetições
+
+
+Resultado obtido
+
+
+Conclusão                                                     Atende / Atende parcialmente / Não atende
+
+
+
+
+                                    UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 25 DE 26
+========================================================================
+                                                               TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+
+                          Campo                                                    Conteúdo
+
+Evidências
+
+
+
+
+Apêndice J - Registro de TDD e CI/CD
+                          Etapa                                             Evidência e descrição
+
+Comportamento escolhido
+
+
+RED - teste falhando
+
+
+GREEN - implementação mínima
+
+
+REFACTOR - melhoria
+
+
+Commits relacionados
+
+
+Pipeline - arquivo e gatilho
+
+
+Pipeline - execução com falha
+
+
+Pipeline - execução aprovada
+
+
+Aprendizados e melhoria
+
+
+
+
+Apêndice K - Painel mínimo de métricas
+         Indicador                       Valor                  Fonte dos dados               Interpretação
+
+Percentual de execução
+
+
+Taxa de aprovação
+
+
+Taxa de reprovação
+
+
+Cobertura de requisitos
+
+
+Taxa de automação
+
+
+Defeitos por severidade
+
+
+Defeitos por status
+
+
+Taxa de reabertura
+
+
+
+
+                                  UNISAGRADO | Ciência da Computação | 2026 | Página
+
+========================================================================
+PÁGINA 26 DE 26
+========================================================================
+                                                           TESTES E QUALIDADE DE SOFTWARE - PROJETO P2
+
+Apêndice L - Diário de participação
+                                     Responsável
+      Data           Atividade                          Colaboradores              Tempo   Evidência
+                                       principal
+
+
+
+
+Apêndice M - Declaração final do grupo
+Declaramos que os arquivos entregues representam o trabalho efetivamente realizado pelo grupo, que as
+execuções e métricas são reais, que os dados utilizados são fictícios e que respeitamos as autorizações,
+licenças e orientações da disciplina.
+Integrante 1: _______________________________________ Data: ____/____/________
+Integrante 2: _______________________________________ Data: ____/____/________
+Integrante 3: _______________________________________ Data: ____/____/________
+
+ ENCERRAMENTO
+ O projeto deverá ser construído gradualmente. Não deixe a documentação, a automação, as métricas
+ ou a organização do Drive para os últimos dias. A melhor evidência de aprendizagem será a coerência
+ entre o que foi planejado, o que foi executado, os resultados obtidos e as melhorias propostas.
+
+
+
+
+                              UNISAGRADO | Ciência da Computação | 2026 | Página

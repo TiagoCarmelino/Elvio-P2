@@ -1,0 +1,31 @@
+name: P2 - validação estática e unitária
+
+on:
+  push:
+    branches: [p2-unisagrado]
+  pull_request:
+    branches: [p2-unisagrado]
+  workflow_dispatch:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.18.0
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
+      - name: Testes unitários e contratos isolados
+        run: pnpm run test
+      - name: Lint
+        run: pnpm run lint
+      - name: TypeScript
+        run: pnpm exec tsc --noEmit
+      - name: Build
+        run: pnpm run build

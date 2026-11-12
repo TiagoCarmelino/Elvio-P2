@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "P2 — WG Hidráulica — API local",
+    "description": "Executar somente com Supabase e Vinext locais. A coleção valida loopback antes de cada chamada. Usar dados fictícios; a senha não integra o arquivo exportado.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const base = pm.environment.get('baseUrl') || '';",
+          "if (!/^http:\\/\\/(localhost|127\\.0\\.0\\.1|\\[::1\\])(?::[0-9]+)?\\/?$/.test(base)) { throw new Error('P2: use apenas URL HTTP de loopback.'); }"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "API-01 — Login administrativo fictício",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "email", "value": "{{adminEmail}}", "type": "text" },
+            { "key": "password", "value": "{{adminPassword}}", "type": "text" }
+          ]
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      },
+      "protocolProfileBehavior": { "followRedirects": false },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('redireciona com sessão', () => pm.response.to.have.status(303));",
+        "pm.test('cookie administrativo', () => pm.expect(pm.response.headers.get('Set-Cookie')).to.include('HttpOnly'));"
+      ] } }]
+    },
+    {
+      "name": "API-02 — Listar e capturar ID fictício",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('lista autenticada', () => pm.response.to.have.status(200));",
+        "var p2List = pm.response.json();",
+        "pm.test('contrato de lista', () => pm.expect(p2List.solicitacoes).to.be.an('array'));",
+        "var p2Fixture = p2List.solicitacoes.find(s => s.cliente_nome === 'Cliente de Teste P2');",
+        "pm.test('fixture local presente', () => pm.expect(p2Fixture).to.exist);",
+        "if (p2Fixture) pm.environment.set('requestId', p2Fixture.id);"
+      ] } }]
+    },
+    {
+      "name": "API-03 — Consultar itens do pedido",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('itens acessíveis', () => pm.response.to.have.status(200));",
+        "pm.test('contrato de itens', () => pm.expect(pm.response.json().itens).to.be.an('array'));"
+      ] } }]
+    },
+    {
+      "name": "API-04 — Rejeitar item inválido",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"descricao\":\"X\",\"quantidade\":0,\"valorUnitario\":-1}" },
+        "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('validação de item', () => pm.response.to.have.status(400));",
+        "pm.test('mensagem legível', () => pm.expect(pm.response.json().message).to.be.a('string'));"
+      ] } }]
+    },
+    {
+      "name": "API-05 — Consultar condições e proposta",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('dados da proposta', () => pm.response.to.have.status(200));",
+        "pm.test('validade numérica', () => pm.expect(pm.response.json().proposta.validade_dias).to.be.a('number'));"
+      ] } }]
+    },
+    {
+      "name": "API-06 — Rejeitar solicitação pública inválida",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"name\":\"A\",\"phone\":\"123\",\"request\":\"curto\"}" },
+        "url": "{{baseUrl}}/api/solicitacoes"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('pedido inválido rejeitado', () => pm.response.to.have.status(400));"
+      ] } }]
+    }
+  ]
+}
