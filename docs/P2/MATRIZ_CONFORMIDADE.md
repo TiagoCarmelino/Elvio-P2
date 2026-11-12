@@ -32,8 +32,8 @@
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
 | P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado; duas rodadas ESLint e duas análises SonarQube locais comparadas. Falta pipeline remoto com falha controlada/correção/sucesso. |
-| P12 — relatório final | Pendente | Exige seções e resultados reais, DOCX editável e PDF idêntico. |
-| P13 — apresentação e demonstração | Pendente | Slides PPTX/PDF, roteiro, vídeo de contingência e apresentação pelo grupo. |
+| P12 — relatório final | Parcial | Estrutura, fontes factuais e lacunas em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); DOCX/PDF finais dependem de resultados manuais e humanos. |
+| P13 — apresentação e demonstração | Parcial | Roteiro preliminar em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); slides PPTX/PDF, vídeo e apresentação pelo grupo pendentes. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
 
 ## Quantidades mínimas (seção 10, página 15)
@@ -90,7 +90,7 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Exigência | Estado | Dependência |
 |---|---|---|
 | Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Pendente humano | Turma, número do grupo, acesso à pasta fornecida pelo professor e publicação final. Não criar pasta alternativa como entrega oficial. |
-| README da pasta 00 na ordem exigida | Pendente | Completar identificação, link do repositório, contatos e instruções de teste. |
+| README da pasta 00 na ordem exigida | Parcial | Texto preparatório em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); completar identificação, link do repositório, contatos e credenciais fictícias por canal restrito. |
 | Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Pendente | Gerar versões finais a partir dos resultados reais e validar abertura/permissões. |
 | Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Pendente | Não redigir conclusões numéricas antes das execuções. |
 | Apêndices A–M com todos os campos | Parcial | B, C, D, E e H começam a ser representados nos documentos P2; F, G, I, J, K, L, M exigem registros reais ou assinatura. |
