@@ -22,10 +22,19 @@ jobs:
       - name: Instalar dependências
         run: pnpm install --frozen-lockfile
       - name: Testes unitários e contratos isolados
-        run: pnpm run test
+        run: |
+          mkdir -p test-results
+          pnpm run test 2>&1 | tee test-results/unitarios.log
       - name: Lint
         run: pnpm run lint
       - name: TypeScript
         run: pnpm exec tsc --noEmit
       - name: Build
         run: pnpm run build
+      - name: Publicar log dos testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2-testes-isolados
+          path: test-results/unitarios.log
+          if-no-files-found: warn

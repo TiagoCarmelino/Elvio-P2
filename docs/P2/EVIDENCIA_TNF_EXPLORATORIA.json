@@ -1,0 +1,93 @@
+{
+  "at": "2026-11-12T18:39:17.670Z",
+  "node": "v24.22.3",
+  "platform": "win32",
+  "cpu": "AMD Ryzen 5 7600X 6-Core Processor             ",
+  "memoryBytes": 16266825728,
+  "category": "Rodada exploratória local, critérios preliminares",
+  "tests": [
+    {
+      "id": "TNF-01",
+      "paths": [
+        "/api/painel/solicitacoes",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/historico",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta"
+      ],
+      "statuses": [
+        401,
+        401,
+        401,
+        401
+      ],
+      "conclusion": "Atende no ambiente local"
+    },
+    {
+      "id": "TNF-02",
+      "paths": [
+        "/api/solicitacoes",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens"
+      ],
+      "statuses": [
+        400,
+        400,
+        400
+      ],
+      "conclusion": "Atende no ambiente local"
+    },
+    {
+      "id": "TNF-03",
+      "inicio": {
+        "samplesMs": [
+          37.5,
+          31.2,
+          38.4,
+          35.4,
+          33.6
+        ],
+        "p95Ms": 38.4
+      },
+      "login": {
+        "samplesMs": [
+          74.9,
+          63.1,
+          60.9,
+          60.2,
+          61.6
+        ],
+        "p95Ms": 74.9
+      },
+      "thresholdMs": 3000,
+      "conclusion": "Atende ao critério preliminar local"
+    },
+    {
+      "id": "TNF-04",
+      "samplesMs": [
+        27,
+        68,
+        64.9,
+        58.1,
+        55.6
+      ],
+      "p95Ms": 68,
+      "thresholdMs": 3000,
+      "conclusion": "Atende ao critério preliminar local"
+    },
+    {
+      "id": "TNF-05",
+      "versions": {
+        "chrome": "157.0.8103.51",
+        "MicrosoftEdge": "157.0.4341.46"
+      },
+      "viewport": "1366x768",
+      "conclusion": "Envio e login concluídos nos dois navegadores locais"
+    },
+    {
+      "id": "TNF-06",
+      "viewport": "390x844",
+      "documentScrollWidth": 390,
+      "conclusion": "Atende no Chrome automatizado; observação humana de usabilidade pendente"
+    }
+  ]
+}

@@ -15,6 +15,7 @@
     "test:local": "node --env-file-if-exists=.env.local --test tests/local-flows.integration.test.mjs tests/p2-api.integration.test.mjs",
     "test:selenium": "node --env-file-if-exists=.env.local --test tests/p2-selenium.selenium.mjs",
     "test:postman": "node --env-file-if-exists=.env.local scripts/p2-postman-local.mjs",
+    "test:nonfunctional": "node --env-file-if-exists=.env.local --test tests/p2-nonfunctional.test.mjs",
     "n8n:up": "docker compose --env-file infra/n8n/.env.example -f infra/n8n/compose.yaml up -d",
     "n8n:logs": "docker compose --env-file infra/n8n/.env.example -f infra/n8n/compose.yaml logs -f n8n",
     "n8n:stop": "docker compose --env-file infra/n8n/.env.example -f infra/n8n/compose.yaml stop n8n",

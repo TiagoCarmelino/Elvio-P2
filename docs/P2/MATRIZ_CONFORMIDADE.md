@@ -27,11 +27,11 @@
 | P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica casos planejados; a revisão humana e execução ficam pendentes. |
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
 | P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
-| P07 — defeitos em Jira/GitHub Issues | Pendente | Nenhum defeito P2 verificado foi aberto; criar somente ao observar falha reproduzível. |
-| P08 — automação | Parcial | Mínimos numéricos executados localmente: 6 unitários candidatos, 5 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Faltam aceite do framework e evidência consolidada de entrega. |
-| P09 — aceitação e não funcionais | Parcial | Quatro cenários e seis protocolos em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); execução por representante, observações e medidas reais faltam. |
+| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado em [DEFEITOS.md](./DEFEITOS.md); abertura/vínculo de Issue remoto dependem da configuração do repositório pelo grupo. |
+| P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 5 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e evidência consolidada de entrega. |
+| P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Workflow em `.github/workflows/p2-ci.yml` preparado e etapas executadas localmente; sem ciclo Red–Green–Refactor comprovado, execução remota com falha/sucesso ou duas análises de qualidade. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado e duas rodadas ESLint locais comparadas; faltam pipeline remoto e SonarQube. |
 | P12 — relatório final | Pendente | Exige seções e resultados reais, DOCX editável e PDF idêntico. |
 | P13 — apresentação e demonstração | Pendente | Slides PPTX/PDF, roteiro, vídeo de contingência e apresentação pelo grupo. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -46,15 +46,15 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Riscos priorizados | 8 | 9 | Priorizados no plano; revisão humana pendente. |
 | Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão humana pendente. |
 | Execuções manuais completas | 24 | 0 | Pendente; não confundir testes automatizados com execução manual. |
-| Testes unitários automatizados | 6 | 6 candidatos: 2 autenticação + 4 triagem, aprovados no comando isolado | Quantidade atendida se `node:test` for aceito como framework equivalente. |
+| Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial, aprovados no comando isolado | Quantidade atendida se `node:test` for aceito como framework equivalente. |
 | Testes de integração/API automatizados | 5 | 5 casos reais, 5/5 aprovados em `test:local` | Mínimo numérico atendido localmente; `fetch` simulado continua fora da cota. |
 | Testes Selenium sistema/interface | 4 | 4 casos, 4/4 aprovados em `test:selenium` | Mínimo numérico atendido em Chrome local; evidência da rodada inicial falha registrada no progresso. |
 | Cenários de aceitação | 4 | 4 planejados, 0 executados | Decisão de representante humano pendente. |
-| Testes não funcionais | 6 em ≥3 categorias | 6 planejados em 4 categorias, 0 executados | Critérios, repetições e evidências ainda precisam execução própria. |
-| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores iniciais refletem ausência de execução/defeito manual; interpretar após rodada oficial. |
-| Evolução TDD | 1 ciclo | 0 | Registrar RED, GREEN, REFACTOR e commits de cada etapa. |
+| Testes não funcionais | 6 em ≥3 categorias | 6 executados exploratoriamente em segurança, desempenho e compatibilidade/usabilidade | Dados reais locais registrados; aprovação de critérios, repetição/observação humana e conclusão oficial pendentes. |
+| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores iniciais refletem 0 execuções manuais e 1 defeito verificado; interpretar após rodada oficial. |
+| Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | Pipeline CI/CD | 1 | 1 workflow preparado; 0 execuções remotas | Conectar repositório e documentar sucesso, falha controlada e correção. |
-| Análise de qualidade | 2 execuções | 0 | Obter linha de base e comparação posterior com ferramenta compatível. |
+| Análise de qualidade | 2 execuções | 2 rodadas ESLint locais comparadas | SonarQube e relatórios oficiais pendentes; ESLint 0 erros/9 avisos antes e depois do TDD. |
 
 ### Classificação dos testes existentes
 
@@ -79,11 +79,11 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Postman com variáveis, contratos, erros e encadeamento | Parcial | Coleção/ambiente JSON em [postman/](./postman), executada por Newman com 6 requisições e 12 verificações aprovadas. Execução pela interface Postman ainda pendente. |
 | Selenium com localizadores estáveis, espera e captura em falha | Concluído localmente | Quatro fluxos aprovados em Chrome; capturas de falhas na primeira rodada ficaram em `test-results/selenium/`, ignorado. |
 | Aceitação por representante | Pendente humano | Definir 4 tarefas; pessoa externa aos testes registra Aceito / ressalvas / Não aceito. |
-| Não funcionais compatíveis e seguros | Pendente | Executar ao menos 6 verificações em ≥3 categorias, sem carga/invasão. |
+| Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Pendente | Calcular execução, aprovação, reprovação, cobertura, automação, defeitos por severidade/status e reabertura; não usar dados inventados. |
-| TDD demonstrado | Pendente | Escolher pequena regra da cópia P2 e documentar falha antes do código, correção mínima e refatoração. |
+| TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
 | CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow, execução bem-sucedida e falha controlada seguida de correção. |
-| Qualidade inicial/final e plano de melhoria | Pendente | Duas análises, comparação, responsáveis e critérios. |
+| Qualidade inicial/final e plano de melhoria | Parcial | Duas rodadas ESLint locais comparadas e ações propostas; responsáveis humanos e SonarQube pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)
 
