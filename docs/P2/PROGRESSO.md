@@ -3,6 +3,49 @@
 **Atualizado em:** 12/11/2026  
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
+## Retomada em 12/11/2026
+
+### Estado observado nesta sessão
+
+- `git`, Node.js, npm e pnpm estão disponíveis no terminal: Git 2.56.1.windows.1, Node v24.22.3, npm 11.19.1 e pnpm 12.18.0. No PowerShell, usar `pnpm.cmd` e `npm.cmd`; os shims `.ps1` são bloqueados pela política atual.
+- Docker Desktop estava instalado em `C:\Users\tiago\AppData\Local\Programs\DockerDesktop`, caminho protegido que o sandbox não conseguia inspecionar inicialmente. Com autorização para iniciar a aplicação, o Docker Desktop abriu e o daemon respondeu com Docker 29.9.3 e Compose 5.7.0. Não alterei configurações globais do Windows.
+- A chamada `pnpm exec supabase` existe, mas a CLI falha antes de iniciar porque tenta gravar `C:\Users\tiago\.supabase\telemetry.json`, fora das permissões de escrita deste ambiente. O parâmetro de desativação de telemetria testado não impediu essa gravação. Nenhuma operação de link ou conexão remota foi feita.
+- O histórico da sessão anterior foi consultado; não há transcrição disponível no serviço de histórico. Este arquivo preserva o contexto anterior. O PDF foi aberto no visualizador local, mas o leitor integrado não forneceu páginas/texto nesta execução; os requisitos formais da P2 ainda precisam ser extraídos antes de definir cobertura específica.
+
+### Checkpoint Git
+
+- Criado commit local `5cef3d169fd1ba541d9213c4cd57637118c69573` (`chore: checkpoint inicial da preparação P2`) na branch `main`, consolidando os 103 arquivos existentes desta cópia, inclusive o PDF e os documentos atuais. A árvore ficou limpa após o commit.
+- O `.git` pertence à identidade do sandbox, portanto a gravação precisou de execução autorizada com `safe.directory` somente no comando. A identidade de commit é técnica e restrita ao comando; nenhuma configuração global do Git foi alterada. Não há remoto configurado.
+
+### Validações repetidas
+
+| Verificação | Resultado observado em 12/11/2026 |
+|---|---|
+| `pnpm.cmd run test` | 7 passaram, 0 falharam; testes unitários/contratos com chamadas externas simuladas. |
+| `pnpm.cmd run lint` | Exit 0; 0 erros e 9 avisos de `<img>` nas páginas públicas, conforme registro anterior. |
+| `pnpm.cmd exec tsc --noEmit` | Exit 0, sem erros TypeScript. |
+| `pnpm.cmd run build` | Exit 0; build Vinext concluído, com o aviso já registrado sobre classificação estática de rotas dinâmicas. |
+| `pnpm.cmd exec vinext dev --host 127.0.0.1 --port 3000` | Servidor iniciado. O listener observado foi `[::1]:3000`; `http://localhost:3000` respondeu HTTP 200 para a página inicial, login, contato e painel (que redireciona usuários sem sessão). O endereço IPv4 `127.0.0.1:3000` ainda recusa conexão. O uso de `localhost` funciona no ambiente atual. |
+
+### Supabase local e autenticação de teste
+
+- Docker Desktop ativo; `pnpm exec supabase start` iniciou a stack local nas portas 54321–54324 e 54322 para o PostgreSQL. As imagens foram obtidas apesar de limites temporários do registry.
+- As cinco migrações foram aplicadas sem erro. O `supabase start` inicial avisou que ainda não havia seed; após criar `supabase/seed.sql`, `pnpm exec supabase db reset --local` reaplicou migrações e seed com sucesso.
+- A seed cria `private.painel_config` com hash de segredo de teste, uma solicitação, cliente, item de orçamento, proposta e atividade fictícios. A consulta real a `listar_solicitacoes_painel` retornou o fixture esperado pelo endpoint local. Não há dados de produção.
+- `.env.local` foi criado e permanece ignorado pelo Git. `SUPABASE_URL` aponta para `http://127.0.0.1:54321`; chaves são as emitidas pela stack local; IA e n8n permanecem desligados. A conta local fictícia `administrador.p2@local.test` foi provisionada pelo Supabase Auth local e autenticou com sucesso.
+- A senha de demonstração local está em `.env.local`, junto das variáveis `P2_LOCAL_ADMIN_EMAIL`, `P2_LOCAL_ADMIN_PASSWORD`, `P2_LOCAL_BASE_URL` e `P2_LOCAL_REQUEST_ID`. Ela só deve ser usada contra a stack local.
+
+### Automação de integração inicial
+
+- Adicionado `pnpm run test:local` e `tests/local-flows.integration.test.mjs`. O teste exige `.env.local`, valida que aplicação e Supabase usam loopback e cobre bloqueio anônimo, login, cookie administrativo, listagem da solicitação fictícia, item, proposta e histórico.
+- Resultado real inicial: `pnpm.cmd run test:local` — 1 passou, 0 falharam, sem skips. Após integrar o novo teste, as verificações foram repetidas: suíte padrão 7 passaram e 1 integração foi ignorada por exigir serviço local; suíte `test:local` 1 passou sem skips; TypeScript e build passaram; lint terminou com 0 erros e os mesmos 9 avisos de `<img>`. A suíte padrão permanece independente de serviços externos e não usa configuração de produção.
+
+### Escopo técnico pendente
+
+- A conta Supabase, seed e aplicação local estão prontas. Próximas ações: extrair o texto completo do PDF do professor para mapear a suíte aos critérios oficiais; testar operações de alteração de status/itens/proposta sem prejudicar fixtures; revisar as alterações e criar um segundo checkpoint Git.
+- A interface e as APIs foram exercitadas localmente; o teste de integração automatizado cobre leitura, autenticação e os dados comerciais de teste. Ainda falta executar fluxos de mutação controlados e ampliar a matriz de testes a partir do PDF.
+- Não foi alterado o código de negócio do site nesta retomada. O PDF oficial e a cópia original do TCC permanecem sem alterações.
+
 ## Ferramentas e versões
 
 | Ferramenta | Estado |
