@@ -1,0 +1,27 @@
+{
+  "tipo": "terceira análise local após auditoria; comparar com EVIDENCIA_SONAR_LOCAL.json",
+  "instancia": "http://127.0.0.1:9000",
+  "projeto": "wg-hidraulica-p2",
+  "versao": "47222f7ffbd313a5375a253b2d63d07a914a961e",
+  "scanner": "@sonar/scan 5.1.0",
+  "sonarqube": "26.11.0",
+  "ceTaskId": "e22861f7-b64f-4125-8fb4-2d83d9174e54",
+  "analysisId": "0ee1d3af-efd7-4720-bd91-b9d04ade7587",
+  "executedAtUtc": "2026-11-12T19:25:03+0000",
+  "taskStatus": "SUCCESS",
+  "metrics": {
+    "bugs": 0,
+    "codeSmells": 0,
+    "vulnerabilities": 0,
+    "coverageReportedPercent": 0.0,
+    "duplicatedLinesDensityPercent": 0.0,
+    "nonCommentLinesOfCode": 5471
+  },
+  "openIssues": 0,
+  "qualityGate": "OK",
+  "limitations": [
+    "Cobertura 0% significa ausência de relatório LCOV importado; não mede a cobertura real dos testes.",
+    "O gate local OK não prova ausência de defeitos funcionais ou aprovação do trabalho pelo professor.",
+    "A análise é local e o banco H2 da instância SonarQube não é um artefato de entrega durável."
+  ]
+}

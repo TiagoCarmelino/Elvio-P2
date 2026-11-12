@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { before, test } from 'node:test';
+import { PDFDocument } from 'pdf-lib';
 
 const { P2_LOCAL_BASE_URL, SUPABASE_URL, P2_LOCAL_ADMIN_EMAIL, P2_LOCAL_ADMIN_PASSWORD, P2_LOCAL_REQUEST_ID } = process.env;
 const enabled = Boolean(P2_LOCAL_BASE_URL && SUPABASE_URL && P2_LOCAL_ADMIN_EMAIL && P2_LOCAL_ADMIN_PASSWORD && P2_LOCAL_REQUEST_ID);
@@ -46,12 +47,18 @@ before(async () => {
   assert.ok(cookie, 'login local deve criar sessão');
 });
 
-test('API-02: solicitação pública rejeita campos insuficientes sem criar registro', { skip }, async () => {
+test('API-02: solicitação pública rejeita campos insuficientes', { skip }, async () => {
+  const beforeList = await authenticated('/api/painel/solicitacoes');
+  assert.equal(beforeList.status, 200);
+  const beforeIds = (await beforeList.json()).solicitacoes.map((item) => item.id).sort();
   const response = await fetch(endpoint('/api/solicitacoes'), json('POST', {
     name: 'A', phone: '123', request: 'curto',
   }));
   assert.equal(response.status, 400);
   assert.match((await response.json()).message, /Preencha nome/);
+  const afterList = await authenticated('/api/painel/solicitacoes');
+  assert.equal(afterList.status, 200);
+  assert.deepEqual((await afterList.json()).solicitacoes.map((item) => item.id).sort(), beforeIds);
 });
 
 test('API-03: item de orçamento pode ser criado, consultado, alterado e removido', { skip }, async () => {
@@ -159,7 +166,7 @@ test('API-06: senha incorreta não cria sessão administrativa', { skip }, async
   assert.ok(!response.headers.get('set-cookie')?.includes('wg_admin_session='));
 });
 
-test('API-07: proposta da seed é um PDF íntegro com conteúdo', { skip }, async () => {
+test('API-07: proposta da seed responde com assinatura e MIME de PDF', { skip }, async () => {
   const response = await authenticated(`${requestPath}/proposta`);
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-type') ?? '', /^application\/pdf/);
@@ -167,19 +174,35 @@ test('API-07: proposta da seed é um PDF íntegro com conteúdo', { skip }, asyn
   const bytes = new Uint8Array(await response.arrayBuffer());
   assert.ok(bytes.length > 1000, 'PDF não pode estar vazio');
   assert.equal(new TextDecoder().decode(bytes.subarray(0, 5)), '%PDF-');
+  const pdf = await PDFDocument.load(bytes);
+  assert.ok(pdf.getPageCount() >= 1, 'PDF precisa conter página legível por parser');
 });
 
-test('API-08: validade fora de 1 a 365 dias é rejeitada sem alterar proposta', { skip }, async () => {
+test('API-08: validade respeita limites de 1 a 365 dias', { skip }, async () => {
   const path = `${requestPath}/proposta/dados`;
   const initial = (await (await authenticated(path)).json()).proposta;
-  for (const validadeDias of [0, 366]) {
-    const response = await authenticated(path, json('POST', {
-      validadeDias,
+  try {
+    for (const [validadeDias, expectedStatus] of [[0, 400], [1, 200], [365, 200], [366, 400]]) {
+      const response = await authenticated(path, json('POST', {
+        validadeDias,
+        prazoEntrega: initial.prazo_entrega ?? '',
+        condicoesPagamento: initial.condicoes_pagamento ?? '',
+        observacoes: initial.observacoes ?? '',
+      }));
+      assert.equal(response.status, expectedStatus, `validade ${validadeDias}`);
+      const saved = await authenticated(path);
+      assert.equal(saved.status, 200);
+      if (expectedStatus === 200) assert.equal((await saved.json()).proposta.validade_dias, validadeDias);
+      else assert.notEqual((await saved.json()).proposta.validade_dias, validadeDias);
+    }
+  } finally {
+    const restore = await authenticated(path, json('POST', {
+      validadeDias: initial.validade_dias,
       prazoEntrega: initial.prazo_entrega ?? '',
       condicoesPagamento: initial.condicoes_pagamento ?? '',
       observacoes: initial.observacoes ?? '',
     }));
-    assert.equal(response.status, 400, `validade ${validadeDias}`);
+    assert.equal(restore.status, 200, 'restauração da proposta após limites');
   }
   const final = await authenticated(path);
   assert.equal(final.status, 200);

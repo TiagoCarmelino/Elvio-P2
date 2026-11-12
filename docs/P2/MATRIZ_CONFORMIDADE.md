@@ -15,7 +15,7 @@
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
 | Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker, Supabase e SonarQube Community disponíveis. Selenium, Postman/Newman e duas análises SonarQube executados localmente; planilha editável pronta. Faltam repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
+| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker, Supabase e SonarQube Community disponíveis. Selenium, Postman/Newman e três análises SonarQube executados localmente; planilha editável pronta. Faltam repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
@@ -27,11 +27,11 @@
 | P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica casos planejados; a revisão humana e execução ficam pendentes. |
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
 | P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
-| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado em [DEFEITOS.md](./DEFEITOS.md); abertura/vínculo de Issue remoto dependem da configuração do repositório pelo grupo. |
-| P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 5 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e evidência consolidada de entrega. |
+| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado em [DEFEITOS.md](./DEFEITOS.md), com [exportação CSV](./DEFEITOS_EXPORTACAO.csv); abertura/vínculo de Issue remoto dependem da configuração do repositório pelo grupo. |
+| P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 8 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e aprofundar coleção Postman. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado; duas rodadas ESLint e duas análises SonarQube locais comparadas. Falta pipeline remoto com falha controlada/correção/sucesso. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado; três análises SonarQube locais, a última em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json) com 0 alertas abertos. Falta pipeline remoto com falha controlada/correção/sucesso e LCOV. |
 | P12 — relatório final | Parcial | Estrutura, fontes factuais e lacunas em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); DOCX/PDF finais dependem de resultados manuais e humanos. |
 | P13 — apresentação e demonstração | Parcial | Roteiro preliminar em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); slides PPTX/PDF, vídeo e apresentação pelo grupo pendentes. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -47,14 +47,14 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão humana pendente. |
 | Execuções manuais completas | 24 | 0 | Pendente; não confundir testes automatizados com execução manual. |
 | Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial, aprovados no comando isolado | Quantidade atendida se `node:test` for aceito como framework equivalente. |
-| Testes de integração/API automatizados | 5 | 5 casos reais, 5/5 aprovados em `test:local` | Mínimo numérico atendido localmente; `fetch` simulado continua fora da cota. |
+| Testes de integração/API automatizados | 5 | 8 casos reais, 8/8 aprovados em `test:local` | Mínimo numérico atendido localmente; `fetch` simulado continua fora da cota. |
 | Testes Selenium sistema/interface | 4 | 4 casos, 4/4 aprovados em `test:selenium` | Mínimo numérico atendido em Chrome local; evidência da rodada inicial falha registrada no progresso. |
 | Cenários de aceitação | 4 | 4 planejados, 0 executados | Decisão de representante humano pendente. |
 | Testes não funcionais | 6 em ≥3 categorias | 6 executados exploratoriamente em segurança, desempenho e compatibilidade/usabilidade | Dados reais locais registrados; aprovação de critérios, repetição/observação humana e conclusão oficial pendentes. |
-| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores iniciais refletem 0 execuções manuais e 1 defeito verificado; interpretar após rodada oficial. |
+| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores atuais: 0 execuções manuais, 25/25 automações do escopo planejado, 9/9 requisitos com ao menos um teste automatizado executado e 1 defeito verificado. Cobertura por vínculo não significa aceitação integral. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | Pipeline CI/CD | 1 | 1 workflow preparado; 0 execuções remotas | Conectar repositório e documentar sucesso, falha controlada e correção. |
-| Análise de qualidade | 2 execuções | 2 SonarQube locais e 2 ESLint locais comparados | Histórico SonarQube em [EVIDENCIA_SONAR_LOCAL.json](./EVIDENCIA_SONAR_LOCAL.json); 3 bugs sinalizados, 1 code smell e 0 vulnerabilidades nas duas rodadas. Revisão dos achados e cobertura LCOV pendentes. |
+| Análise de qualidade | 2 execuções | 3 SonarQube locais; terceira após auditoria | [Baseline e segunda rodada](./EVIDENCIA_SONAR_LOCAL.json): 3 bugs sinalizados, 1 code smell. [Terceira](./EVIDENCIA_AUDITORIA_SONAR.json): 0/0; cobertura LCOV ainda não importada. |
 
 ### Classificação dos testes existentes
 
@@ -80,10 +80,10 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Selenium com localizadores estáveis, espera e captura em falha | Concluído localmente | Quatro fluxos aprovados em Chrome; capturas de falhas na primeira rodada ficaram em `test-results/selenium/`, ignorado. |
 | Aceitação por representante | Pendente humano | Definir 4 tarefas; pessoa externa aos testes registra Aceito / ressalvas / Não aceito. |
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
-| Métricas e interpretação | Pendente | Calcular execução, aprovação, reprovação, cobertura, automação, defeitos por severidade/status e reabertura; não usar dados inventados. |
+| Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
 | CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow, execução bem-sucedida e falha controlada seguida de correção. |
-| Qualidade inicial/final e plano de melhoria | Parcial | Duas análises SonarQube com mesmo perfil/escopo e comparação real, mais duas rodadas ESLint; nenhuma mudança nos indicadores. Ações propostas, responsáveis humanos e revisão dos achados pendentes. |
+| Qualidade inicial/final e plano de melhoria | Parcial | Três análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira após correções. Cobertura não medida (LCOV ausente); responsáveis humanos e plano final pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)
 
@@ -91,7 +91,7 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 |---|---|---|
 | Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Pendente humano | Turma, número do grupo, acesso à pasta fornecida pelo professor e publicação final. Não criar pasta alternativa como entrega oficial. |
 | README da pasta 00 na ordem exigida | Parcial | Texto preparatório em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); completar identificação, link do repositório, contatos e credenciais fictícias por canal restrito. |
-| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Pendente | Gerar versões finais a partir dos resultados reais e validar abertura/permissões. |
+| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | XLSX, coleção/ambiente JSON e CSV de D-001 preparados; DOCX/PDF finais, PPTX/PDF e vídeo aguardam resultados reais, grupo e revisão humana. |
 | Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Pendente | Não redigir conclusões numéricas antes das execuções. |
 | Apêndices A–M com todos os campos | Parcial | B, C, D, E e H começam a ser representados nos documentos P2; F, G, I, J, K, L, M exigem registros reais ou assinatura. |
 | Apresentação de 12–15 minutos, até 5 minutos de perguntas, todos falando, vídeo de contingência | Pendente humano | Grupo, roteiro, slides, vídeo e demonstração. |

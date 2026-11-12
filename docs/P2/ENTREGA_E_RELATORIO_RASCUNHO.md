@@ -57,7 +57,7 @@ Usar **somente** a pasta disponibilizada pelo professor, com nome `P2_TQS_2026_T
 | 8. Integração e sistema | HTTP real + Supabase local, fluxos Selenium e coleção Postman/Newman; limitações e restauro de dados. |
 | 9. Aceitação e não funcionais | 4 cenários de aceitação sem participante; 6 TNF exploratórios com valores reais, critério final e observação humana pendentes. |
 | 10. Métricas e indicadores | 8 indicadores na planilha; taxas manuais finais só após execuções. Explicar denominadores e cobertura SonarQube sem LCOV. |
-| 11. TDD, CI/CD e melhoria contínua | Três commits TDD, duas análises SonarQube/ESLint e ações propostas em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); CI remoto pendente. |
+| 11. TDD, CI/CD e melhoria contínua | Três commits TDD, três análises SonarQube locais e ações propostas em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); CI remoto pendente. |
 | 12. Discussão dos resultados | Analisar riscos residuais, achados da ferramenta não verificados, ausência de dados manuais/aceitação e limitações do ambiente após a rodada final. |
 | 13. Conclusão | Escrever apenas após decisão do professor, execução manual, aceitação e métricas finais; não declarar prontidão antes disso. |
 | Referências e anexos | Enunciado oficial, documentação técnica realmente utilizada, registros e evidências com versão/data; listar sem fontes fictícias. |
