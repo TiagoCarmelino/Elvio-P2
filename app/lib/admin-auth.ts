@@ -32,7 +32,9 @@ function base64UrlEncode(value: Uint8Array | string) {
   const bytes = typeof value === 'string' ? encoder.encode(value) : value;
   let binary = '';
   for (const byte of bytes) binary += String.fromCharCode(byte);
-  return btoa(binary).replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/u, '');
+  let encoded = btoa(binary).replaceAll('+', '-').replaceAll('/', '_');
+  while (encoded.endsWith('=')) encoded = encoded.slice(0, -1);
+  return encoded;
 }
 
 function base64UrlDecode(value: string) {

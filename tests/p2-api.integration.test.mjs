@@ -145,3 +145,43 @@ test('API-05: status persiste, gera histórico e retorna ao estado inicial', { s
   const restored = await authenticated('/api/painel/solicitacoes');
   assert.equal((await restored.json()).solicitacoes.find((item) => item.id === P2_LOCAL_REQUEST_ID)?.status, initial.status);
 });
+
+test('API-06: senha incorreta não cria sessão administrativa', { skip }, async () => {
+  const response = await fetch(endpoint('/api/auth/login'), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ email: P2_LOCAL_ADMIN_EMAIL, password: 'senha-incorreta-p2' }),
+    redirect: 'manual',
+  });
+  assert.equal(response.status, 303);
+  assert.equal(new URL(response.headers.get('location')).pathname, '/login');
+  assert.equal(new URL(response.headers.get('location')).searchParams.get('erro'), 'credenciais');
+  assert.ok(!response.headers.get('set-cookie')?.includes('wg_admin_session='));
+});
+
+test('API-07: proposta da seed é um PDF íntegro com conteúdo', { skip }, async () => {
+  const response = await authenticated(`${requestPath}/proposta`);
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('content-type') ?? '', /^application\/pdf/);
+  assert.match(response.headers.get('content-disposition') ?? '', /attachment; filename="proposta-wg-/);
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  assert.ok(bytes.length > 1000, 'PDF não pode estar vazio');
+  assert.equal(new TextDecoder().decode(bytes.subarray(0, 5)), '%PDF-');
+});
+
+test('API-08: validade fora de 1 a 365 dias é rejeitada sem alterar proposta', { skip }, async () => {
+  const path = `${requestPath}/proposta/dados`;
+  const initial = (await (await authenticated(path)).json()).proposta;
+  for (const validadeDias of [0, 366]) {
+    const response = await authenticated(path, json('POST', {
+      validadeDias,
+      prazoEntrega: initial.prazo_entrega ?? '',
+      condicoesPagamento: initial.condicoes_pagamento ?? '',
+      observacoes: initial.observacoes ?? '',
+    }));
+    assert.equal(response.status, 400, `validade ${validadeDias}`);
+  }
+  const final = await authenticated(path);
+  assert.equal(final.status, 200);
+  assert.equal((await final.json()).proposta.validade_dias, initial.validade_dias);
+});

@@ -3,6 +3,15 @@
 **Atualizado em:** 12/11/2026  
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
+## Auditoria rigorosa em andamento — 12/11/2026
+
+- Relidas as 26 páginas da transcrição, incluindo Apêndices A–M. Git estava limpo em `p2-unisagrado`; Supabase e SonarQube locais ativos. O site em `localhost:3000` havia parado entre sessões e foi reiniciado com Vinext; nenhuma conexão de produção foi usada.
+- Detectada contaminação de descoberta de testes/lint pelo worktree temporário `tmp/sonar-baseline`: antes da correção, `pnpm run test` reportou 15 aprovados e 19 ignorados por duplicar arquivos; lint mostrou 18 avisos. Os scripts agora delimitam os três arquivos de testes isolados e ignoram `tmp/` no lint. Repetição real: 8 aprovados, 0 ignorados/falhas; lint exit 0, 9 avisos existentes. TypeScript exit 0.
+- Adicionados casos HTTP reais para senha inválida, assinatura/conteúdo básico do PDF e limites inválidos da validade. A primeira tentativa de senha inválida falhou por expectativa incorreta da automação: a rota redireciona com 303 para `/login?erro=credenciais`, sem cookie; a expectativa foi corrigida. Repetição `test:local`: 8/8 aprovados, 0 falhas. Isso não prova abertura ou legibilidade visual do PDF.
+- Investigados os quatro alertas Sonar anteriores: a regex de remoção de padding Base64 tinha retrocesso superlinear em entrada artificial; substituída por laço linear em `admin-auth.ts`. A regra de caracteres de controle em `proposal-pdf.ts` sinalizava uma classe usada intencionalmente para filtrar texto; substituída por filtro de códigos de caracteres com semântica equivalente. Nova análise Sonar após commit ainda pendente neste momento; não declarar alertas resolvidos sem scanner.
+- Auditoria de consistência, reexecução Selenium/não funcionais/Postman/build, artefatos e checklist estão em andamento. As 24 execuções manuais e quatro decisões de aceitação seguem **pendentes**, sem reaproveitar automação como evidência manual.
+- Repetições após as correções: Selenium **4/4**, não funcionais **6/6**, Newman **6 requisições e 12 verificações**, build exit 0 com aviso de classificação Vinext. O teste NF gravou novo `test-results/p2-nonfunctional-local.json` local; o JSON versionado anterior continua identificado como rodada anterior, sem substituição silenciosa. As suítes de navegador enviam solicitações fictícias ao banco local e devem ser restauradas antes da entrega final, preservando evidências.
+
 ## Ciclo TDD e fechamento técnico — 12/11/2026
 
 - Criado [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md) com README da pasta 00 na ordem oficial, mapeamento das 17 subpastas, roteiro das 13 seções do relatório e sequência sugerida para apresentação. Nenhum DOCX/PDF/PPTX, vídeo ou submissão foi declarado pronto; resultados manuais, participantes e decisão do professor continuam faltando.

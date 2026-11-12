@@ -18,11 +18,16 @@ const LINE = rgb(226 / 255, 229 / 255, 234 / 255);
 type PdfFonts = { regular: PDFFont; bold: PDFFont };
 
 function pdfText(value: string | null | undefined) {
-  return (value ?? '')
+  const normalized = (value ?? '')
     .replace(/[\u2013\u2014]/g, '-')
     .replace(/[\u2018\u2019]/g, "'")
-    .replace(/[\u201c\u201d]/g, '"')
-    .replace(/[^\x09\x0A\x0D\x20-\xFF]/g, '');
+    .replace(/[\u201c\u201d]/g, '"');
+  return Array.from(normalized, (character) => {
+    const code = character.charCodeAt(0);
+    return code === 9 || code === 10 || code === 13 || (code >= 32 && code <= 255)
+      ? character
+      : '';
+  }).join('');
 }
 
 function money(value: number) {
