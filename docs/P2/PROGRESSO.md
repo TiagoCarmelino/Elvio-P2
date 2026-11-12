@@ -15,6 +15,7 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 ### Checkpoint Git
 
 - Criado commit local `5cef3d169fd1ba541d9213c4cd57637118c69573` (`chore: checkpoint inicial da preparação P2`) na branch `main`, consolidando os 103 arquivos existentes desta cópia, inclusive o PDF e os documentos atuais. A árvore ficou limpa após o commit.
+- Após a configuração local e a automação, criado segundo checkpoint `c4330307b4b0b2b76cc7ee24b0f219209c1a3f2c` (`test: preparar integração local da P2`). `.env.local` e segredos continuam ignorados pelo Git.
 - O `.git` pertence à identidade do sandbox, portanto a gravação precisou de execução autorizada com `safe.directory` somente no comando. A identidade de commit é técnica e restrita ao comando; nenhuma configuração global do Git foi alterada. Não há remoto configurado.
 
 ### Validações repetidas
@@ -42,7 +43,7 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 
 ### Escopo técnico pendente
 
-- A conta Supabase, seed e aplicação local estão prontas. Próximas ações: extrair o texto completo do PDF do professor para mapear a suíte aos critérios oficiais; testar operações de alteração de status/itens/proposta sem prejudicar fixtures; revisar as alterações e criar um segundo checkpoint Git.
+- A conta Supabase, seed e aplicação local estão prontas. Próximas ações: extrair o texto completo do PDF do professor para mapear a suíte aos critérios oficiais e ampliar a matriz de testes para operações de alteração de status/itens/proposta sem prejudicar fixtures.
 - A interface e as APIs foram exercitadas localmente; o teste de integração automatizado cobre leitura, autenticação e os dados comerciais de teste. Ainda falta executar fluxos de mutação controlados e ampliar a matriz de testes a partir do PDF.
 - Não foi alterado o código de negócio do site nesta retomada. O PDF oficial e a cópia original do TCC permanecem sem alterações.
 
