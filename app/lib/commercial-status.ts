@@ -17,6 +17,6 @@ export const funnelStatuses: CommercialStatus[] = [
 ];
 
 export function isCommercialStatus(value: unknown): value is CommercialStatus {
-  return typeof value === 'string' && value in commercialStatusLabels;
+  return typeof value === 'string' && Object.prototype.hasOwnProperty.call(commercialStatusLabels, value);
 }
 
