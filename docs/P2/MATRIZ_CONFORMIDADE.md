@@ -15,7 +15,7 @@
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
 | Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker e Supabase disponíveis. Selenium e coleção Postman/Newman executados localmente; planilha editável pronta. Faltam SonarQube, repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
+| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker, Supabase e SonarQube Community disponíveis. Selenium, Postman/Newman e duas análises SonarQube executados localmente; planilha editável pronta. Faltam repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
@@ -31,7 +31,7 @@
 | P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 5 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e evidência consolidada de entrega. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado e duas rodadas ESLint locais comparadas; faltam pipeline remoto e SonarQube. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado; duas rodadas ESLint e duas análises SonarQube locais comparadas. Falta pipeline remoto com falha controlada/correção/sucesso. |
 | P12 — relatório final | Pendente | Exige seções e resultados reais, DOCX editável e PDF idêntico. |
 | P13 — apresentação e demonstração | Pendente | Slides PPTX/PDF, roteiro, vídeo de contingência e apresentação pelo grupo. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -54,7 +54,7 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores iniciais refletem 0 execuções manuais e 1 defeito verificado; interpretar após rodada oficial. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | Pipeline CI/CD | 1 | 1 workflow preparado; 0 execuções remotas | Conectar repositório e documentar sucesso, falha controlada e correção. |
-| Análise de qualidade | 2 execuções | 2 rodadas ESLint locais comparadas | SonarQube e relatórios oficiais pendentes; ESLint 0 erros/9 avisos antes e depois do TDD. |
+| Análise de qualidade | 2 execuções | 2 SonarQube locais e 2 ESLint locais comparados | Histórico SonarQube em [EVIDENCIA_SONAR_LOCAL.json](./EVIDENCIA_SONAR_LOCAL.json); 3 bugs sinalizados, 1 code smell e 0 vulnerabilidades nas duas rodadas. Revisão dos achados e cobertura LCOV pendentes. |
 
 ### Classificação dos testes existentes
 
@@ -83,7 +83,7 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Métricas e interpretação | Pendente | Calcular execução, aprovação, reprovação, cobertura, automação, defeitos por severidade/status e reabertura; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
 | CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow, execução bem-sucedida e falha controlada seguida de correção. |
-| Qualidade inicial/final e plano de melhoria | Parcial | Duas rodadas ESLint locais comparadas e ações propostas; responsáveis humanos e SonarQube pendentes. |
+| Qualidade inicial/final e plano de melhoria | Parcial | Duas análises SonarQube com mesmo perfil/escopo e comparação real, mais duas rodadas ESLint; nenhuma mudança nos indicadores. Ações propostas, responsáveis humanos e revisão dos achados pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)
 

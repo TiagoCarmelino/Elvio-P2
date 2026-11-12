@@ -1,0 +1,159 @@
+{
+  "generatedAt": "2026-11-12T18:57:21.388Z",
+  "server": "http://127.0.0.1:9000",
+  "project": "wg-hidraulica-p2",
+  "config": {
+    "sources": "app",
+    "tests": "tests",
+    "scanner": "@sonar/scan 5.1.0",
+    "serverVersion": "26.11.0.134175",
+    "telemetry": "disabled"
+  },
+  "analyses": [
+    {
+      "id": "f9c94880-9ad9-4fd9-b54a-69d28730b2f2",
+      "date": "2026-11-12T18:55:43+0000",
+      "revision": "caf0a0dd877d406ae21c9f4890a231c7969a22fb",
+      "projectVersion": "caf0a0d"
+    },
+    {
+      "id": "96c53b08-90c7-4b26-8bbf-725df493295f",
+      "date": "2026-11-12T18:54:52+0000",
+      "revision": "a0381298441bcc69e58b29a65cbc309b3596834f",
+      "projectVersion": "a038129"
+    }
+  ],
+  "measures": [
+    {
+      "metric": "bugs",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "3"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "metric": "code_smells",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "1"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "metric": "coverage",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "0.0"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "0.0"
+        }
+      ]
+    },
+    {
+      "metric": "duplicated_lines_density",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "0.0"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "0.0"
+        }
+      ]
+    },
+    {
+      "metric": "ncloc",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "5464"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "5464"
+        }
+      ]
+    },
+    {
+      "metric": "vulnerabilities",
+      "history": [
+        {
+          "date": "2026-11-12T18:54:52+0000",
+          "value": "0"
+        },
+        {
+          "date": "2026-11-12T18:55:43+0000",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "currentIssues": [
+    {
+      "rule": "typescript:S8786",
+      "type": "CODE_SMELL",
+      "severity": "MAJOR",
+      "message": "Simplify this regular expression to reduce its runtime, as it has super-linear performance due to backtracking.",
+      "component": "wg-hidraulica-p2:app/lib/admin-auth.ts",
+      "line": 35
+    },
+    {
+      "rule": "typescript:S6324",
+      "type": "BUG",
+      "severity": "MAJOR",
+      "message": "Remove this control character.",
+      "component": "wg-hidraulica-p2:app/lib/proposal-pdf.ts",
+      "line": 25
+    },
+    {
+      "rule": "typescript:S6324",
+      "type": "BUG",
+      "severity": "MAJOR",
+      "message": "Remove this control character.",
+      "component": "wg-hidraulica-p2:app/lib/proposal-pdf.ts",
+      "line": 25
+    },
+    {
+      "rule": "typescript:S6324",
+      "type": "BUG",
+      "severity": "MAJOR",
+      "message": "Remove this control character.",
+      "component": "wg-hidraulica-p2:app/lib/proposal-pdf.ts",
+      "line": 25
+    }
+  ],
+  "currentQualityGate": {
+    "status": "OK",
+    "conditions": [
+      {
+        "status": "OK",
+        "metricKey": "new_violations",
+        "comparator": "GT",
+        "errorThreshold": "0",
+        "actualValue": "0"
+      }
+    ],
+    "ignoredConditions": false,
+    "period": {
+      "mode": "PREVIOUS_VERSION",
+      "date": "2026-11-12T18:54:52+0000",
+      "parameter": "a038129"
+    },
+    "caycStatus": "compliant"
+  }
+}
