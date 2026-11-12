@@ -118,6 +118,8 @@ test('API-04: proposta persiste alteração e volta ao valor inicial', { skip },
 });
 
 test('API-05: status persiste, gera histórico e retorna ao estado inicial', { skip }, async () => {
+  const inheritedStatus = await authenticated(`${requestPath}/status`, json('POST', { status: 'toString' }));
+  assert.equal(inheritedStatus.status, 400, 'nome herdado não é status comercial');
   const listResponse = await authenticated('/api/painel/solicitacoes');
   assert.equal(listResponse.status, 200);
   const initial = (await listResponse.json()).solicitacoes.find((item) => item.id === P2_LOCAL_REQUEST_ID);
