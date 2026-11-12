@@ -9,7 +9,7 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 
 - `git`, Node.js, npm e pnpm estão disponíveis no terminal: Git 2.56.1.windows.1, Node v24.22.3, npm 11.19.1 e pnpm 12.18.0. No PowerShell, usar `pnpm.cmd` e `npm.cmd`; os shims `.ps1` são bloqueados pela política atual.
 - Docker Desktop estava instalado em `C:\Users\tiago\AppData\Local\Programs\DockerDesktop`, caminho protegido que o sandbox não conseguia inspecionar inicialmente. Com autorização para iniciar a aplicação, o Docker Desktop abriu e o daemon respondeu com Docker 29.9.3 e Compose 5.7.0. Não alterei configurações globais do Windows.
-- A chamada `pnpm exec supabase` existe, mas a CLI falha antes de iniciar porque tenta gravar `C:\Users\tiago\.supabase\telemetry.json`, fora das permissões de escrita deste ambiente. O parâmetro de desativação de telemetria testado não impediu essa gravação. Nenhuma operação de link ou conexão remota foi feita.
+- A CLI local Supabase 3.1.0 precisou de execução autorizada para acessar o daemon Docker e gravar telemetria em `C:\Users\tiago\.supabase\telemetry.json`; a tentativa de desativar telemetria por variável de ambiente não evitou essa gravação. `supabase start` e `db reset --local` concluíram. Nenhuma operação de link ou conexão remota foi feita.
 - O histórico da sessão anterior foi consultado; não há transcrição disponível no serviço de histórico. Este arquivo preserva o contexto anterior. O PDF foi aberto no visualizador local, mas o leitor integrado não forneceu páginas/texto nesta execução; os requisitos formais da P2 ainda precisam ser extraídos antes de definir cobertura específica.
 
 ### Checkpoint Git
