@@ -3,6 +3,17 @@
 **Atualizado em:** 12/11/2026  
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
+## Retomada técnica e checkpoint — 12/11/2026
+
+- Inspecionados `PROGRESSO.md`, [MATRIZ_CONFORMIDADE.md](./MATRIZ_CONFORMIDADE.md), checklist e Git. Branch `p2-unisagrado`, HEAD `7f1a2b7`; alterações anteriores de LCOV/workflow/testes preservadas. Quatro arquivos DOC/DOCX/MSI em `docs/` já estavam soltos e foram mantidos fora do escopo; não foram adicionados ao checkpoint.
+- Concluída a configuração LCOV: `pnpm run test:coverage` passou **8/8**, sem skips; c8 mediu 97,44% linhas, 85,36% ramos e 100% funções nos três módulos `app/lib` instrumentados. O normalizador confirma os caminhos `SF:` e limita o relatório a `app/lib/`.
+- SonarScanner NPM 5.1.0 leu `coverage/p2/lcov.info`; processamento da tarefa `00925064-663f-4c9b-b156-3ff46b073fb7` concluiu `SUCCESS`. Sonar local reportou **27,1%** (229/1.020 linhas), 0 bugs, 0 code smells, 0 vulnerabilidades, 0% duplicação e Quality Gate `OK`. A taxa da suíte e a taxa do projeto têm escopos diferentes; a suíte não cobre a maioria das fontes. Evidência em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). O scanner rodou com worktree sujo/revisão `7f1a2b7`; repetir após o checkpoint.
+- GitHub Actions revisado e formatado; `pipefail` foi adicionado para que a falha de testes não seja escondida pelo `tee`. `pnpm install --frozen-lockfile` foi preservado da rodada anterior. O workflow **não** foi executado no GitHub: branch sem remoto, sem publicação ou envio.
+- Revalidação nesta sessão: `test` **8/8**; integração/API local **8/8** depois de iniciar Vinext, Supabase Auth local HTTP 200; Selenium **4/4**; Newman **6 requisições/12 asserções**; não funcionais **6/6**; lint exit 0 com **9 avisos** preexistentes de `<img>` após excluir `coverage/` gerado; TypeScript exit 0; build exit 0, com aviso de classificação dinâmica Vinext. Na primeira tentativa, API falhou porque Vinext ainda não escutava; `localhost:3000/login` passou a responder 200 após iniciar o servidor. Nenhuma chamada a produção.
+- A matriz, auditoria, checklist e [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md) foram alinhados à quarta análise Sonar. A estimativa de preparação subiu de 43% para **45%**, usando o mesmo cálculo P01–P14, sem equivaler a nota.
+- Entregáveis de submissão permanecem em preparo, não “finais”: dependem de identificação do grupo, 24 execuções manuais, avaliação do representante, aprovação do professor, apresentação/assinaturas e pasta oficial. A planilha existente contém os indicadores preparados; a medição LCOV é registrada na evidência e nos documentos para não confundir os 8 indicadores acadêmicos.
+- A revisão automatizada do workflow e `package.json` passou no Prettier; o arquivo de workflow foi corrigido para usar `pipefail`. Próximos passos nesta sessão: gerar log consolidado das verificações, validar links/JSON, criar checkpoint seletivo, repetir Sonar já no commit e registrar o resultado final. Não foi feita publicação remota.
+
 ## Auditoria rigorosa em andamento — 12/11/2026
 
 - Relidas as 26 páginas da transcrição, incluindo Apêndices A–M. Git estava limpo em `p2-unisagrado`; Supabase e SonarQube locais ativos. O site em `localhost:3000` havia parado entre sessões e foi reiniciado com Vinext; nenhuma conexão de produção foi usada.

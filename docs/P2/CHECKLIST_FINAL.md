@@ -20,7 +20,7 @@
 - [ ] Repetir TNF-01–06 na versão final com critérios aprovados, dados/medidas, capturas e conclusão individual; observar usabilidade com participante.
 - [ ] Ampliar a coleção Postman para positivo e negativo das operações críticas e executar/exportar evidências finais.
 - [ ] Avaliar visualmente o PDF de proposta e checar dados/valores em comparação com o banco, além da assinatura HTTP automatizada.
-- [ ] Importar cobertura LCOV se tecnicamente viável; executar nova análise SonarQube na versão final e interpretar achados, duplicação e cobertura sem confundir ausência de dado com 0% real.
+- [x] Gerar LCOV e importar no SonarQube local; resultado documentado em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). [ ] Repetir na versão final e revisar cobertura/achados após as mudanças finais.
 - [ ] Revisar os nove avisos ESLint de imagem com a próxima atualização do TCC, preservando arquitetura e layout.
 
 ## Repositório e CI/CD

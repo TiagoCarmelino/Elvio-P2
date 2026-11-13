@@ -1,16 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import ts from 'typescript';
-
-async function source(path) {
-  const code = ts.transpileModule(await readFile(new URL(path, import.meta.url), 'utf8'), {
-    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
-  }).outputText;
-  return 'data:text/javascript;base64,' + Buffer.from(code).toString('base64');
-}
-
-const auth = await import(await source('../app/lib/admin-auth.ts'));
+import * as auth from '../app/lib/admin-auth.ts';
 
 test('sessão administrativa válida é aceita e adulteração é rejeitada', async () => {
   const saved = { ...process.env };

@@ -1,27 +1,38 @@
 {
-  "tipo": "terceira análise local após auditoria; comparar com EVIDENCIA_SONAR_LOCAL.json",
+  "tipo": "quarta análise local após integração LCOV",
   "instancia": "http://127.0.0.1:9000",
   "projeto": "wg-hidraulica-p2",
-  "versao": "47222f7ffbd313a5375a253b2d63d07a914a961e",
+  "versao": "7f1a2b7437839e64468e98cc0d4866a051e83cb9",
+  "worktreeSujoDuranteAnalise": true,
   "scanner": "@sonar/scan 5.1.0",
   "sonarqube": "26.11.0",
-  "ceTaskId": "e22861f7-b64f-4125-8fb4-2d83d9174e54",
-  "analysisId": "0ee1d3af-efd7-4720-bd91-b9d04ade7587",
-  "executedAtUtc": "2026-11-12T19:25:03+0000",
+  "ceTaskId": "00925064-663f-4c9b-b156-3ff46b073fb7",
+  "analysisId": "d8aa788d-526b-4fb1-8aa9-6145b0ba7370",
+  "executedAtUtc": "2026-11-13T00:33:01+0000",
   "taskStatus": "SUCCESS",
+  "lcov": {
+    "path": "coverage/p2/lcov.info",
+    "modulesInstrumented": 3,
+    "unitTestLineCoveragePercent": 97.44,
+    "unitTestBranchCoveragePercent": 85.36,
+    "unitTestFunctionCoveragePercent": 100.0,
+    "sonarProjectCoveragePercent": 27.1,
+    "sonarLinesToCover": 1020,
+    "sonarUncoveredLines": 791,
+    "sonarCoveredLines": 229
+  },
   "metrics": {
     "bugs": 0,
     "codeSmells": 0,
     "vulnerabilities": 0,
-    "coverageReportedPercent": 0.0,
     "duplicatedLinesDensityPercent": 0.0,
     "nonCommentLinesOfCode": 5471
   },
-  "openIssues": 0,
   "qualityGate": "OK",
   "limitations": [
-    "Cobertura 0% significa ausência de relatório LCOV importado; não mede a cobertura real dos testes.",
-    "O gate local OK não prova ausência de defeitos funcionais ou aprovação do trabalho pelo professor.",
-    "A análise é local e o banco H2 da instância SonarQube não é um artefato de entrega durável."
+    "A suíte instrumentada cobre três módulos app/lib; Sonar mede o escopo total do projeto, portanto 27,1% não é cobertura integral dos fluxos do produto.",
+    "A análise ocorreu com alterações locais ainda não commitadas e reportou a revisão Git 7f1a2b7; repeti-la após o checkpoint para anexar evidência da revisão final.",
+    "A análise não foi executada pelo GitHub Actions nem prova aprovação acadêmica, execução manual ou ausência de defeitos funcionais.",
+    "O Quality Gate OK e as métricas são da instância SonarQube local; a persistência H2 não é um artefato durável de entrega."
   ]
 }

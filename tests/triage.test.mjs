@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import ts from 'typescript';
+import * as domain from '../app/lib/commercial-triage.ts';
 
 async function source(path, replacements = {}) {
   let code = ts.transpileModule(await readFile(new URL(path, import.meta.url), 'utf8'), {
@@ -11,7 +12,6 @@ async function source(path, replacements = {}) {
   return 'data:text/javascript;base64,' + Buffer.from(code).toString('base64');
 }
 const domainUrl = await source('../app/lib/commercial-triage.ts');
-const domain = await import(domainUrl);
 const replacements = { '../../lib/commercial-triage': domainUrl, 'next/server': import.meta.resolve('next/server.js') };
 const submit = await import(await source('../app/api/solicitacoes/route.ts', replacements));
 const ai = await import(await source('../app/api/triagem/route.ts', replacements));

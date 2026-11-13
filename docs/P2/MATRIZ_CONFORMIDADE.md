@@ -2,7 +2,7 @@
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
 **Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch `p2-unisagrado`, sem remoto configurado.  
-**Levantamento inicial:** 12/11/2026. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
+**Revisão:** 12/11/2026. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
 
@@ -31,7 +31,7 @@
 | P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 8 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e aprofundar coleção Postman. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). Workflow preparado; três análises SonarQube locais, a última em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json) com 0 alertas abertos. Falta pipeline remoto com falha controlada/correção/sucesso e LCOV. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. Workflow revisado; execução remota com falha controlada/correção/sucesso ainda não existe. |
 | P12 — relatório final | Parcial | Estrutura, fontes factuais e lacunas em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); DOCX/PDF finais dependem de resultados manuais e humanos. |
 | P13 — apresentação e demonstração | Parcial | Roteiro preliminar em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); slides PPTX/PDF, vídeo e apresentação pelo grupo pendentes. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -53,8 +53,8 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Testes não funcionais | 6 em ≥3 categorias | 6 executados exploratoriamente em segurança, desempenho e compatibilidade/usabilidade | Dados reais locais registrados; aprovação de critérios, repetição/observação humana e conclusão oficial pendentes. |
 | Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores atuais: 0 execuções manuais, 25/25 automações do escopo planejado, 9/9 requisitos com ao menos um teste automatizado executado e 1 defeito verificado. Cobertura por vínculo não significa aceitação integral. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
-| Pipeline CI/CD | 1 | 1 workflow preparado; 0 execuções remotas | Conectar repositório e documentar sucesso, falha controlada e correção. |
-| Análise de qualidade | 2 execuções | 3 SonarQube locais; terceira após auditoria | [Baseline e segunda rodada](./EVIDENCIA_SONAR_LOCAL.json): 3 bugs sinalizados, 1 code smell. [Terceira](./EVIDENCIA_AUDITORIA_SONAR.json): 0/0; cobertura LCOV ainda não importada. |
+| Pipeline CI/CD | 1 | 1 workflow revisado/formatado e 0 execuções remotas | Conectar repositório e documentar sucesso, falha controlada e correção. Nenhuma publicação feita. |
+| Análise de qualidade | 2 execuções | 4 análises Sonar locais, incluindo importação LCOV em 12/11/2026 | [Evidência mais recente](./EVIDENCIA_AUDITORIA_SONAR.json): cobertura total do escopo 27,1%; ver limitação do escopo parcial de testes. Quality Gate local `OK`, sem equivalência com aprovação acadêmica ou CI. |
 
 ### Classificação dos testes existentes
 
@@ -82,8 +82,8 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
-| CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow, execução bem-sucedida e falha controlada seguida de correção. |
-| Qualidade inicial/final e plano de melhoria | Parcial | Três análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira após correções. Cobertura não medida (LCOV ausente); responsáveis humanos e plano final pendentes. |
+| CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow revisado localmente; faltam execução aprovada e falha controlada seguida de correção no GitHub. Sem remoto configurado. |
+| Qualidade inicial/final e plano de melhoria | Parcial | Quatro análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira; quarta importou LCOV e reportou 27,1% em 1.020 linhas cobráveis. Responsáveis humanos e plano final pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)
 
