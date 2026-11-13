@@ -11,6 +11,32 @@
 | AC-03 | Atendente prepara orçamento | Insere dois itens fictícios, revisa subtotais, edita um e remove outro. | Total e itens resultantes correspondem aos dados informados; ações são compreensíveis. | Pendente. |
 | AC-04 | Atendente finaliza proposta | Define validade/condições fictícias e abre PDF da solicitação. | PDF abre e mostra cliente, item, total e condições corretas. | Pendente. |
 
+## Guia do facilitador para a sessão com participante
+
+**Esta sessão ainda não foi realizada.** Convide uma pessoa que não escreveu os testes; na ausência de cliente, o enunciado permite outro grupo como representante. Combine data, duração, privacidade e gravação antes. Peça autorização para anotações/capturas e não registre nome, contato ou imagem identificável sem consentimento. Use conta, solicitação e valores inteiramente fictícios.
+
+### Preparação
+
+1. O grupo confirma a aprovação dos critérios pelo professor, a versão/hash do sistema, ambiente local, conta fictícia e fixture limpa.
+2. Separe o facilitador do observador. O facilitador lê a tarefa sem explicar como executar; o observador anota início/fim, ações, dúvidas, erros, ajuda oferecida e conclusão.
+3. Explique: “Estamos avaliando o fluxo do sistema. Você pode interromper ou pedir para parar; não há resposta certa sobre você.” Não ensine antes da primeira tentativa.
+4. Registre código do participante (ex.: `PART-01`, sem nome), consentimento, data/hora, sistema/navegador, hash Git e tamanho da janela. Guarde qualquer autorização em local restrito, separado das evidências públicas.
+
+### Roteiros lidos ao participante
+
+| Cenário | Instrução neutra | Observar sem orientar | Critério de sucesso e evidência |
+|---|---|---|---|
+| AC-01 — Cliente solicita orçamento | “Você precisa solicitar um orçamento para um reparo hidráulico. Envie uma solicitação usando os dados fictícios fornecidos.” | Se encontra formulário, entende campos obrigatórios, corrige erros, percebe confirmação e relata próximos passos. | A solicitação fictícia é confirmada e aparece no painel. Salvar código PART, tempo, resultado observado, notas e capturas consentidas sem dados reais. |
+| AC-02 — Atendente localiza pedido | “Você recebeu uma solicitação fictícia. Entre no painel e encontre o pedido que acabou de chegar.” | Se consegue autenticar com a conta de teste e localizar cliente, descrição, origem e status sem dica. | Pessoa identifica o pedido correto e seus dados sintéticos. Guardar resultado e evidência de tela sem senha/cookie. |
+| AC-03 — Atendente monta orçamento | “Para o pedido indicado, inclua dois itens com as quantidades e valores desta ficha. Altere a quantidade do primeiro e remova o segundo.” | Se entende formulários/edição/confirmação; se total e subtotais são compreensíveis; erros e ajuda solicitada. | Os itens finais e total correspondem à ficha de dados. Anotar cada valor, tempo e captura; ao final restaurar/remover os itens. |
+| AC-04 — Atendente prepara proposta | “Defina a validade e as condições indicadas e gere a proposta para este pedido.” | Se localiza condições, entende validade, inicia download e consegue abrir o PDF. | PDF abre e corresponde a cliente/itens/total/condições da fixture. Guardar o PDF sintético e uma comparação dos valores; inspeção real continua pendente. |
+
+### Encerramento e registro
+
+Após cada tarefa, pergunte sem induzir: “O que ficou claro?”, “Onde teve dúvida ou esperava outro comportamento?” e “Você considera que concluiu a tarefa?”. Registre respostas literais curtas sem identificar a pessoa, obstáculos, ajuda oferecida e discrepâncias observadas. Peça a decisão explícita para cada cenário: **Aceito**, **Aceito com ressalvas** ou **Não aceito**, com justificativa. Não infira aceitação a partir de uma tarefa concluída.
+
+Crie uma execução `AC-xx-EX-yyy` somente após a sessão real. Inclua versão/hash, pré-condições, valores fictícios, passos observados, esperado/obtido, decisão e referência de evidência. Se o participante não concluir, marque o resultado sem reclassificar a falha como aprovação. Restaure a fixture e registre a confirmação. Nenhum cenário possui participante, decisão ou evidência nesta versão.
+
 ## Seis verificações não funcionais (Apêndice I)
 
 Cada `TNF` exige registrar resultado obtido, conclusão `Atende / Atende parcialmente / Não atende` e captura/log. Critérios são preliminares e devem ser aprovados pelo grupo/professor antes da rodada oficial.

@@ -12,11 +12,11 @@
 
 ## Execução e qualidade
 
-- [ ] Executar manualmente CT-001–CT-024: anotar EX, executor, data/hora, commit, pré-condições, dados, resultado obtido, Aprovado/Reprovado/Bloqueado e evidência identificada.
+- [ ] Usar [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) para executar manualmente CT-001–CT-024: anotar EX, executor, data/hora, commit, pré-condições, dados, resultado obtido, Aprovado/Reprovado/Bloqueado e evidência identificada.
 - [ ] Preparar massa própria para casos dependentes (CT-004, CT-014, CT-018/019) e limpar/restaurar apenas o banco local.
 - [ ] Abrir D-001 em GitHub Issues/Jira, vincular requisito/teste/commits e exportar CSV/PDF; registrar novos defeitos somente quando reproduzidos.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
-- [ ] Convidar representante que não escreveu os testes, executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.
+- [ ] Usar os quatro cenários e protocolo de facilitação em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); convidar representante que não escreveu os testes e executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.
 - [ ] Repetir TNF-01–06 na versão final com critérios aprovados, dados/medidas, capturas e conclusão individual; observar usabilidade com participante.
 - [ ] Ampliar a coleção Postman para positivo e negativo das operações críticas e executar/exportar evidências finais.
 - [ ] Avaliar visualmente o PDF de proposta e checar dados/valores em comparação com o banco, além da assinatura HTTP automatizada.
@@ -32,10 +32,10 @@
 
 ## Documentos e entrega oficial
 
-- [ ] Completar [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) e interpretar os oito indicadores e gráficos a partir das linhas reais.
-- [ ] Produzir relatório final em DOCX editável e PDF idêntico, com capa, folha, sumário, seções 1–13, referências, apêndices e links válidos.
-- [ ] Produzir apresentação em PPTX/PDF, ensaiar 12–15 minutos mais perguntas, com fala de todos.
-- [ ] Gravar vídeo de contingência MP4 ou disponibilizar link acessível, com demonstração curta dos testes principais.
+- [ ] Completar [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) e interpretar os oito indicadores e gráficos após as execuções manuais; a estrutura/formulários existentes foram abertos e os valores de fórmula estão calculados, mas resultados manuais permanecem pendentes.
+- [ ] Revisar o rascunho DOCX/PDF em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/), completar dados reais, execuções, métricas e apêndices; gerar versões finais idênticas somente após validação do grupo. O rascunho atual cobre as 13 seções oficiais e segue explicitamente não submetível.
+- [ ] Revisar o PPTX/PDF de preparação (10 slides) e [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md); completar integrantes/resultados, ensaiar 12–15 minutos mais perguntas, com fala de todos.
+- [ ] Gravar vídeo de contingência MP4 ou disponibilizar link acessível, com demonstração curta dos testes principais; o roteiro preparado não substitui o vídeo.
 - [ ] Preencher continuamente o Diário de Participação (Apêndice L) com pessoas, tempos e evidências reais.
 - [ ] Preencher e assinar declaração final do grupo (Apêndice M), somente após conferir a veracidade das evidências.
 - [ ] Organizar exclusivamente a pasta oficial fornecida pelo professor, com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16.

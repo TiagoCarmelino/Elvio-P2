@@ -15,7 +15,7 @@
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
 | Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker, Supabase e SonarQube Community disponíveis. Selenium, Postman/Newman e três análises SonarQube executados localmente; planilha editável pronta. Faltam repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
+| Ferramentas obrigatórias | Parcial | VS Code, Git, `node:test`, Chrome/Edge, Docker, Supabase e SonarQube Community disponíveis. Selenium, Postman/Newman e quatro análises SonarQube executados localmente; planilha editável pronta. Faltam repositório remoto/Issues e CI remoto executado. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
@@ -24,16 +24,16 @@
 | P01 — ficha e aprovação | Pendente | Preencher Apêndice A com dados do grupo, segunda opção e decisão escrita do professor. |
 | P02 — requisitos, escopo e riscos | Parcial | Requisitos e riscos P2 definidos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); confirmar escopo com grupo/professor. |
 | P03 — plano de testes | Parcial | Estratégia e critérios em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); responsáveis e calendário dependem do grupo. |
-| P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica casos planejados; a revisão humana e execução ficam pendentes. |
+| P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos; [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) detalha passos, esperado e evidências. Revisão humana e execuções seguem pendentes. |
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
 | P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
 | P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado em [DEFEITOS.md](./DEFEITOS.md), com [exportação CSV](./DEFEITOS_EXPORTACAO.csv); abertura/vínculo de Issue remoto dependem da configuração do repositório pelo grupo. |
 | P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 8 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e aprofundar coleção Postman. |
-| P09 — aceitação e não funcionais | Parcial | Quatro cenários pendentes de representante; seis TNF executados em rodada exploratória local com medidas em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). Critérios oficiais, observações humanas e conclusão final pendem. |
+| P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
 | P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. Workflow revisado; execução remota com falha controlada/correção/sucesso ainda não existe. |
-| P12 — relatório final | Parcial | Estrutura, fontes factuais e lacunas em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); DOCX/PDF finais dependem de resultados manuais e humanos. |
-| P13 — apresentação e demonstração | Parcial | Roteiro preliminar em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); slides PPTX/PDF, vídeo e apresentação pelo grupo pendentes. |
+| P12 — relatório final | Parcial | DOCX e PDF de preparação com capa, folha de identificação, sumário e seções oficiais 1–13 em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Dados do grupo, aprovações, execuções, métricas finais, revisão humana e revalidação ainda pendem. |
+| P13 — apresentação e demonstração | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação (10 slides) em [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Integrantes, ensaio, resultados finais e vídeo de contingência pendem. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
 
 ## Quantidades mínimas (seção 10, página 15)
@@ -91,10 +91,10 @@ Os números abaixo refletem o estado após as execuções locais de 12/11/2026. 
 |---|---|---|
 | Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Pendente humano | Turma, número do grupo, acesso à pasta fornecida pelo professor e publicação final. Não criar pasta alternativa como entrega oficial. |
 | README da pasta 00 na ordem exigida | Parcial | Texto preparatório em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); completar identificação, link do repositório, contatos e credenciais fictícias por canal restrito. |
-| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | XLSX, coleção/ambiente JSON e CSV de D-001 preparados; DOCX/PDF finais, PPTX/PDF e vídeo aguardam resultados reais, grupo e revisão humana. |
-| Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Pendente | Não redigir conclusões numéricas antes das execuções. |
+| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | XLSX, coleção/ambiente JSON e CSV de D-001 preparados; DOCX/PDF e PPTX/PDF de preparação existem, marcados como rascunho; dependem de resultados reais, grupo e revisão humana. Vídeo ainda pendente. |
+| Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Parcial | Rascunho DOCX/PDF estruturado conforme o enunciado; completar resultados reais, anexos, links e validação final antes de gerar a versão submetível. |
 | Apêndices A–M com todos os campos | Parcial | B, C, D, E e H começam a ser representados nos documentos P2; F, G, I, J, K, L, M exigem registros reais ou assinatura. |
-| Apresentação de 12–15 minutos, até 5 minutos de perguntas, todos falando, vídeo de contingência | Pendente humano | Grupo, roteiro, slides, vídeo e demonstração. |
+| Apresentação de 12–15 minutos, até 5 minutos de perguntas, todos falando, vídeo de contingência | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação existem; fala de todos, ensaio, demonstração final e vídeo dependem do grupo. |
 | Ética, dados fictícios, links acessíveis, comprovante de entrega e horário oficial | Parcial | Isolamento local e dados sintéticos atendidos; revisão de licenças, orientação sobre IA, verificação anônima dos links, assinatura e submissão cabem ao grupo. |
 
 ## Regras de atualização
