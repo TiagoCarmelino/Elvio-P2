@@ -2,13 +2,14 @@
   "tipo": "quarta análise local após integração LCOV",
   "instancia": "http://127.0.0.1:9000",
   "projeto": "wg-hidraulica-p2",
-  "versao": "7f1a2b7437839e64468e98cc0d4866a051e83cb9",
-  "worktreeSujoDuranteAnalise": true,
+  "versao": "b9e7dddd090178284157eda313a2f5be072ec7c6",
+  "arquivosP2RastreadosSemAlteracoesDuranteAnalise": true,
+  "arquivosNaoRastreadosPreexistentesEmDocsForaDoCheckpoint": true,
   "scanner": "@sonar/scan 5.1.0",
   "sonarqube": "26.11.0",
-  "ceTaskId": "00925064-663f-4c9b-b156-3ff46b073fb7",
-  "analysisId": "d8aa788d-526b-4fb1-8aa9-6145b0ba7370",
-  "executedAtUtc": "2026-11-13T00:33:01+0000",
+  "ceTaskId": "8e3a51ab-5006-4c4d-85b8-e10c847bee85",
+  "analysisId": "190c029c-743e-4a79-a5a4-35f65fbf9253",
+  "executedAtUtc": "2026-11-13T00:41:29+0000",
   "taskStatus": "SUCCESS",
   "lcov": {
     "path": "coverage/p2/lcov.info",
@@ -31,7 +32,7 @@
   "qualityGate": "OK",
   "limitations": [
     "A suíte instrumentada cobre três módulos app/lib; Sonar mede o escopo total do projeto, portanto 27,1% não é cobertura integral dos fluxos do produto.",
-    "A análise ocorreu com alterações locais ainda não commitadas e reportou a revisão Git 7f1a2b7; repeti-la após o checkpoint para anexar evidência da revisão final.",
+    "A análise foi executada após o checkpoint b9e7ddd, com arquivos P2 rastreados sem alterações. Arquivos não rastreados preexistentes em docs foram preservados e não integraram o checkpoint.",
     "A análise não foi executada pelo GitHub Actions nem prova aprovação acadêmica, execução manual ou ausência de defeitos funcionais.",
     "O Quality Gate OK e as métricas são da instância SonarQube local; a persistência H2 não é um artefato durável de entrega."
   ]

@@ -23,9 +23,9 @@
 
 ## Cobertura SonarQube
 
-O scanner NPM `@sonar/scan` 5.1.0 foi executado contra a instância local em `127.0.0.1:9000`. A tarefa `00925064-663f-4c9b-b156-3ff46b073fb7` terminou `SUCCESS`, analysis ID `d8aa788d-526b-4fb1-8aa9-6145b0ba7370`. O scanner registrou explicitamente a leitura de `coverage/p2/lcov.info`. Sonar reportou 27,1% no projeto (229 de 1.020 linhas cobráveis), 0 bugs, 0 code smells, 0 vulnerabilidades, 0% de duplicação e Quality Gate local `OK`.
+O scanner NPM `@sonar/scan` 5.1.0 foi executado contra a instância local em `127.0.0.1:9000` após o checkpoint `b9e7ddd`. A tarefa `8e3a51ab-5006-4c4d-85b8-e10c847bee85` terminou `SUCCESS`, analysis ID `190c029c-743e-4a79-a5a4-35f65fbf9253`. O scanner registrou explicitamente a leitura de `coverage/p2/lcov.info`. Sonar reportou 27,1% no projeto (229 de 1.020 linhas cobráveis), 0 bugs, 0 code smells, 0 vulnerabilidades, 0% de duplicação e Quality Gate local `OK`.
 
-Os percentuais não são intercambiáveis: c8 cobre três módulos unitários e Sonar calcula sobre o escopo inteiro da aplicação. O restante do código não foi exercitado pela suíte instrumentada. A análise foi enviada com arquivos locais pendentes sob a revisão `7f1a2b7`; ela será repetida sobre o checkpoint. O resultado não demonstra CI remoto nem aprovação acadêmica.
+Os percentuais não são intercambiáveis: c8 cobre três módulos unitários e Sonar calcula sobre o escopo inteiro da aplicação. O restante do código não foi exercitado pela suíte instrumentada. A análise usa a revisão `b9e7ddd`, com arquivos rastreados da P2 sem alterações. O resultado não demonstra CI remoto nem aprovação acadêmica.
 
 ## Inicialização do ambiente
 
