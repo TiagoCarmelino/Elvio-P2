@@ -183,6 +183,10 @@ test('API-08: validade respeita limites de 1 a 365 dias', { skip }, async () => 
   const initial = (await (await authenticated(path)).json()).proposta;
   try {
     for (const [validadeDias, expectedStatus] of [[0, 400], [1, 200], [365, 200], [366, 400]]) {
+      const beforeAttempt = await authenticated(path);
+      assert.equal(beforeAttempt.status, 200);
+      const previousValidity = (await beforeAttempt.json()).proposta.validade_dias;
+      const expectedPersistedValue = expectedStatus === 200 ? validadeDias : previousValidity;
       const response = await authenticated(path, json('POST', {
         validadeDias,
         prazoEntrega: initial.prazo_entrega ?? '',
@@ -192,8 +196,8 @@ test('API-08: validade respeita limites de 1 a 365 dias', { skip }, async () => 
       assert.equal(response.status, expectedStatus, `validade ${validadeDias}`);
       const saved = await authenticated(path);
       assert.equal(saved.status, 200);
-      if (expectedStatus === 200) assert.equal((await saved.json()).proposta.validade_dias, validadeDias);
-      else assert.notEqual((await saved.json()).proposta.validade_dias, validadeDias);
+      assert.equal((await saved.json()).proposta.validade_dias, expectedPersistedValue,
+        `validade ${validadeDias} deve ${expectedStatus === 200 ? 'persistir' : 'preservar o estado anterior'}`);
     }
   } finally {
     const restore = await authenticated(path, json('POST', {

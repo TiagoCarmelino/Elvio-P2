@@ -18,7 +18,7 @@
   ],
   "item": [
     {
-      "name": "API-01 — Login administrativo fictício",
+      "name": "PM-01 — Login administrativo fictício",
       "request": {
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
@@ -38,7 +38,7 @@
       ] } }]
     },
     {
-      "name": "API-02 — Listar e capturar ID fictício",
+      "name": "PM-02 — Listar e capturar ID fictício",
       "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
       "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
         "pm.test('lista autenticada', () => pm.response.to.have.status(200));",
@@ -50,7 +50,7 @@
       ] } }]
     },
     {
-      "name": "API-03 — Consultar itens do pedido",
+      "name": "PM-03 — Consultar itens do pedido",
       "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens" },
       "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
         "pm.test('itens acessíveis', () => pm.response.to.have.status(200));",
@@ -58,7 +58,7 @@
       ] } }]
     },
     {
-      "name": "API-04 — Rejeitar item inválido",
+      "name": "PM-04 — Rejeitar item inválido",
       "request": {
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
@@ -71,7 +71,7 @@
       ] } }]
     },
     {
-      "name": "API-05 — Consultar condições e proposta",
+      "name": "PM-05 — Consultar condições e proposta",
       "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados" },
       "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
         "pm.test('dados da proposta', () => pm.response.to.have.status(200));",
@@ -79,7 +79,7 @@
       ] } }]
     },
     {
-      "name": "API-06 — Rejeitar solicitação pública inválida",
+      "name": "PM-06 — Rejeitar solicitação pública inválida",
       "request": {
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],

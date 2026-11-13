@@ -19,6 +19,8 @@
 - [ ] Usar os quatro cenários e protocolo de facilitação em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); convidar representante que não escreveu os testes e executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.
 - [ ] Repetir TNF-01–06 na versão final com critérios aprovados, dados/medidas, capturas e conclusão individual; observar usabilidade com participante.
 - [ ] Ampliar a coleção Postman para positivo e negativo das operações críticas e executar/exportar evidências finais.
+- [ ] Reexecutar HTTP-API-08 depois da asserção fortalecida e confirmar no Supabase local que os valores rejeitados 0/366 preservam o estado anterior; anexar log da rodada final.
+- [ ] Fechar a lacuna de SEL-02: após envio pela interface, verificar a solicitação persistida no painel e planejar limpeza/restauração segura dos registros fictícios Selenium no banco local.
 - [ ] Avaliar visualmente o PDF de proposta e checar dados/valores em comparação com o banco, além da assinatura HTTP automatizada.
 - [x] Gerar LCOV e importar no SonarQube local; resultado documentado em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). [ ] Repetir na versão final e revisar cobertura/achados após as mudanças finais.
 - [ ] Revisar os nove avisos ESLint de imagem com a próxima atualização do TCC, preservando arquitetura e layout.
