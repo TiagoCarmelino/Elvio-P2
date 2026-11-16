@@ -1,6 +1,6 @@
 # Projeto Integrado P2 — UNISAGRADO
 
-Esta é a cópia de trabalho da P2 do sistema WG Hidráulica, mantida na branch `p2-unisagrado`. Ela foi separada para permitir que o TCC original continue evoluindo. Não considere este repositório uma cópia final do TCC nem uma entrega acadêmica concluída.
+Este repositório é o **ambiente de testes e preparação da P2 do projeto do Elvio (WG Hidráulica)**, mantido na branch `p2-unisagrado`. Destina-se à validação acadêmica com dados fictícios e ambiente local isolado. Não é ambiente de produção nem substitui o repositório original do TCC, que continua em desenvolvimento e não foi alterado.
 
 O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O grupo precisa conceder acesso ao professor e confirmar as permissões de leitura antes da avaliação. A visibilidade não foi alterada.
 

@@ -57,6 +57,7 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 
 ## Preparação do envio GitHub autorizada — 16/11/2026
 
+- Após a observação do usuário, os READMEs foram ajustados para declarar explicitamente que este é o ambiente de testes/preparação da P2 do projeto do Elvio (WG Hidráulica), com dados fictícios, sem uso em produção e sem alterar o TCC original.
 - O usuário indicou `https://github.com/TiagoCarmelino/Elvio-P2.git` como destino e autorizou o envio/criação de materiais. `origin` aponta para essa URL e a branch `p2-unisagrado` foi publicada; o hash remoto confirmado é `fe8c0a160a80967e4dcc9749a19edb44e929bcff`.
 - Consulta autenticada ao GitHub confirmou repositório privado, `p2-unisagrado` como branch padrão e permissões de leitura/escrita para a conta conectada. O grupo ainda precisa conceder acesso ao professor; a visibilidade permaneceu privada.
 - Criado [README técnico da P2](./README.md) com estado real, instruções locais isoladas, comandos, limites e links. O README de raiz recebeu somente um aviso/link para esta página; o conteúdo original do TCC foi preservado.
