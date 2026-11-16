@@ -1,3 +1,7 @@
+# Projeto Integrado P2 — UNISAGRADO
+
+> Esta cópia contém a preparação da P2 na branch `p2-unisagrado`. O TCC original continua em desenvolvimento. Consulte o [README da P2](docs/P2/README.md), a [matriz de conformidade](docs/P2/MATRIZ_CONFORMIDADE.md) e o [checklist de fechamento](docs/P2/CHECKLIST_FINAL.md). Os documentos identificados como rascunho não são versões para submissão.
+
 # Sistema Web — WG Hidráulica
 
 Projeto desenvolvido como Trabalho de Conclusão de Curso para centralizar o atendimento comercial da WG Hidráulica. A solução reúne um site institucional, um formulário de solicitação de orçamento e um painel interno que acompanha o andamento de cada atendimento.

@@ -27,8 +27,8 @@
 
 ## Repositório e CI/CD
 
-- [ ] Configurar remoto autorizado da **cópia P2**, sem apontar para o repositório original do TCC; conferir visibilidade e permissões.
-- [ ] Enviar a branch P2, observar execução aprovada no GitHub Actions e salvar URL/log/artefato.
+- [x] Destino GitHub exclusivo da cópia P2 informado pelo usuário; verificar que o `origin` aponta apenas para este destino e que nenhum arquivo de credencial está incluído.
+- [ ] Enviar a branch P2 e confirmar o hash publicado; observar execução aprovada no GitHub Actions e salvar URL/log/artefato.
 - [ ] Demonstrar falha **controlada** de teste na pipeline e posterior correção/aprovação, registrando commits e URLs; não apresentar RED local como falha da CI.
 - [ ] Testar acesso a repositório, Issues, pipeline e artefatos em janela anônima ou conta sem privilégios especiais.
 

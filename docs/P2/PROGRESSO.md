@@ -55,6 +55,14 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 - Parecer: P01, P06 e P14 pendentes; P02–P05 parcialmente preparados, sem aprovação/revisão e execuções; P07 sem Issue remota; P08 cumpre os mínimos automatizados na rodada anterior, sujeito a aceite de `node:test` e reteste; P09 sem sessões/decisões; P10 sem métricas manuais finais; P11 sem execução GitHub Actions/falha controlada; P12/P13 são rascunhos. Ver matriz e checklist para próximas ações.
 - Próximo passo: iniciar o ambiente isolado P2 e executar API-08 e suítes completas, validar restauração local, build/qualidade/cobertura na versão final e então atualizar evidências e planilha. O checkpoint desta auditoria foi criado localmente e inclui somente os sete arquivos P2 alterados; nada foi publicado/enviado ao GitHub.
 
+## Preparação do envio GitHub autorizada — 16/11/2026
+
+- O usuário indicou `https://github.com/TiagoCarmelino/Elvio-P2.git` como destino e autorizou o envio/criação de materiais. `git ls-remote` não listou refs do destino; a API REST sem autenticação retornou 404 (compatível com repositório privado ou indisponível sem credenciais). Confirmar acesso pelo Git durante o push; não inferir visibilidade.
+- Criado [README técnico da P2](./README.md) com estado real, instruções locais isoladas, comandos, limites e links. O README de raiz recebeu somente um aviso/link para esta página; o conteúdo original do TCC foi preservado.
+- Atualizadas referências de remoto em matriz, auditoria, checklist, estrutura de entrega, formulários e defeitos. Ainda não há resultado de CI GitHub registrado.
+- Revisão antes do envio: `.env.local` e `.env.sonar.local` são ignorados e não rastreados; a busca dos caminhos `.env` no histórico encontrou apenas arquivos `.env.example`; a verificação de padrões comuns de tokens no HEAD não encontrou correspondências. Quatro arquivos preexistentes não rastreados em `docs/` permanecem intocados e fora do envio.
+- Próximo passo autorizado: registrar `origin` para o URL informado, criar checkpoint seletivo do README/documentação P2 e enviar somente a branch `p2-unisagrado`; depois verificar se a execução do workflow foi iniciada/concluída. A primeira rodada de CI não equivale à falha controlada seguida de correção ainda exigida.
+
 ## Histórico das etapas anteriores (resultados na data em que ocorreram)
 
 ## Ciclo TDD e fechamento técnico — 12/11/2026

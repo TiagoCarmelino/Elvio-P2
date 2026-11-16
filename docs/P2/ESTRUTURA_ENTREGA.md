@@ -6,8 +6,8 @@ Esta é uma **lista de organização da cópia de trabalho**, não substitui a p
 
 | Pasta oficial | Conteúdo final | Fonte canônica nesta cópia | Estado |
 |---|---|---|---|
-| `00_IDENTIFICACAO_E_README` | README na ordem de §11.4; ficha A; autorização/licença; contatos e credenciais fictícias por canal restrito | [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), `package.json`, README do sistema | README e ficha precisam de dados/aprovação humana. |
-| `01_SISTEMA_ALVO` | Código ou link acessível, licença e instruções de instalação | Repositório P2 e README de raiz | Remoto/autorização ainda não configurados. Preservar TCC original. |
+| `00_IDENTIFICACAO_E_README` | README na ordem de §11.4; ficha A; autorização/licença; contatos e credenciais fictícias por canal restrito | [README P2](./README.md), [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), `package.json` | README técnico criado; dados, ficha e aprovação humana pendentes. |
+| `01_SISTEMA_ALVO` | Código ou link acessível, licença e instruções de instalação | Repositório P2 e [README P2](./README.md) | Destino remoto da cópia informado; validar branch/permissões após push. Preservar TCC original. |
 | `02_REQUISITOS_ESCOPO_RISCOS` | Requisitos, exclusões e matriz de riscos | [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md) | Preparado; validar com grupo/professor. |
 | `03_PLANO_DE_TESTES` | Plano com escopo, estratégia, ambiente, papéis, critérios e cronograma | [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md) | Responsáveis, calendário e aprovação pendentes. |
 | `04_CASOS_E_RASTREABILIDADE` | Catálogo E e matriz H | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md), [RASTREABILIDADE.md](./RASTREABILIDADE.md), [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) | 24 casos especificados; revisão/execução pendentes. |

@@ -1,7 +1,7 @@
 # Matriz de conformidade — Projeto Integrado P2
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
-**Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch `p2-unisagrado`, sem remoto configurado.  
+**Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch `p2-unisagrado`, destino GitHub informado pelo usuário; acesso/execução de CI será registrado após o push.
 **Revisão:** 12/11/2026. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
@@ -92,7 +92,7 @@ Os seis casos de `tests/triage.test.mjs` e o único teste agrupado de `tests/loc
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
-| CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow revisado localmente; faltam execução aprovada e falha controlada seguida de correção no GitHub. Sem remoto configurado. |
+| CI/CD com gatilho, instalação, teste e resultado | Pendente | Workflow revisado localmente; após o envio autorizado, ainda faltam execução aprovada e falha controlada seguida de correção no GitHub. |
 | Qualidade inicial/final e plano de melhoria | Parcial | Quatro análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira; quarta importou LCOV e reportou 27,1% em 1.020 linhas cobráveis. Responsáveis humanos e plano final pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)

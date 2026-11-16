@@ -16,4 +16,4 @@
 | Status / responsável | Corrigido e retestado tecnicamente na cópia P2. Responsável humano e Issue remoto pendentes. |
 | Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 e inclui `POST status=toString` com HTTP 400. Revisão/fechamento pelo grupo pendente. |
 
-Não existe repositório remoto configurado. Abrir e vincular D-001 no GitHub Issues ou Jira quando o grupo configurar a ferramenta; não atribuir URL fictícia.
+O repositório remoto da cópia P2 foi informado pelo usuário. Abrir e vincular D-001 no GitHub Issues ou Jira após confirmar acesso à branch/repositório; não atribuir URL de Issue fictícia.
