@@ -6,7 +6,7 @@ O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O
 
 ## Estado da entrega
 
-O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). Entre as pendências estão as 24 execuções manuais, quatro sessões de aceitação, validação escrita do professor, diário do grupo e execução real do GitHub Actions. Os documentos em `ARTEFATOS_PREPARACAO/` estão marcados como rascunhos e não devem ser submetidos como versões finais.
+O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). Entre as pendências estão as 24 execuções manuais, quatro sessões de aceitação, o registro formal da autorização já confirmada pelo usuário, o diário do grupo e a demonstração de falha controlada seguida de correção no CI. Quatro execuções GitHub Actions já concluíram com sucesso; confira os links na matriz. Os documentos em `ARTEFATOS_PREPARACAO/` estão marcados como rascunhos e não devem ser submetidos como versões finais.
 
 ## Requisitos locais
 

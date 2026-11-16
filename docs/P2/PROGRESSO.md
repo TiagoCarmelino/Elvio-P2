@@ -1,6 +1,6 @@
 # Progresso da preparação da P2
 
-**Atualizado em:** 12/11/2026  
+**Atualizado em:** 16/11/2026
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
 ## Retomada técnica e checkpoint — 12/11/2026
@@ -236,3 +236,14 @@ Não havia listeners nas portas 3000, 5173, 54321–54323, 5678 ou 9229. Process
 - [Docker Desktop no Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 - [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started)
 
+
+## Retomada e validação isolada — 16/11/2026
+
+- Confirmados pelo usuário: o professor autorizou o uso do sistema WG Hidráulica; os integrantes são Tiago Gabriel Carmelino e Mateus Betini. Não foram fornecidos ata, mensagem, data ou formulário; o registro formal no Apêndice A ainda precisa ser feito.
+- A branch `p2-unisagrado` está sincronizada com `origin/p2-unisagrado` no commit `80d0502` (`docs: identificar finalidade de testes do projeto Elvio`). O worktree rastreado estava limpo antes desta atualização documental. Quatro arquivos não rastreados já existentes em `docs/` foram preservados sem alteração.
+- Suíte isolada atual: `pnpm run test` aprovou 8/8 (7 casos unitários candidatos à cota + 1 contrato com `fetch` simulado, fora da cota de integração). `pnpm run lint` terminou com exit 0, 0 erros e 9 avisos existentes de uso de `<img>`. `pnpm exec tsc --noEmit` terminou com exit 0. `pnpm run build` terminou com exit 0; Vinext exibiu apenas o aviso conhecido de classificação estática de algumas rotas dinâmicas.
+- Ambiente verificado: Node.js 24.22.3, pnpm 12.18.0, Docker CLI 29.9.3 e Supabase CLI 3.1.0 disponíveis. O daemon Docker não estava acessível; nenhum listener foi observado nas portas locais consultadas. `SUPABASE_URL` no `.env.local` aponta para `127.0.0.1`; nenhum serviço, banco ou endpoint de produção foi acessado.
+- Não foram repetidos `test:local`, Selenium, Postman, testes não funcionais, geração LCOV/Sonar ou build: a stack Docker/Supabase local estava indisponível e não havia listener da aplicação. Resultados anteriores dessas suítes continuam históricos e não provam a versão atual.
+- Histórico remoto: quatro runs GitHub Actions (43902629850, 43903980246, 43904521607 e 43905776217) foram reportados como `success` na auditoria anterior. A pipeline não cobre integração/Selenium/manual e a falha controlada com correção ainda depende de execução registrada.
+- Pendências humanas centrais: executar CT-001–CT-024 com evidências; realizar AC-01–AC-04 com participante e decisões; preencher diário e responsabilidades; completar Apêndice A com autorização documentada, turma, grupo e segunda opção; obter aceite para `node:test`; conceder leitura ao professor no repositório privado; revisar e aprovar resultados finais, relatório, apresentação e declaração.
+- Próxima tarefa técnica segura: quando o Docker Desktop estiver iniciado, confirmar que Supabase está local, revisar as suítes antes de executar mutações e retestar `test:local`, Selenium, Postman, não funcionais, LCOV/Sonar e build na versão atual. Não executar reset do banco nem publicar alterações sem necessidade.

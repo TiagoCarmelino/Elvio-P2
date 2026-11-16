@@ -13,7 +13,7 @@ Os commits preservam a ordem temporal das etapas. A mudança foi limitada à có
 
 ## CI/CD
 
-O workflow [p2-ci.yml](../../.github/workflows/p2-ci.yml) dispara em push/PR da branch `p2-unisagrado` e sob comando manual. Prepara Node/pnpm, instala dependências pelo lockfile, roda testes isolados, lint, TypeScript e build; publica o log dos testes como artefato mesmo em falha. `pnpm install --frozen-lockfile` e os comandos de validação foram executados localmente; **GitHub Actions ainda não executou** porque não há remoto. Falha controlada seguida de correção e execução aprovada no pipeline remoto seguem pendentes. O teste RED local não substitui essa demonstração do pipeline.
+O workflow [p2-ci.yml](../../.github/workflows/p2-ci.yml) dispara em push/PR da branch `p2-unisagrado` e sob comando manual. Prepara Node/pnpm, instala dependências pelo lockfile, roda testes isolados e gera LCOV, lint, TypeScript e build; publica o log dos testes e cobertura como artefatos mesmo em falha. O repositório privado está publicado. Quatro execuções GitHub Actions recentes concluíram `success`: [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), [43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246), [43904521607](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43904521607) e [43905776217](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43905776217). Os runs cobrem testes isolados, LCOV, lint, TypeScript e build; não executam integração local, Selenium ou testes manuais. Falta a demonstração de falha controlada seguida de correção e sucesso no pipeline. O teste RED local não substitui essa demonstração.
 
 ## Qualidade e melhoria contínua
 

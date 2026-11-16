@@ -4,8 +4,8 @@
 
 ## Professor e grupo
 
-- [ ] Informar turma, número do grupo, 2–3 integrantes, responsabilidades, contatos e calendário oficial.
-- [ ] Documentar segunda opção de sistema e preencher todos os campos da ficha do Apêndice A; obter decisão escrita do professor e registrar ajustes/data.
+- [ ] Integrantes confirmados: Tiago Gabriel Carmelino e Mateus Betini. Informar turma, número do grupo, responsabilidades, contatos e calendário oficial; preencher diário com atividades/tempo/evidências reais.
+- [ ] Documentar a segunda opção, preencher todos os campos da ficha do Apêndice A e anexar o registro da autorização do professor já confirmada pelo usuário, incluindo data e eventuais ajustes.
 - [ ] Confirmar por escrito a aceitação de `node:test` como framework equivalente ao JUnit para JavaScript.
 - [ ] Confirmar orientação do professor sobre uso de IA e critérios não funcionais preliminares.
 - [ ] Confirmar licença/autorização para uso acadêmico do sistema e do código nesta cópia.
@@ -30,7 +30,7 @@
 
 - [x] `origin` verificado no destino exclusivo P2; repositório privado, branch padrão `p2-unisagrado`; nenhum arquivo de credencial foi incluído.
 - [x] Enviar a branch P2 e confirmar o hash publicado `fe8c0a160a80967e4dcc9749a19edb44e929bcff`.
-- [x] Observar duas execuções GitHub Actions aprovadas nos commits publicados: [run inicial 43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850) e [run atualizado 43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246); logs e artefatos LCOV ficam disponíveis nos runs.
+- [x] Quatro execuções GitHub Actions recentes foram aprovadas: [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), [43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246), [43904521607](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43904521607) e [43905776217](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43905776217); revisar logs/artefatos e completar a execução controlada de falha/correção.
 - [ ] Demonstrar falha **controlada** de teste na pipeline e posterior correção/aprovação, registrando commits e URLs; não apresentar RED local como falha da CI.
 - [ ] Grupo conceder acesso de leitura ao professor e conferir Issues, pipeline e artefatos com essa conta; não mudar o repositório para público sem aprovação.
 
