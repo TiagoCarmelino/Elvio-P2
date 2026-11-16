@@ -2,6 +2,8 @@
 
 Esta é a cópia de trabalho da P2 do sistema WG Hidráulica, mantida na branch `p2-unisagrado`. Ela foi separada para permitir que o TCC original continue evoluindo. Não considere este repositório uma cópia final do TCC nem uma entrega acadêmica concluída.
 
+O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O grupo precisa conceder acesso ao professor e confirmar as permissões de leitura antes da avaliação. A visibilidade não foi alterada.
+
 ## Estado da entrega
 
 O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). Entre as pendências estão as 24 execuções manuais, quatro sessões de aceitação, validação escrita do professor, diário do grupo e execução real do GitHub Actions. Os documentos em `ARTEFATOS_PREPARACAO/` estão marcados como rascunhos e não devem ser submetidos como versões finais.

@@ -1,7 +1,7 @@
 # Matriz de conformidade — Projeto Integrado P2
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
-**Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch `p2-unisagrado`, destino GitHub informado pelo usuário; acesso/execução de CI será registrado após o push.
+**Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch padrão `p2-unisagrado` publicada no repositório GitHub privado; o grupo ainda deve conceder acesso ao professor.
 **Revisão:** 12/11/2026. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
@@ -31,7 +31,7 @@
 | P08 — automação | Parcial | Mínimos numéricos executados localmente: 7 unitários candidatos, 8 integrações reais e 4 Selenium. Coleção Postman/Newman: 6 requisições, 12 verificações aprovadas. Falta aceite do framework e aprofundar coleção Postman. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. [Run GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850) do commit publicado concluiu com sucesso; falta a falha controlada seguida de correção/sucesso. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. [Duas execuções GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions) nos commits publicados concluíram com sucesso; falta a falha controlada seguida de correção/sucesso. |
 | P12 — relatório final | Parcial | DOCX e PDF de preparação com capa, folha de identificação, sumário e seções oficiais 1–13 em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Dados do grupo, aprovações, execuções, métricas finais, revisão humana e revalidação ainda pendem. |
 | P13 — apresentação e demonstração | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação (10 slides) em [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Integrantes, ensaio, resultados finais e vídeo de contingência pendem. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -92,7 +92,7 @@ Os seis casos de `tests/triage.test.mjs` e o único teste agrupado de `tests/loc
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
-| CI/CD com gatilho, instalação, teste e resultado | Parcial | Uma execução GitHub Actions no commit `fe8c0a1` concluiu `success`, com cobertura, lint, TypeScript e build; falta demonstrar falha controlada seguida de correção/aprovação. |
+| CI/CD com gatilho, instalação, teste e resultado | Parcial | Duas execuções GitHub Actions (`fe8c0a1` e `7e7947b`) concluíram `success`, com cobertura, lint, TypeScript e build; falta demonstrar falha controlada seguida de correção/aprovação. |
 | Qualidade inicial/final e plano de melhoria | Parcial | Quatro análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira; quarta importou LCOV e reportou 27,1% em 1.020 linhas cobráveis. Responsáveis humanos e plano final pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)

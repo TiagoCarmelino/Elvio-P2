@@ -28,11 +28,11 @@
 
 ## Repositório e CI/CD
 
-- [x] Destino GitHub exclusivo da cópia P2 informado pelo usuário; verificar que o `origin` aponta apenas para este destino e que nenhum arquivo de credencial está incluído.
+- [x] `origin` verificado no destino exclusivo P2; repositório privado, branch padrão `p2-unisagrado`; nenhum arquivo de credencial foi incluído.
 - [x] Enviar a branch P2 e confirmar o hash publicado `fe8c0a160a80967e4dcc9749a19edb44e929bcff`.
-- [x] Observar execução GitHub Actions aprovada no commit publicado: [run 43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850); log e artefato LCOV ficam disponíveis no run.
+- [x] Observar duas execuções GitHub Actions aprovadas nos commits publicados: [run inicial 43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850) e [run atualizado 43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246); logs e artefatos LCOV ficam disponíveis nos runs.
 - [ ] Demonstrar falha **controlada** de teste na pipeline e posterior correção/aprovação, registrando commits e URLs; não apresentar RED local como falha da CI.
-- [ ] Testar acesso a repositório, Issues, pipeline e artefatos em janela anônima ou conta sem privilégios especiais.
+- [ ] Grupo conceder acesso de leitura ao professor e conferir Issues, pipeline e artefatos com essa conta; não mudar o repositório para público sem aprovação.
 
 ## Documentos e entrega oficial
 
