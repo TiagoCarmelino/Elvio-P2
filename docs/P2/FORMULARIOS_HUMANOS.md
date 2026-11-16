@@ -10,7 +10,7 @@ Estes modelos preservam os campos dos Apêndices A, F, L e M do [manual](../P2_U
 | Integrantes | Pendente |
 | Nome do sistema | Sistema Web WG Hidráulica — cópia acadêmica P2; segunda opção pendente |
 | Origem do sistema | TCC em desenvolvimento; confirmação do responsável pendente |
-| Link do repositório | Informado: https://github.com/TiagoCarmelino/Elvio-P2 (validar acesso/permissões após o envio da branch) |
+| Link do repositório | https://github.com/TiagoCarmelino/Elvio-P2 (branch `p2-unisagrado` publicada; o grupo ainda deve conferir o acesso do professor) |
 | Licença/autorização | Pendente |
 | Tecnologias principais | React, TypeScript, Vinext, Supabase/PostgreSQL, Node, pnpm |
 | Como executar | Ver README técnico e plano; validar versão final antes da apresentação |

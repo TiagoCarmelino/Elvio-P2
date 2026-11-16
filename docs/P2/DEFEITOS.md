@@ -13,7 +13,7 @@
 | Resultado obtido | O teste falhou em `toString`: `true !== false`. O efeito HTTP anterior à correção não foi medido e não é afirmado aqui. |
 | Severidade / prioridade | Média / Alta: entrada inválida poderia avançar pela validação de rota; o banco ainda poderia rejeitá-la, mas esse efeito não foi medido antes da correção. |
 | Evidências | Saída RED registrada em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); commits `83d519e`, `68de98e`, `a421b47`. |
-| Status / responsável | Corrigido e retestado tecnicamente na cópia P2. Responsável humano e Issue remoto pendentes. |
+| Status / responsável | Corrigido e retestado tecnicamente na cópia P2. Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta para rastreabilidade/revisão; responsável humano e fechamento pendentes. |
 | Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 e inclui `POST status=toString` com HTTP 400. Revisão/fechamento pelo grupo pendente. |
 
-O repositório remoto da cópia P2 foi informado pelo usuário. Abrir e vincular D-001 no GitHub Issues ou Jira após confirmar acesso à branch/repositório; não atribuir URL de Issue fictícia.
+Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e mantida aberta para revisão humana. O caso manual CT-013 permanece não executado; não fechar a Issue antes da revisão do grupo/professor.

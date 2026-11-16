@@ -57,11 +57,12 @@ O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-85
 
 ## Preparação do envio GitHub autorizada — 16/11/2026
 
-- O usuário indicou `https://github.com/TiagoCarmelino/Elvio-P2.git` como destino e autorizou o envio/criação de materiais. `git ls-remote` não listou refs do destino; a API REST sem autenticação retornou 404 (compatível com repositório privado ou indisponível sem credenciais). Confirmar acesso pelo Git durante o push; não inferir visibilidade.
+- O usuário indicou `https://github.com/TiagoCarmelino/Elvio-P2.git` como destino e autorizou o envio/criação de materiais. `origin` aponta para essa URL e a branch `p2-unisagrado` foi publicada; o hash remoto confirmado é `fe8c0a160a80967e4dcc9749a19edb44e929bcff`.
 - Criado [README técnico da P2](./README.md) com estado real, instruções locais isoladas, comandos, limites e links. O README de raiz recebeu somente um aviso/link para esta página; o conteúdo original do TCC foi preservado.
-- Atualizadas referências de remoto em matriz, auditoria, checklist, estrutura de entrega, formulários e defeitos. Ainda não há resultado de CI GitHub registrado.
+- A execução GitHub Actions [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), no SHA publicado, concluiu `success`. Instalação, testes isolados + LCOV, lint, TypeScript, build e publicação do artefato `p2-testes-e-cobertura` passaram. O artefato está disponível no run; isso não cobre integração/Selenium nem substitui execuções manuais.
+- Criada a [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) para D-001, mantida aberta para revisão humana. [DEFEITOS.md](./DEFEITOS.md), CSV, matriz, auditoria e checklist foram atualizados. CT-013 ainda está não executado e o fechamento da Issue depende do grupo/professor.
 - Revisão antes do envio: `.env.local` e `.env.sonar.local` são ignorados e não rastreados; a busca dos caminhos `.env` no histórico encontrou apenas arquivos `.env.example`; a verificação de padrões comuns de tokens no HEAD não encontrou correspondências. Quatro arquivos preexistentes não rastreados em `docs/` permanecem intocados e fora do envio.
-- Próximo passo autorizado: registrar `origin` para o URL informado, criar checkpoint seletivo do README/documentação P2 e enviar somente a branch `p2-unisagrado`; depois verificar se a execução do workflow foi iniciada/concluída. A primeira rodada de CI não equivale à falha controlada seguida de correção ainda exigida.
+- Próximos passos: demonstrar falha controlada seguida de correção no CI; confirmar acesso do professor; revisar e fechar Issue #1 após CT-013; realizar as demais pendências humanas listadas no [checklist](./CHECKLIST_FINAL.md). A rodada bem-sucedida não equivale à falha controlada seguida de correção exigida.
 
 ## Histórico das etapas anteriores (resultados na data em que ocorreram)
 
