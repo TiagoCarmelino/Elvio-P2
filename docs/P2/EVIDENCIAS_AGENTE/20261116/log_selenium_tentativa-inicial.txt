@@ -1,0 +1,27 @@
+$ node --env-file-if-exists=.env.local --test tests/p2-selenium.selenium.mjs
+✔ SEL-01: visitante anônimo vê bloqueio de acesso ao painel (1000.3967ms)
+✔ SEL-02: visitante envia solicitação fictícia pelo formulário (1044.3157ms)
+✔ SEL-03: administrador entra e consulta a solicitação inicial (1250.061ms)
+✔ SEL-04: administrador adiciona e remove item pela interface (1872.5318ms)
+✖ SEL-05: formulário rejeita 9 caracteres e aceita 10 (15969.2466ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21360.8116
+
+✖ failing tests:
+
+test at tests\p2-selenium.selenium.mjs:129:1
+✖ SEL-05: formulário rejeita 9 caracteres e aceita 10 (15969.2466ms)
+  Error [TimeoutError]: Waiting for element to be located By(css selector, .quote-form [role="status"])
+  Wait timed out after 15153ms
+  Captura da falha: test-results\p2-agent-20261116\CT-003-falha-2026-11-16T17-32-12-256Z.png
+      at C:\Users\tiago\OneDrive\Desktop\Hidr-ulicoTcc-mainElvio\Hidr-ulicoTcc-main\node_modules\.pnpm\selenium-webdriver@4.52.0\node_modules\selenium-webdriver\lib\webdriver.js:939:22
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    remoteStacktrace: ''
+  }
+[ELIFECYCLE] Command failed with exit code 1.

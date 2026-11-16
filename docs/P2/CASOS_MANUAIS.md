@@ -235,3 +235,5 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ## Execução
 
 **0 de 24 casos manuais executados nesta versão.** Os resultados esperados acima são especificações, não evidência de aprovação. Cada caso deverá receber execução `EX-xxx`, captura/log e vínculo de defeito apenas se falhar de fato. A planilha editável e os quatro cenários de aceitação serão preparados separadamente sem preencher resultados fictícios.
+
+As explorações do agente estão discriminadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md), com casos completos, parciais e não executados. Elas não são execuções humanas e não devem ser copiadas para o Apêndice F como se o grupo tivesse executado/conferido o resultado.

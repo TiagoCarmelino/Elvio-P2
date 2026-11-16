@@ -6,21 +6,21 @@ Estes modelos preservam os campos dos Apêndices A, F, L e M do [manual](../P2_U
 
 | Campo obrigatório | Preenchimento |
 |---|---|
-| Turma e grupo | Pendente |
-| Integrantes | Pendente |
+| Turma e grupo | Pendente: turma e número ainda não informados |
+| Integrantes | Tiago Gabriel Carmelino; Mateus Betini (confirmados pelo usuário; divisão real de atividades pendente) |
 | Nome do sistema | Sistema Web WG Hidráulica — cópia acadêmica P2; segunda opção pendente |
 | Origem do sistema | TCC em desenvolvimento; confirmação do responsável pendente |
 | Link do repositório | https://github.com/TiagoCarmelino/Elvio-P2 (privado; branch padrão `p2-unisagrado`; grupo deve conceder acesso ao professor) |
-| Licença/autorização | Pendente |
+| Licença/autorização | O usuário informou que o professor autorizou o uso do WG Hidráulica. Anexar registro/data/ajustes e confirmar autorização do responsável pelo código, se exigida. |
 | Tecnologias principais | React, TypeScript, Vinext, Supabase/PostgreSQL, Node, pnpm |
 | Como executar | Ver README técnico e plano; validar versão final antes da apresentação |
 | Fluxos selecionados | Solicitação, login, consulta/status, itens e proposta PDF |
 | Integrações existentes | Interface → APIs → Supabase Auth/RPC/PostgreSQL local |
 | Justificativa da escolha | Código acessível, fluxos com entrada, persistência e isolamento local |
-| Riscos de viabilidade | Aprovação e grupo pendentes; Docker/CI/Drive dependem de ambiente e acesso |
-| Decisão do professor | Pendente: Aprovado / Aprovado com ajustes / Não aprovado |
+| Riscos de viabilidade | Autorização informada pelo usuário, mas registro formal e detalhes da ficha pendentes; responsabilidades do grupo, acesso do professor ao repositório e organização no Drive pendentes |
+| Decisão do professor | Usuário confirmou autorização para usar o sistema; completar o campo oficial com decisão registrada: Aprovado / Aprovado com ajustes / Não aprovado |
 | Ajustes solicitados | Pendente |
-| Data da aprovação | Pendente |
+| Data da aprovação | Pendente: não informada |
 
 Registrar a **segunda opção** com nome, origem, autorização, tecnologias, forma de execução, fluxos, integração, justificativa e risco antes de apresentar a ficha.
 
@@ -31,6 +31,8 @@ Copiar uma linha por execução em [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx); não 
 | Execução | Caso | Data/versão/commit | Executor | Dados e resultado obtido | Resultado | Evidência | Defeito |
 |---|---|---|---|---|---|---|---|
 | EX-001 (reservado) | CT-001 | Pendente | Pendente | Pendente | Não executado | Pendente | — |
+
+As execuções do agente estão separadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Elas não recebem ID `EX` e não substituem a execução/conferência de Tiago e Mateus.
 
 ## Apêndice L — diário de participação
 

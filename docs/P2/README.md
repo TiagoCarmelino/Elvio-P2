@@ -62,6 +62,8 @@ O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-
 - [Auditoria e riscos](./AUDITORIA_P2.md)
 - [Checklist final](./CHECKLIST_FINAL.md)
 - [Guia para executar os 24 casos manuais](./GUIA_EXECUCAO_MANUAL.md)
+- [Registro das execuções exploratórias do agente](./REGISTRO_EXECUCOES_AGENTE_20261116.md) — não substitui as execuções humanas.
+- [Capturas e logs do agente](./EVIDENCIAS_AGENTE/20261116/LEIA-ME.md)
 - [Cenários de aceitação e testes não funcionais](./ACEITACAO_E_NAO_FUNCIONAIS.md)
 - [Rastreabilidade](./RASTREABILIDADE.md)
 - [Estrutura da entrega oficial](./ESTRUTURA_ENTREGA.md)

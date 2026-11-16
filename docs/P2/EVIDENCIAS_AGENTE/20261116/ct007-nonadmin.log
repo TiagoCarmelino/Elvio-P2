@@ -1,0 +1,10 @@
+{
+  "caseId": "CT-007",
+  "signupStatus": 200,
+  "loginStatus": 303,
+  "redirectError": "nao-autorizado",
+  "adminCookieIssued": false,
+  "unauthenticatedListStatus": 401,
+  "seedDataInBody": false,
+  "accountStoredInIgnoredEnv": true
+}

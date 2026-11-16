@@ -2,6 +2,10 @@
 
 **Estado:** roteiro preparado; **0/24 execuções manuais registradas**. Nenhum resultado abaixo é evidência de execução. Este guia operacionaliza o catálogo em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md), Apêndices E/F/H e seções 9.5–9.7 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
+**Executor desta rodada:** Tiago Gabriel Carmelino conduzirá e confirmará suas próprias execuções. Mateus Betini permanece integrante do grupo; não lhe atribuir execução, revisão ou evidência sem participação efetiva registrada.
+
+O agente já realizou explorações e automações separadas; consulte [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Esses resultados e suas capturas/logs não preenchem os `EX-xxx` humanos nem alteram o contador 0/24.
+
 ## Antes de cada execução
 
 1. Combine um executor do grupo e confirme que outra pessoa consegue repetir o procedimento.

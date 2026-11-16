@@ -51,3 +51,29 @@ Cada `TNF` exige registrar resultado obtido, conclusão `Atende / Atende parcial
 | TNF-06, usabilidade/compatibilidade | Usar formulário em largura móvel | Campos, feedback e envio acessíveis a 390×844; observações do participante | Chrome com emulação 390×844, envio fictício; pessoa representante observa tarefa e dificuldades na rodada oficial | Exploratório: envio passou, largura interna e largura do documento 390 px, sem rolagem horizontal. Observação humana pendente. |
 
 **Ambiente exploratório:** Windows/Node 24.22.3, AMD Ryzen 5 7600X, 16 GB RAM, Vinext em `localhost:3000`, Supabase local em `127.0.0.1:54321`, seed fictícia e conta administrativa local. O ensaio mediu latência HTTP do cliente no mesmo computador, não desempenho de usuário remoto; os cinco valores e data UTC estão no JSON. Os critérios do professor/grupo, repetição com versão Git anotada e avaliação humana ainda precisam constar na execução oficial. Não medir produção nem executar carga intensa.
+
+## Formulário em branco da sessão de aceitação
+
+Preencher uma cópia por participante/sessão somente durante a realização. Não preencher decisões por inferência e não registrar nome, contato, imagem identificável ou fala pessoal sem autorização adequada. Os cenários de teste continuam sem execução até que um representante real participe.
+
+| Identificação da sessão | Preenchimento durante a sessão |
+|---|---|
+| Código do participante (sem nome) | Pendente |
+| Consentimento para anotações/capturas | Pendente; confirmar antes de iniciar |
+| Data e horários de início/fim | Pendente |
+| Facilitador / observador | Pendente; integrantes do grupo a definir |
+| Sistema, branch e commit | Pendente; registrar o estado efetivamente testado |
+| Ambiente, navegador/versão e viewport | Pendente |
+| Dados fictícios e fixture usada | Pendente |
+| Ajuda ou instrução adicional oferecida | Registrar o que ocorreu; não preencher previamente |
+| Referências das evidências consentidas | Pendente; salvar por cenário, sem dados pessoais |
+| Restauração da fixture ao fim | Pendente; descrever e verificar sem `db reset` não revisado |
+
+| Cenário | Início/fim | Concluiu sem ajuda? | Esperado | Obtido/observações literais sem identificação | Decisão explícita | Evidência |
+|---|---|---|---|---|---|---|
+| AC-01 | Pendente | Pendente | Confirmação e solicitação no painel | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
+| AC-02 | Pendente | Pendente | Encontrar pedido correto sem orientação | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
+| AC-03 | Pendente | Pendente | Dois itens, edição/remoção e total correto | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
+| AC-04 | Pendente | Pendente | Condições e PDF coerentes com a ficha | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
+
+**Situação:** 0/4 participantes/sessões/decisões registrados. Este formulário é somente preparação, não é evidência de aceitação.

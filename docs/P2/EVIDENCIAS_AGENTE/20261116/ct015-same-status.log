@@ -1,0 +1,9 @@
+{
+  "caseId": "CT-015",
+  "http": 200,
+  "statusBefore": "orcamento",
+  "statusAfter": "orcamento",
+  "historyBefore": 16,
+  "historyAfter": 16,
+  "noNewEvent": true
+}

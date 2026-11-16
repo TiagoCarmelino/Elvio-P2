@@ -1,0 +1,14 @@
+$ node --env-file-if-exists=.env.local --test tests/p2-selenium.selenium.mjs
+✔ SEL-01: visitante anônimo vê bloqueio de acesso ao painel (634.2966ms)
+✔ SEL-02: visitante envia solicitação fictícia pelo formulário (1180.455ms)
+✔ SEL-03: administrador entra e consulta a solicitação inicial (1295.8349ms)
+✔ SEL-04: administrador adiciona e remove item pela interface (1988.268ms)
+✔ SEL-05: formulário rejeita 9 caracteres e aceita 10 (1110.4194ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6381.777

@@ -1,0 +1,6 @@
+{
+  "caseId": "CT-009",
+  "fixtureFound": true,
+  "expectedClient": true,
+  "status": "orcamento"
+}

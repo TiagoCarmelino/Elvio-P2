@@ -15,7 +15,7 @@
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
 | Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | Node 24.22.3, pnpm 12.18.0 e Supabase CLI 3.1.0 estão disponíveis; o comando Docker existe, mas o daemon não está acessível nesta retomada. A branch remota privada, Issue #1 e GitHub Actions já existem; quatro execuções recentes estão registradas no histórico anterior. Testes locais de integração/UI e Sonar não foram repetidos nesta retomada porque o Docker está indisponível. A equivalência de `node:test` ao JUnit exige aceitação do professor. |
+| Ferramentas obrigatórias | Parcial | Node 24.22.3, pnpm 12.18.0, Docker Desktop e Supabase CLI 3.1.0 disponíveis; daemon e Supabase local ativos nesta rodada, aplicação acessível em `localhost:3000`. Integração, Selenium, Postman e TNF foram executados localmente. Sonar/LCOV não foram repetidos nesta rodada. Repositório/Issue/CI existem, mas o acesso de leitura ao professor e a falha controlada no CI pendem; `node:test` ainda depende de aceitação. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
@@ -28,7 +28,7 @@
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
 | P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
 | P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado, com [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta e [CSV](./DEFEITOS_EXPORTACAO.csv) atualizado. Revisão/fechamento humano e exportação PDF ainda pendentes. |
-| P08 — automação | Parcial | Mínimo unitário: 7 casos candidatos (6 exigidos), mais 1 contrato simulado fora da cota; `pnpm run test` foi repetido nesta retomada, com 8/8 aprovados em 16/11/2026. As 8 integrações reais e 4 Selenium são resultados históricos de execução local, ainda dependentes de reteste na versão atual; Postman/Newman: 6 requisições e 12 verificações em rodada histórica. Falta aceite do framework e ampliar a coleção Postman. |
+| P08 — automação | Parcial | Mínimo unitário: 7 casos candidatos (6 exigidos), mais 1 contrato simulado fora da cota; `pnpm run test` foi repetido nesta retomada, com 8/8 aprovados. `test:local` 8/8, Selenium 7/7, Postman/Newman 6 requisições/12 verificações; não funcionais 6/6. Execuções locais do agente em 16/11/2026, sem equivaler aos CTs manuais. Falta aceite do framework e ampliar a coleção Postman. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
 | P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. [Quatro execuções GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions) nos commits publicados concluíram com sucesso; falta a falha controlada seguida de correção/sucesso. |
@@ -38,7 +38,7 @@
 
 ## Quantidades mínimas (seção 10, página 15)
 
-Os números a seguir combinam a verificação isolada atual de 16/11/2026 e execuções históricas datadas nas evidências; testes locais que dependem de Docker não foram repetidos nesta retomada. Um teste com muitas afirmações continua sendo um único caso automatizado. `node:test` depende de aceite do professor como equivalente a JUnit.
+Os números a seguir distinguem execuções locais do agente nesta retomada (16/11/2026) e verificações humanas, ainda não realizadas. Um teste com muitas afirmações continua sendo um único caso automatizado. `node:test` depende de aceite do professor como equivalente a JUnit.
 
 | Item | Mínimo | Confirmado no levantamento | Situação |
 |---|---:|---:|---|
@@ -47,11 +47,11 @@ Os números a seguir combinam a verificação isolada atual de 16/11/2026 e exec
 | Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão humana pendente. |
 | Execuções manuais completas | 24 | 0 | Pendente; não confundir testes automatizados com execução manual. |
 | Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial; nesta retomada, o comando isolado aprovou 8/8 testes no total (inclui 1 contrato simulado fora da cota) | Quantidade atendida se `node:test` for aceito como framework equivalente. |
-| Testes de integração/API automatizados | 5 | 8 casos reais, 8/8 aprovados em `test:local` | Mínimo numérico atendido localmente; `fetch` simulado continua fora da cota. |
-| Testes Selenium sistema/interface | 4 | 4 casos, 4/4 aprovados em `test:selenium` | Mínimo numérico atendido em Chrome local; evidência da rodada inicial falha registrada no progresso. |
+| Testes de integração/API automatizados | 5 | 8 casos reais, 8/8 aprovados nesta retomada em `test:local` | Mínimo numérico demonstrado por automação do agente; `fetch` simulado continua fora da cota; não são execução manual humana. |
+| Testes Selenium sistema/interface | 4 | 7 casos, 7/7 aprovados na rodada final do agente em `test:selenium` | Mínimo numérico demonstrado por automação; screenshot por sucesso habilitado. Não são execução manual humana. |
 | Cenários de aceitação | 4 | 4 planejados, 0 executados | Decisão de representante humano pendente. |
-| Testes não funcionais | 6 em ≥3 categorias | 6 executados exploratoriamente em segurança, desempenho e compatibilidade/usabilidade | Dados reais locais registrados; aprovação de critérios, repetição/observação humana e conclusão oficial pendentes. |
-| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | Valores atuais: 0 execuções manuais, 25/25 automações do escopo planejado, 9/9 requisitos com ao menos um teste automatizado executado e 1 defeito verificado. Cobertura por vínculo não significa aceitação integral. |
+| Testes não funcionais | 6 em ≥3 categorias | 6/6 executados pelo agente nesta retomada em segurança, desempenho e compatibilidade/usabilidade | Evidência exploratória local; aprovação dos critérios, repetição/observação humana e conclusão oficial pendentes. |
+| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | 0 execuções manuais humanas confirmadas nesta retomada. Atualizar a planilha com execuções do agente sem misturá-las às execuções humanas; cobertura por vínculo não significa aceitação integral. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | Pipeline CI/CD | 1 | 1 workflow e 4 execuções remotas recentes concluídas com sucesso (histórico GitHub). Falta a execução controlada que demonstra falha e correção. |
 | Análise de qualidade | 2 execuções | 4 análises Sonar locais, incluindo importação LCOV em 12/11/2026 | [Evidência mais recente](./EVIDENCIA_AUDITORIA_SONAR.json): cobertura total do escopo 27,1%; ver limitação do escopo parcial de testes. Quality Gate local `OK`, sem equivalência com aprovação acadêmica ou CI. |
@@ -76,8 +76,11 @@ Os números a seguir combinam a verificação isolada atual de 16/11/2026 e exec
 | `tests/p2-api.integration.test.mjs`: senha incorreta não cria sessão | HTTP-API-06, integração 6 | HTTP local real; valida redirecionamento e ausência de cookie administrativo. |
 | `tests/p2-api.integration.test.mjs`: resposta de proposta em PDF | HTTP-API-07, integração 7 | Valida MIME, nome, assinatura PDF e leitura estrutural; não valida conteúdo contra o banco nem aparência visual. |
 | `tests/p2-api.integration.test.mjs`: limites de validade 1–365 | HTTP-API-08, integração 8 | Valida limites e restauração; asserção de valor inalterado em rejeições foi fortalecida nesta auditoria. |
+| `tests/p2-selenium.selenium.mjs`: formulário rejeita 9 caracteres e aceita 10 | SEL-05, sistema/interface; associação CT-003 | Valida `validity.tooShort` e a mensagem nativa do navegador para 9; verifica confirmação para 10; screenshots de sucesso e da primeira tentativa do oráculo preservadas. É automação do agente. |
+| `tests/p2-selenium.selenium.mjs`: total com dois itens | SEL-06, sistema/interface; associação parcial CT-020 | Subtotais R$ 60 + R$ 60; total sobe R$ 120 sobre o item da seed e volta ao original após remoção. A solicitação base não estava vazia, então a associação a CT-020 é parcial. |
+| `tests/p2-selenium.selenium.mjs`: detalhe de UUID inexistente | SEL-07, sistema/interface; associação CT-011 | Sessão administrativa vê “Registro não encontrado” e opção de retorno ao painel; screenshot de sucesso preservado. |
 
-Os seis casos de `tests/triage.test.mjs` e o único teste agrupado de `tests/local-flows.integration.test.mjs` não devem ser confundidos com sete testes separados no arquivo de API. As seis requisições Postman usam prefixo `PM-` para não colidir com os IDs `HTTP-API-*`.
+Os casos unitários e o único teste agrupado de `tests/local-flows.integration.test.mjs` não devem ser confundidos com sete testes separados no arquivo de API. As seis requisições Postman usam prefixo `PM-` para não colidir com os IDs `HTTP-API-*`. A execução atual dos testes locais do agente e a classificação por CT estão em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md); nenhuma execução humana foi lançada em EX-xxx.
 
 ## Técnicas, execução, métricas e melhoria (seções 9.2–9.16)
 
@@ -87,7 +90,7 @@ Os seis casos de `tests/triage.test.mjs` e o único teste agrupado de `tests/loc
 | Equivalência, limites, positivos, negativos, alternativas e exceções | Parcial | Indicar técnica em cada caso; revisar casos de fronteira contra valores do código e do banco. |
 | Execução controlada, reteste e regressão | Pendente | Executar casos passo a passo, anexar captura/log e relacionar defeito real quando houver. |
 | Postman com variáveis, contratos, erros e encadeamento | Parcial | Coleção/ambiente JSON em [postman/](./postman), executada por Newman com 6 requisições e 12 verificações aprovadas. Execução pela interface Postman ainda pendente. |
-| Selenium com localizadores estáveis, espera e captura em falha | Concluído localmente | Quatro fluxos aprovados em Chrome; capturas de falhas na primeira rodada ficaram em `test-results/selenium/`, ignorado. |
+| Selenium com localizadores estáveis, espera e captura | Parcial | Sete fluxos aprovados pelo agente no Chrome; capturas de sucesso e a falha inicial do oráculo CT-003 foram preservadas em [EVIDENCIAS_AGENTE/20261116/](./EVIDENCIAS_AGENTE/20261116/). Não são execuções manuais humanas. |
 | Aceitação por representante | Pendente humano | Definir 4 tarefas; pessoa externa aos testes registra Aceito / ressalvas / Não aceito. |
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |

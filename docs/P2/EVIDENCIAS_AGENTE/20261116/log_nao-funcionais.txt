@@ -1,0 +1,15 @@
+$ node --env-file-if-exists=.env.local --test tests/p2-nonfunctional.test.mjs
+✔ TNF-01: quatro recursos comerciais recusam acesso anônimo (118.2148ms)
+✔ TNF-02: três entradas inválidas recebem 400 sem campo de segredo (32.2767ms)
+✔ TNF-03: início e login em cinco medições por operação (515.3251ms)
+✔ TNF-04: listagem comercial em cinco medições (250.5798ms)
+✔ TNF-05: contato e login em Chrome e Edge desktop (3959.8428ms)
+✔ TNF-06: formulário público utilizável em largura móvel Chrome (1262.7416ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6342.5605

@@ -1,0 +1,8 @@
+{
+  "caseId": "CT-024",
+  "requestId": "7ddb090c-a0fb-4699-a5a9-71f3319d8dd7",
+  "itemsCount": 0,
+  "responseStatus": 400,
+  "expectedStatus": 400,
+  "messageMatches": true
+}

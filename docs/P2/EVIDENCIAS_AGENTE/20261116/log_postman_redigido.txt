@@ -1,0 +1,56 @@
+$ node --env-file-if-exists=.env.local scripts/p2-postman-local.mjs
+(node:21576) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+P2 — WG Hidráulica — API local
+
+→ PM-01 — Login administrativo fictício
+  POST http://localhost:3000/api/auth/login [303 See Other, 460B, 78ms]
+  √  redireciona com sessão
+  √  cookie administrativo
+
+→ PM-02 — Listar e capturar ID fictício
+  GET http://localhost:3000/api/painel/solicitacoes [200 OK, 5.17kB, 16ms]
+  √  lista autenticada
+  √  contrato de lista
+  √  fixture local presente
+
+→ PM-03 — Consultar itens do pedido
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [200 OK, 529B, 57ms]
+  √  itens acessíveis
+  √  contrato de itens
+
+→ PM-04 — Rejeitar item inválido
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [400 Bad Request, 401B, 10ms]
+  √  validação de item
+  √  mensagem legível
+
+→ PM-05 — Consultar condições e proposta
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [200 OK, 559B, 57ms]
+  √  dados da proposta
+  √  validade numérica
+
+→ PM-06 — Rejeitar solicitação pública inválida
+  POST http://localhost:3000/api/solicitacoes [400 Bad Request, 421B, 12ms]
+  √  pedido inválido rejeitado
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                 6 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                 6 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 6 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                12 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 737ms                                      │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 5.36kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 38ms [min: 10ms, max: 78ms, s.d.: 26ms] │
+└────────────────────────────────────────────────────────────────┘

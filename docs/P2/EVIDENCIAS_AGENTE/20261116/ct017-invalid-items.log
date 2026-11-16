@@ -1,0 +1,14 @@
+{
+  "caseId": "CT-017",
+  "statuses": [
+    400,
+    400
+  ],
+  "itemIdsBefore": [
+    "a5451f3e-7be7-499c-af05-0fc30e34b49c"
+  ],
+  "itemIdsAfter": [
+    "a5451f3e-7be7-499c-af05-0fc30e34b49c"
+  ],
+  "unchanged": true
+}

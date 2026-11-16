@@ -1,0 +1,18 @@
+{
+  "login": 303,
+  "listing": 200,
+  "targets": [
+    {
+      "caseId": "CT-001",
+      "persisted": true,
+      "id": "7ddb090c-a0fb-4699-a5a9-71f3319d8dd7",
+      "status": "novo"
+    },
+    {
+      "caseId": "CT-003-10",
+      "persisted": true,
+      "id": "6e1f4c5c-ddf7-47d0-8525-76cefda5f1c0",
+      "status": "novo"
+    }
+  ]
+}

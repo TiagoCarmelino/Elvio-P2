@@ -1,0 +1,17 @@
+$ node --env-file-if-exists=.env.local --test tests/local-flows.integration.test.mjs tests/p2-api.integration.test.mjs
+✔ fluxos locais: proteção, login administrativo e consulta comercial (797.2147ms)
+✔ API-02: solicitação pública rejeita campos insuficientes (559.0579ms)
+✔ API-03: item de orçamento pode ser criado, consultado, alterado e removido (363.937ms)
+✔ API-04: proposta persiste alteração e volta ao valor inicial (287.9694ms)
+✔ API-05: status persiste, gera histórico e retorna ao estado inicial (355.5525ms)
+✔ API-06: senha incorreta não cria sessão administrativa (101.2349ms)
+✔ API-07: proposta da seed responde com assinatura e MIME de PDF (597.0052ms)
+✔ API-08: validade respeita limites de 1 a 365 dias (757.6598ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3352.9622
