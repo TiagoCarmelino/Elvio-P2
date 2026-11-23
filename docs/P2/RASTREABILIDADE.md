@@ -7,7 +7,7 @@
 | RF-01 | R-01 | CT-001–CT-004 | HTTP-API-02, PM-06, SEL-02, SEL-05 | Pendente | Pendente | Nenhum registrado | Parcial: CT-001–004 explorados pelo agente; todos os casos humanos pendentes |
 | RF-02 | R-02 | CT-005–CT-008 | UT-01/02, LOC-01, HTTP-API-06, SEL-01/03 | Pendente | Pendente | Nenhum registrado | Parcial: CT-005–008 explorados pelo agente; casos manuais pendentes |
 | RF-03 | R-03 | CT-009–CT-011 | LOC-01, SEL-03/07 | Pendente | Pendente | Nenhum registrado | Parcial: CT-009–011 explorados pelo agente; casos manuais pendentes |
-| RF-04 | R-04 | CT-012–CT-015 | HTTP-API-04/05/08, UT-07 | Pendente | Pendente | D-001 corrigido/retestado | Parcial: CT-012–015 explorados pelo agente; casos manuais pendentes |
+| RF-04 | R-04 | CT-012–CT-015 | HTTP-API-05, UT-07, PM-17–PM-21 | Pendente | Pendente | D-001 corrigido/retestado | Parcial: CT-012–015 explorados pelo agente; casos manuais pendentes |
 | RF-05 | R-05 | CT-016–CT-020 | HTTP-API-03, SEL-04/06 | Pendente | Pendente | Nenhum registrado | Parcial: CT-016–020 explorados; CT-020 usou solicitação com item da seed; casos humanos pendentes |
 | RF-06 | R-06 | CT-021–CT-024 | LOC-01, HTTP-API-04/07/08 | Pendente | Pendente | Nenhum registrado | Parcial: CT-021–024 explorados; API valida resposta/estrutura, conteúdo visual e comparação com banco pendentes |
 | RNF-01 | R-07 | TNF-01/TNF-02 | LOC-01, HTTP-API-02/06, SEL-01, UT-07 | Pendente | Pendente | D-001 corrigido/retestado | Rodada NF exploratória executada; critério oficial pendente |
