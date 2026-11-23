@@ -130,6 +130,9 @@ test('SEL-04: administrador adiciona e remove item pela interface', { skip }, as
 test('SEL-05: formulário rejeita 9 caracteres e aceita 10', { skip }, async () => {
   await inBrowser('CT-003', async (driver) => {
     await driver.get(page('/contato'));
+    await driver.wait(() => driver.executeScript(
+      'return Object.keys(document.querySelector(".quote-form") || {}).some(key => key.startsWith("__reactFiber"))',
+    ), 15000, 'formulário React deve estar pronto para o envio');
     await driver.findElement(By.css('.quote-form input[name="name"]')).sendKeys('Cliente CT003 P2');
     await driver.findElement(By.css('.quote-form input[name="phone"]')).sendKeys(`149${Date.now().toString().slice(-9)}`);
     const description = driver.findElement(By.css('.quote-form textarea[name="request"]'));

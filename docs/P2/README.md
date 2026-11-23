@@ -19,15 +19,86 @@ O trabalho está em preparação. A auditoria registra lacunas e resultados hist
 
 Use apenas a stack Supabase local definida em `supabase/config.toml`. Não execute `supabase link`, não use URL, chave ou conta de produção e não copie credenciais reais para arquivos versionados.
 
+### 1. Dependências e banco local
+
 ```powershell
 pnpm install --frozen-lockfile
 pnpm exec supabase start
-pnpm exec supabase db reset --local
 ```
 
-O reset reaplica migrações e o seed fictício e substitui os dados do banco local. Execute-o somente quando puder descartar os dados locais; preserve qualquer evidência antes de fazê-lo. Recrie a conta administrativa fictícia conforme os procedimentos locais do grupo após o reset.
+Na primeira execução, `supabase start` cria o banco local e aplica as cinco migrações e o seed fictício (`supabase/seed.sql`), que inclui a solicitação de teste `20000000-0000-4000-8000-000000000001`. Nas execuções seguintes, os dados locais são preservados.
 
-Crie `.env.local` localmente. Para a aplicação e as suítes locais, configure `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_DASHBOARD_SECRET` ou `AUTH_SESSION_SECRET`, `ADMIN_EMAILS`, e as variáveis `P2_LOCAL_BASE_URL`, `P2_LOCAL_ADMIN_EMAIL`, `P2_LOCAL_ADMIN_PASSWORD` e `P2_LOCAL_REQUEST_ID`, usando apenas endpoints locais, conta fictícia e valores obtidos/gerados para esta stack. O arquivo é ignorado pelo Git. Não compartilhe nem versione senhas, chaves, cookies ou tokens. Inicie a aplicação em outro terminal:
+`pnpm exec supabase db reset --local` **apaga** o banco local e o recria a partir das migrações e do seed. Use-o somente para restaurar um estado limpo, depois de preservar as evidências necessárias. Após um reset, repita os passos 3 e 4.
+
+### 2. Endereços e chave pública local
+
+```powershell
+pnpm exec supabase status
+```
+
+Anote `API URL` (esperado `http://127.0.0.1:54321`) e a chave **Publishable** (`sb_publishable_...`). Elas valem apenas para esta stack local.
+
+### 3. Chave do painel administrativo
+
+O backend do painel envia a chave `SUPABASE_DASHBOARD_SECRET` às funções do banco, que comparam o hash SHA-256 dela com o valor de `private.painel_config`. O seed grava apenas um hash; por isso, gere uma chave própria e grave o hash correspondente no banco local:
+
+```powershell
+node -e "console.log(require('crypto').randomBytes(24).toString('hex'))"
+```
+
+Abra o Supabase Studio local em `http://127.0.0.1:54323` → **SQL Editor** e execute, substituindo `<SUA_CHAVE>` pelo valor gerado:
+
+```sql
+update private.painel_config
+set chave_hash = encode(extensions.digest('<SUA_CHAVE>', 'sha256'), 'hex'),
+    atualizado_em = now()
+where id = true;
+```
+
+Use o mesmo valor em `SUPABASE_DASHBOARD_SECRET` no `.env.local`. Gere outro valor aleatório, com pelo menos 24 caracteres, para `AUTH_SESSION_SECRET`.
+
+### 4. Contas fictícias no Supabase Auth local
+
+São necessárias duas contas exclusivamente locais, com e-mails fictícios e senha fictícia de pelo menos 6 caracteres:
+
+| Conta | E-mail sugerido | Uso |
+|---|---|---|
+| Administrativa | `administrador.p2@local.test` | Painel, suítes locais e Postman; deve constar em `ADMIN_EMAILS` |
+| Não administrativa | `p2.ct007.nao-admin@local.test` | CT-007; **não** incluir em `ADMIN_EMAILS` |
+
+No Studio local (`http://127.0.0.1:54323`) → **Authentication** → **Users** → **Add user** → **Create new user**, informe e-mail e senha e marque **Auto Confirm User**. Alternativa pelo PowerShell (o cadastro local está habilitado e não exige confirmação de e-mail em `supabase/config.toml`):
+
+```powershell
+$publishable = "<chave Publishable do passo 2>"
+Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:54321/auth/v1/signup" `
+  -Headers @{ apikey = $publishable } -ContentType "application/json" `
+  -Body (@{ email = "administrador.p2@local.test"; password = "<senha fictícia>" } | ConvertTo-Json)
+```
+
+Repita para a conta não administrativa. Nunca crie essas contas em um projeto Supabase remoto.
+
+### 5. Arquivo `.env.local`
+
+Copie `.env.example` para `.env.local` (ignorado pelo Git) e preencha:
+
+| Variável | Valor local |
+|---|---|
+| `SUPABASE_URL` | `http://127.0.0.1:54321` |
+| `SUPABASE_PUBLISHABLE_KEY` | chave Publishable do passo 2 |
+| `SUPABASE_DASHBOARD_SECRET` | chave gerada no passo 3 |
+| `AUTH_SESSION_SECRET` | valor aleatório com 24+ caracteres |
+| `ADMIN_EMAILS` | `administrador.p2@local.test` |
+| `AUTH_DEV_BYPASS`, `TRIAGE_AI_ENABLED`, `CHATBOT_AI_ENABLED` | `false` |
+| `P2_LOCAL_BASE_URL` | `http://localhost:3000` |
+| `P2_LOCAL_REQUEST_ID` | `20000000-0000-4000-8000-000000000001` |
+| `P2_LOCAL_ADMIN_EMAIL` / `P2_LOCAL_ADMIN_PASSWORD` | conta administrativa do passo 4 |
+| `P2_LOCAL_NONADMIN_EMAIL` / `P2_LOCAL_NONADMIN_PASSWORD` | conta não administrativa do passo 4 |
+
+As suítes locais recusam URLs que não sejam de loopback. Não compartilhe nem versione senhas, chaves, cookies ou tokens.
+
+### 6. Aplicação
+
+Inicie a aplicação em outro terminal:
 
 ```powershell
 pnpm run dev

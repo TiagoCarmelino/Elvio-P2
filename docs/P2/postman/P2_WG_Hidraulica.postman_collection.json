@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "P2 — WG Hidráulica — API local",
-    "description": "Executar somente com Supabase e Vinext locais. A coleção valida loopback antes de cada chamada. Usar dados fictícios; a senha não integra o arquivo exportado.",
+    "description": "Executar somente com Supabase e Vinext locais. A coleção valida loopback antes de cada chamada. Usar dados fictícios; a senha não integra o arquivo exportado.\n\nExecute as pastas na ordem (A→F): a pasta A precisa rodar antes do login para não carregar o cookie administrativo. Cada operação crítica tem ao menos um caso positivo e um negativo (§9.9).\n\nEfeitos no banco local a cada execução: PM-11 cria 1 solicitação pública fictícia (não há rota de exclusão); PM-18/PM-20 alteram e restauram o status da solicitação fixture, deixando 2 eventos no histórico; o item temporário (PM-13) é removido em PM-15; as condições comerciais alteradas em PM-23 são restauradas em PM-24 e conferidas em PM-25.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "event": [
@@ -18,77 +18,373 @@
   ],
   "item": [
     {
-      "name": "PM-01 — Login administrativo fictício",
-      "request": {
-        "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
-        "body": {
-          "mode": "urlencoded",
-          "urlencoded": [
-            { "key": "email", "value": "{{adminEmail}}", "type": "text" },
-            { "key": "password", "value": "{{adminPassword}}", "type": "text" }
+      "name": "A — Sem sessão (executar antes do login)",
+      "item": [
+        {
+          "name": "PM-07 — Lista sem sessão é recusada",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('acesso anônimo recusado', () => pm.response.to.have.status(401));",
+            "pm.test('nenhum dado comercial no corpo', () => pm.expect(pm.response.text()).to.not.include('Cliente de Teste P2'));"
+          ] } }]
+        },
+        {
+          "name": "PM-08 — Alteração de status sem sessão é recusada",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"status\":\"negociacao\"}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('alteração anônima recusada', () => pm.response.to.have.status(401));"
+          ] } }]
+        },
+        {
+          "name": "PM-09 — PDF sem sessão é recusado",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('download anônimo recusado', () => pm.response.to.have.status(401));",
+            "pm.test('não devolve PDF', () => pm.expect(pm.response.headers.get('Content-Type') || '').to.not.include('application/pdf'));"
+          ] } }]
+        },
+        {
+          "name": "PM-10 — Login com senha incorreta não cria sessão",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "email", "value": "{{adminEmail}}", "type": "text" },
+                { "key": "password", "value": "senha-incorreta-p2", "type": "text" }
+              ]
+            },
+            "url": "{{baseUrl}}/api/auth/login"
+          },
+          "protocolProfileBehavior": { "followRedirects": false },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('redireciona de volta ao login', () => pm.response.to.have.status(303));",
+            "pm.test('indica erro de credenciais', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login?erro=credenciais'));",
+            "pm.test('sem cookie administrativo', () => pm.expect(pm.response.headers.get('Set-Cookie') || '').to.not.include('wg_admin_session='));"
+          ] } }]
+        }
+      ]
+    },
+    {
+      "name": "B — Sessão administrativa e consulta",
+      "item": [
+        {
+          "name": "PM-01 — Login administrativo fictício",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "email", "value": "{{adminEmail}}", "type": "text" },
+                { "key": "password", "value": "{{adminPassword}}", "type": "text" }
+              ]
+            },
+            "url": "{{baseUrl}}/api/auth/login"
+          },
+          "protocolProfileBehavior": { "followRedirects": false },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('redireciona com sessão', () => pm.response.to.have.status(303));",
+            "pm.test('cookie administrativo', () => pm.expect(pm.response.headers.get('Set-Cookie')).to.include('HttpOnly'));"
+          ] } }]
+        },
+        {
+          "name": "PM-02 — Listar e capturar ID fictício",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('lista autenticada', () => pm.response.to.have.status(200));",
+            "var p2List = pm.response.json();",
+            "pm.test('contrato de lista', () => pm.expect(p2List.solicitacoes).to.be.an('array'));",
+            "var p2Fixture = p2List.solicitacoes.find(s => s.cliente_nome === 'Cliente de Teste P2');",
+            "pm.test('fixture local presente', () => pm.expect(p2Fixture).to.exist);",
+            "if (p2Fixture) { pm.environment.set('requestId', p2Fixture.id); pm.environment.set('originalStatus', p2Fixture.status); }"
+          ] } }]
+        },
+        {
+          "name": "PM-03 — Consultar itens do pedido",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('itens acessíveis', () => pm.response.to.have.status(200));",
+            "pm.test('contrato de itens', () => pm.expect(pm.response.json().itens).to.be.an('array'));"
+          ] } }]
+        },
+        {
+          "name": "PM-05 — Consultar condições e proposta",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('dados da proposta', () => pm.response.to.have.status(200));",
+            "pm.test('validade numérica', () => pm.expect(pm.response.json().proposta.validade_dias).to.be.a('number'));",
+            "pm.environment.set('originalProposal', JSON.stringify(pm.response.json().proposta));"
+          ] } }]
+        }
+      ]
+    },
+    {
+      "name": "C — Solicitação pública",
+      "item": [
+        {
+          "name": "PM-06 — Rejeitar solicitação pública inválida",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"name\":\"A\",\"phone\":\"123\",\"request\":\"curto\"}" },
+            "url": "{{baseUrl}}/api/solicitacoes"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('pedido inválido rejeitado', () => pm.response.to.have.status(400));"
+          ] } }]
+        },
+        {
+          "name": "PM-11 — Criar solicitação pública válida",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"name\":\"{{newRequestName}}\",\"phone\":\"{{newRequestPhone}}\",\"request\":\"Solicitação fictícia criada pela coleção Postman P2.\"}" },
+            "url": "{{baseUrl}}/api/solicitacoes"
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "type": "text/javascript", "exec": [
+              "const suffix = Date.now().toString().slice(-8);",
+              "pm.environment.set('newRequestName', 'Cliente Postman P2 ' + suffix);",
+              "pm.environment.set('newRequestPhone', '1497' + suffix);"
+            ] } },
+            { "listen": "test", "script": { "type": "text/javascript", "exec": [
+              "pm.test('solicitação criada', () => pm.response.to.have.status(201));",
+              "pm.test('mensagem de confirmação', () => pm.expect(pm.response.json().message).to.include('Solicitação enviada'));"
+            ] } }
           ]
         },
-        "url": "{{baseUrl}}/api/auth/login"
-      },
-      "protocolProfileBehavior": { "followRedirects": false },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('redireciona com sessão', () => pm.response.to.have.status(303));",
-        "pm.test('cookie administrativo', () => pm.expect(pm.response.headers.get('Set-Cookie')).to.include('HttpOnly'));"
-      ] } }]
+        {
+          "name": "PM-12 — Confirmar persistência da nova solicitação",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('lista autenticada', () => pm.response.to.have.status(200));",
+            "var created = pm.response.json().solicitacoes.find(s => s.cliente_nome === pm.environment.get('newRequestName'));",
+            "pm.test('nova solicitação persistida', () => pm.expect(created).to.exist);",
+            "pm.test('status inicial novo e origem site', () => { pm.expect(created.status).to.eql('novo'); pm.expect(created.origem).to.eql('site'); });"
+          ] } }]
+        }
+      ]
     },
     {
-      "name": "PM-02 — Listar e capturar ID fictício",
-      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('lista autenticada', () => pm.response.to.have.status(200));",
-        "var p2List = pm.response.json();",
-        "pm.test('contrato de lista', () => pm.expect(p2List.solicitacoes).to.be.an('array'));",
-        "var p2Fixture = p2List.solicitacoes.find(s => s.cliente_nome === 'Cliente de Teste P2');",
-        "pm.test('fixture local presente', () => pm.expect(p2Fixture).to.exist);",
-        "if (p2Fixture) pm.environment.set('requestId', p2Fixture.id);"
-      ] } }]
+      "name": "D — Itens do orçamento",
+      "item": [
+        {
+          "name": "PM-13 — Criar item válido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"descricao\":\"Item temporário Postman P2\",\"quantidade\":2,\"valorUnitario\":30}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('item salvo', () => pm.response.to.have.status(200));",
+            "var itemId = pm.response.json().id;",
+            "pm.test('identificador devolvido', () => pm.expect(itemId).to.be.a('string'));",
+            "pm.environment.set('tempItemId', itemId);"
+          ] } }]
+        },
+        {
+          "name": "PM-14 — Confirmar item persistido",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('itens acessíveis', () => pm.response.to.have.status(200));",
+            "var item = pm.response.json().itens.find(i => i.id === pm.environment.get('tempItemId'));",
+            "pm.test('item com quantidade 2 e valor 30', () => { pm.expect(item).to.exist; pm.expect(Number(item.quantidade)).to.eql(2); pm.expect(Number(item.valor_unitario)).to.eql(30); });"
+          ] } }]
+        },
+        {
+          "name": "PM-04 — Rejeitar item inválido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"descricao\":\"X\",\"quantidade\":0,\"valorUnitario\":-1}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('validação de item', () => pm.response.to.have.status(400));",
+            "pm.test('mensagem legível', () => pm.expect(pm.response.json().message).to.be.a('string'));"
+          ] } }]
+        },
+        {
+          "name": "PM-15 — Remover item temporário",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens/{{tempItemId}}" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('item removido', () => pm.response.to.have.status(200));",
+            "pm.test('mensagem de remoção', () => pm.expect(pm.response.json().message).to.eql('Item removido.'));"
+          ] } }]
+        },
+        {
+          "name": "PM-16 — Rejeitar remoção de item já removido",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens/{{tempItemId}}",
+            "description": "Verifica apenas que a operação não é aceita (código ≥ 400). O código atual é 502, e não 404; essa semântica é observação separada e não é fixada por este teste."
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('remoção repetida não é aceita', () => pm.expect(pm.response.code).to.be.at.least(400));",
+            "pm.test('mensagem legível', () => pm.expect(pm.response.json().message).to.be.a('string'));"
+          ] } }]
+        }
+      ]
     },
     {
-      "name": "PM-03 — Consultar itens do pedido",
-      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens" },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('itens acessíveis', () => pm.response.to.have.status(200));",
-        "pm.test('contrato de itens', () => pm.expect(pm.response.json().itens).to.be.an('array'));"
-      ] } }]
+      "name": "E — Status e histórico",
+      "item": [
+        {
+          "name": "PM-17 — Rejeitar status fora do catálogo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"status\":\"desconhecido\"}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/status"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('status inválido rejeitado', () => pm.response.to.have.status(400));",
+            "pm.test('mensagem de status inválido', () => pm.expect(pm.response.json().message).to.eql('Status inválido.'));"
+          ] } }]
+        },
+        {
+          "name": "PM-18 — Alterar status temporariamente",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"status\":\"{{targetStatus}}\",\"observacao\":\"Postman P2: mudança temporária\"}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/status"
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "type": "text/javascript", "exec": [
+              "const original = pm.environment.get('originalStatus');",
+              "pm.environment.set('targetStatus', original === 'negociacao' ? 'em_atendimento' : 'negociacao');"
+            ] } },
+            { "listen": "test", "script": { "type": "text/javascript", "exec": [
+              "pm.test('status atualizado', () => pm.response.to.have.status(200));"
+            ] } }
+          ]
+        },
+        {
+          "name": "PM-19 — Confirmar status alterado",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "var current = pm.response.json().solicitacoes.find(s => s.id === pm.environment.get('requestId'));",
+            "pm.test('novo status persistido', () => pm.expect(current.status).to.eql(pm.environment.get('targetStatus')));"
+          ] } }]
+        },
+        {
+          "name": "PM-20 — Restaurar status original",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"status\":\"{{originalStatus}}\",\"observacao\":\"Postman P2: restauração do status\"}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/status"
+          },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('status restaurado', () => pm.response.to.have.status(200));"
+          ] } }]
+        },
+        {
+          "name": "PM-21 — Confirmar restauração do status",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "var current = pm.response.json().solicitacoes.find(s => s.id === pm.environment.get('requestId'));",
+            "pm.test('status original de volta', () => pm.expect(current.status).to.eql(pm.environment.get('originalStatus')));"
+          ] } }]
+        }
+      ]
     },
     {
-      "name": "PM-04 — Rejeitar item inválido",
-      "request": {
-        "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "body": { "mode": "raw", "raw": "{\"descricao\":\"X\",\"quantidade\":0,\"valorUnitario\":-1}" },
-        "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/itens"
-      },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('validação de item', () => pm.response.to.have.status(400));",
-        "pm.test('mensagem legível', () => pm.expect(pm.response.json().message).to.be.a('string'));"
-      ] } }]
-    },
-    {
-      "name": "PM-05 — Consultar condições e proposta",
-      "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados" },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('dados da proposta', () => pm.response.to.have.status(200));",
-        "pm.test('validade numérica', () => pm.expect(pm.response.json().proposta.validade_dias).to.be.a('number'));"
-      ] } }]
-    },
-    {
-      "name": "PM-06 — Rejeitar solicitação pública inválida",
-      "request": {
-        "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "body": { "mode": "raw", "raw": "{\"name\":\"A\",\"phone\":\"123\",\"request\":\"curto\"}" },
-        "url": "{{baseUrl}}/api/solicitacoes"
-      },
-      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
-        "pm.test('pedido inválido rejeitado', () => pm.response.to.have.status(400));"
-      ] } }]
+      "name": "F — Condições comerciais e proposta PDF",
+      "item": [
+        {
+          "name": "PM-22 — Rejeitar validade 0",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{{proposalBody}}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados"
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "type": "text/javascript", "exec": [
+              "const p = JSON.parse(pm.environment.get('originalProposal'));",
+              "pm.environment.set('proposalBody', JSON.stringify({ validadeDias: 0, prazoEntrega: p.prazo_entrega || '', condicoesPagamento: p.condicoes_pagamento || '', observacoes: p.observacoes || '' }));"
+            ] } },
+            { "listen": "test", "script": { "type": "text/javascript", "exec": [
+              "pm.test('validade fora do intervalo rejeitada', () => pm.response.to.have.status(400));",
+              "pm.test('mensagem do intervalo', () => pm.expect(pm.response.json().message).to.include('1 e 365'));"
+            ] } }
+          ]
+        },
+        {
+          "name": "PM-23 — Salvar validade 30",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{{proposalBody}}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados"
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "type": "text/javascript", "exec": [
+              "const p = JSON.parse(pm.environment.get('originalProposal'));",
+              "pm.environment.set('proposalBody', JSON.stringify({ validadeDias: 30, prazoEntrega: p.prazo_entrega || '', condicoesPagamento: p.condicoes_pagamento || '', observacoes: p.observacoes || '' }));"
+            ] } },
+            { "listen": "test", "script": { "type": "text/javascript", "exec": [
+              "pm.test('condições salvas', () => pm.response.to.have.status(200));"
+            ] } }
+          ]
+        },
+        {
+          "name": "PM-24 — Restaurar condições originais",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{{proposalBody}}" },
+            "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados"
+          },
+          "event": [
+            { "listen": "prerequest", "script": { "type": "text/javascript", "exec": [
+              "const p = JSON.parse(pm.environment.get('originalProposal'));",
+              "pm.environment.set('proposalBody', JSON.stringify({ validadeDias: p.validade_dias, prazoEntrega: p.prazo_entrega || '', condicoesPagamento: p.condicoes_pagamento || '', observacoes: p.observacoes || '' }));"
+            ] } },
+            { "listen": "test", "script": { "type": "text/javascript", "exec": [
+              "pm.test('condições restauradas', () => pm.response.to.have.status(200));"
+            ] } }
+          ]
+        },
+        {
+          "name": "PM-25 — Confirmar restauração das condições",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta/dados" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "var original = JSON.parse(pm.environment.get('originalProposal'));",
+            "var saved = pm.response.json().proposta;",
+            "pm.test('validade original de volta', () => pm.expect(saved.validade_dias).to.eql(original.validade_dias));",
+            "pm.test('textos originais de volta', () => { pm.expect(saved.prazo_entrega || '').to.eql(original.prazo_entrega || ''); pm.expect(saved.condicoes_pagamento || '').to.eql(original.condicoes_pagamento || ''); });"
+          ] } }]
+        },
+        {
+          "name": "PM-26 — Gerar proposta PDF",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/{{requestId}}/proposta" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('PDF gerado', () => pm.response.to.have.status(200));",
+            "pm.test('tipo application/pdf', () => pm.expect(pm.response.headers.get('Content-Type')).to.include('application/pdf'));",
+            "pm.test('nome do arquivo', () => pm.expect(pm.response.headers.get('Content-Disposition')).to.include('proposta-wg-'));",
+            "pm.test('assinatura %PDF-', () => pm.expect(pm.response.text().slice(0, 5)).to.eql('%PDF-'));"
+          ] } }]
+        },
+        {
+          "name": "PM-27 — PDF de solicitação inexistente",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/painel/solicitacoes/ffffffff-ffff-4fff-8fff-fffffffffff1/proposta" },
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+            "pm.test('solicitação inexistente', () => pm.response.to.have.status(404));",
+            "pm.test('mensagem de não encontrado', () => pm.expect(pm.response.json().message).to.eql('Solicitação não encontrada.'));"
+          ] } }]
+        }
+      ]
     }
   ]
 }
