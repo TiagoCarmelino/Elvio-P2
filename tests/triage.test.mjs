@@ -33,7 +33,8 @@ test('valida a resposta estruturada do chatbot', () => {
     readyForReview: false,
     handoffRequested: false,
   });
-  assert.equal(result.triage.servico, 'nao_sei');
+  // FALHA CONTROLADA INTENCIONAL (§9.15): valor correto é 'nao_sei'; será revertida no commit seguinte.
+  assert.equal(result.triage.servico, 'manutencao');
   assert.throws(() => domain.parseChatbotResult({ reply: '', triage: domain.emptyTriage, readyForReview: false, handoffRequested: false }));
 });
 test('resumo máximo cabe no limite existente do banco', () => {
