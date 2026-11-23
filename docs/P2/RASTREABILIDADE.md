@@ -1,10 +1,10 @@
 # Rastreabilidade — P2
 
-**Versão:** 0.3, 23/11/2026. Esta matriz segue o Apêndice H do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Casos planejados são descritos em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md). `EX-xxx` será atribuído somente após execução e conferência humana; testes automatizados/assistidos do agente têm IDs próprios e não ocupam esse campo.
+**Versão:** 0.4, 23/11/2026. Esta matriz segue o Apêndice H do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Casos planejados são descritos em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md). EX-001–EX-003 foram registrados por execução de Tiago em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md); automações do agente têm IDs próprios e não ocupam esse campo.
 
 | Requisito | Risco | Casos manuais | Automação relacionada | Execução(ões) manuais | Evidência manual | Defeito(s) | Situação |
 |---|---|---|---|---|---|---|---|
-| RF-01 | R-01 | CT-001–CT-004 | HTTP-API-02, PM-06, PM-11/12, SEL-02, SEL-05 | Pendente | Pendente | Nenhum registrado | Parcial: CT-001–004 explorados pelo agente; todos os casos humanos pendentes |
+| RF-01 | R-01 | CT-001–CT-004 | HTTP-API-02, PM-06, PM-11/12, SEL-02, SEL-05 | EX-001 (CT-001), EX-002 (CT-003), EX-003 (CT-004) — executor Tiago; CT-002 pendente | [Evidências CT-001/EX-001](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md#ex-001--ct-001--envio-válido-pelo-formulário), [CT-003/EX-002](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md#ex-002--ct-003--limite-da-descrição-9-e-10-caracteres), [CT-004/EX-003](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md#ex-003--ct-004--nova-solicitação-com-whatsapp-já-conhecido) | [D-002](./DEFEITOS.md#d-002--novo-envio-com-whatsapp-já-cadastrado-sobrescreve-empresa-e-e-mail-do-cliente), Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3) | CT-001 e CT-003 aprovados sem defeito observado; CT-004 aprovado quanto ao objetivo principal, com D-002 novo; CT-002 pendente |
 | RF-02 | R-02 | CT-005–CT-008 | UT-01/02, LOC-01, HTTP-API-06, PM-01, PM-07–PM-10, SEL-01/03 | Pendente | Pendente | Nenhum registrado | Parcial: CT-005–008 explorados pelo agente; casos manuais pendentes |
 | RF-03 | R-03 | CT-009–CT-011 | LOC-01, PM-02, SEL-03/07 | Pendente | Pendente | Nenhum registrado | Parcial: CT-009–011 explorados pelo agente; casos manuais pendentes |
 | RF-04 | R-04 | CT-012–CT-015 | HTTP-API-05, UT-07, PM-17–PM-21 | Pendente | Pendente | D-001 corrigido/retestado | Parcial: CT-012–015 explorados pelo agente; casos manuais pendentes |

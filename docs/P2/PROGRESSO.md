@@ -1,14 +1,22 @@
 # Progresso da preparação da P2
 
 **Atualizado em:** 23/11/2026
+
+## Execuções humanas recebidas e consolidadas — 23/11/2026
+
+- Tiago Gabriel Carmelino confirmou e forneceu registros e capturas de CT-001 (EX-001, aprovado), CT-003 (EX-002, aprovado) e CT-004 (EX-003, aprovado quanto ao objetivo principal, com defeito D-002). **Contagem humana atual: 3/24**; os outros 21 casos não foram declarados executados. As evidências foram copiadas para [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/), mantendo os nomes originais.
+- O registro por execução está em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md); a rastreabilidade RF-01 liga os três CTs, EXs, evidências e [D-002](./DEFEITOS.md#d-002--novo-envio-com-whatsapp-já-cadastrado-sobrescreve-empresa-e-e-mail-do-cliente). D-002 foi incluído em [DEFEITOS.md](./DEFEITOS.md), [CSV](./DEFEITOS_EXPORTACAO.csv) e na Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), como Novo, severidade Média e prioridade Média. Reteste pendente.
+- A planilha [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) foi atualizada nas abas Execucoes e Defeitos para refletir EX-001–EX-003 e D-002; a lista de status de defeitos inclui `Novo` e o recálculo foi solicitado ao abrir no Excel. Os componentes XML do XLSX foram validados e os valores conferidos. Resultados do agente continuam separados e não são somados como execução humana. Nenhuma suíte automatizada foi reexecutada nesta atualização documental.
+- Próximas tarefas humanas: executar os 21 casos restantes; rever e decidir a regra de negócio de D-002, corrigir e retestar se aprovado pelo grupo; realizar quatro sessões de aceitação com representante; completar aprovações e documentos finais.
+
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
-## Preparação da execução manual individual — 16/11/2026
+## Preparação da execução manual individual — 16/11/2026 (estado àquela data)
 
 - Tiago Gabriel Carmelino conduzirá e confirmará pessoalmente os 24 CTs. Mateus Betini permanece como integrante do grupo, sem atribuição de atividades ou evidências até que participe de fato. Não há execução humana registrada nesta etapa.
 - Estado observado sem executar suítes: Docker CLI respondeu com servidor 29.9.3; Supabase CLI local `pnpm exec supabase status` indicou API `127.0.0.1:54321` e banco `127.0.0.1:54322`; Auth health HTTP 200; aplicação `http://localhost:3000/login` HTTP 200. Banco local não foi resetado nem alterado nesta verificação. Um contêiner `supabase_vector` aparecia reiniciando; CT-001 não depende desse serviço de busca.
 - O Supabase CLI está disponível como dependência local do projeto (`pnpm exec`), embora `supabase` não esteja no PATH global. Nenhuma configuração global do Windows/Git foi alterada. Node.js 24.22.3 e pnpm 12.18.0.
-- CT-001 está preparado, mas **não executado**. Uma consulta SQL explicitamente `--read-only` ao Supabase local confirmou zero linhas existentes para o telefone fictício sugerido `14999001611`; nenhuma linha foi inserida. Instruções em [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md), campos pendentes em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md); a pasta de capturas humanas está em [EVIDENCIAS_HUMANAS/](./EVIDENCIAS_HUMANAS/). Ao receber resultado e capturas de Tiago, preencher o registro/matriz/planilha e só então atribuir `EX`.
+- Naquela data, CT-001 estava preparado mas não executado; a consulta somente leitura ao Supabase local não inseriu linhas. Em 23/11/2026, Tiago posteriormente confirmou EX-001 e as execuções EX-002/EX-003, documentadas acima.
 - Nenhum teste automatizado foi reexecutado. O checkpoint local seletivo inclui os documentos e evidências P2 já existentes, sem os quatro arquivos soltos preexistentes em `docs/`; TCC original e produção seguem fora do escopo.
 
 ## Retomada técnica e checkpoint — 12/11/2026

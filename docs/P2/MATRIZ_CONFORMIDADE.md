@@ -2,7 +2,7 @@
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
 **Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch padrão `p2-unisagrado` publicada no repositório GitHub privado; o grupo ainda deve conceder acesso ao professor.
-**Revisão:** 23/11/2026, após merge do PR #2. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
+**Revisão:** 23/11/2026, após merge do PR #2 e registro das primeiras execuções humanas. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
 
@@ -25,9 +25,9 @@
 | P02 — requisitos, escopo e riscos | Parcial | Requisitos e riscos P2 definidos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); confirmar escopo com grupo/professor. |
 | P03 — plano de testes | Parcial | Estratégia e critérios em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); responsáveis e calendário dependem do grupo. |
 | P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos; [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) detalha passos, esperado e evidências. Revisão humana e execuções seguem pendentes. |
-| P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
-| P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
-| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado, com [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta e [CSV](./DEFEITOS_EXPORTACAO.csv) atualizado. Revisão/fechamento humano e exportação PDF ainda pendentes. |
+| P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos, automação e, para RF-01, execuções EX-001–EX-003, evidências e D-002. Demais execuções humanas ainda pendem. |
+| P06 — evidências manuais | Parcial | Três casos humanos registrados por Tiago (CT-001, CT-003 e CT-004), com capturas em [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/) e registros EX-001–EX-003. Restam 21 dos 24 casos; CT-004 encontrou D-002. |
+| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado, Issue #1 aberta; D-002 é novo, severidade/prioridade média, Status Novo, vinculado à [Issue #3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3) e ao [CSV](./DEFEITOS_EXPORTACAO.csv). Revisão, correção/reteste de D-002, fechamento humano e exportação PDF ainda pendentes. |
 | P08 — automação | Parcial | Sete unitários candidatos à cota, mais um contrato simulado fora dela. `test:local` 8/8, Selenium 7/7 e TNF 6/6 foram resultados locais do agente em 16/11; Selenium é da revisão anterior ao PR #2 e não foi repetido após o ajuste de SEL-05. Newman 6/6 requisições/12 verificações também é resultado da coleção anterior. A coleção atual contém PM-01–PM-27 e 51 verificações, ainda sem execução após o merge. Aceite de `node:test` pendente. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
@@ -45,13 +45,13 @@ Os números a seguir distinguem execuções locais do agente nesta retomada (16/
 | Requisitos testáveis | 8 (≥6 RF, ≥2 RNF) | 9: 6 RF e 3 RNF | Especificados em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); aprovação humana pendente. |
 | Riscos priorizados | 8 | 9 | Priorizados no plano; revisão humana pendente. |
 | Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão humana pendente. |
-| Execuções manuais completas | 24 | 0 | Pendente; não confundir testes automatizados com execução manual. |
+| Execuções manuais completas | 24 | 3 de 24 | Parcial: EX-001/CT-001, EX-002/CT-003 e EX-003/CT-004 registrados por Tiago; 21 casos ainda pendentes. CT-004 está aprovado quanto ao objetivo principal, com D-002 observado. |
 | Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial; nesta retomada, o comando isolado aprovou 8/8 testes no total (inclui 1 contrato simulado fora da cota) | Quantidade atendida se `node:test` for aceito como framework equivalente. |
 | Testes de integração/API automatizados | 5 | 8 casos reais, 8/8 aprovados nesta retomada em `test:local` | Mínimo numérico demonstrado por automação do agente; `fetch` simulado continua fora da cota; não são execução manual humana. |
 | Testes Selenium sistema/interface | 4 | 7 casos, 7/7 aprovados na rodada final do agente em `test:selenium` | Mínimo numérico demonstrado por automação; screenshot por sucesso habilitado. Não são execução manual humana. |
 | Cenários de aceitação | 4 | 4 planejados, 0 executados | Decisão de representante humano pendente. |
 | Testes não funcionais | 6 em ≥3 categorias | 6/6 executados pelo agente nesta retomada em segurança, desempenho e compatibilidade/usabilidade | Evidência exploratória local; aprovação dos critérios, repetição/observação humana e conclusão oficial pendentes. |
-| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | 0 execuções manuais humanas confirmadas nesta retomada. Atualizar a planilha com execuções do agente sem misturá-las às execuções humanas; cobertura por vínculo não significa aceitação integral. |
+| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; execução manual 3/24 | Indicadores finais pendentes; agentes e humanos permanecem em trilhas separadas, e cobertura por vínculo não significa aceitação integral. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | Pipeline CI/CD | 1 | Workflow remoto comprovado; run #7 falhou intencionalmente (7/8) e run #8 passou após reversão (8/8, lint, TypeScript, build e artefatos); mais quatro runs verdes históricos. |
 | Análise de qualidade | 2 execuções | 4 análises Sonar locais, incluindo importação LCOV em 12/11/2026 | [Evidência mais recente](./EVIDENCIA_AUDITORIA_SONAR.json): cobertura total do escopo 27,1%; ver limitação do escopo parcial de testes. Quality Gate local `OK`, sem equivalência com aprovação acadêmica ou CI. |
@@ -93,7 +93,7 @@ Os casos unitários e o único teste agrupado de `tests/local-flows.integration.
 | Selenium com localizadores estáveis, espera e captura | Parcial | Sete fluxos aprovados pelo agente no Chrome; capturas de sucesso e a falha inicial do oráculo CT-003 foram preservadas em [EVIDENCIAS_AGENTE/20261116/](./EVIDENCIAS_AGENTE/20261116/). Não são execuções manuais humanas. |
 | Aceitação por representante | Pendente humano | Definir 4 tarefas; pessoa externa aos testes registra Aceito / ressalvas / Não aceito. |
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
-| Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
+| Métricas e interpretação | Parcial | Oito fórmulas da planilha foram preparadas; três execuções humanas estão registradas (3/24). Interpretar resultados finais e incorporar gráficos no relatório após completar os casos; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
 | CI/CD com gatilho, instalação, teste e resultado | Parcial | Falha intencional run [#7](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937) em `6014a43`; após reversão, run [#8](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066) passou no commit `9b1bf7e`. Registros e cinco capturas em [EVIDENCIAS_CI](./EVIDENCIAS_CI/). Falta revisar acesso professor e discutir se integração/UI deve ser adicionada ao workflow. |
 | Qualidade inicial/final e plano de melhoria | Parcial | Quatro análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira; quarta importou LCOV e reportou 27,1% em 1.020 linhas cobráveis. Responsáveis humanos e plano final pendentes. |

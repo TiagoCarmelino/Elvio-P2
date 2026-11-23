@@ -5,8 +5,8 @@
 ## Identificação e README da pasta 00 — ordem obrigatória
 
 1. **Integrantes, turma e grupo:** pendentes de preenchimento pelo grupo.
-2. **Sistema e versão:** WG Hidráulica, cópia P2; registrar hash do commit submetido. Aprovação do professor pendente.
-3. **Repositório:** remoto ainda não configurado; inserir URL após publicação autorizada.
+2. **Sistema e versão:** WG Hidráulica, cópia P2; o usuário informou que o professor autorizou o uso. Anexar o registro formal da autorização e registrar hash do commit submetido.
+3. **Repositório:** cópia P2 em `https://github.com/TiagoCarmelino/Elvio-P2`, branch `p2-unisagrado`; confirmar hash publicado no fechamento da entrega.
 4. **Tecnologias:** TypeScript, React, Vinext, Node.js, pnpm, Supabase/PostgreSQL, Docker, Selenium, Newman/Postman e SonarQube local.
 5. **Pré-requisitos:** Node ≥22.13, pnpm 12.18.0, Docker Desktop, Supabase CLI 3.1.0, Chrome/Edge para as respectivas suítes. Conferir versões na máquina de demonstração.
 6. **Instalação:** `pnpm install --frozen-lockfile` nesta cópia P2. No PowerShell com política que bloqueia `.ps1`, usar `pnpm.cmd`.
@@ -16,7 +16,7 @@
 10. **Testes:** `pnpm run test`, `pnpm run test:local`, `pnpm run test:selenium`, `pnpm run test:postman`, `pnpm run test:nonfunctional`, `pnpm run lint`, `pnpm exec tsc --noEmit`, `pnpm run build`. As suítes locais exigem serviços e `.env.local`.
 11. **Pipeline:** [p2-ci.yml](../../.github/workflows/p2-ci.yml); URL e resultado GitHub Actions pendentes.
 12. **Documentos:** [matriz](./MATRIZ_CONFORMIDADE.md), [plano](./ESCOPO_E_PLANO.md), [casos](./CASOS_MANUAIS.md), [rastreabilidade](./RASTREABILIDADE.md), [planilha](./CONTROLE_P2.xlsx), [aceitação/TNF](./ACEITACAO_E_NAO_FUNCIONAIS.md), [defeitos](./DEFEITOS.md) e [TDD/qualidade](./TDD_CI_QUALIDADE.md).
-13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: nenhuma execução manual/aceitação humana; CI remoto com falha intencional #7 e reversão verde #8 documentadas; a coleção Postman pós-merge (27 requisições/51 verificações) ainda não foi executada; Selenium precisa reteste após o ajuste no PR #2; aprovação de sistema/framework, avisos ESLint e qualidade final ainda dependem de revisão. Contato real do grupo a preencher.
+13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: 3/24 execuções manuais registradas por Tiago (CT-001, CT-003 e CT-004), com D-002 novo em CT-004; quatro sessões de aceitação aguardam representante; CI remoto com falha intencional #7 e reversão verde #8 documentadas; a coleção Postman pós-merge (27 requisições/51 verificações) ainda não foi executada; Selenium precisa reteste após o ajuste no PR #2; aprovação formal do sistema/framework, avisos ESLint e qualidade final ainda dependem de revisão. Contato real do grupo a preencher.
 
 ## Estrutura oficial do Drive
 
@@ -52,7 +52,7 @@ Usar **somente** a pasta disponibilizada pelo professor, com nome `P2_TQS_2026_T
 | 3. Escopo, requisitos e riscos | 6 RF, 3 RNF e 9 riscos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); revisão humana pendente. |
 | 4. Planejamento dos testes | Estratégia, dados fictícios, ambiente e critérios no plano; participantes/calendário pendentes. |
 | 5. Especificação dos casos | 24 CT especificados em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão pendente. |
-| 6. Execução manual e defeitos | 0/24 execuções manuais; D-001 descoberto por unitário TDD. Inserir resultados, capturas, defeitos e retestes reais depois da rodada. |
+| 6. Execução manual e defeitos | 3/24 execuções manuais registradas (EX-001/CT-001, EX-002/CT-003, EX-003/CT-004); D-001 veio de unitário TDD e D-002 foi observado manualmente em CT-004. Restam 21 casos e reteste de D-002. |
 | 7. Automação | 7 unitários candidatos, 5 integrações, 4 Selenium; comandos/ambiente/resultados em [PROGRESSO.md](./PROGRESSO.md). Aceite do framework pendente. |
 | 8. Integração e sistema | HTTP real + Supabase local, fluxos Selenium e coleção Postman/Newman; limitações e restauro de dados. |
 | 9. Aceitação e não funcionais | 4 cenários de aceitação sem participante; 6 TNF exploratórios com valores reais, critério final e observação humana pendentes. |

@@ -6,7 +6,7 @@ O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O
 
 ## Estado da entrega
 
-O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). A falha controlada e a reversão no GitHub Actions foram comprovadas no run #7 (vermelho intencional) e #8 (verde). Continuam pendentes as 24 execuções manuais, quatro sessões de aceitação, registro formal da autorização já confirmada pelo usuário, diário do grupo, compartilhamento com o professor, aceite de `node:test` e execução da coleção Postman atual. Selenium e integração precisam ser revalidados após o merge do PR #2. Os documentos em `ARTEFATOS_PREPARACAO/` continuam rascunhos e não devem ser submetidos como versões finais.
+O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). A falha controlada e a reversão no GitHub Actions foram comprovadas no run #7 (vermelho intencional) e #8 (verde). Três dos 24 casos manuais foram executados e registrados por Tiago (CT-001, CT-003 e CT-004; D-002 encontrado em CT-004); restam 21 casos, quatro sessões de aceitação, registro formal da autorização já confirmada pelo usuário, diário do grupo, compartilhamento com o professor, aceite de `node:test` e execução da coleção Postman atual. Selenium e integração precisam ser revalidados após o merge do PR #2. Os documentos em `ARTEFATOS_PREPARACAO/` continuam rascunhos e não devem ser submetidos como versões finais.
 
 ## Requisitos locais
 
