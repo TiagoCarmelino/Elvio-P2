@@ -1,6 +1,6 @@
 # Checklist de fechamento da P2
 
-**Estado em 12/11/2026:** itens vazios exigem evidência posterior; nenhuma assinatura, aprovação ou execução humana foi presumida. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Atualizado em 23/11/2026:** itens vazios exigem evidência posterior; nenhuma assinatura, aprovação ou execução humana foi presumida. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 ## Professor e grupo
 
@@ -17,21 +17,24 @@
 - [x] Registrar D-001 na [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) e atualizar CSV.
 - [ ] Grupo revisar/atribuir/fechar a Issue após CT-013 manual e exportar relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
+- [ ] Após o PR #2, revalidar `test:local` e Selenium (incluindo SEL-05 atualizado) antes de chamar os resultados históricos de atuais; nenhuma reexecução ocorreu nesta revisão.
 - [ ] Usar os quatro cenários e protocolo de facilitação em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); convidar representante que não escreveu os testes e executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.
 - [ ] Repetir TNF-01–06 na versão final com critérios aprovados, dados/medidas, capturas e conclusão individual; observar usabilidade com participante.
-- [ ] Ampliar a coleção Postman para positivo e negativo das operações críticas e executar/exportar evidências finais.
+- [x] Ampliar a coleção Postman para caminhos positivos/negativos das operações críticas: 27 requisições/51 verificações, PM-01–PM-27 mapeadas na rastreabilidade.
+- [ ] Executar/exportar evidências da coleção Postman atual (a execução Newman histórica 6/12 é da versão anterior e não comprova a coleção pós-merge).
 - [ ] Reexecutar HTTP-API-08 depois da asserção fortalecida e confirmar no Supabase local que os valores rejeitados 0/366 preservam o estado anterior; anexar log da rodada final.
 - [ ] Fechar a lacuna de SEL-02: após envio pela interface, verificar a solicitação persistida no painel e planejar limpeza/restauração segura dos registros fictícios Selenium no banco local.
 - [ ] Avaliar visualmente o PDF de proposta e checar dados/valores em comparação com o banco, além da assinatura HTTP automatizada.
 - [x] Gerar LCOV e importar no SonarQube local; resultado documentado em [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). [ ] Repetir na versão final e revisar cobertura/achados após as mudanças finais.
 - [ ] Revisar os nove avisos ESLint de imagem com a próxima atualização do TCC, preservando arquitetura e layout.
+- [ ] Avaliar hardening condicional R-SEG-01 (flag explícita para confiar no cabeçalho hospedado e testes para flag falsa/verdadeira) na revisão técnica apropriada. A verificação de 23/11 no plugin retornou 401 nos dois casos e não gerou defeito.
 
 ## Repositório e CI/CD
 
 - [x] `origin` verificado no destino exclusivo P2; repositório privado, branch padrão `p2-unisagrado`; nenhum arquivo de credencial foi incluído.
 - [x] Enviar a branch P2 e confirmar o hash publicado `fe8c0a160a80967e4dcc9749a19edb44e929bcff`.
-- [x] Quatro execuções GitHub Actions recentes foram aprovadas: [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), [43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246), [43904521607](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43904521607) e [43905776217](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43905776217); revisar logs/artefatos e completar a execução controlada de falha/correção.
-- [ ] Demonstrar falha **controlada** de teste na pipeline e posterior correção/aprovação, registrando commits e URLs; não apresentar RED local como falha da CI.
+- [x] Registrar falha **controlada intencional** na pipeline e posterior reversão/aprovação: commit `6014a43`, run [#7 vermelho](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937); commit `9b1bf7e`, run [#8 verde](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066). Não é o ciclo TDD local. Capturas em [EVIDENCIAS_CI/](./EVIDENCIAS_CI/).
+- [ ] Revisar acesso/permissões do professor e avaliar se integração/API/Selenium/Postman devem ser adicionados à CI.
 - [ ] Grupo conceder acesso de leitura ao professor e conferir Issues, pipeline e artefatos com essa conta; não mudar o repositório para público sem aprovação.
 
 ## Documentos e entrega oficial

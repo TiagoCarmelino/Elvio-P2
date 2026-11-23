@@ -1,6 +1,6 @@
 # Progresso da preparação da P2
 
-**Atualizado em:** 16/11/2026
+**Atualizado em:** 23/11/2026
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 
 ## Preparação da execução manual individual — 16/11/2026
@@ -274,3 +274,13 @@ Não havia listeners nas portas 3000, 5173, 54321–54323, 5678 ou 9229. Process
 - Permanecem **0/24 CTs executados e conferidos por integrantes** e **0/4 sessões de aceitação**. AC-01–AC-04 aguardam representante real. O formulário para cada sessão foi acrescentado em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md), sem preencher participantes ou decisões.
 - Testes que dependem do ambiente foram executados somente na stack local. Envios públicos feitos pelo agente geraram registros fictícios adicionais que permanecem no banco local; nenhum registro foi excluído. O grupo deve revisar a massa antes de limpar/restaurar qualquer dado.
 - O script Selenium e documentos/evidências desta rodada estão apenas na cópia local, sem commit ou envio ao GitHub nesta execução. O TCC original continua intocado.
+
+## Merge do PR #2 e atualização da auditoria — 23/11/2026
+
+- Antes do pull, os arquivos rastreados estavam limpos na branch `p2-unisagrado`, em `b5dd483`; os quatro arquivos soltos preexistentes em `docs/` foram preservados. `git pull` normal avançou sem conflito até `219210a`, integrando o PR #2 (`p2-claude-correcoes`). Não houve force, reset nem alteração da branch remota nesta etapa.
+- O merge trouxe evidência de falha controlada intencional e reversão verde no CI, coleção Postman ampliada para **27 requisições/51 verificações**, README em seis passos, `.env.example` com variáveis P2, referências PM-01–PM-27 nas linhas RF-01–RF-06 e ajustes de teste de integração/SEL-05. Nenhuma suíte foi executada após o merge nesta atualização; resultados anteriores permanecem históricos.
+- **Apêndice J:** commit `6014a43`, GitHub Actions [run #7 vermelho](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937), 7/8 testes aprovados e 1 asserção alterada intencionalmente falhando. Commit de reversão `9b1bf7e`, [run #8 verde](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066), testes/LCOV 8/8 e etapas Lint, TypeScript, Build e publicação aprovadas. É demonstração de CI deliberada, **não parte do TDD**. Os cinco prints e `REGISTRO.md` foram copiados para [EVIDENCIAS_CI/](./EVIDENCIAS_CI/); os originais em Desktop foram preservados.
+- A coleção atual Postman tem **27 requisições e 51 verificações** com IDs PM-01–PM-27. A execução Newman histórica de 6/12 em 16/11 foi feita contra a versão antiga; a coleção pós-merge ainda não foi executada. RF-01–RF-06 mantêm os vínculos PM descritos em [RASTREABILIDADE.md](./RASTREABILIDADE.md).
+- Atualização documental de automação: o resultado Selenium do agente mais recente continua sendo **7/7 em 16/11**, antes do ajuste SEL-05 integrado pelo PR #2; não foi reexecutado. O resultado local de integração 8/8 também é histórico. Portanto não declarar as suítes atuais aprovadas sem reteste futuro, quando Tiago decidir fazê-lo.
+- **R-SEG-01 (risco condicional, não defeito):** revisão levantou confiança de `getAdminEmail` no cabeçalho `oai-authenticated-user-email`; a recomendação é confiar nele somente com flag explícita e teste unitário de flag ligada/desligada, para deploy atrás da plataforma/plugin confiável. Conforme verificação informada por Tiago, em 23/11/2026 às 15:52 no commit `b5dd483`, dois GET somente leitura a `/api/painel/solicitacoes` (sem credenciais e com cabeçalho forjado) retornaram 401, pois `@openai/sites-vite-plugin` remove cabeçalho fornecido pelo cliente. A hipótese de acesso indevido foi descartada nesse ambiente; permanece recomendação de hardening fora dessa fronteira. Não foi fornecido log/captura nem feito reteste nesta atualização; não se registrou defeito, e nenhum código de `app/lib/admin-auth.ts` ou `tests/` foi alterado por esta documentação.
+- O Apêndice J, plano de melhoria, auditoria, matriz, checklist, roteiro, estrutura de entrega e este progresso foram alinhados aos dados atuais. O TCC original não foi alterado e nenhum banco/credencial de produção foi acessado. As mudanças desta atualização são documentais/evidências CI; serão preservadas em checkpoint local, sem push nesta etapa.

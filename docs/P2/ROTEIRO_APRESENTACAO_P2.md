@@ -12,7 +12,7 @@
 | 7:30–9:00 | [INTEGRANTE 3] | Mostrar proposta PDF e explicar o que a verificação automática cobre (assinatura/MIME/abertura pelo parser) e o que exige inspeção visual humana. | Slide 7; fixture de proposta sintética. Não declarar inspeção de PDF feita se não houver execução registrada. |
 | 9:00–10:30 | [INTEGRANTE 1 ou 2] | Apresentar métricas com denominadores. São oito indicadores acadêmicos; atualmente execução manual 0/24. Distinguir 97,44% de linhas nos três módulos instrumentados de 27,1% no escopo total do Sonar. | Slide 8; [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) e [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). |
 | 10:30–11:30 | [INTEGRANTE 2] | Explicar o defeito D-001 apenas com a cadeia comprovada: teste RED falhou para status herdado, correção GREEN e refatoração; citar commits. | Slide 9; [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
-| 11:30–12:30 | [INTEGRANTE 3] | Mostrar workflow GitHub Actions e explicar cobertura LCOV/artefato. Dizer explicitamente: workflow revisado localmente, **sem execução remota ainda**; não chamar o CI de aprovado. | Slide 10; `.github/workflows/p2-ci.yml`; sem mostrar segredos. |
+| 11:30–12:30 | [INTEGRANTE A DEFINIR] | Mostrar workflow GitHub Actions e explicar LCOV/artefato. Demonstrar a falha intencional do run #7 (`6014a43`) e o run #8 verde após reversão (`9b1bf7e`), deixando claro que a falha do CI é independente do ciclo TDD. | Slide 10; `.github/workflows/p2-ci.yml`; [EVIDENCIAS_CI](./EVIDENCIAS_CI/); sem mostrar segredos. |
 | 12:30–13:30 | [INTEGRANTE 1] | Apresentar limitações e próximos passos: 24 execuções manuais, 4 aceitações, aprovação escrita, Issues/CI, versão atual do TCC e revisão dos artefatos. Encerrar com prontidão parcial, não “aprovado”. | Slide final: pendências reais e solicitação de orientação/decisão. |
 
 ## Preparação da demonstração
@@ -30,9 +30,9 @@
 - Como a massa local é isolada e restaurada sem tocar em produção?
 - Por que 97,44% dos módulos instrumentados não equivale a 97,44% do produto?
 - O que prova o teste do PDF e que inspeção humana ainda falta?
-- O GitHub Actions foi realmente executado? **Resposta factual nesta versão: não; há YAML revisado, mas nenhum remoto/execução.**
+- O GitHub Actions foi realmente executado? **Sim. O run #7 foi intencionalmente vermelho e o run #8 passou após reversão; são runs separados do ciclo TDD local.**
 - Quais critérios de aceitação e aprovação ainda não foram obtidos?
 
 ## Estado dos resultados que podem ser citados
 
-Os últimos resultados locais documentados foram observados em 12/11/2026, para a cópia P2 nos commits `b9e7ddd`/`8517a76`: unitários 8/8; integração/API 8/8; Selenium 4/4; Newman 6 requisições/12 asserções; TNF exploratórios 6/6; lint exit 0 com 9 avisos; TypeScript e build exit 0. A análise local Sonar importou LCOV e reportou 27,1% global. Estes dados precisam ser revalidados se código, dependências, fixtures ou ambiente mudarem; não são execuções manuais, aceite de usuário ou CI remoto.
+Atualização para a apresentação (23/11/2026): CI #7 falhou intencionalmente em `6014a43` (7/8); após reversão, CI #8 passou em `9b1bf7e` (8/8, lint, TypeScript, build e artefatos). Resultados locais anteriores: `test:local` 8/8 e Selenium 7/7 em 16/11, antes dos ajustes integrados pelo PR #2; retestar se forem apresentados como validação do código atual. A coleção Newman executada naquela data era a antiga (6 requisições/12 verificações); a versão atual tem 27/51 e ainda não foi executada. TNF exploratórios 6/6 (16/11); Sonar local 27,1% global (13/11). Esses dados são históricos/automatizados e não são execuções manuais nem aceitação humana.

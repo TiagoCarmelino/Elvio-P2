@@ -11,9 +11,18 @@
 
 Os commits preservam a ordem temporal das etapas. A mudança foi limitada à cópia P2 do TCC. Não há evidência de que o endpoint HTTP anterior tenha retornado um código específico; a falha RED prova o comportamento do validador isolado.
 
-## CI/CD
+## CI/CD e evidência do Apêndice J
 
-O workflow [p2-ci.yml](../../.github/workflows/p2-ci.yml) dispara em push/PR da branch `p2-unisagrado` e sob comando manual. Prepara Node/pnpm, instala dependências pelo lockfile, roda testes isolados e gera LCOV, lint, TypeScript e build; publica o log dos testes e cobertura como artefatos mesmo em falha. O repositório privado está publicado. Quatro execuções GitHub Actions recentes concluíram `success`: [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), [43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246), [43904521607](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43904521607) e [43905776217](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43905776217). Os runs cobrem testes isolados, LCOV, lint, TypeScript e build; não executam integração local, Selenium ou testes manuais. Falta a demonstração de falha controlada seguida de correção e sucesso no pipeline. O teste RED local não substitui essa demonstração.
+O workflow [p2-ci.yml](../../.github/workflows/p2-ci.yml) dispara em push/PR da branch `p2-unisagrado` e sob comando manual. Prepara Node/pnpm, instala dependências pelo lockfile, roda testes isolados e gera LCOV, lint, TypeScript e build; publica logs/cobertura como artefatos. O repositório privado está publicado e ligado a `origin`.
+
+Além dos quatro runs verdes registrados anteriormente, a falha controlada exigida pelo §9.15 foi executada em 23/11/2026. Esta demonstração de CI é **independente do ciclo TDD** acima: a asserção foi alterada intencionalmente apenas para produzir falha no pipeline e revertida em seguida; não representa defeito de produto nem correção RED/GREEN.
+
+| Etapa | Commit | Run | Resultado observado | Evidência |
+|---|---|---|---|---|
+| Falha controlada intencional | `6014a43` | [Run #7](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937) | 7/8 testes passaram; falhou a asserção alterada intencionalmente em `tests/triage.test.mjs` (“valida a resposta estruturada do chatbot”); etapas anteriores passaram. | [Captura do PR](./EVIDENCIAS_CI/01_PR2_checks_falhou.png), [log do run](./EVIDENCIAS_CI/02_run7_falha_controlada_log_com_URL.png) |
+| Reversão e CI verde | `9b1bf7e` | [Run #8](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066) | Job `validar` passou em 53 s; testes/LCOV 8/8, lint, TypeScript, build e publicação de artefatos passaram. | [Captura do PR](./EVIDENCIAS_CI/03_PR2_checks_passaram.png), [etapas verdes](./EVIDENCIAS_CI/04_run8_aprovado_etapas_com_URL.png), [log dos testes](./EVIDENCIAS_CI/05_run8_log_testes_aprovados.png) |
+
+O log detalhado com commits, resultados e observações foi copiado para [EVIDENCIAS_CI/REGISTRO.md](./EVIDENCIAS_CI/REGISTRO.md). Estes runs comprovam a execução do pipeline isolado; não executam integração local, Selenium, Postman ou casos manuais.
 
 ## Qualidade e melhoria contínua
 
@@ -32,7 +41,16 @@ Os 3 achados `BUG` da regra `typescript:S6324` sinalizavam a classe de caractere
 
 | Prioridade | Ação | Responsável | Critério de verificação |
 |---|---|---|---|
-| Alta | Revisar com o professor equivalência de `node:test` e configurar repositório remoto/CI. | Grupo, a definir | Aceite escrito e pipeline com falha controlada, correção e sucesso ligados aos commits. |
+| Alta | Revisar com o professor a equivalência de `node:test`; ampliar/rodar a coleção Postman atual e avaliar se API/UI deve entrar na CI. | Tiago conduz; consulta ao professor/grupo | Registro da decisão; 27 requisições/51 verificações executadas e evidência; escopo de CI aprovado. |
+| Alta, condicional | R-SEG-01: limitar confiança em `oai-authenticated-user-email` a ambiente explicitamente confiável por flag e cobrir flag falsa/verdadeira com testes unitários. | Revisão técnica a planejar; esta alteração é apenas documental | Com flag desligada o cabeçalho é ignorado; com flag ligada só se aceita valor injetado pela plataforma confiável; validar configuração do deploy. |
 | Média | Analisar 9 avisos de imagens sem alterar indiscriminadamente o site; migrar onde houver benefício verificável. | Desenvolvimento, a definir | Nova análise ESLint com comparação, revisão visual e build aprovado. |
 | Concluída tecnicamente | Revisão e alteração das duas expressões apontadas pelo SonarQube. | Desenvolvimento/qualidade, responsável humano a definir | Terceira análise processada com 0 alertas abertos; manter regressão de autenticação e PDF. |
 | Concluída tecnicamente, repetir na revisão final | Exportar cobertura LCOV e importá-la no SonarQube local. | Qualidade, a definir | LCOV importado; 27,1% no escopo geral e 97,44% nos três módulos instrumentados; repetir após alterações finais e ampliar cobertura de API/UI conforme aprovação do grupo. |
+
+## Risco de segurança R-SEG-01 — cabeçalho de identidade hospedada
+
+**Risco condicional, não defeito:** `getAdminEmail` em [admin-auth.ts](../../app/lib/admin-auth.ts) confia no cabeçalho `oai-authenticated-user-email`. Essa confiança só é apropriada quando a aplicação roda atrás da plataforma confiável ou do plugin `@openai/sites-vite-plugin`, que remove um cabeçalho de mesmo nome enviado pelo cliente. Executar o app fora dessa fronteira sem proteção pode permitir que o cliente influencie a identidade.
+
+**Recomendação de hardening:** só considerar esse cabeçalho quando uma flag explícita, por exemplo `TRUST_HOSTED_AUTH_HEADER=true`, estiver configurada para um deploy confiável. Adicionar testes unitários para: (1) flag ausente/falsa ignora o cabeçalho; (2) flag verdadeira permite a leitura do valor injetado pela plataforma. Restringir essa configuração aos ambientes hospedados confiáveis.
+
+**Verificação informada por Tiago Gabriel Carmelino:** em 23/11/2026 às 15:52, no commit `b5dd483`, foram feitos dois `GET` somente leitura a `/api/painel/solicitacoes`, um sem credenciais e outro com `oai-authenticated-user-email` forjado pelo cliente. Segundo o registro fornecido, ambos retornaram HTTP 401 porque o plugin remove o cabeçalho enviado pelo cliente. Assim, a hipótese de acesso indevido foi descartada para o ambiente testado; não se presume o mesmo resultado fora da plataforma/plugin. A recomendação permanece como hardening condicional. Não foi fornecido log/captura da consulta, não houve reteste nesta atualização, não foi aberta ocorrência de defeito, e esta atualização não altera `app/lib/admin-auth.ts` nem `tests/`.

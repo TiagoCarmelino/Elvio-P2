@@ -1,6 +1,6 @@
 # Rastreabilidade — P2
 
-**Versão:** 0.2, 16/11/2026. Esta matriz segue o Apêndice H do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Casos planejados são descritos em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md). `EX-xxx` será atribuído somente após execução e conferência humana; testes automatizados/assistidos do agente têm IDs próprios e não ocupam esse campo.
+**Versão:** 0.3, 23/11/2026. Esta matriz segue o Apêndice H do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Casos planejados são descritos em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md). `EX-xxx` será atribuído somente após execução e conferência humana; testes automatizados/assistidos do agente têm IDs próprios e não ocupam esse campo.
 
 | Requisito | Risco | Casos manuais | Automação relacionada | Execução(ões) manuais | Evidência manual | Defeito(s) | Situação |
 |---|---|---|---|---|---|---|---|
@@ -19,6 +19,8 @@
 Limitação de prova: HTTP-API-07 verifica MIME, nome do arquivo, assinatura `%PDF-` e que `pdf-lib` consegue ler ao menos uma página; não compara o conteúdo do PDF com o banco nem confirma legibilidade visual. HTTP-API-08 verifica resposta e valor nas fronteiras aceitas e rejeitadas, restaurando o estado inicial; a restauração deve ser observada no ambiente local. SEL-02 confirma a mensagem de envio, não a persistência posterior da solicitação. Esses limites exigem a conferência prevista nos casos manuais.
 
 **TNF-01–06** estão em `tests/p2-nonfunctional.test.mjs`. A [evidência bruta exploratória](./EVIDENCIA_TNF_EXPLORATORIA.json) registra valores observados; a decisão oficial depende do critério aprovado e das observações humanas solicitadas.
+
+**Postman pós-merge do PR #2:** a coleção atual contém 27 requisições e 51 verificações, PM-01–PM-27. Os vínculos PM listados em RF-01–RF-06 são parte da rastreabilidade; preservá-los ao preencher EX-xxx e associar evidências manuais. A execução Newman registrada anteriormente foi da versão de seis requisições e não comprova a coleção atual, ainda pendente de execução.
 
 ## Registro de execução futura
 

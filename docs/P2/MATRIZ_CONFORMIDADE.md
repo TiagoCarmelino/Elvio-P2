@@ -2,7 +2,7 @@
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
 **Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch padrão `p2-unisagrado` publicada no repositório GitHub privado; o grupo ainda deve conceder acesso ao professor.
-**Revisão:** 16/11/2026. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
+**Revisão:** 23/11/2026, após merge do PR #2. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
 
@@ -15,7 +15,7 @@
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
 | Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | Node 24.22.3, pnpm 12.18.0, Docker Desktop e Supabase CLI 3.1.0 disponíveis; daemon e Supabase local ativos nesta rodada, aplicação acessível em `localhost:3000`. Integração, Selenium, Postman e TNF foram executados localmente. Sonar/LCOV não foram repetidos nesta rodada. Repositório/Issue/CI existem, mas o acesso de leitura ao professor e a falha controlada no CI pendem; `node:test` ainda depende de aceitação. |
+| Ferramentas obrigatórias | Parcial | Node 24.22.3, pnpm 12.18.0, Docker Desktop e Supabase CLI disponíveis; em 23/11 a branch foi atualizada por `git pull` até `219210a`. Acesso ao professor e aceite de `node:test` ainda pendem. CI remoto tem evidência de falha intencional e run verde após reversão; a coleção Postman foi ampliada, mas precisa ser executada nesta versão. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
@@ -28,10 +28,10 @@
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos e automação; execuções manuais/evidências/defeitos serão ligados quando existirem. |
 | P06 — evidências manuais | Pendente | Nenhuma execução manual de caso P2 foi registrada. |
 | P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado, com [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta e [CSV](./DEFEITOS_EXPORTACAO.csv) atualizado. Revisão/fechamento humano e exportação PDF ainda pendentes. |
-| P08 — automação | Parcial | Mínimo unitário: 7 casos candidatos (6 exigidos), mais 1 contrato simulado fora da cota; `pnpm run test` foi repetido nesta retomada, com 8/8 aprovados. `test:local` 8/8, Selenium 7/7, Postman/Newman 6 requisições/12 verificações; não funcionais 6/6. Execuções locais do agente em 16/11/2026, sem equivaler aos CTs manuais. Falta aceite do framework e ampliar a coleção Postman. |
+| P08 — automação | Parcial | Sete unitários candidatos à cota, mais um contrato simulado fora dela. `test:local` 8/8, Selenium 7/7 e TNF 6/6 foram resultados locais do agente em 16/11; Selenium é da revisão anterior ao PR #2 e não foi repetido após o ajuste de SEL-05. Newman 6/6 requisições/12 verificações também é resultado da coleção anterior. A coleção atual contém PM-01–PM-27 e 51 verificações, ainda sem execução após o merge. Aceite de `node:test` pendente. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED `83d519e`, GREEN `68de98e`, REFACTOR `a421b47` comprovado em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). LCOV gerado/importado em Sonar local com 27,1% no escopo do projeto. [Quatro execuções GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions) nos commits publicados concluíram com sucesso; falta a falha controlada seguida de correção/sucesso. |
+| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED/GREEN/REFACTOR e LCOV local permanecem documentados. O Apêndice J registra falha CI intencional no commit `6014a43` (run #7) e reversão com run #8 verde no commit `9b1bf7e`; evidências/prints em [EVIDENCIAS_CI](./EVIDENCIAS_CI/) e URLs em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). A verificação de R-SEG-01 foi informada por Tiago: dois GET foram 401 no hosted plugin; não foi fornecido log, e a observação não é defeito. |
 | P12 — relatório final | Parcial | DOCX e PDF de preparação com capa, folha de identificação, sumário e seções oficiais 1–13 em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Dados do grupo, aprovações, execuções, métricas finais, revisão humana e revalidação ainda pendem. |
 | P13 — apresentação e demonstração | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação (10 slides) em [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Integrantes, ensaio, resultados finais e vídeo de contingência pendem. |
 | P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
@@ -53,7 +53,7 @@ Os números a seguir distinguem execuções locais do agente nesta retomada (16/
 | Testes não funcionais | 6 em ≥3 categorias | 6/6 executados pelo agente nesta retomada em segurança, desempenho e compatibilidade/usabilidade | Evidência exploratória local; aprovação dos critérios, repetição/observação humana e conclusão oficial pendentes. |
 | Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; finais pendentes | 0 execuções manuais humanas confirmadas nesta retomada. Atualizar a planilha com execuções do agente sem misturá-las às execuções humanas; cobertura por vínculo não significa aceitação integral. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
-| Pipeline CI/CD | 1 | 1 workflow e 4 execuções remotas recentes concluídas com sucesso (histórico GitHub). Falta a execução controlada que demonstra falha e correção. |
+| Pipeline CI/CD | 1 | Workflow remoto comprovado; run #7 falhou intencionalmente (7/8) e run #8 passou após reversão (8/8, lint, TypeScript, build e artefatos); mais quatro runs verdes históricos. |
 | Análise de qualidade | 2 execuções | 4 análises Sonar locais, incluindo importação LCOV em 12/11/2026 | [Evidência mais recente](./EVIDENCIA_AUDITORIA_SONAR.json): cobertura total do escopo 27,1%; ver limitação do escopo parcial de testes. Quality Gate local `OK`, sem equivalência com aprovação acadêmica ou CI. |
 
 ### Classificação dos testes existentes
@@ -89,13 +89,13 @@ Os casos unitários e o único teste agrupado de `tests/local-flows.integration.
 | IDs, critérios de aceitação e exclusões | Parcial | Definidos no plano; confirmar com responsável e professor. |
 | Equivalência, limites, positivos, negativos, alternativas e exceções | Parcial | Indicar técnica em cada caso; revisar casos de fronteira contra valores do código e do banco. |
 | Execução controlada, reteste e regressão | Pendente | Executar casos passo a passo, anexar captura/log e relacionar defeito real quando houver. |
-| Postman com variáveis, contratos, erros e encadeamento | Parcial | Coleção/ambiente JSON em [postman/](./postman), executada por Newman com 6 requisições e 12 verificações aprovadas. Execução pela interface Postman ainda pendente. |
+| Postman com variáveis, contratos, erros e encadeamento | Parcial | Coleção atual tem 27 requisições e 51 verificações, mapeadas como PM-01–PM-27 na rastreabilidade. A execução Newman anterior (6/12) não prova a coleção ampliada; executar e guardar log/export atual. |
 | Selenium com localizadores estáveis, espera e captura | Parcial | Sete fluxos aprovados pelo agente no Chrome; capturas de sucesso e a falha inicial do oráculo CT-003 foram preservadas em [EVIDENCIAS_AGENTE/20261116/](./EVIDENCIAS_AGENTE/20261116/). Não são execuções manuais humanas. |
 | Aceitação por representante | Pendente humano | Definir 4 tarefas; pessoa externa aos testes registra Aceito / ressalvas / Não aceito. |
 | Não funcionais compatíveis e seguros | Parcial | Seis verificações locais seguras passaram em rodada exploratória; revisar critério, ambiente, amostra e observação humana antes do resultado oficial. |
 | Métricas e interpretação | Parcial | Oito fórmulas recalculadas na planilha. Registrar 24 execuções manuais, interpretar resultados finais e incorporar gráficos no relatório; não usar dados inventados. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
-| CI/CD com gatilho, instalação, teste e resultado | Parcial | Quatro execuções recentes concluíram `success`: [43902629850](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43902629850), [43903980246](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43903980246), [43904521607](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43904521607) e [43905776217](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/43905776217); falta demonstrar falha controlada seguida de correção/aprovação. |
+| CI/CD com gatilho, instalação, teste e resultado | Parcial | Falha intencional run [#7](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937) em `6014a43`; após reversão, run [#8](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066) passou no commit `9b1bf7e`. Registros e cinco capturas em [EVIDENCIAS_CI](./EVIDENCIAS_CI/). Falta revisar acesso professor e discutir se integração/UI deve ser adicionada ao workflow. |
 | Qualidade inicial/final e plano de melhoria | Parcial | Quatro análises SonarQube locais: 4 alertas nas duas primeiras, 0 na terceira; quarta importou LCOV e reportou 27,1% em 1.020 linhas cobráveis. Responsáveis humanos e plano final pendentes. |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)

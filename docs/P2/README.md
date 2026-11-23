@@ -6,7 +6,7 @@ O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O
 
 ## Estado da entrega
 
-O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). Entre as pendências estão as 24 execuções manuais, quatro sessões de aceitação, o registro formal da autorização já confirmada pelo usuário, o diário do grupo e a demonstração de falha controlada seguida de correção no CI. Quatro execuções GitHub Actions já concluíram com sucesso; confira os links na matriz. Os documentos em `ARTEFATOS_PREPARACAO/` estão marcados como rascunhos e não devem ser submetidos como versões finais.
+O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). A falha controlada e a reversão no GitHub Actions foram comprovadas no run #7 (vermelho intencional) e #8 (verde). Continuam pendentes as 24 execuções manuais, quatro sessões de aceitação, registro formal da autorização já confirmada pelo usuário, diário do grupo, compartilhamento com o professor, aceite de `node:test` e execução da coleção Postman atual. Selenium e integração precisam ser revalidados após o merge do PR #2. Os documentos em `ARTEFATOS_PREPARACAO/` continuam rascunhos e não devem ser submetidos como versões finais.
 
 ## Requisitos locais
 
@@ -124,7 +124,7 @@ pnpm run build
 
 ## CI GitHub Actions
 
-O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-unisagrado` e executa testes isolados, cobertura LCOV, lint, TypeScript e build. A existência do YAML não comprova execução ou aprovação do CI. Consulte a aba **Actions** deste repositório após cada envio e registre URL, commit, resultado e artefatos em `docs/P2/PROGRESSO.md`. A falha controlada seguida da correção exigida pelo professor permanece pendente até ser executada e documentada.
+O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-unisagrado` e executa testes isolados, cobertura LCOV, lint, TypeScript e build. O Apêndice J registra a falha controlada intencional do run #7 e o run #8 verde após reversão. Isso comprova o pipeline isolado; não substitui integração, Selenium, Postman ou testes manuais. Consulte a aba **Actions** após cada envio e registre URL, commit, resultado e artefatos em `docs/P2/PROGRESSO.md`.
 
 ## Documentação P2
 

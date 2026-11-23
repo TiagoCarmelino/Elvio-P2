@@ -16,7 +16,7 @@
 10. **Testes:** `pnpm run test`, `pnpm run test:local`, `pnpm run test:selenium`, `pnpm run test:postman`, `pnpm run test:nonfunctional`, `pnpm run lint`, `pnpm exec tsc --noEmit`, `pnpm run build`. As suítes locais exigem serviços e `.env.local`.
 11. **Pipeline:** [p2-ci.yml](../../.github/workflows/p2-ci.yml); URL e resultado GitHub Actions pendentes.
 12. **Documentos:** [matriz](./MATRIZ_CONFORMIDADE.md), [plano](./ESCOPO_E_PLANO.md), [casos](./CASOS_MANUAIS.md), [rastreabilidade](./RASTREABILIDADE.md), [planilha](./CONTROLE_P2.xlsx), [aceitação/TNF](./ACEITACAO_E_NAO_FUNCIONAIS.md), [defeitos](./DEFEITOS.md) e [TDD/qualidade](./TDD_CI_QUALIDADE.md).
-13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: nenhuma execução manual/aceitação humana, pipeline remoto pendente, aprovação do sistema/framework pendente, avisos ESLint e achados SonarQube em revisão. Contato real do grupo a preencher.
+13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: nenhuma execução manual/aceitação humana; CI remoto com falha intencional #7 e reversão verde #8 documentadas; a coleção Postman pós-merge (27 requisições/51 verificações) ainda não foi executada; Selenium precisa reteste após o ajuste no PR #2; aprovação de sistema/framework, avisos ESLint e qualidade final ainda dependem de revisão. Contato real do grupo a preencher.
 
 ## Estrutura oficial do Drive
 
