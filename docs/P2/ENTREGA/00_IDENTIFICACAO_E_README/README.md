@@ -97,9 +97,9 @@ Conta administrativa local documentada: `administrador.p2@local.test`. A senha n
 - Execuções manuais: 3/24 registradas (CT-001, CT-003 e CT-004); 21 casos pendentes. CT-004 encontrou D-002.
 - Aceitação: quatro cenários aguardam participante real.
 - A execução da coleção Postman pós-merge e a revalidação de Selenium/integração após mudanças recentes precisam ser conferidas antes da entrega final.
-- A autorização do professor foi informada como “Aprovado (autorizado em aula)”; a data e a segunda opção de sistema ainda precisam ser preenchidas na ficha A.
+- A autorização do professor foi informada como “Aprovado (autorizado em aula)” em 20/08/2026, verbalmente em aula durante a apresentação da proposta. O grupo não formalizou uma segunda opção: considerou desenvolver/adotar outro sistema acadêmico sem especificar um sistema e descartou a alternativa em favor do WG Hidráulica por ser um TCC real já desenvolvido, com código-fonte disponível, persistência e integrações (§5.3). Confirmar com o professor se essa justificativa atende ao Apêndice A.
 
 ## 15. Contato do grupo
 
-- Tiago Gabriel Carmelino — contato/e-mail: **preencher pelo grupo**.
-- Mateus Betini — contato/e-mail: **preencher pelo grupo**.
+- Tiago Gabriel Carmelino — tiago.23110513@alunos.unisagrado.edu.br.
+- Mateus Betini — mateus.23111245@alunos.unisagrado.edu.br.

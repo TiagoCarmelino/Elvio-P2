@@ -1,11 +1,11 @@
 # Checklist de fechamento da P2
 
-**Atualizado em 24/11/2026:** itens vazios exigem evidência posterior; não foram presumidas assinatura, data da aprovação ou segunda opção. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Atualizado em 24/11/2026:** aprovação verbal informada por Tiago, datada de 20/08/2026; o grupo não formalizou uma segunda opção específica, e essa justificativa aguarda confirmação do professor. Nenhuma assinatura foi presumida. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 ## Professor e grupo
 
 - [ ] Integrantes confirmados: Tiago Gabriel Carmelino e Mateus Betini; turma 26-2-COMP-7-08-A e Grupo 8 (GRPATVSALA 8) informados. Preencher responsabilidades, contatos e calendário oficial; revisar/validar o diário L (atividades com evidência já registradas; tempo sem fonte permanece não registrado).
-- [ ] Completar a segunda opção e a data da aprovação no Apêndice A; turma 26-2-COMP-7-08-A, Grupo 8 (GRPATVSALA 8), integrantes, WG Hidráulica, repositório e decisão “Aprovado (autorizado em aula)” já estão preenchidos. Anexar registro/data/ajustes da autorização.
+- [ ] Apêndice A preenchido com a aprovação verbal informada em 20/08/2026. O grupo não formalizou segunda opção; a alternativa genérica de desenvolver/adotar outro sistema acadêmico foi descartada em favor do WG Hidráulica (§5.3). Confirmar com o professor se isso atende à exigência de duas opções; anexar registro/ajustes da autorização se disponíveis.
 - [ ] Confirmar por escrito a aceitação de `node:test` como framework equivalente ao JUnit para JavaScript.
 - [ ] Confirmar orientação do professor sobre uso de IA e critérios não funcionais preliminares.
 - [ ] Confirmar licença/autorização para uso acadêmico do sistema e do código nesta cópia.

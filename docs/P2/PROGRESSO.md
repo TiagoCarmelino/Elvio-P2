@@ -11,13 +11,15 @@
 
 ## Preparação documental para entrega — 24/11/2026
 
-- Apêndice A atualizado com turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`), Tiago Gabriel Carmelino e Mateus Betini, WG Hidráulica, repositório P2 e decisão informada “Aprovado (autorizado em aula)”. Data da aprovação e segunda opção permanecem campos em branco para preenchimento de Tiago/grupo.
+- Apêndice A atualizado com turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`), Tiago Gabriel Carmelino e Mateus Betini, WG Hidráulica, repositório P2 e decisão informada “Aprovado (autorizado em aula)” em 20/08/2026. A alternativa de sistema acadêmico foi considerada genericamente, mas não formalizada nem nomeada; confirmar com o professor se a justificativa atende ao requisito.
 - Atualizei [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) para tornar explícitas as pré-condições entre CT-004/001, CT-010/009, CT-014/012, CT-018/016 e CT-019/016/018. O catálogo agora informa 3/24 execuções humanas.
-- Preparei o README da pasta 00 na ordem exata do §11.4, sem senhas reais nem senha local. Contatos do grupo permanecem marcados para preenchimento.
+- Preparei o README da pasta 00 na ordem exata do §11.4, sem senhas reais nem senha local. Contatos institucionais de Tiago e Mateus foram preenchidos com os endereços fornecidos.
 - Atualizei o Apêndice L somente com atividades datadas verificáveis por commits e registros; a duração não aparece nas fontes e ficou “Não registrado”; não atribuí atividade a Mateus sem evidência.
 - Marquei os logs antigos de saída do agente como “exploração do agente, não usada como evidência final” em aviso de classificação, preservando os arquivos brutos. A data de 0/24 no registro histórico de 16/11 foi contextualizada; o status humano atual é 3/24.
 - Atualizei os estados de defeitos para o vocabulário de §9.7: D-001 Pronto para reteste e D-002 Novo. A validação da aba Defeitos no XLSX lista os seis status oficiais e mantém a formatação, fórmulas e as cinco abas. Não executei testes de produto nem alterei o banco.
 - Recalculei o painel da planilha a partir das três linhas humanas: execução 12,5% (3/24), aprovação 100% (3/3), reprovação 0%; a distribuição por status mostra D-002 Novo e D-001 Pronto para reteste. A linha de status foi ajustada para caber legivelmente no painel.
+- Atualização de campos informada por Tiago: Apêndice A registra aprovação verbal em aula em 20/08/2026 e documenta que o grupo não formalizou segunda opção; foi considerada genericamente desenvolver/adotar outro sistema acadêmico, mas a alternativa foi descartada em favor do WG Hidráulica por atender ao §5.3 (TCC real, código disponível, persistência e integrações). Sem inventar nome de sistema alternativo; confirmação do professor sobre suficiência da justificativa pendente.
+- README da pasta 00 atualizado com os dois e-mails institucionais fornecidos pelo grupo. A senha local continua omitida. Não executei testes nem acessei/alterei o banco nesta atualização.
 
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 

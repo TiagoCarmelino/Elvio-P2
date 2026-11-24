@@ -1,6 +1,6 @@
 # Formulários de preenchimento humano — P2
 
-Estes registros preservam os campos dos Apêndices A, F, L e M do [manual](../P2_UNISAGRADO_texto_completo_para_Codex.txt). A ficha A foi preenchida com os dados confirmados; a data da aprovação e a segunda opção continuam em branco para Tiago/grupo preencher. O Apêndice F contém as três execuções humanas registradas (3/24); o Apêndice L inclui atividades datadas com referências a commits e registros, sem horas ou colaboradores inferidos. Campos ainda vazios são **pendências**, não resultados negativos.
+Estes registros preservam os campos dos Apêndices A, F, L e M do [manual](../P2_UNISAGRADO_texto_completo_para_Codex.txt). A ficha A foi preenchida com os dados confirmados; a aprovação verbal e sua data são informações fornecidas por Tiago, e a segunda opção está documentada como não formalizada. O Apêndice F contém três execuções humanas (3/24); o Apêndice L inclui atividades datadas com referências a commits e registros, sem horas ou colaboradores inferidos. Campos ainda vazios são **pendências**, não resultados negativos.
 
 ## Apêndice A — proposta e aprovação
 
@@ -11,17 +11,17 @@ Estes registros preservam os campos dos Apêndices A, F, L e M do [manual](../P2
 | Nome do sistema | WG Hidráulica |
 | Origem do sistema | Sistema do TCC em desenvolvimento, trabalhado nesta cópia independente destinada à P2. |
 | Link do repositório | https://github.com/TiagoCarmelino/Elvio-P2 — repositório P2, branch `p2-unisagrado` |
-| Licença/autorização | Professor: **Aprovado (autorizado em aula)**. Data da aprovação: **________________**. A autorização/licença do responsável pelo código-fonte, se exigida além da autorização do professor: **confirmar/anexar registro**. |
+| Licença/autorização | Aprovação verbal do professor em aula, na apresentação da proposta: **Aprovado (autorizado em aula), em 20/08/2026**. A autorização/licença do responsável pelo código-fonte, se exigida além da autorização do professor: **confirmar/anexar registro**. |
 | Tecnologias principais | React, TypeScript, Vinext, Node.js, pnpm, Supabase/PostgreSQL e Docker; Postman/Newman, Selenium e SonarQube no processo de qualidade. |
 | Como executar | Pré-requisitos, configuração e comandos locais descritos no [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md). |
 | Fluxos selecionados | Solicitação pública; autenticação administrativa; consulta e atualização de status/histórico; itens de orçamento; condições e geração de proposta PDF. |
 | Integrações existentes | Interface web com APIs locais; autenticação Supabase; persistência PostgreSQL/RPC no Supabase local; proposta PDF. |
-| Segunda opção de sistema | **A preencher pelo grupo:** ______________________________________________ |
-| Justificativa da escolha | O WG Hidráulica possui fluxos com entrada de dados, persistência e comunicação entre interface, API e banco; o trabalho ocorre em cópia P2 isolada enquanto o TCC original continua em desenvolvimento. |
-| Riscos de viabilidade | A segunda opção e a data da autorização permanecem em aberto; ainda falta registrar autorização/licença do responsável pelo código, se aplicável, e confirmar acesso do professor ao repositório. |
+| Segunda opção de sistema | O grupo **não formalizou uma segunda opção**. Foi considerada, sem definição de um sistema específico, a alternativa de desenvolver ou adotar outro sistema acadêmico; ela foi descartada em favor do WG Hidráulica. |
+| Justificativa da escolha | O WG Hidráulica é um sistema real já desenvolvido como TCC, com código-fonte disponível, persistência de dados e integrações, conforme informação do grupo e requisitos do §5.3. O trabalho ocorre em cópia P2 isolada enquanto o TCC original continua em desenvolvimento. |
+| Riscos de viabilidade | A segunda opção não foi formalizada; confirmar com o professor se a justificativa registrada atende ao formulário. Ainda falta registrar autorização/licença do responsável pelo código, se aplicável, e confirmar acesso do professor ao repositório. |
 | Decisão do professor | **Aprovado (autorizado em aula)** |
 | Ajustes solicitados | Não informado; confirmar com o professor se houve ajustes. |
-| Data da aprovação | **A preencher:** ____/____/________ |
+| Data da aprovação | **20/08/2026** (informada por Tiago; aprovação verbal em aula durante a apresentação da proposta). |
 
 ## Apêndice F — registro de execução manual
 

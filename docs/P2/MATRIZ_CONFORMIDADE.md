@@ -9,7 +9,7 @@
 | Exigência | Estado | Evidência e lacuna |
 |---|---|---|
 | Grupo de 2 ou 3, participação de todos e diário contínuo | Parcial | Turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`) e Tiago Gabriel Carmelino/Mateus Betini preenchidos no Apêndice A. O diário inclui atividades datadas com evidência; tempo e colaboração não registrados, além de participação futura do grupo, continuam pendentes de revisão/validação humana. |
-| Duas opções de sistema e ficha do Apêndice A | Pendente | A cópia WG foi selecionada; segunda opção, ficha e registro de apresentação ao professor faltam. |
+| Duas opções de sistema e ficha do Apêndice A | Parcial | Ficha preenchida. O grupo informa que apresentou e obteve aprovação verbal em 20/08/2026; não formalizou uma segunda opção específica. A alternativa genérica de desenvolver/adotar outro sistema acadêmico foi descartada em favor do TCC WG Hidráulica por atender ao §5.3. Confirmar com o professor se essa justificativa supre a exigência de duas opções. |
 | Autorização do sistema pelo professor | Parcial | O usuário confirmou que o professor autorizou o uso do WG Hidráulica. A evidência/documento, data, eventuais ajustes e registro no Apêndice A ainda não foram anexados; confirmação do usuário não substitui esse registro exigido. |
 | Código-fonte, versão executável local e instruções | Parcial | Código, Git, Node, pnpm, Docker, Supabase, migrações, seed e README do TCC existem. O README específico de entrega P2 será preparado; disponibilidade durante o semestre depende do grupo. |
 | Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
@@ -21,7 +21,7 @@
 
 | Produto | Estado | Situação verificável / próximo passo |
 |---|---|---|
-| P01 — ficha e autorização | Parcial | Apêndice A preenchido com turma, Grupo 8, integrantes, WG Hidráulica, repositório e decisão “Aprovado (autorizado em aula)”. A data da aprovação e a segunda opção ficaram para preenchimento humano; registrar ajustes e eventual autorização do responsável pelo código se exigidos. |
+| P01 — ficha e autorização | Parcial | Apêndice A preenchido com turma, Grupo 8, integrantes, WG Hidráulica, repositório, decisão “Aprovado (autorizado em aula)” e data informada 20/08/2026. A segunda opção não foi formalizada; consultar o professor quanto à suficiência da justificativa. Registrar ajustes e eventual autorização do responsável pelo código se exigidos. |
 | P02 — requisitos, escopo e riscos | Parcial | Requisitos e riscos P2 definidos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); confirmar escopo com grupo/professor. |
 | P03 — plano de testes | Parcial | Estratégia e critérios em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); responsáveis e calendário dependem do grupo. |
 | P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos e explicita as dependências de CT-004/010/014/018/019 conforme §9.5. Revisão humana e 21 execuções seguem pendentes. |

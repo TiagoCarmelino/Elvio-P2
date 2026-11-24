@@ -4,8 +4,8 @@
 
 ## Identificação e README da pasta 00 — ordem obrigatória
 
-1. **Integrantes, turma e grupo:** pendentes de preenchimento pelo grupo.
-2. **Sistema e versão:** WG Hidráulica, cópia P2; o usuário informou que o professor autorizou o uso. Anexar o registro formal da autorização e registrar hash do commit submetido.
+1. **Integrantes, turma e grupo:** Tiago Gabriel Carmelino e Mateus Betini; turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`). Contatos no README da pasta 00.
+2. **Sistema e versão:** WG Hidráulica, cópia P2; Tiago informou aprovação verbal do professor em aula em 20/08/2026 (“Aprovado (autorizado em aula)”). Anexar eventual registro formal da autorização e registrar hash do commit submetido.
 3. **Repositório:** cópia P2 em `https://github.com/TiagoCarmelino/Elvio-P2`, branch `p2-unisagrado`; confirmar hash publicado no fechamento da entrega.
 4. **Tecnologias:** TypeScript, React, Vinext, Node.js, pnpm, Supabase/PostgreSQL, Docker, Selenium, Newman/Postman e SonarQube local.
 5. **Pré-requisitos:** Node ≥22.13, pnpm 12.18.0, Docker Desktop, Supabase CLI 3.1.0, Chrome/Edge para as respectivas suítes. Conferir versões na máquina de demonstração.
@@ -16,7 +16,7 @@
 10. **Testes:** `pnpm run test`, `pnpm run test:local`, `pnpm run test:selenium`, `pnpm run test:postman`, `pnpm run test:nonfunctional`, `pnpm run lint`, `pnpm exec tsc --noEmit`, `pnpm run build`. As suítes locais exigem serviços e `.env.local`.
 11. **Pipeline:** [p2-ci.yml](../../.github/workflows/p2-ci.yml); URL e resultado GitHub Actions pendentes.
 12. **Documentos:** [matriz](./MATRIZ_CONFORMIDADE.md), [plano](./ESCOPO_E_PLANO.md), [casos](./CASOS_MANUAIS.md), [rastreabilidade](./RASTREABILIDADE.md), [planilha](./CONTROLE_P2.xlsx), [aceitação/TNF](./ACEITACAO_E_NAO_FUNCIONAIS.md), [defeitos](./DEFEITOS.md) e [TDD/qualidade](./TDD_CI_QUALIDADE.md).
-13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: 3/24 execuções manuais registradas por Tiago (CT-001, CT-003 e CT-004), com D-002 novo em CT-004; quatro sessões de aceitação aguardam representante; CI remoto com falha intencional #7 e reversão verde #8 documentadas; a coleção Postman pós-merge (27 requisições/51 verificações) ainda não foi executada; Selenium precisa reteste após o ajuste no PR #2; aprovação formal do sistema/framework, avisos ESLint e qualidade final ainda dependem de revisão. Contato real do grupo a preencher.
+13. **Credenciais fictícias, problemas conhecidos e contato:** e-mail `administrador.p2@local.test`; senha deve ser fornecida de modo restrito pelo grupo. Limitações atuais: 3/24 execuções manuais registradas por Tiago (CT-001, CT-003 e CT-004), com D-002 novo em CT-004; quatro sessões de aceitação aguardam representante; CI remoto com falha intencional #7 e reversão verde #8 documentadas; a coleção Postman pós-merge (27 requisições/51 verificações) ainda não foi executada; Selenium precisa reteste após o ajuste no PR #2; aceite do framework, avisos ESLint e qualidade final ainda dependem de revisão. Contatos informados no [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md).
 
 ## Estrutura oficial do Drive
 
@@ -25,7 +25,7 @@ Usar **somente** a pasta disponibilizada pelo professor, com nome `P2_TQS_2026_T
 | Pasta oficial | Conteúdo preparado ou pendente |
 |---|---|
 | `00_IDENTIFICACAO_E_README` | README na ordem acima, dados do grupo pendentes. |
-| `01_SISTEMA_ALVO` | Código da cópia P2, instruções e aprovação do sistema pendente. |
+| `01_SISTEMA_ALVO` | Código da cópia P2 e instruções; Tiago informou aprovação verbal do professor em aula em 20/08/2026. |
 | `02_REQUISITOS_ESCOPO_RISCOS` | [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md). |
 | `03_PLANO_DE_TESTES` | Seção de estratégia do plano; responsáveis/calendário pendentes. |
 | `04_CASOS_E_RASTREABILIDADE` | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md), [RASTREABILIDADE.md](./RASTREABILIDADE.md), [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx). |
