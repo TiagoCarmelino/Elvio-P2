@@ -142,3 +142,13 @@ O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-
 - [Estrutura da entrega oficial](./ESTRUTURA_ENTREGA.md)
 
 O grupo deve transferir somente materiais revisados para a pasta oficial indicada pelo professor. Não preencher evidências, métricas, participantes, aprovações ou resultados humanos por inferência.
+
+## Rodada final automatizada
+
+Depois de concluir as execuções manuais, restaurar a fixture e confirmar que a aplicação e o Supabase usam apenas o ambiente local, execute o runner. Ele não inicia serviços nem faz reset do banco.
+
+```powershell
+powershell -NoProfile -File scripts/p2-rodada-final.ps1
+```
+
+O script exige `.env.local`, rejeita URLs fora de HTTP loopback e grava log por suíte com timestamp e commit em `docs/P2/EVIDENCIAS_AUTOMACAO/<data>/<hora>-<commit>/`. A última etapa executa TNF-01–TNF-06; TNF-03/04 fazem 20 medições por operação e registram máximo e mediana. O runner não foi executado nesta preparação. Consulte também o [roteiro de capturas SonarQube](./ROTEIRO_PRINTS_SONARQUBE.md).

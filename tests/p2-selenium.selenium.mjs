@@ -13,7 +13,8 @@ let base;
 
 async function saveScreenshot(driver, id) {
   const day = new Date().toISOString().slice(0, 10).replaceAll('-', '');
-  const directory = join('test-results', `p2-agent-${day}`);
+  const outputRoot = process.env.P2_AUTOMATION_EVIDENCE_DIR || 'test-results';
+  const directory = join(outputRoot, `p2-agent-${day}`);
   await mkdir(directory, { recursive: true });
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
   const screenshot = join(directory, `${id}-${timestamp}.png`);

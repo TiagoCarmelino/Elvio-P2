@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import { cpus, totalmem } from 'node:os';
 import { after, before, test } from 'node:test';
 import webdriver from 'selenium-webdriver';
@@ -10,7 +11,9 @@ const { Builder, Browser, By, until } = webdriver;
 const { P2_LOCAL_BASE_URL, SUPABASE_URL, P2_LOCAL_ADMIN_EMAIL, P2_LOCAL_ADMIN_PASSWORD, P2_LOCAL_REQUEST_ID } = process.env;
 const enabled = Boolean(P2_LOCAL_BASE_URL && SUPABASE_URL && P2_LOCAL_ADMIN_EMAIL && P2_LOCAL_ADMIN_PASSWORD && P2_LOCAL_REQUEST_ID);
 const skip = enabled ? false : 'Configure .env.local e execute `pnpm run test:nonfunctional`.';
-const evidence = { at: new Date().toISOString(), node: process.version, platform: process.platform, cpu: cpus()[0]?.model, memoryBytes: totalmem(), category: 'Rodada exploratória local, critérios preliminares', tests: [] };
+const evidencePath = process.env.P2_NF_EVIDENCE_PATH || 'test-results/p2-nonfunctional-local.json';
+const timingRepetitions = 20;
+const evidence = { at: new Date().toISOString(), commit: process.env.P2_RUN_COMMIT || 'não informado', node: process.version, platform: process.platform, cpu: cpus()[0]?.model, memoryBytes: totalmem(), category: 'Execução automatizada local; critérios preliminares sujeitos à validação do grupo/professor', tests: [] };
 let base;
 let cookie;
 
@@ -23,7 +26,11 @@ function loopback(value) {
 function url(path) { return new URL(path, base); }
 function json(method, body) { return { method, headers: { 'Content-Type': 'application/json', Cookie: cookie }, body: JSON.stringify(body) }; }
 function record(id, detail) { evidence.tests.push({ id, ...detail }); }
-function percentile95(values) { return [...values].sort((a,b) => a-b)[Math.ceil(values.length*0.95)-1]; }
+function summarizeTiming(values) {
+  const sorted = [...values].sort((a,b) => a-b);
+  const midpoint = sorted.length / 2;
+  return { maxMs: sorted.at(-1), medianMs: (sorted[midpoint-1] + sorted[midpoint]) / 2 };
+}
 
 before(async () => {
   if (!enabled) return;
@@ -40,8 +47,8 @@ before(async () => {
 
 after(async () => {
   if (!enabled) return;
-  await mkdir('test-results', { recursive: true });
-  await writeFile('test-results/p2-nonfunctional-local.json', JSON.stringify(evidence, null, 2));
+  await mkdir(dirname(evidencePath), { recursive: true });
+  await writeFile(evidencePath, JSON.stringify(evidence, null, 2));
 });
 
 test('TNF-01: quatro recursos comerciais recusam acesso anônimo', { skip }, async () => {
@@ -78,11 +85,11 @@ test('TNF-02: três entradas inválidas recebem 400 sem campo de segredo', { ski
   record('TNF-02', { paths: inputs.map(([path]) => path), statuses, conclusion: 'Atende no ambiente local' });
 });
 
-test('TNF-03: início e login em cinco medições por operação', { skip }, async () => {
+test('TNF-03: início e login em vinte medições por operação', { skip }, async () => {
   const result = {};
   for (const kind of ['inicio','login']) {
     const samples = [];
-    for (let i=0; i<5; i++) {
+    for (let i=0; i<timingRepetitions; i++) {
       const start = performance.now();
       const response = kind==='inicio' ? await fetch(url('/')) : await fetch(url('/api/auth/login'), {
         method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
@@ -92,15 +99,15 @@ test('TNF-03: início e login em cinco medições por operação', { skip }, asy
       assert.equal(response.status, kind==='inicio' ? 200 : 303);
       samples.push(Math.round((performance.now()-start)*10)/10);
     }
-    result[kind] = { samplesMs:samples, p95Ms:percentile95(samples) };
-    assert.ok(result[kind].p95Ms <= 3000, `${kind}: p95 preliminar acima de 3 s`);
+    result[kind] = { samplesMs:samples, repetitions:timingRepetitions, ...summarizeTiming(samples) };
+    assert.ok(result[kind].maxMs <= 3000, `${kind}: máximo preliminar acima de 3 s`);
   }
-  record('TNF-03', { ...result, thresholdMs:3000, conclusion:'Atende ao critério preliminar local' });
+  record('TNF-03', { ...result, repetitionsPerOperation:timingRepetitions, thresholdMs:3000, conclusion:'Atende ao critério preliminar local' });
 });
 
-test('TNF-04: listagem comercial em cinco medições', { skip }, async () => {
+test('TNF-04: listagem comercial em vinte medições', { skip }, async () => {
   const samples = [];
-  for (let i=0; i<5; i++) {
+  for (let i=0; i<timingRepetitions; i++) {
     const start = performance.now();
     const response = await fetch(url('/api/painel/solicitacoes'), { headers:{ Cookie:cookie } });
     const body = await response.json();
@@ -108,9 +115,9 @@ test('TNF-04: listagem comercial em cinco medições', { skip }, async () => {
     assert.ok(Array.isArray(body.solicitacoes));
     samples.push(Math.round((performance.now()-start)*10)/10);
   }
-  const p95Ms = percentile95(samples);
-  assert.ok(p95Ms <= 3000, 'listagem: p95 preliminar acima de 3 s');
-  record('TNF-04', { samplesMs:samples, p95Ms, thresholdMs:3000, conclusion:'Atende ao critério preliminar local' });
+  const timing = summarizeTiming(samples);
+  assert.ok(timing.maxMs <= 3000, 'listagem: máximo preliminar acima de 3 s');
+  record('TNF-04', { samplesMs:samples, repetitions:timingRepetitions, ...timing, thresholdMs:3000, conclusion:'Atende ao critério preliminar local' });
 });
 
 test('TNF-05: contato e login em Chrome e Edge desktop', { skip }, async () => {

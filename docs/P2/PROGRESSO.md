@@ -1,3 +1,9 @@
+## Preparação da rodada final automatizada — 24/11/2026
+
+- Criado scripts/p2-rodada-final.ps1 para executar cobertura unitária/LCOV, integração local, Selenium, Newman (coleção verificada estaticamente com 27 requisições) e TNF-01–TNF-06 em sequência. O runner valida URLs HTTP loopback, captura versões/ambiente/commit, salva log e resumo por suíte e grava screenshot Selenium/JSON TNF na pasta versionada por data/hora/commit. Não inicia reset do banco.
+- TNF-03 e TNF-04 foram preparados para 20 amostras por operação; a evidência passará a registrar maxMs e medianMs, sem chamar o maior valor de p95. Os 5 valores exploratórios históricos e JSON bruto não foram reescritos.
+- Adicionado o roteiro curto de capturas SonarQube, com registro de commit e capturas de Overview, Coverage e Issues.
+- O runner, as suítes e o SonarQube não foram executados nesta preparação; nenhuma chamada à aplicação, banco ou contêiner foi feita. Esta omissão é intencional para preservar o banco local antes dos testes manuais de hoje.
 ## Atualização documental de 24/11/2026
 
 - Revisado o Apêndice L contra autores, trailers `Co-Authored-By: Claude` e registros humanos. Atividades dos commits com IA foram identificadas como “com apoio de IA (Claude/Codex), revisado por Tiago”; as três execuções CT e a verificação R-SEG-01 seguem atribuídas a Tiago por serem execuções humanas confirmadas. Nenhuma atividade foi atribuída a Mateus.

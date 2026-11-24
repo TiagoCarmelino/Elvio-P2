@@ -25,5 +25,9 @@ newman.run({ collection, environment, reporters: 'cli', timeoutRequest: 10000 },
     process.exitCode = 1;
     return;
   }
+  const stats = summary.run.stats;
+  const assertions = stats.assertions?.total ?? 0;
+  const assertionFailures = summary.run.failures.filter((failure) => failure.error?.name === 'AssertionError').length;
+  console.log(`P2_SUMMARY requests=${stats.requests?.total ?? 0} assertions=${assertions} assertionFailures=${assertionFailures} failures=${summary.run.failures.length}`);
   process.exitCode = summary.run.failures.length ? 1 : 0;
 });
