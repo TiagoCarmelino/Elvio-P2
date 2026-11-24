@@ -2,6 +2,8 @@
 
 Esta pasta reúne cópias de capturas e logs de testes feitos pelo agente contra a cópia P2 e serviços em loopback. **Não contém execuções manuais dos integrantes nem resultados de aceitação.** A classificação, dados, limites e mapeamento CT estão em [REGISTRO_EXECUCOES_AGENTE_20261116.md](../../REGISTRO_EXECUCOES_AGENTE_20261116.md).
 
+> **Classificação dos arquivos antigos de saída:** “Exploração do agente, não usada como evidência final.” Aplica-se aos logs `.txt` e `.log` e ao JSON de resultados desta pasta: não há para todos eles um script/versionamento imutável que reproduza exatamente cada execução e ambiente. Podem apoiar a análise histórica, mas não comprovam os produtos finais nem substituem as execuções humanas. Os arquivos brutos são mantidos sem alteração.
+
 ## Capturas
 
 | Arquivo | O que mostra | Limite |

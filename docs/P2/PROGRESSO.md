@@ -1,6 +1,6 @@
 # Progresso da preparação da P2
 
-**Atualizado em:** 23/11/2026
+**Atualizado em:** 24/11/2026
 
 ## Execuções humanas recebidas e consolidadas — 23/11/2026
 
@@ -8,6 +8,16 @@
 - O registro por execução está em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md); a rastreabilidade RF-01 liga os três CTs, EXs, evidências e [D-002](./DEFEITOS.md#d-002--novo-envio-com-whatsapp-já-cadastrado-sobrescreve-empresa-e-e-mail-do-cliente). D-002 foi incluído em [DEFEITOS.md](./DEFEITOS.md), [CSV](./DEFEITOS_EXPORTACAO.csv) e na Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), como Novo, severidade Média e prioridade Média. Reteste pendente.
 - A planilha [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) foi atualizada nas abas Execucoes e Defeitos para refletir EX-001–EX-003 e D-002; a lista de status de defeitos inclui `Novo` e o recálculo foi solicitado ao abrir no Excel. Os componentes XML do XLSX foram validados e os valores conferidos. Resultados do agente continuam separados e não são somados como execução humana. Nenhuma suíte automatizada foi reexecutada nesta atualização documental.
 - Próximas tarefas humanas: executar os 21 casos restantes; rever e decidir a regra de negócio de D-002, corrigir e retestar se aprovado pelo grupo; realizar quatro sessões de aceitação com representante; completar aprovações e documentos finais.
+
+## Preparação documental para entrega — 24/11/2026
+
+- Apêndice A atualizado com turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`), Tiago Gabriel Carmelino e Mateus Betini, WG Hidráulica, repositório P2 e decisão informada “Aprovado (autorizado em aula)”. Data da aprovação e segunda opção permanecem campos em branco para preenchimento de Tiago/grupo.
+- Atualizei [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) para tornar explícitas as pré-condições entre CT-004/001, CT-010/009, CT-014/012, CT-018/016 e CT-019/016/018. O catálogo agora informa 3/24 execuções humanas.
+- Preparei o README da pasta 00 na ordem exata do §11.4, sem senhas reais nem senha local. Contatos do grupo permanecem marcados para preenchimento.
+- Atualizei o Apêndice L somente com atividades datadas verificáveis por commits e registros; a duração não aparece nas fontes e ficou “Não registrado”; não atribuí atividade a Mateus sem evidência.
+- Marquei os logs antigos de saída do agente como “exploração do agente, não usada como evidência final” em aviso de classificação, preservando os arquivos brutos. A data de 0/24 no registro histórico de 16/11 foi contextualizada; o status humano atual é 3/24.
+- Atualizei os estados de defeitos para o vocabulário de §9.7: D-001 Pronto para reteste e D-002 Novo. A validação da aba Defeitos no XLSX lista os seis status oficiais e mantém a formatação, fórmulas e as cinco abas. Não executei testes de produto nem alterei o banco.
+- Recalculei o painel da planilha a partir das três linhas humanas: execução 12,5% (3/24), aprovação 100% (3/3), reprovação 0%; a distribuição por status mostra D-002 Novo e D-001 Pronto para reteste. A linha de status foi ajustada para caber legivelmente no painel.
 
 O PDF oficial [57402f9d-2b95-418b-850a-b87c479c7b4f.pdf](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf) foi preservado sem alterações.
 

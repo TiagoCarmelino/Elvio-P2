@@ -2,13 +2,13 @@
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
 **Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch padrão `p2-unisagrado` publicada no repositório GitHub privado; o grupo ainda deve conceder acesso ao professor.
-**Revisão:** 23/11/2026, após merge do PR #2 e registro das primeiras execuções humanas. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
+**Revisão:** 24/11/2026, após preparação dos documentos para entrega. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
 
 | Exigência | Estado | Evidência e lacuna |
 |---|---|---|
-| Grupo de 2 ou 3, participação de todos e diário contínuo | Parcial | O usuário confirmou Tiago Gabriel Carmelino e Mateus Betini como integrantes (2 pessoas). Turma, responsabilidades, evidências individuais e diário contínuo ainda precisam ser preenchidos pelo grupo. |
+| Grupo de 2 ou 3, participação de todos e diário contínuo | Parcial | Turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`) e Tiago Gabriel Carmelino/Mateus Betini preenchidos no Apêndice A. O diário inclui atividades datadas com evidência; tempo e colaboração não registrados, além de participação futura do grupo, continuam pendentes de revisão/validação humana. |
 | Duas opções de sistema e ficha do Apêndice A | Pendente | A cópia WG foi selecionada; segunda opção, ficha e registro de apresentação ao professor faltam. |
 | Autorização do sistema pelo professor | Parcial | O usuário confirmou que o professor autorizou o uso do WG Hidráulica. A evidência/documento, data, eventuais ajustes e registro no Apêndice A ainda não foram anexados; confirmação do usuário não substitui esse registro exigido. |
 | Código-fonte, versão executável local e instruções | Parcial | Código, Git, Node, pnpm, Docker, Supabase, migrações, seed e README do TCC existem. O README específico de entrega P2 será preparado; disponibilidade durante o semestre depende do grupo. |
@@ -21,20 +21,20 @@
 
 | Produto | Estado | Situação verificável / próximo passo |
 |---|---|---|
-| P01 — ficha e autorização | Parcial | O usuário confirmou autorização do professor e informou Tiago Gabriel Carmelino e Mateus Betini. Completar Apêndice A, registrar data/decisão/ajustes com evidência e informar turma, número do grupo e segunda opção. |
+| P01 — ficha e autorização | Parcial | Apêndice A preenchido com turma, Grupo 8, integrantes, WG Hidráulica, repositório e decisão “Aprovado (autorizado em aula)”. A data da aprovação e a segunda opção ficaram para preenchimento humano; registrar ajustes e eventual autorização do responsável pelo código se exigidos. |
 | P02 — requisitos, escopo e riscos | Parcial | Requisitos e riscos P2 definidos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); confirmar escopo com grupo/professor. |
 | P03 — plano de testes | Parcial | Estratégia e critérios em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); responsáveis e calendário dependem do grupo. |
-| P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos; [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) detalha passos, esperado e evidências. Revisão humana e execuções seguem pendentes. |
+| P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos e explicita as dependências de CT-004/010/014/018/019 conforme §9.5. Revisão humana e 21 execuções seguem pendentes. |
 | P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos, automação e, para RF-01, execuções EX-001–EX-003, evidências e D-002. Demais execuções humanas ainda pendem. |
 | P06 — evidências manuais | Parcial | Três casos humanos registrados por Tiago (CT-001, CT-003 e CT-004), com capturas em [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/) e registros EX-001–EX-003. Restam 21 dos 24 casos; CT-004 encontrou D-002. |
-| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001 verificado, corrigido e retestado, Issue #1 aberta; D-002 é novo, severidade/prioridade média, Status Novo, vinculado à [Issue #3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3) e ao [CSV](./DEFEITOS_EXPORTACAO.csv). Revisão, correção/reteste de D-002, fechamento humano e exportação PDF ainda pendentes. |
+| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001: **Pronto para reteste**; testes técnicos passaram, CT-013 manual ainda pendente, Issue #1 aberta. D-002: **Novo**, severidade/prioridade média, vinculado à [Issue #3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3) e ao [CSV](./DEFEITOS_EXPORTACAO.csv). Análise/correção/reteste de D-002, decisão/encerramento humano e exportação PDF pendentes. |
 | P08 — automação | Parcial | Sete unitários candidatos à cota, mais um contrato simulado fora dela. `test:local` 8/8, Selenium 7/7 e TNF 6/6 foram resultados locais do agente em 16/11; Selenium é da revisão anterior ao PR #2 e não foi repetido após o ajuste de SEL-05. Newman 6/6 requisições/12 verificações também é resultado da coleção anterior. A coleção atual contém PM-01–PM-27 e 51 verificações, ainda sem execução após o merge. Aceite de `node:test` pendente. |
 | P09 — aceitação e não funcionais | Parcial | Quatro cenários e instruções para facilitador em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); 0/4 sessões realizadas. Seis TNF exploratórios locais registrados; critérios, observação humana e repetição na versão final pendem. |
 | P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes; resultados manuais finais e interpretação dependem das execuções. |
 | P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED/GREEN/REFACTOR e LCOV local permanecem documentados. O Apêndice J registra falha CI intencional no commit `6014a43` (run #7) e reversão com run #8 verde no commit `9b1bf7e`; evidências/prints em [EVIDENCIAS_CI](./EVIDENCIAS_CI/) e URLs em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). R-SEG-01: verificação executada pelo Claude Code a pedido de Tiago às 15:52 (dois GET, ambos 401 com o plugin); Tiago repetiu às 18:06 de 23/11/2026, no PowerShell, com 401 nas duas requisições — evidência oficial em [EVIDENCIAS_HUMANAS/R-SEG-01](./EVIDENCIAS_HUMANAS/R-SEG-01/). A observação não é defeito. |
 | P12 — relatório final | Parcial | DOCX e PDF de preparação com capa, folha de identificação, sumário e seções oficiais 1–13 em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Dados do grupo, aprovações, execuções, métricas finais, revisão humana e revalidação ainda pendem. |
 | P13 — apresentação e demonstração | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação (10 slides) em [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Integrantes, ensaio, resultados finais e vídeo de contingência pendem. |
-| P14 — diário de participação | Pendente | Datas, responsáveis, colaboradores, tempo e evidências reais dependem do grupo. |
+| P14 — diário de participação | Parcial | Apêndice L foi preenchido com atividades datadas e evidências de commits/registros; tempos não informados ficaram como “Não registrado” e não há atividades atribuídas a Mateus sem prova. O grupo deve revisar/validar e continuar o diário. |
 
 ## Quantidades mínimas (seção 10, página 15)
 
@@ -103,7 +103,7 @@ Os casos unitários e o único teste agrupado de `tests/local-flows.integration.
 | Exigência | Estado | Dependência |
 |---|---|---|
 | Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Pendente humano | Turma, número do grupo, acesso à pasta fornecida pelo professor e publicação final. Não criar pasta alternativa como entrega oficial. |
-| README da pasta 00 na ordem exigida | Parcial | Texto preparatório em [ENTREGA_E_RELATORIO_RASCUNHO.md](./ENTREGA_E_RELATORIO_RASCUNHO.md); completar identificação, link do repositório, contatos e credenciais fictícias por canal restrito. |
+| README da pasta 00 na ordem exigida | Parcial | [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md) contém as 15 seções na ordem de §11.4 e não expõe senhas. Contatos do grupo e eventual atualização no Drive oficial pendentes. |
 | Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | XLSX, coleção/ambiente JSON e CSV de D-001 preparados; DOCX/PDF e PPTX/PDF de preparação existem, marcados como rascunho; dependem de resultados reais, grupo e revisão humana. Vídeo ainda pendente. |
 | Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Parcial | Rascunho DOCX/PDF estruturado conforme o enunciado; completar resultados reais, anexos, links e validação final antes de gerar a versão submetível. |
 | Apêndices A–M com todos os campos | Parcial | B, C, D, E e H começam a ser representados nos documentos P2; F, G, I, J, K, L, M exigem registros reais ou assinatura. |

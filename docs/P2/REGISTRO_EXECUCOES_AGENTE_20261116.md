@@ -2,6 +2,8 @@
 
 **Escopo:** exploração assistida da cópia P2 em loopback. Este registro separa as ações do agente das execuções manuais dos integrantes. **Nenhuma linha abaixo conta como execução humana EX-xxx nem como decisão de aceitação.** Dados enviados ao site eram fictícios. Aplicação executada sobre o código do commit `6f6cafe`; o arquivo de teste Selenium foi ampliado no working tree e validado nesta sessão. Não houve alteração na aplicação/TCC original.
 
+**Classificação para entrega:** exploração do agente, não usada como evidência final. Os logs de saída antigos não têm, em todos os casos, um script versionado que reproduza exatamente a execução. Use-os somente como histórico técnico; as evidências humanas e os testes automatizados reproduzíveis devem ser avaliados separadamente.
+
 ## Ambiente e salvaguardas observadas
 
 - Branch `p2-unisagrado`; Supabase Auth local `http://127.0.0.1:54321/auth/v1/health` respondeu HTTP 200. A configuração `SUPABASE_URL` apontava a `127.0.0.1` e `P2_LOCAL_BASE_URL` a `localhost`; os testes existentes também exigem host loopback.
@@ -29,7 +31,7 @@ A primeira versão do teste Selenium para CT-003 falhou porque esperava um eleme
 
 ## Estado dos CT-001 a CT-024
 
-Classificação do agente: **16 casos cobertos no escopo observado e 8 parciais; nenhum caso ficou sem qualquer verificação exploratória**. `Coberto` não significa aprovação manual: os 24 casos ainda estão 0/24 na execução humana do Apêndice F.
+Classificação do agente em 16/11/2026: **16 casos cobertos no escopo observado e 8 parciais; nenhum caso ficou sem qualquer verificação exploratória**. `Coberto` não significa aprovação manual. Naquela data, 0/24 execuções humanas; após a rodada de Tiago em 23/11/2026, o total humano passou a 3/24 (EX-001–EX-003), conforme [registro humano](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md).
 
 Os passos e resultados esperados oficiais estão em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); a tabela abaixo registra o resultado observado e os desvios em relação àquele procedimento. Os dados de interface foram sintéticos. Foram registrados especificamente: CT-001 nome `Cliente P2 Agente 16112026` e WhatsApp `14999000126`; CT-003 descrições de 9 e 10 caracteres em solicitações separadas; CT-004 reutilizou o WhatsApp sintético de CT-001; CT-007 criou a conta local `p2.ct007.nao-admin@local.test` (senha omitida); CT-011 usou UUID fictício `ffffffff-ffff-4fff-8fff-fffffffffff1`; CT-013 tentou `desconhecido`; CT-015 reenviou `orcamento`; CT-017 enviou quantidade 0 e preço -R$ 0,01 em requisições separadas; CT-020 criou itens 2 × R$ 30,00 e 3 × R$ 20,00 sobre a fixture seed; CT-024 usou solicitação sem itens. Para os outros casos, as suítes usaram suas fixtures/payloads locais, que não coincidem integralmente com os dados manuais prescritos; por isso foram classificados como parciais quando essa diferença afeta o oráculo.
 

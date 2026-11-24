@@ -1,11 +1,11 @@
 # Checklist de fechamento da P2
 
-**Atualizado em 23/11/2026:** itens vazios exigem evidência posterior; nenhuma assinatura, aprovação ou execução humana foi presumida. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Atualizado em 24/11/2026:** itens vazios exigem evidência posterior; não foram presumidas assinatura, data da aprovação ou segunda opção. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 ## Professor e grupo
 
-- [ ] Integrantes confirmados: Tiago Gabriel Carmelino e Mateus Betini. Informar turma, número do grupo, responsabilidades, contatos e calendário oficial; preencher diário com atividades/tempo/evidências reais.
-- [ ] Documentar a segunda opção, preencher todos os campos da ficha do Apêndice A e anexar o registro da autorização do professor já confirmada pelo usuário, incluindo data e eventuais ajustes.
+- [ ] Integrantes confirmados: Tiago Gabriel Carmelino e Mateus Betini; turma 26-2-COMP-7-08-A e Grupo 8 (GRPATVSALA 8) informados. Preencher responsabilidades, contatos e calendário oficial; revisar/validar o diário L (atividades com evidência já registradas; tempo sem fonte permanece não registrado).
+- [ ] Completar a segunda opção e a data da aprovação no Apêndice A; turma 26-2-COMP-7-08-A, Grupo 8 (GRPATVSALA 8), integrantes, WG Hidráulica, repositório e decisão “Aprovado (autorizado em aula)” já estão preenchidos. Anexar registro/data/ajustes da autorização.
 - [ ] Confirmar por escrito a aceitação de `node:test` como framework equivalente ao JUnit para JavaScript.
 - [ ] Confirmar orientação do professor sobre uso de IA e critérios não funcionais preliminares.
 - [ ] Confirmar licença/autorização para uso acadêmico do sistema e do código nesta cópia.
@@ -16,6 +16,7 @@
 - [ ] Preparar massa própria para casos dependentes (CT-004, CT-014, CT-018/019) e limpar/restaurar apenas o banco local.
 - [x] Registrar D-001 na [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) e atualizar CSV.
 - [x] Registrar D-002, Status Novo, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; análise, correção e reteste pendentes.
+- [x] Atualizar catálogo com pré-condições explícitas dos CT-004/010/014/018/019; classificar logs de exploração do agente como não usados para evidência final.
 - [ ] Grupo revisar/atribuir/fechar a Issue após CT-013 manual e exportar relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
 - [ ] Após o PR #2, revalidar `test:local` e Selenium (incluindo SEL-05 atualizado) antes de chamar os resultados históricos de atuais; nenhuma reexecução ocorreu nesta revisão.
@@ -44,10 +45,10 @@
 - [ ] Revisar o rascunho DOCX/PDF em [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/), completar dados reais, execuções, métricas e apêndices; gerar versões finais idênticas somente após validação do grupo. O rascunho atual cobre as 13 seções oficiais e segue explicitamente não submetível.
 - [ ] Revisar o PPTX/PDF de preparação (10 slides) e [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md); completar integrantes/resultados, ensaiar 12–15 minutos mais perguntas, com fala de todos.
 - [ ] Gravar vídeo de contingência MP4 ou disponibilizar link acessível, com demonstração curta dos testes principais; o roteiro preparado não substitui o vídeo.
-- [ ] Preencher continuamente o Diário de Participação (Apêndice L) com pessoas, tempos e evidências reais.
+- [ ] Revisar e manter o Diário de Participação (Apêndice L) com pessoas, tempos e evidências reais; o modelo e atividades datadas comprováveis estão em [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), sem horas ou colaboradores inventados.
 - [ ] Preencher e assinar declaração final do grupo (Apêndice M), somente após conferir a veracidade das evidências.
 - [ ] Organizar exclusivamente a pasta oficial fornecida pelo professor, com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16.
-- [ ] Criar README da pasta 00 na ordem exigida em §11.4 e incluir credenciais fictícias apenas em canal/arquivo apropriado, nunca senhas reais no repositório.
+- [x] Preparar README da pasta 00 na ordem exigida em §11.4, sem senhas reais ou senha local: [ENTREGA/00_IDENTIFICACAO_E_README/README.md](./ENTREGA/00_IDENTIFICACAO_E_README/README.md). Contatos e cópia para a pasta oficial do professor ainda dependem do grupo.
 - [ ] Gerar `COMPROVANTE_DE_ENTREGA.pdf` com data, hora, integrantes e checklist assinado; fazer backup na pasta 16 e em local do grupo.
 - [ ] Abrir arquivos finais e verificar integridade, download e permissão do professor; entregar antes do prazo oficial e não alterar após o horário sem autorização.
 

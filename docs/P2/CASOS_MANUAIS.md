@@ -1,6 +1,6 @@
 # Catálogo inicial de casos manuais — P2
 
-**Versão:** 0.1, 12/11/2026. **Estado:** especificados, **não executados**. Cada caso é independente e usa apenas a cópia P2 com dados fictícios. Fonte: Apêndice E e seções 9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Responsável por cada execução: **a definir pelo grupo**. Registrar resultados somente em [RASTREABILIDADE.md](./RASTREABILIDADE.md) e no futuro registro de execuções, com `EX`, data, versão e evidência.
+**Versão:** 0.2, 24/11/2026. **Estado:** 24 casos especificados; CT-001, CT-003 e CT-004 executados manualmente por Tiago (3/24), os demais ainda pendentes. Cada caso deve ser executável por outra pessoa com as dependências e a massa descritas. Fonte: Apêndice E e §§9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Resultados humanos registrados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md), sem substituir a rastreabilidade ou misturar a automação do agente.
 
 Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env.local` ignorado pelo Git. Antes de executar casos que alteram dados, identificar solicitação de teste e restaurar a seed local se necessário; nunca usar produção. Casos de API podem ser executados manualmente no Postman, com variáveis locais.
 
@@ -36,7 +36,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ### CT-004 — Cliente com WhatsApp já conhecido
 
 - **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; alternativa; média; a definir.
-- **Pré-condições:** cliente fictício já criado pelo CT-001; dados do cliente anotados.
+- **Pré-condições:** **CT-001 concluído e aprovado** na mesma base local; utilizar o cadastro/solicitação fictícia criado por CT-001/EX-001 e anotar WhatsApp, empresa e e-mail originalmente exibidos. Se a base for restaurada, repetir CT-001 antes deste caso.
 - **Entrada:** mesmo WhatsApp fictício; descrição diferente.
 - **Passos:** 1. Enviar nova solicitação válida. 2. Consultar painel. 3. Conferir as duas solicitações e o cliente no banco local.
 - **Esperado:** nova solicitação criada, vinculada ao mesmo cliente, sem duplicar WhatsApp.
@@ -94,7 +94,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ### CT-010 — Detalhe da solicitação
 
 - **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; transição de navegação; média; a definir.
-- **Pré-condições:** CT-009 preparado.
+- **Pré-condições:** **CT-009 concluído e aprovado** na mesma base local; administrador autenticado e solicitação/ID fictício de CT-009 disponíveis. Registrar o ID e manter a mesma massa até terminar CT-010.
 - **Entrada:** ID da solicitação fictícia.
 - **Passos:** 1. Selecionar `Ver detalhes`. 2. Conferir descrição, cliente, contato, origem e status.
 - **Esperado:** página de detalhe corresponde à solicitação selecionada e apresenta os dados da seed.
@@ -132,7 +132,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ### CT-014 — Histórico após transição
 
 - **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; transição de estados; alta; a definir.
-- **Pré-condições:** executar CT-012 em massa local.
+- **Pré-condições:** **CT-012 concluído e aprovado** na mesma solicitação local. Manter anotados o ID, o status inicial, o estado novo e os eventos produzidos; não restaurar/limpar a solicitação antes de consultar o histórico para CT-014.
 - **Entrada:** ID da solicitação e estados anterior/novo.
 - **Passos:** 1. Abrir a linha do tempo. 2. Consultar endpoint de histórico. 3. Comparar registros.
 - **Esperado:** evento de status com estado anterior e novo e data, sem perder eventos anteriores.
@@ -170,7 +170,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ### CT-018 — Editar item existente
 
 - **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; a definir.
-- **Pré-condições:** item temporário de CT-016.
+- **Pré-condições:** **CT-016 concluído e aprovado**; o item temporário deve existir na mesma solicitação. Anotar ID do item, descrição, quantidade e valor de CT-016; se a base for restaurada, repetir CT-016 antes do CT-018.
 - **Entrada:** alterar quantidade para 3, manter valor unitário R$ 30,00.
 - **Passos:** 1. Selecionar `Editar`. 2. Ajustar quantidade. 3. Salvar. 4. Consultar API.
 - **Esperado:** item atualizado, subtotal R$ 90,00 e mesmo ID; sem duplicação.
@@ -179,7 +179,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 ### CT-019 — Remover item com confirmação
 
 - **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; a definir.
-- **Pré-condições:** item temporário de CT-016/018.
+- **Pré-condições:** **CT-016 concluído e aprovado**, com o item ainda existente; para testar o fluxo após edição, executar CT-018 e usar o mesmo item/ID. Anotar solicitação e item alvo. Não remover nem limpar a massa antes do CT-019.
 - **Entrada:** selecionar `Remover` e confirmar no diálogo.
 - **Passos:** 1. Abrir confirmação. 2. Conferir identificação do item. 3. Confirmar. 4. Recarregar.
 - **Esperado:** somente o item escolhido desaparece; total é recalculado.
@@ -234,6 +234,6 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ## Execução
 
-**0 de 24 casos manuais executados nesta versão.** Os resultados esperados acima são especificações, não evidência de aprovação. Cada caso deverá receber execução `EX-xxx`, captura/log e vínculo de defeito apenas se falhar de fato. A planilha editável e os quatro cenários de aceitação serão preparados separadamente sem preencher resultados fictícios.
+**Situação em 24/11/2026: 3 de 24 casos executados por Tiago** (CT-001, CT-003 e CT-004; ver registros EX-001–EX-003). CT-004 teve defeito D-002 apesar de aprovado quanto ao objetivo principal. Os outros 21 casos permanecem pendentes. Os resultados esperados acima são especificações, não evidência de aprovação. Cada execução recebe `EX-xxx`, captura/log e vínculo de defeito apenas a partir de execução real.
 
 As explorações do agente estão discriminadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md), com casos completos, parciais e não executados. Elas não são execuções humanas e não devem ser copiadas para o Apêndice F como se o grupo tivesse executado/conferido o resultado.
