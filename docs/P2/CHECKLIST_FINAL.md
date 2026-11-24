@@ -15,7 +15,7 @@
 - [ ] Continuar [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) para concluir os 24 casos; **3/24 registrados por Tiago**: CT-001 (EX-001, aprovado), CT-003 (EX-002, aprovado), CT-004 (EX-003, aprovado quanto ao objetivo principal, com D-002). Restam CT-002 e CT-005–CT-024. Anotar executor, data/hora, commit, pré-condições, dados, observado, resultado e evidência.
 - [ ] Preparar massa própria para casos dependentes (CT-004, CT-014, CT-018/019) e limpar/restaurar apenas o banco local.
 - [x] Registrar D-001 na [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) e atualizar CSV.
-- [x] Registrar D-002, Status Novo, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; análise, correção e reteste pendentes.
+- [x] Registrar D-002, Status Em análise, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; decisão desta P2: não corrigir, recomendar a correção no plano de melhoria e no TCC; sem reteste nesta P2.
 - [x] Atualizar catálogo com pré-condições explícitas dos CT-004/010/014/018/019; classificar logs de exploração do agente como não usados para evidência final.
 - [ ] Grupo revisar/atribuir/fechar a Issue após CT-013 manual e exportar relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.

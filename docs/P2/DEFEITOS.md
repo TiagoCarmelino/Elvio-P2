@@ -18,13 +18,13 @@
 | Severidade / prioridade | Média / Alta: entrada inválida poderia avançar pela validação de rota; o banco ainda poderia rejeitá-la, mas esse efeito não foi medido antes da correção. |
 | Evidências | Saída RED registrada em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); commits `83d519e`, `68de98e`, `a421b47`. |
 | Status / responsável | **Pronto para reteste**; correção e reteste técnico automatizado registrados. Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta; reteste manual CT-013, responsável de revisão e encerramento pendentes. |
-| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 e inclui `POST status=toString` com HTTP 400. Revisão/fechamento pelo grupo pendente. |
+| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 (na época; hoje são 8 casos) e inclui `POST status=toString` com HTTP 400. Revisão/fechamento pelo grupo pendente. |
 
 Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e mantida aberta para revisão humana. O caso manual CT-013 permanece não executado; não fechar a Issue antes da revisão do grupo/professor.
 
 ## D-002 — Novo envio com WhatsApp já cadastrado sobrescreve empresa e e-mail do cliente
 
-**Status (§9.7): Novo.**
+**Status (§9.7): Em análise. Decisão para a P2: não será corrigido; a correção fica recomendada no plano de melhoria contínua e no TCC.**
 
 | Campo do Apêndice G | Registro observado |
 |---|---|
@@ -38,8 +38,8 @@ Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a c
 | Impacto | Perda do histórico de empresa/e-mail exibidos para solicitações anteriores. O registro observado ocorreu por envio público com WhatsApp já cadastrado. |
 | Severidade / prioridade | Média / Média. |
 | Evidências | [CT-001 antes](./EVIDENCIAS_HUMANAS/CT-001_EX-001_20261123_1838_painel.png), [CT-003 antes](./EVIDENCIAS_HUMANAS/CT-003_EX-002_20261123_1850_painel.png), [painel depois](./EVIDENCIAS_HUMANAS/CT-004_EX-003_20261123_1903_painel.png), [detalhe CT-001 alterado](./EVIDENCIAS_HUMANAS/CT-004_EX-003_20261123_1920_detalhe_CT001_sobrescrito.png). Rascunho recebido em [DEFEITO_D-002_rascunho.md](./EVIDENCIAS_HUMANAS/DEFEITO_D-002_rascunho.md). |
-| Status / responsável | **Novo**; Tiago Gabriel Carmelino. Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3). |
-| Reteste e conclusão | Pendente. A regra de negócio e eventual correção ainda precisam de análise; não há reteste registrado. |
-| Observação técnica para análise | A revisão de código indicou como causa provável o `on conflict (whatsapp) do update` na migração `supabase/migrations/202609010001_initial_commercial_schema.sql`, atualizando dados do cliente. Isso ainda requer confirmação e decisão da regra de negócio. |
+| Status / responsável | **Em análise**; Tiago Gabriel Carmelino. Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3). |
+| Reteste e conclusão | Não será corrigido na P2; correção recomendada no plano de melhoria contínua e no TCC. Não há reteste registrado. |
+| Observação técnica para análise | A revisão de código indicou como causa provável o `on conflict (whatsapp) do update` na migração `supabase/migrations/202609010001_initial_commercial_schema.sql`, atualizando dados do cliente. A causa é uma hipótese da revisão e ainda não foi confirmada tecnicamente. A decisão de escopo é não corrigir na P2; a correção fica recomendada no plano de melhoria contínua e no TCC. |
 
 O registro detalhado original foi fornecido em [DEFEITO_D-002_rascunho.md](./EVIDENCIAS_HUMANAS/DEFEITO_D-002_rascunho.md). Não classificar D-002 como R-SEG-01: são assuntos distintos.

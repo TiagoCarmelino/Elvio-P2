@@ -41,7 +41,19 @@ Na raiz do repositório P2, instalar as dependências com `pnpm install --frozen
 
 ## 7. Configuração
 
-Criar `.env.local` localmente a partir de `.env.example` e preencher somente variáveis `P2_*` com valores fictícios/de desenvolvimento local. Manter `.env.local` fora do Git e da pasta de entrega. Não copiar chaves, cookies, senhas ou credenciais reais para este README.
+1. Crie `.env.local` a partir de `.env.example` e preencha somente variáveis `P2_*` com dados fictícios/locais. Gere `SUPABASE_DASHBOARD_SECRET` com `node -e "console.log(require('crypto').randomBytes(24).toString('hex'))"` e guarde a chave apenas no `.env.local`.
+2. No Supabase Studio local (`http://127.0.0.1:54323`), abra SQL Editor e execute abaixo, trocando `<SUA_CHAVE>` pela chave gerada. O banco recebe apenas o SHA-256; mantenha a chave em `SUPABASE_DASHBOARD_SECRET` no `.env.local` e não em arquivos versionados.
+
+```sql
+update private.painel_config
+set chave_hash = encode(extensions.digest('<SUA_CHAVE>', 'sha256'), 'hex'),
+    atualizado_em = now()
+where id = true;
+```
+
+Gere também `AUTH_SESSION_SECRET` aleatório com pelo menos 24 caracteres.
+3. Em Authentication → Users → Add user → Create new user, crie `administrador.p2@local.test` e `p2.ct007.nao-admin@local.test` com senhas fictícias e marque Auto Confirm User. A conta administrativa deve corresponder a `ADMIN_EMAILS`; a não administrativa não deve constar nessa lista. O passo 4 de `docs/P2/README.md` contém o procedimento detalhado e alternativa por PowerShell.
+Mantenha `.env.local` fora do Git e da pasta de entrega; não copie chaves, cookies, senhas ou credenciais reais para este README.
 
 ## 8. Banco e dados
 
@@ -88,11 +100,11 @@ Documentação, matriz de conformidade, requisitos, casos, rastreabilidade, evid
 
 ## 13. Credenciais fictícias
 
-Conta administrativa local documentada: `administrador.p2@local.test`. A senha não é incluída neste README nem no repositório. O grupo deve fornecê-la em canal restrito quando necessário para a demonstração local. Não usar contas ou senhas reais.
+Conta administrativa local documentada: `administrador.p2@local.test`. A senha fictícia local fica apenas no `.env.local`, na variável `P2_LOCAL_ADMIN_PASSWORD`; não incluir seu valor neste README, no repositório nem na pasta de entrega. Não usar contas ou senhas reais.
 
 ## 14. Problemas conhecidos
 
-- D-002 (Issue #3, status Novo): envio com WhatsApp já cadastrado alterou empresa/e-mail exibidos em solicitação anterior. A análise da regra de negócio, eventual correção e reteste estão pendentes.
+- D-002 (Issue #3, status Em análise; não será corrigido na P2, correção recomendada no plano de melhoria e no TCC): envio com WhatsApp já cadastrado alterou empresa/e-mail exibidos em solicitação anterior. A decisão é não corrigir o defeito na P2; a correção está recomendada no plano de melhoria e no TCC. Não haverá reteste desta correção nesta P2.
 - D-001 (Issue #1, pronto para reteste): correção e testes técnicos registrados; reteste manual CT-013 e encerramento ainda pendentes.
 - Execuções manuais: 3/24 registradas (CT-001, CT-003 e CT-004); 21 casos pendentes. CT-004 encontrou D-002.
 - Aceitação: quatro cenários aguardam participante real.

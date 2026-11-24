@@ -1,3 +1,13 @@
+## Atualização documental de 24/11/2026
+
+- Revisado o Apêndice L contra autores, trailers `Co-Authored-By: Claude` e registros humanos. Atividades dos commits com IA foram identificadas como “com apoio de IA (Claude/Codex), revisado por Tiago”; as três execuções CT e a verificação R-SEG-01 seguem atribuídas a Tiago por serem execuções humanas confirmadas. Nenhuma atividade foi atribuída a Mateus.
+- README da pasta `00_IDENTIFICACAO_E_README`: seção 7 agora inclui geração da chave local do painel, gravação somente do hash no Supabase local e criação/confirmacão das duas contas fictícias. Seção 13 aponta apenas a variável `P2_LOCAL_ADMIN_PASSWORD` em `.env.local`, sem valor de senha.
+- Matriz de conformidade corrigida para 3/24 execuções humanas (EX-001 a EX-003), 27 requisições Postman/51 verificações, existência de D-001 e D-002 no CSV, e Selenium como rodada histórica pré-PR #2, não final.
+- TDD/Sonar esclarece que `EVIDENCIA_AUDITORIA_SONAR.json` contém a quarta análise, que o JSON bruto da terceira não foi guardado e que a quarta ocorreu após `b9e7ddd`. D-002 foi atualizado para Em análise, sem correção nesta P2 e com recomendação para o plano de melhoria/TCC.
+- A aba Automação da planilha foi atualizada: as 25 entradas históricas sem reexecução pós-PR #2, SEL-01–SEL-07 e PM-01–PM-27 estão pendentes de reexecução na rodada final. Rastreabilidade da planilha agora separa execução humana, automação do agente e cobertura combinada, e as ligações PM-01–PM-27 foram incluídas conforme a matriz textual.
+- A imagem raiz de R-SEG-01 foi comparada por SHA-256 e é idêntica à cópia em `EVIDENCIAS_HUMANAS/R-SEG-01/`; a cópia redundante (imagem e registro) foi removida da raiz, preservando a pasta canônica. O registro também foi conferido e permanece na pasta canônica.
+- Não foram executados testes, não houve alteração no banco e nenhuma evidência de execução foi criada nesta atualização. Os dados antigos de D-002 como “Novo” em entradas históricas anteriores deste arquivo descrevem o estado daquela data; o estado atual consolidado é “Em análise”.
+
 # Progresso da preparação da P2
 
 **Atualizado em:** 24/11/2026
