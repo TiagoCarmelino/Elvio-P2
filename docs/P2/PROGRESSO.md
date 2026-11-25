@@ -1,3 +1,11 @@
+## Sessão de aceitação AC-01–AC-04 registrada — 25/11/2026
+
+- Registrada a sessão com participante externo identificado apenas como PART-01, facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. Os quatro cenários foram aceitos (4/4). Respostas literais, tarefas, ações, ajudas, consentimento, limitações dos horários e evidências estão em [REGISTRO_ACEITACAO_PART-01_20261125.md](./REGISTRO_ACEITACAO_PART-01_20261125.md).
+- As 13 capturas e o PDF foram copiados para [EVIDENCIAS_ACEITACAO](./EVIDENCIAS_ACEITACAO/). Nenhum nome real do participante foi incluído. O registro identifica Mateus como observador desde AC-01; não contém relato verbal individual dele.
+- O achado de AC-04 sobre “Observações comerciais” foi classificado como observação de usabilidade, com sugestão de acrescentar “(opcional)” ao rótulo, não como defeito. Os rótulos de PDF sem acento são apenas referenciados como observação cosmética já existente.
+- [RASTREABILIDADE.md](./RASTREABILIDADE.md), [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md), [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), checklist, matriz e planilha foram atualizados.
+- A conferência de evidências e do anonimato será registrada no checkpoint desta atualização.
+
 ## Registro das execuções humanas CT-001–CT-024 — 25/11/2026
 
 > As notas anteriores abaixo mantêm o estado conhecido na data indicada; para o estado atual, vale esta atualização e os documentos vinculados.
@@ -6,7 +14,7 @@
 - Prints e PDF foram copiados para [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/), mantendo nomes. As capturas já existentes foram comparadas por SHA-256; as cópias coincidentes foram preservadas. A captura de DevTools do EX-004 que expõe o cookie de sessão foi excluída; a evidência alternativa do painel foi mantida.
 - [RASTREABILIDADE.md](./RASTREABILIDADE.md) agora liga CT-001–CT-024 aos respectivos EX, resultado e evidências. [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) registra os 24 casos e D-001 encerrado na P2 após reteste aprovado em EX-021/CT-013; a Issue #1 permanece aberta até revisão do grupo. D-002 continua Em análise (Issue #3), sem correção nesta P2.
 - Observações de restauração registradas: CT-004 voltou ao status Novo às 14:25 de 25/11; a validade da seed foi restaurada para 15 dias no EX-024. Os demais campos da proposta foram mantidos conforme o registro-fonte.
-- Conferência documental: todos os EX-001–EX-024 têm pelo menos uma evidência citada existente na pasta humana. Não foram executados testes, comandos Supabase ou alterações no banco. Revisão humana do conjunto e os quatro cenários AC-01–AC-04 ainda dependem dos participantes.
+- Conferência documental: todos os EX-001–EX-024 têm pelo menos uma evidência citada existente na pasta humana. Não foram executados testes, comandos Supabase ou alterações no banco. A sessão AC-01–AC-04 foi concluída e aceita por PART-01; a revisão do grupo e a declaração final assinada continuam pendentes.
 
 ## Preparação da rodada final automatizada — 24/11/2026
 

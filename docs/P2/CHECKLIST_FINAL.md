@@ -20,7 +20,8 @@
 - [ ] Grupo revisar o resultado do EX-021 e decidir sobre o fechamento da Issue #1; ela permanece aberta até essa revisão. Exportar o relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
 - [ ] Após o PR #2, revalidar `test:local` e Selenium (incluindo SEL-05 atualizado) antes de chamar os resultados históricos de atuais; nenhuma reexecução ocorreu nesta revisão.
-- [ ] Usar os quatro cenários e protocolo de facilitação em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); convidar representante que não escreveu os testes e executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.
+- [x] Executar AC-01–AC-04 com participante externo PART-01; os quatro foram aceitos. Respostas e evidências estão no [registro da sessão](./REGISTRO_ACEITACAO_PART-01_20261125.md).
+- [ ] Grupo revisar o registro e os achados; não inferir fala de Mateus além da observação registrada. Colher assinatura da declaração final após revisão.
 - [ ] Repetir TNF-01–06 na versão final com critérios aprovados, dados/medidas, capturas e conclusão individual; observar usabilidade com participante.
 - [x] Ampliar a coleção Postman para caminhos positivos/negativos das operações críticas: 27 requisições/51 verificações, PM-01–PM-27 mapeadas na rastreabilidade.
 - [ ] Executar/exportar evidências da coleção Postman atual (a execução Newman histórica 6/12 é da versão anterior e não comprova a coleção pós-merge).

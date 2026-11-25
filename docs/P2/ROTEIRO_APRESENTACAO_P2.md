@@ -13,7 +13,7 @@
 | 9:00–10:30 | [INTEGRANTE 1 ou 2] | Apresentar métricas com denominadores. São oito indicadores acadêmicos; execução manual 24/24; a taxa de aprovação registrada é 24/24, com D-002 observado em CT-004. Distinguir 97,44% de linhas nos três módulos instrumentados de 27,1% no escopo total do Sonar. | Slide 8; [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) e [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json). |
 | 10:30–11:30 | [INTEGRANTE 2] | Explicar o defeito D-001 apenas com a cadeia comprovada: teste RED falhou para status herdado, correção GREEN e refatoração; citar commits. | Slide 9; [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
 | 11:30–12:30 | [INTEGRANTE A DEFINIR] | Mostrar workflow GitHub Actions e explicar LCOV/artefato. Demonstrar a falha intencional do run #7 (`6014a43`) e o run #8 verde após reversão (`9b1bf7e`), deixando claro que a falha do CI é independente do ciclo TDD. | Slide 10; `.github/workflows/p2-ci.yml`; [EVIDENCIAS_CI](./EVIDENCIAS_CI/); sem mostrar segredos. |
-| 12:30–13:30 | [INTEGRANTE 1] | Apresentar limitações e próximos passos: quatro aceitações, revisão da aprovação/autorização pelo professor, revisão de D-002, versão atual do TCC e revisão dos artefatos. Encerrar com prontidão parcial, não “aprovado”. | Slide final: pendências reais e solicitação de orientação/decisão. |
+| 12:30–13:30 | [INTEGRANTE 1] | Apresentar limitações e próximos passos: revisão dos quatro cenários aceitos por PART-01, aprovação/autorização pelo professor, revisão de D-002, versão atual do TCC e revisão dos artefatos. Encerrar com prontidão parcial, não “aprovado”. | Slide final: pendências reais e solicitação de orientação/decisão. |
 
 ## Preparação da demonstração
 

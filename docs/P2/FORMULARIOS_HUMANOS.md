@@ -33,7 +33,7 @@ Copiar uma linha por execução em [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx); não 
 | EX-002 | CT-003 | 23/11/2026; aplicação do merge `219210a` | Tiago Gabriel Carmelino | 9 caracteres bloqueados na validação do navegador; 10 aceitos e listados no painel. | Aprovado | Capturas `CT-003_EX-002_*` em `EVIDENCIAS_HUMANAS/` | — |
 | EX-003 | CT-004 | 23/11/2026; aplicação do merge `219210a` | Tiago Gabriel Carmelino | Segunda solicitação vinculada ao mesmo cliente; dados exibidos na solicitação anterior foram sobrescritos. | Aprovado quanto ao objetivo principal, com defeito | Capturas `CT-004_EX-003_*` em `EVIDENCIAS_HUMANAS/` | D-002, Issue #3 |
 
-As execuções do agente estão separadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Elas não recebem ID `EX` e não substituem a execução/conferência humana. Mateus não é identificado como executor porque não há participação dele registrada nesta rodada.
+As execuções do agente estão separadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Elas não recebem ID `EX` e não substituem a execução/conferência humana. Mateus não é identificado como executor dos casos CT/EX; sua atividade comprovada nesta atualização foi observar a sessão de aceitação, conforme Apêndice L.
 
 ## Apêndice L — diário de participação
 
@@ -49,10 +49,17 @@ As execuções do agente estão separadas em [REGISTRO_EXECUCOES_AGENTE_20261116
 | 23/11/2026 | Integração do PR #2 à branch `p2-unisagrado`. | Tiago Gabriel Carmelino (autor do merge) | Não registrados | Não registrado | Commit `219210a`; merge de `p2-claude-correcoes`. |
 | 23/11/2026 | Execução manual de CT-001 (EX-001), CT-003 (EX-002) e CT-004 (EX-003), com registro dos resultados; D-002 observado no CT-004. | Execução por Tiago Gabriel Carmelino; organização documental com apoio de IA (Claude/Codex), revisada por Tiago | Não registrados | Não registrado | Commit `2fcb2b6`; [Registro humano](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e capturas `CT-001_EX-001_*`, `CT-003_EX-002_*`, `CT-004_EX-003_*` em `EVIDENCIAS_HUMANAS/`. |
 | 23/11/2026 | Verificação manual R-SEG-01 em PowerShell: duas requisições GET somente leitura retornaram HTTP 401. | Tiago Gabriel Carmelino; documentação com apoio de IA (Claude/Codex), revisada por Tiago | Não registrados | Não registrado | [Registro e captura humana](./EVIDENCIAS_HUMANAS/R-SEG-01/REGISTRO_SEG-01_Tiago.md); commit `b880825`. |
+| 25/11/2026 | Observou a sessão de aceitação AC-01 a AC-04, aproximadamente das 15:00 às 15:23; participou como observador desde o início do AC-01. | Mateus Betini | Não se aplica | Aproximadamente 23 minutos, conforme informado no registro | [Registro da sessão PART-01](./REGISTRO_ACEITACAO_PART-01_20261125.md) e capturas em `EVIDENCIAS_ACEITACAO/`. O registro-fonte não contém fala ou avaliação individual adicional do observador. |
 
-**Limite do registro:** o Git fornece datas/autores dos commits, mas não registra duração ou participação de colaboradores; por isso o tempo está como “Não registrado” e não se atribuem atividades a Mateus sem evidência. A aprovação do Apêndice A continua sem data até preenchimento humano.
+**Limite do registro:** o Git fornece datas/autores dos commits, mas não registra duração ou participação de colaboradores; por isso o tempo está como “Não registrado” e não se atribuem atividades a Mateus sem evidência. A aprovação do Apêndice A tem data informada de 20/08/2026.
 
 As ações técnicas documentadas pelo agente não devem ser atribuídas a integrantes sem conferência e contribuição efetiva do grupo.
+
+
+
+## Apêndice M — sessão de aceitação realizada
+
+Sessão realizada em 25/11/2026 com participante anônimo PART-01 (pessoa externa ao curso), facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. O registro detalhado, respostas literais, desvios de protocolo e evidências estão em [REGISTRO_ACEITACAO_PART-01_20261125.md](./REGISTRO_ACEITACAO_PART-01_20261125.md). Resultado: **4/4 cenários Aceito**. A declaração final assinada do grupo continua pendente e não foi preenchida.
 
 ## Apêndice M — declaração final
 

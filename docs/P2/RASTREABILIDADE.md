@@ -54,3 +54,15 @@ Limitação de prova: HTTP-API-07 verifica MIME, nome do arquivo, assinatura `%P
 | CT-024 | EX-013 | Aprovado | [CT-024_EX-013_20261125_1434_proposta_sem_item.png](./EVIDENCIAS_HUMANAS/CT-024_EX-013_20261125_1434_proposta_sem_item.png) |
 
 Todos os casos CT-001–CT-024 têm execução humana EX correspondente, realizada por Tiago Gabriel Carmelino. EX-003 (CT-004) foi aprovado quanto ao objetivo do caso, com defeito D-002 observado. D-001 teve reteste aprovado em EX-021 e está Encerrado na P2; a Issue #1 permanece aberta até revisão do grupo. D-002 permanece Em análise e não será corrigido na P2. A captura de DevTools do EX-004 que expunha o valor do cookie foi omitida; a captura do painel do EX-004 está preservada.
+
+
+## Rastreabilidade dos cenários de aceitação (25/11/2026)
+
+| Requisito(s) | Cenário | Execução e decisão | Evidências |
+|---|---|---|---|
+| RF-01 | AC-01 — Cliente solicita orçamento | PART-01 concluiu sem ajuda; **Aceito** | [Registro e capturas](./REGISTRO_ACEITACAO_PART-01_20261125.md) |
+| RF-02, RF-03 | AC-02 — Atendente encontra o pedido | PART-01 concluiu sem ajuda (senha colada pelo facilitador, conforme roteiro); **Aceito** | [Registro e capturas](./REGISTRO_ACEITACAO_PART-01_20261125.md) |
+| RF-04, RF-05 | AC-03 — Atendente monta o orçamento | PART-01 concluiu sem ajuda; **Aceito** | [Registro e capturas](./REGISTRO_ACEITACAO_PART-01_20261125.md) |
+| RF-06 | AC-04 — Atendente finaliza a proposta | Concluiu com orientação sobre “Observações comerciais”; **Aceito** | [Registro, prints e PDF](./REGISTRO_ACEITACAO_PART-01_20261125.md) |
+
+Sessão com PART-01 (participante externo ao curso), facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. Consentimento para uso das respostas e capturas foi confirmado às 15:10, depois do AC-01. Ver o registro para desvios/limitações temporais.

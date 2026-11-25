@@ -1,19 +1,19 @@
 # Aceitação e verificações não funcionais — protocolos P2
 
-**Estado:** quatro cenários de aceitação sem decisão humana. Os seis TNF foram executados em rodada **exploratória local** com critérios preliminares; resultados brutos estão em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). O grupo/professor ainda precisa validar critérios, interpretação e evidências da rodada oficial. Usar somente o sistema e o Supabase locais. Registrar data, participante, versão Git, ambiente, dados, observações, resultado e evidência de cada execução. A pessoa representante deve preferencialmente não ter produzido os testes, conforme seção 9.11 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Estado:** AC-01–AC-04 foram realizados em 25/11/2026 com PART-01 e os quatro foram aceitos. Os seis TNF foram executados em rodada **exploratória local** com critérios preliminares; resultados brutos estão em [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json). O grupo/professor ainda precisa validar critérios, interpretação e evidências da rodada oficial. Usar somente o sistema e o Supabase locais. Registrar data, participante, versão Git, ambiente, dados, observações, resultado e evidência de cada execução. A pessoa representante deve preferencialmente não ter produzido os testes, conforme seção 9.11 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 ## Quatro cenários de aceitação
 
 | ID | Objetivo e papel | Dados/tarefa | Critério de sucesso | Decisão/observações |
 |---|---|---|---|---|
-| AC-01 | Cliente solicita orçamento | Pessoa representante preenche nome/WhatsApp fictícios e necessidade de reparo; envia no formulário. | Confirmação compreensível e solicitação visível no painel local. | Pendente: Aceito / Aceito com ressalvas / Não aceito, observações e evidência. |
-| AC-02 | Atendente encontra pedido | Administrador fictício entra e localiza a solicitação de AC-01. | Identifica cliente, contato, descrição e origem sem orientação do autor dos testes. | Pendente. |
-| AC-03 | Atendente prepara orçamento | Insere dois itens fictícios, revisa subtotais, edita um e remove outro. | Total e itens resultantes correspondem aos dados informados; ações são compreensíveis. | Pendente. |
-| AC-04 | Atendente finaliza proposta | Define validade/condições fictícias e abre PDF da solicitação. | PDF abre e mostra cliente, item, total e condições corretas. | Pendente. |
+| AC-01 | Cliente solicita orçamento | Pessoa representante preenche nome/WhatsApp fictícios e necessidade de reparo; envia no formulário. | Confirmação compreensível e solicitação visível no painel local. | Aceito — PART-01 concluiu sem ajuda. [Registro/evidências](./REGISTRO_ACEITACAO_PART-01_20261125.md). |
+| AC-02 | Atendente encontra pedido | Administrador fictício entra e localiza a solicitação de AC-01. | Identifica cliente, contato, descrição e origem sem orientação do autor dos testes. | Aceito — PART-01 concluiu sem ajuda, com senha colada pelo facilitador conforme previsto. [Registro/evidências](./REGISTRO_ACEITACAO_PART-01_20261125.md). |
+| AC-03 | Atendente prepara orçamento | Insere dois itens fictícios, revisa subtotais, edita um e remove outro. | Total e itens resultantes correspondem aos dados informados; ações são compreensíveis. | Aceito — PART-01 concluiu sem ajuda; totais conferidos. [Registro/evidências](./REGISTRO_ACEITACAO_PART-01_20261125.md). |
+| AC-04 | Atendente finaliza proposta | Define validade/condições fictícias e abre PDF da solicitação. | PDF abre e mostra cliente, item, total e condições corretas. | Aceito — concluiu com uma orientação sobre “Observações comerciais”. [Registro/evidências](./REGISTRO_ACEITACAO_PART-01_20261125.md). |
 
 ## Guia do facilitador para a sessão com participante
 
-**Esta sessão ainda não foi realizada.** Convide uma pessoa que não escreveu os testes; na ausência de cliente, o enunciado permite outro grupo como representante. Combine data, duração, privacidade e gravação antes. Peça autorização para anotações/capturas e não registre nome, contato ou imagem identificável sem consentimento. Use conta, solicitação e valores inteiramente fictícios.
+**Protocolo para sessões futuras.** A sessão PART-01 descrita no registro vinculado já foi realizada; use este roteiro em novas sessões, se necessário. Convide uma pessoa que não escreveu os testes; na ausência de cliente, o enunciado permite outro grupo como representante. Combine data, duração, privacidade e gravação antes. Peça autorização para anotações/capturas e não registre nome, contato ou imagem identificável sem consentimento. Use conta, solicitação e valores inteiramente fictícios.
 
 ### Preparação
 
@@ -35,7 +35,7 @@
 
 Após cada tarefa, pergunte sem induzir: “O que ficou claro?”, “Onde teve dúvida ou esperava outro comportamento?” e “Você considera que concluiu a tarefa?”. Registre respostas literais curtas sem identificar a pessoa, obstáculos, ajuda oferecida e discrepâncias observadas. Peça a decisão explícita para cada cenário: **Aceito**, **Aceito com ressalvas** ou **Não aceito**, com justificativa. Não infira aceitação a partir de uma tarefa concluída.
 
-Crie uma execução `AC-xx-EX-yyy` somente após a sessão real. Inclua versão/hash, pré-condições, valores fictícios, passos observados, esperado/obtido, decisão e referência de evidência. Se o participante não concluir, marque o resultado sem reclassificar a falha como aprovação. Restaure a fixture e registre a confirmação. Nenhum cenário possui participante, decisão ou evidência nesta versão.
+Para futuras sessões, use ID próprio e registre versão/hash, pré-condições, dados fictícios, passos, esperado/obtido, decisão e evidências. Se o participante não concluir, registre sem reclassificar como aprovação. A sessão PART-01 concluída está separada no registro vinculado; não substitua suas evidências.
 
 ## Seis verificações não funcionais (Apêndice I)
 
@@ -54,7 +54,7 @@ Cada `TNF` exige registrar resultado obtido, conclusão `Atende / Atende parcial
 
 ## Formulário em branco da sessão de aceitação
 
-Preencher uma cópia por participante/sessão somente durante a realização. Não preencher decisões por inferência e não registrar nome, contato, imagem identificável ou fala pessoal sem autorização adequada. Os cenários de teste continuam sem execução até que um representante real participe.
+Preencher uma cópia por participante/sessão somente durante a realização. Não preencher decisões por inferência e não registrar nome, contato, imagem identificável ou fala pessoal sem autorização adequada. O participante foi externo ao curso; ele está anonimizado como PART-01.
 
 | Identificação da sessão | Preenchimento durante a sessão |
 |---|---|
@@ -76,9 +76,14 @@ Preencher uma cópia por participante/sessão somente durante a realização. N�
 | AC-03 | Pendente | Pendente | Dois itens, edição/remoção e total correto | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
 | AC-04 | Pendente | Pendente | Condições e PDF coerentes com a ficha | Pendente | Pendente: Aceito / Aceito com ressalvas / Não aceito | Pendente |
 
-**Situação:** 0/4 participantes/sessões/decisões registrados. Este formulário é somente preparação, não é evidência de aceitação.
+**Situação:** os quatro cenários foram executados e aceitos por PART-01. Este formulário em branco permanece como modelo para sessões futuras; os resultados desta sessão estão no registro vinculado.
 
 
 ### Runner da rodada final
 
 O script [scripts/p2-rodada-final.ps1](../../scripts/p2-rodada-final.ps1) executa, em sequência, cobertura unitária/LCOV, integração local, Selenium, Newman e os seis TNF. Para TNF-03 e TNF-04, usa 20 repetições por operação e registra todas as amostras, o máximo e a mediana. Os logs, resumo e evidências LCOV/JSON/Selenium são organizados em docs/P2/EVIDENCIAS_AUTOMACAO/<data>/<hora>-<commit>/. Antes de executá-lo, conclua os testes manuais e confirme que .env.local aponta apenas para HTTP loopback; o script não faz reset do banco. Esta preparação foi revisada sem executar o runner.
+
+
+## Sessão concluída — 25/11/2026
+
+[Registro detalhado da sessão PART-01](./REGISTRO_ACEITACAO_PART-01_20261125.md): AC-01–AC-04 aceitos (4/4). A sessão foi facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. Consentimento foi confirmado às 15:10, depois do AC-01, conforme registrado. O horário inicial do AC-01 não foi anotado; os prints AC-01 e o print 9 do AC-04 não mostram relógio. A dúvida sobre “Observações comerciais” está registrada como achado de usabilidade, com sugestão de incluir “(opcional)” no rótulo, não como defeito. A observação cosmética de rótulos PDF sem acento já constava nos testes manuais.
