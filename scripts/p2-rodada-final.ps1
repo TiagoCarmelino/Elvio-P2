@@ -94,11 +94,12 @@ try {
     finally { $ErrorActionPreference = 'Stop' }
     if ($supabaseExit -ne 0) { $supabaseVersion = "indisponível (exit $supabaseExit): $supabaseVersion" }
 
-    $chromeCandidates = @(
+    # @() externo garante array mesmo com um único caminho encontrado (PS 5.1 desembrulha).
+    $chromeCandidates = @(@(
         (Join-Path $env:ProgramFiles 'Google/Chrome/Application/chrome.exe'),
         (Join-Path ${env:ProgramFiles(x86)} 'Google/Chrome/Application/chrome.exe'),
         (Join-Path $env:LOCALAPPDATA 'Google/Chrome/Application/chrome.exe')
-    ) | Where-Object { $_ -and (Test-Path -LiteralPath $_ -PathType Leaf) }
+    ) | Where-Object { $_ -and (Test-Path -LiteralPath $_ -PathType Leaf) })
     $chromeVersion = 'não encontrado'
     if ($chromeCandidates.Count -gt 0) {
         $chromeVersion = (Get-Item -LiteralPath $chromeCandidates[0]).VersionInfo.ProductVersion
