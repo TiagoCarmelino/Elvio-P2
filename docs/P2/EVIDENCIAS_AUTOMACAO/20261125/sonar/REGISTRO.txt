@@ -1,0 +1,39 @@
+Análise SonarQube local — rodada final P2 (25/11/2026)
+
+Instância: http://127.0.0.1:9000 (SonarQube Community Build 26.11.0.134175, banco H2 de avaliação)
+Scanner: @sonar/scan 5.1.0 (npx), token local via variável de ambiente; valor omitido
+Projeto: wg-hidraulica-p2
+Commit analisado: 2ad8845 (revisão 2ad88451c86e68cf149293ccb542e7cf9f9509de)
+LCOV: coverage/p2/lcov.info gerado pela rodada 160236-2ad8845 (SHA-256 E7FD50E95FE4BEB1C74A3A8BE693A228CB294F5C964771A4966F97557FA378E6)
+Tarefa CE: 1152dc67-9732-4d49-8ded-e74472aaaec4 — SUCCESS
+Analysis ID: 7ac94775-4945-41fc-9dc4-fce1d9a4ae4a — 2026-11-25T19:04:07Z (16:04:07 horário local)
+
+Resultado (código geral):
+- Quality Gate: OK (Passed)
+- Bugs: 0 | Vulnerabilidades: 0 | Code smells: 0 | Issues abertas: 0
+- Security hotspots: 0
+- Cobertura: 27,1% (1.020 linhas cobráveis, 791 descobertas; line coverage 22,5%; condition coverage 85,4%)
+- Duplicação: 0,0%
+- Linhas de código (ncloc): 5.471
+
+Condições do Quality Gate (novo código desde caf0a0d):
+- new_violations = 0 (limite: > 0) — OK
+- new_duplicated_lines_density = 0,0% (limite: > 3%) — OK
+- new_coverage = 50,0% (limite: < 80%) — reportado OK pelo SonarQube; o novo código tem apenas 7 linhas
+  cobráveis e o SonarQube não aplica condições de cobertura/duplicação quando há menos de 20 linhas novas.
+
+Limitação: os 27,1% medem todo o escopo app/; a suíte unitária instrumenta três módulos de app/lib
+(97,44% linhas, 85,36% ramos, 100% funções no c8). Não representa cobertura integral do sistema.
+
+Arquivos:
+- 01-sonar-scanner.log — saída completa do scanner
+- ce-task.json, ultima-analise.json, measures.json, quality-gate.json, hotspots.json, issues-abertas.json — respostas da API
+- SONAR-01-overview-2ad8845.png — Summary / Overall Code (Quality Gate, Security/Reliability/Maintainability, cobertura, duplicação, hotspots)
+- SONAR-02-coverage-2ad8845.png — Measures › Coverage
+- SONAR-03-issues-2ad8845.png — Issues abertas (0)
+- SONAR-04-hotspots-2ad8845.png — Security Hotspots (0)
+- SONAR-05-duplications-2ad8845.png — Measures › Duplications
+
+Observação: o SonarQube 26.x exibe no painel os eixos Security/Reliability/Maintainability; as métricas
+clássicas bugs/vulnerabilities/code_smells constam em measures.json.
+Nenhum token, senha ou cookie foi gravado nestes arquivos (verificado por busca dos valores reais).

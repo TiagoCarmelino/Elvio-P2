@@ -1,0 +1,35 @@
+﻿Suíte: Unitários com cobertura LCOV
+Início local: 2026-11-25T16:02:38.9136297-03:00
+Commit: 2ad8845
+Comando: pnpm.cmd run test:coverage
+--- saída completa ---
+$ c8 --reporter=lcov --reporter=text --report-dir=coverage/p2 --include=app/lib/** node --experimental-strip-types --test tests/auth.test.mjs tests/triage.test.mjs tests/commercial-status.test.mjs && node scripts/p2-normalize-lcov.mjs
+✔ sessão administrativa válida é aceita e adulteração é rejeitada (16.7204ms)
+✔ proteção aceita somente e-mail autorizado da hospedagem ou da sessão (2.0109ms)
+✔ status comercial aceita apenas chaves próprias do catálogo (0.7914ms)
+✔ dados incompletos viram pendências, sem bloquear a solicitação (2.1002ms)
+✔ rejeita serviço inválido e campos excessivos (0.3506ms)
+✔ valida a resposta estruturada do chatbot (0.2054ms)
+✔ resumo máximo cabe no limite existente do banco (0.1019ms)
+✔ contratos HTTP sem chamadas externas (10.7538ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 532.7757
+----------------------|---------|----------|---------|---------|-------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |   97.44 |    85.36 |     100 |   97.44 |                   
+ admin-auth.ts        |   96.77 |    79.06 |     100 |   96.77 | 97-98,121-122     
+ commercial-status.ts |     100 |      100 |     100 |     100 |                   
+ commercial-triage.ts |   97.77 |    91.66 |     100 |   97.77 | 45-46             
+----------------------|---------|----------|---------|---------|-------------------
+LCOV P2 validado: 3 módulos em coverage/p2/lcov.info.
+LCOV copiado para lcov.info; SHA-256: E7FD50E95FE4BEB1C74A3A8BE693A228CB294F5C964771A4966F97557FA378E6
+--- fim da saída ---
+Fim local: 2026-11-25T16:02:40.0164751-03:00
+Exit code: 0

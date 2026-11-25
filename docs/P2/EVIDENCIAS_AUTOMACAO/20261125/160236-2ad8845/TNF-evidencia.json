@@ -1,0 +1,146 @@
+{
+  "at": "2026-11-25T19:03:04.002Z",
+  "commit": "2ad8845",
+  "node": "v24.22.3",
+  "platform": "win32",
+  "cpu": "AMD Ryzen 5 7600X 6-Core Processor             ",
+  "memoryBytes": 16266825728,
+  "category": "Execução automatizada local; critérios preliminares sujeitos à validação do grupo/professor",
+  "tests": [
+    {
+      "id": "TNF-01",
+      "paths": [
+        "/api/painel/solicitacoes",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/historico",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta"
+      ],
+      "statuses": [
+        401,
+        401,
+        401,
+        401
+      ],
+      "conclusion": "Atende no ambiente local"
+    },
+    {
+      "id": "TNF-02",
+      "paths": [
+        "/api/solicitacoes",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status",
+        "/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens"
+      ],
+      "statuses": [
+        400,
+        400,
+        400
+      ],
+      "conclusion": "Atende no ambiente local"
+    },
+    {
+      "id": "TNF-03",
+      "inicio": {
+        "samplesMs": [
+          52.8,
+          70.8,
+          60.8,
+          55.3,
+          46.9,
+          46.5,
+          54.6,
+          53,
+          44.5,
+          49.1,
+          49.7,
+          37.6,
+          34.9,
+          36.7,
+          35,
+          41.5,
+          78.7,
+          39.3,
+          38.3,
+          38.8
+        ],
+        "repetitions": 20,
+        "maxMs": 78.7,
+        "medianMs": 46.7
+      },
+      "login": {
+        "samplesMs": [
+          60.5,
+          60.8,
+          63.6,
+          71.1,
+          58.4,
+          63.2,
+          59.2,
+          59.5,
+          61.9,
+          61.8,
+          61.5,
+          57.4,
+          60.4,
+          57.6,
+          61.6,
+          62.2,
+          62.3,
+          61.8,
+          58.9,
+          57.7
+        ],
+        "repetitions": 20,
+        "maxMs": 71.1,
+        "medianMs": 61.15
+      },
+      "repetitionsPerOperation": 20,
+      "thresholdMs": 3000,
+      "conclusion": "Atende ao critério preliminar local"
+    },
+    {
+      "id": "TNF-04",
+      "samplesMs": [
+        24.2,
+        60.5,
+        59.5,
+        64.3,
+        60.5,
+        68.9,
+        64.2,
+        58.3,
+        65.8,
+        60.1,
+        57.9,
+        59.4,
+        68.4,
+        60.3,
+        59.9,
+        59.2,
+        55.9,
+        61.9,
+        59.5,
+        58.9
+      ],
+      "repetitions": 20,
+      "maxMs": 68.9,
+      "medianMs": 60,
+      "thresholdMs": 3000,
+      "conclusion": "Atende ao critério preliminar local"
+    },
+    {
+      "id": "TNF-05",
+      "versions": {
+        "chrome": "158.0.8127.37",
+        "MicrosoftEdge": "158.0.4370.33"
+      },
+      "viewport": "1366x768",
+      "conclusion": "Envio e login concluídos nos dois navegadores locais"
+    },
+    {
+      "id": "TNF-06",
+      "viewport": "390x844",
+      "documentScrollWidth": 390,
+      "conclusion": "Atende no Chrome automatizado; observação humana de usabilidade pendente"
+    }
+  ]
+}

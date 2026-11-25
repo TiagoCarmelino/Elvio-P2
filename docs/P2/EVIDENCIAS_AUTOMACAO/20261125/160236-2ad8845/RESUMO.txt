@@ -1,0 +1,11 @@
+﻿Resumo da rodada final P2
+Commit: 2ad8845
+Pasta: C:\Users\tiago\OneDrive\Desktop\Hidr-ulicoTcc-mainElvio\Hidr-ulicoTcc-main\docs\P2\EVIDENCIAS_AUTOMACAO\20261125\160236-2ad8845
+
+Unitários com cobertura LCOV: Aprovada; aprovados=8; reprovados=0; exit=0; log=01-unitarios-cobertura.log
+Integração/API local: Aprovada; aprovados=8; reprovados=0; exit=0; log=02-integracao-local.log
+Selenium: Aprovada; aprovados=7; reprovados=0; exit=0; log=03-selenium.log
+Postman/Newman (27 requisições): Aprovada; aprovados=51; reprovados=0; exit=0; log=04-postman-newman.log
+Não funcionais oficiais (TNF-01–TNF-06; 20 medições temporais): Aprovada; aprovados=6; reprovados=0; exit=0; log=05-nao-funcionais.log
+
+Resultado geral: todas as suítes terminaram sem erro de processo

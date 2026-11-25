@@ -1,0 +1,173 @@
+﻿Suíte: Postman/Newman (27 requisições)
+Início local: 2026-11-25T16:02:58.5086228-03:00
+Commit: 2ad8845
+Comando: pnpm.cmd run test:postman
+--- saída completa ---
+$ node --env-file-if-exists=.env.local scripts/p2-postman-local.mjs
+(node:39832) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+P2 — WG Hidráulica — API local
+
+□ A — Sem sessão (executar antes do login)
+└ PM-07 — Lista sem sessão é recusada
+  GET http://localhost:3000/api/painel/solicitacoes [401 Unauthorized, 388B, 28ms]
+  √  acesso anônimo recusado
+  √  nenhum dado comercial no corpo
+
+└ PM-08 — Alteração de status sem sessão é recusada
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status [401 Unauthorized, 388B, 17ms]
+  √  alteração anônima recusada
+
+└ PM-09 — PDF sem sessão é recusado
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta [401 Unauthorized, 388B, 15ms]
+  √  download anônimo recusado
+  √  não devolve PDF
+
+└ PM-10 — Login com senha incorreta não cria sessão
+  POST http://localhost:3000/api/auth/login [303 See Other, 199B, 98ms]
+  √  redireciona de volta ao login
+  √  indica erro de credenciais
+  √  sem cookie administrativo
+
+□ B — Sessão administrativa e consulta
+└ PM-01 — Login administrativo fictício
+  POST http://localhost:3000/api/auth/login [303 See Other, 460B, 109ms]
+  √  redireciona com sessão
+  √  cookie administrativo
+
+└ PM-02 — Listar e capturar ID fictício
+  GET http://localhost:3000/api/painel/solicitacoes [200 OK, 11.45kB, 24ms]
+  √  lista autenticada
+  √  contrato de lista
+  √  fixture local presente
+
+└ PM-03 — Consultar itens do pedido
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [200 OK, 529B, 62ms]
+  √  itens acessíveis
+  √  contrato de itens
+
+└ PM-05 — Consultar condições e proposta
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [200 OK, 559B, 69ms]
+  √  dados da proposta
+  √  validade numérica
+
+□ C — Solicitação pública
+└ PM-06 — Rejeitar solicitação pública inválida
+  POST http://localhost:3000/api/solicitacoes [400 Bad Request, 421B, 12ms]
+  √  pedido inválido rejeitado
+
+└ PM-11 — Criar solicitação pública válida
+  POST http://localhost:3000/api/solicitacoes [201 Created, 416B, 66ms]
+  √  solicitação criada
+  √  mensagem de confirmação
+
+└ PM-12 — Confirmar persistência da nova solicitação
+  GET http://localhost:3000/api/painel/solicitacoes [200 OK, 11.74kB, 19ms]
+  √  lista autenticada
+  √  nova solicitação persistida
+  √  status inicial novo e origem site
+
+□ D — Itens do orçamento
+└ PM-13 — Criar item válido
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [200 OK, 422B, 56ms]
+  √  item salvo
+  √  identificador devolvido
+
+└ PM-14 — Confirmar item persistido
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [200 OK, 699B, 59ms]
+  √  itens acessíveis
+  √  item com quantidade 2 e valor 30
+
+└ PM-04 — Rejeitar item inválido
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens [400 Bad Request, 401B, 11ms]
+  √  validação de item
+  √  mensagem legível
+
+└ PM-15 — Remover item temporário
+  DELETE http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens/04f8c7d3-1ef4-4b01-b7e7-f05c60f270c7 [200 OK, 369B, 58ms]
+  √  item removido
+  √  mensagem de remoção
+
+└ PM-16 — Rejeitar remoção de item já removido
+  DELETE http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/itens/04f8c7d3-1ef4-4b01-b7e7-f05c60f270c7 [502 Bad Gateway, 412B, 90ms]
+  √  remoção repetida não é aceita
+  √  mensagem legível
+
+□ E — Status e histórico
+└ PM-17 — Rejeitar status fora do catálogo
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status [400 Bad Request, 381B, 11ms]
+  √  status inválido rejeitado
+  √  mensagem de status inválido
+
+└ PM-18 — Alterar status temporariamente
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status [200 OK, 373B, 64ms]
+  √  status atualizado
+
+└ PM-19 — Confirmar status alterado
+  GET http://localhost:3000/api/painel/solicitacoes [200 OK, 11.74kB, 59ms]
+  √  novo status persistido
+
+└ PM-20 — Restaurar status original
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/status [200 OK, 373B, 62ms]
+  √  status restaurado
+
+└ PM-21 — Confirmar restauração do status
+  GET http://localhost:3000/api/painel/solicitacoes [200 OK, 11.74kB, 61ms]
+  √  status original de volta
+
+□ F — Condições comerciais e proposta PDF
+└ PM-22 — Rejeitar validade 0
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [400 Bad Request, 404B, 11ms]
+  √  validade fora do intervalo rejeitada
+  √  mensagem do intervalo
+
+└ PM-23 — Salvar validade 30
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [200 OK, 380B, 58ms]
+  √  condições salvas
+
+└ PM-24 — Restaurar condições originais
+  POST http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [200 OK, 380B, 57ms]
+  √  condições restauradas
+
+└ PM-25 — Confirmar restauração das condições
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta/dados [200 OK, 559B, 66ms]
+  √  validade original de volta
+  √  textos originais de volta
+
+└ PM-26 — Gerar proposta PDF
+  GET http://localhost:3000/api/painel/solicitacoes/20000000-0000-4000-8000-000000000001/proposta [200 OK, 3.07kB, 74ms]
+  √  PDF gerado
+  √  tipo application/pdf
+  √  nome do arquivo
+  √  assinatura %PDF-
+
+└ PM-27 — PDF de solicitação inexistente
+  GET http://localhost:3000/api/painel/solicitacoes/ffffffff-ffff-4fff-8fff-fffffffffff1/proposta [404 Not Found, 392B, 62ms]
+  √  solicitação inexistente
+  √  mensagem de não encontrado
+
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │                27 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │                27 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │                32 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │                51 │                 0 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 3.6s                                        │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 49.67kB (approx)                           │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 51ms [min: 11ms, max: 109ms, s.d.: 27ms] │
+└─────────────────────────────────────────────────────────────────┘
+P2_SUMMARY requests=27 assertions=51 assertionFailures=0 failures=0
+--- fim da saída ---
+Fim local: 2026-11-25T16:03:03.7509591-03:00
+Exit code: 0

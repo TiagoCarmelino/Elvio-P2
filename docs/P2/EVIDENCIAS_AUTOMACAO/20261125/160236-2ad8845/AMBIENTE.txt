@@ -1,0 +1,20 @@
+﻿Rodada final de automação P2 — somente ambiente local
+Início local: 2026-11-25T16:02:36.8516447-03:00
+Commit: 2ad8845
+Branch: p2-unisagrado
+Working tree sujo no início: False
+Sistema operacional: Microsoft Windows 11 Education 10.0.26300 build 26300
+PowerShell: 5.1.26100.9818
+Node.js: v24.22.3
+pnpm: 12.18.0
+Supabase CLI: 3.1.0
+A new version of Supabase CLI is available: v3.4.0 (currently installed v3.1.0)
+We recommend updating regularly for new features and bug fixes: https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli
+Chrome: 158.0.8127.37
+CPU: AMD Ryzen 5 7600X 6-Core Processor             
+RAM (bytes): 16266825728
+P2_LOCAL_BASE_URL: http://localhost:3000
+SUPABASE_URL: http://127.0.0.1:54321
+Postman requests: 27
+SHA-256 coleção: 3C5B2EC1381A3B3F47CB74554E2C74F6AF1E7E7E574C50B998B45BBF20A16DA2
+Credenciais e valores secretos foram omitidos.

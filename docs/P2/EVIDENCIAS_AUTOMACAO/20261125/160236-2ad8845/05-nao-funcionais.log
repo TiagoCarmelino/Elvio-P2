@@ -1,0 +1,23 @@
+﻿Suíte: Não funcionais oficiais (TNF-01–TNF-06; 20 medições temporais)
+Início local: 2026-11-25T16:03:03.7569601-03:00
+Commit: 2ad8845
+Comando: pnpm.cmd run test:nonfunctional
+--- saída completa ---
+$ node --env-file-if-exists=.env.local --test tests/p2-nonfunctional.test.mjs
+✔ TNF-01: quatro recursos comerciais recusam acesso anônimo (226.6978ms)
+✔ TNF-02: três entradas inválidas recebem 400 sem campo de segredo (41.3687ms)
+✔ TNF-03: início e login em vinte medições por operação (2186.5735ms)
+✔ TNF-04: listagem comercial em vinte medições (1188.1656ms)
+✔ TNF-05: contato e login em Chrome e Edge desktop (4355.4703ms)
+✔ TNF-06: formulário público utilizável em largura móvel Chrome (1121.296ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9318.518
+--- fim da saída ---
+Fim local: 2026-11-25T16:03:13.1863106-03:00
+Exit code: 0

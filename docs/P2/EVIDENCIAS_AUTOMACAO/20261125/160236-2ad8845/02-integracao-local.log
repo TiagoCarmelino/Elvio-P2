@@ -1,0 +1,25 @@
+﻿Suíte: Integração/API local
+Início local: 2026-11-25T16:02:40.0435534-03:00
+Commit: 2ad8845
+Comando: pnpm.cmd run test:local
+--- saída completa ---
+$ node --env-file-if-exists=.env.local --test --test-concurrency=1 tests/local-flows.integration.test.mjs tests/p2-api.integration.test.mjs
+✔ fluxos locais: proteção, login administrativo e consulta comercial (889.9265ms)
+✔ API-02: solicitação pública rejeita campos insuficientes (296.5288ms)
+✔ API-03: item de orçamento pode ser criado, consultado, alterado e removido (485.1599ms)
+✔ API-04: proposta persiste alteração e volta ao valor inicial (367.9216ms)
+✔ API-05: status persiste, gera histórico e retorna ao estado inicial (468.053ms)
+✔ API-06: senha incorreta não cria sessão administrativa (106.2664ms)
+✔ API-07: proposta da seed responde com assinatura e MIME de PDF (134.8739ms)
+✔ API-08: validade respeita limites de 1 a 365 dias (913.8693ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4035.4325
+--- fim da saída ---
+Fim local: 2026-11-25T16:02:44.1941608-03:00
+Exit code: 0
