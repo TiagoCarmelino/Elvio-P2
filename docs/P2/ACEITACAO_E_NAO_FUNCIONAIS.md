@@ -87,3 +87,8 @@ O script [scripts/p2-rodada-final.ps1](../../scripts/p2-rodada-final.ps1) execut
 ## Sessão concluída — 25/11/2026
 
 [Registro detalhado da sessão PART-01](./REGISTRO_ACEITACAO_PART-01_20261125.md): AC-01–AC-04 aceitos (4/4). A sessão foi facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. Consentimento foi confirmado às 15:10, depois do AC-01, conforme registrado. O horário inicial do AC-01 não foi anotado; os prints AC-01 e o print 9 do AC-04 não mostram relógio. A dúvida sobre “Observações comerciais” está registrada como achado de usabilidade, com sugestão de incluir “(opcional)” no rótulo, não como defeito. A observação cosmética de rótulos PDF sem acento já constava nos testes manuais.
+
+
+### Relato do observador
+
+Mateus Betini, observador desde o início do AC-01, relatou em 25/11/2026 às 15:26: “Acompanhei os quatro cenários de aceitação e observei que o participante conseguiu utilizar o sistema com facilidade. A única dúvida identificada foi sobre o preenchimento das observações comerciais, mas todas as tarefas foram concluídas com sucesso.” O texto foi repassado por Tiago no chat e foi registrado literalmente no [registro da sessão](./REGISTRO_ACEITACAO_PART-01_20261125.md).

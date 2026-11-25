@@ -1,7 +1,12 @@
+## Complemento — relato do observador Mateus, 25/11/2026
+
+- Incorporado ao [registro de aceitação](./REGISTRO_ACEITACAO_PART-01_20261125.md), ao protocolo e ao [diário de participação](./FORMULARIOS_HUMANOS.md) o relato repassado por Tiago às 15:26, com as palavras de Mateus. A atividade do diário limita-se à observação da sessão AC-01–AC-04, aproximadamente das 15:00 às 15:23, e a esse relato.
+- Não foram atribuídas outras atividades a Mateus.
+
 ## Sessão de aceitação AC-01–AC-04 registrada — 25/11/2026
 
 - Registrada a sessão com participante externo identificado apenas como PART-01, facilitada por Tiago Gabriel Carmelino e observada por Mateus Betini. Os quatro cenários foram aceitos (4/4). Respostas literais, tarefas, ações, ajudas, consentimento, limitações dos horários e evidências estão em [REGISTRO_ACEITACAO_PART-01_20261125.md](./REGISTRO_ACEITACAO_PART-01_20261125.md).
-- As 13 capturas e o PDF foram copiados para [EVIDENCIAS_ACEITACAO](./EVIDENCIAS_ACEITACAO/). Nenhum nome real do participante foi incluído. O registro identifica Mateus como observador desde AC-01; não contém relato verbal individual dele.
+- As 13 capturas e o PDF foram copiados para [EVIDENCIAS_ACEITACAO](./EVIDENCIAS_ACEITACAO/). Nenhum nome real do participante foi incluído. Mateus observou desde AC-01 e relatou às 15:26 que o participante usou o sistema com facilidade, teve dúvida apenas em “Observações comerciais” e concluiu todas as tarefas; relato literal incluído no registro e no diário.
 - O achado de AC-04 sobre “Observações comerciais” foi classificado como observação de usabilidade, com sugestão de acrescentar “(opcional)” ao rótulo, não como defeito. Os rótulos de PDF sem acento são apenas referenciados como observação cosmética já existente.
 - [RASTREABILIDADE.md](./RASTREABILIDADE.md), [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md), [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), checklist, matriz e planilha foram atualizados.
 - A conferência de evidências e do anonimato será registrada no checkpoint desta atualização.

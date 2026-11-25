@@ -85,7 +85,7 @@
 
 ## Registro do observador
 
-O registro-fonte identifica Mateus Betini como observador na chamada, acompanhando desde o início do AC-01. O arquivo-fonte não contém fala, avaliação ou relato individual adicional atribuído a ele; nenhum foi acrescentado.
+O registro-fonte identifica Mateus Betini como observador na chamada, acompanhando desde o início do AC-01. Às 15:26 de 25/11/2026, ele relatou: “Acompanhei os quatro cenários de aceitação e observei que o participante conseguiu utilizar o sistema com facilidade. A única dúvida identificada foi sobre o preenchimento das observações comerciais, mas todas as tarefas foram concluídas com sucesso.” (texto repassado por Tiago no chat).
 
 ## Resumo da sessão
 
