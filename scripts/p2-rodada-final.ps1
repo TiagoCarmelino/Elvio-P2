@@ -81,10 +81,17 @@ try {
     $dirty = [bool](& git status --porcelain)
     $os = Get-CimInstance Win32_OperatingSystem
     $cpu = (Get-CimInstance Win32_Processor | Select-Object -First 1 -ExpandProperty Name)
-    $nodeVersion = (& node --version 2>&1 | Out-String).Trim()
-    $pnpmVersion = (& $pnpmPath --version 2>&1 | Out-String).Trim()
-    $supabaseVersion = (& $pnpmPath exec supabase --version 2>&1 | Out-String).Trim()
-    $supabaseExit = $LASTEXITCODE
+    # No Windows PowerShell 5.1, stderr de comando nativo com 2>&1 vira ErrorRecord e,
+    # sob 'Stop', aborta o script. Avisos (ex.: atualização do Supabase CLI) não são falha:
+    # o resultado é decidido pelo $LASTEXITCODE.
+    $ErrorActionPreference = 'Continue'
+    try {
+        $nodeVersion = (& node --version 2>&1 | ForEach-Object { $_.ToString() } | Out-String).Trim()
+        $pnpmVersion = (& $pnpmPath --version 2>&1 | ForEach-Object { $_.ToString() } | Out-String).Trim()
+        $supabaseVersion = (& $pnpmPath exec supabase --version 2>&1 | ForEach-Object { $_.ToString() } | Out-String).Trim()
+        $supabaseExit = $LASTEXITCODE
+    }
+    finally { $ErrorActionPreference = 'Stop' }
     if ($supabaseExit -ne 0) { $supabaseVersion = "indisponível (exit $supabaseExit): $supabaseVersion" }
 
     $chromeCandidates = @(
@@ -146,12 +153,18 @@ try {
         ) | Set-Content -LiteralPath $logPath -Encoding UTF8
         Write-Host "`n[$($suite.Id)] $($suite.Label)"
         $suiteArguments = @($suite.Arguments)
-        & $pnpmPath @suiteArguments 2>&1 | ForEach-Object {
-            $outputLine = $_.ToString()
-            Add-Content -LiteralPath $logPath -Value $outputLine -Encoding UTF8
-            Write-Host $outputLine
+        # stderr das suítes (avisos do Node, Newman, Selenium) é registrado no log, mas não
+        # aborta a rodada; aprovação/reprovação vem do $LASTEXITCODE do processo.
+        $ErrorActionPreference = 'Continue'
+        try {
+            & $pnpmPath @suiteArguments 2>&1 | ForEach-Object {
+                $outputLine = $_.ToString()
+                Add-Content -LiteralPath $logPath -Value $outputLine -Encoding UTF8
+                Write-Host $outputLine
+            }
+            $exitCode = $LASTEXITCODE
         }
-        $exitCode = $LASTEXITCODE
+        finally { $ErrorActionPreference = 'Stop' }
         $suiteEnd = Get-Date
         if ($suite.Id -eq '01-unitarios-cobertura') {
             $lcovSource = Join-Path $repoRoot 'coverage/p2/lcov.info'
