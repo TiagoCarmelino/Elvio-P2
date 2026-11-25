@@ -1,6 +1,6 @@
 # Checklist de fechamento da P2
 
-**Atualizado em 24/11/2026:** aprovação verbal informada por Tiago, datada de 20/08/2026; o grupo não formalizou uma segunda opção específica, e essa justificativa aguarda confirmação do professor. Nenhuma assinatura foi presumida. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Atualizado em 25/11/2026:** aprovação verbal informada por Tiago, datada de 20/08/2026; o grupo não formalizou uma segunda opção específica, e essa justificativa aguarda confirmação do professor. Nenhuma assinatura foi presumida. A falha controlada de CI está registrada. Referência: seções 5, 9–16 e Apêndices A–M do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 ## Professor e grupo
 
@@ -12,12 +12,12 @@
 
 ## Execução e qualidade
 
-- [ ] Continuar [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) para concluir os 24 casos; **3/24 registrados por Tiago**: CT-001 (EX-001, aprovado), CT-003 (EX-002, aprovado), CT-004 (EX-003, aprovado quanto ao objetivo principal, com D-002). Restam CT-002 e CT-005–CT-024. Anotar executor, data/hora, commit, pré-condições, dados, observado, resultado e evidência.
-- [ ] Preparar massa própria para casos dependentes (CT-004, CT-014, CT-018/019) e limpar/restaurar apenas o banco local.
+- [x] Execução manual registrada: **24/24 casos (EX-001–EX-024), todos por Tiago Gabriel Carmelino**, com dados, resultados e evidências em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e [RASTREABILIDADE.md](./RASTREABILIDADE.md). CT-004 encontrou D-002; CT-013/EX-021 retestou D-001 com aprovação.
+- [x] Registrar as dependências e restaurações observadas; CT-004 voltou a Novo às 14:25 de 25/11 e a validade da seed foi restaurada para 15 dias em EX-024.
 - [x] Registrar D-001 na [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) e atualizar CSV.
-- [x] Registrar D-002, Status Em análise, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; decisão desta P2: não corrigir, recomendar a correção no plano de melhoria e no TCC; sem reteste nesta P2.
+- [x] Registrar D-002, Status Em análise, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; decisão desta P2: não corrigir, recomendar a correção no plano de melhoria e no TCC; sem correção nesta P2; correção recomendada no plano de melhoria e no TCC.
 - [x] Atualizar catálogo com pré-condições explícitas dos CT-004/010/014/018/019; classificar logs de exploração do agente como não usados para evidência final.
-- [ ] Grupo revisar/atribuir/fechar a Issue após CT-013 manual e exportar relatório PDF final.
+- [ ] Grupo revisar o resultado do EX-021 e decidir sobre o fechamento da Issue #1; ela permanece aberta até essa revisão. Exportar o relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
 - [ ] Após o PR #2, revalidar `test:local` e Selenium (incluindo SEL-05 atualizado) antes de chamar os resultados históricos de atuais; nenhuma reexecução ocorreu nesta revisão.
 - [ ] Usar os quatro cenários e protocolo de facilitação em [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md); convidar representante que não escreveu os testes e executar AC-01–AC-04 e registrar observações e decisão Aceito/Aceito com ressalvas/Não aceito.

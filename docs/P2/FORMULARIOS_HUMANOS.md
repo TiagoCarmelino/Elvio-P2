@@ -1,6 +1,6 @@
 # Formulários de preenchimento humano — P2
 
-Estes registros preservam os campos dos Apêndices A, F, L e M do [manual](../P2_UNISAGRADO_texto_completo_para_Codex.txt). A ficha A foi preenchida com os dados confirmados; a aprovação verbal e sua data são informações fornecidas por Tiago, e a segunda opção está documentada como não formalizada. O Apêndice F contém três execuções humanas (3/24); o Apêndice L inclui atividades datadas com referências a commits e registros, sem horas ou colaboradores inferidos. Campos ainda vazios são **pendências**, não resultados negativos.
+Estes registros preservam os campos dos Apêndices A, F, L e M do [manual](../P2_UNISAGRADO_texto_completo_para_Codex.txt). A ficha A foi preenchida com os dados confirmados; a aprovação verbal e sua data são informações fornecidas por Tiago, e a segunda opção está documentada como não formalizada. O Apêndice F contém 24 execuções humanas (24/24), todas realizadas por Tiago; o Apêndice L inclui atividades datadas com referências a commits e registros, sem horas ou colaboradores inferidos. Campos ainda vazios são **pendências**, não resultados negativos.
 
 ## Apêndice A — proposta e aprovação
 

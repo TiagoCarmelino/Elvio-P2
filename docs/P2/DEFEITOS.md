@@ -4,11 +4,11 @@
 
 ## D-001 — validador aceita nome herdado como status comercial
 
-**Status (§9.7): Pronto para reteste.** A correção e os testes automatizados passaram; o reteste do caso manual CT-013 e a decisão de encerramento ainda pendem.
+**Status (§9.7): Encerrado na P2 após reteste manual aprovado no EX-021 (CT-013), em 25/11/2026.**
 
 | Campo do Apêndice G | Registro observado |
 |---|---|
-| Requisito/caso relacionado | RF-04, RNF-01, CT-013. O caso manual permanece **não executado**; o defeito foi descoberto por teste unitário TDD. |
+| Requisito/caso relacionado | RF-04, RNF-01, CT-013. Defeito descoberto por teste unitário TDD e retestado manualmente no EX-021. |
 | Ambiente e versão | Cópia P2, Windows, Node v24.22.3; estado anterior ao commit `68de98e`. |
 | Pré-condições | Módulo `app/lib/commercial-status.ts` com `isCommercialStatus` usando `value in commercialStatusLabels`. |
 | Dados utilizados | Strings sintéticas `toString` e `constructor`, que pertencem à cadeia de protótipos e não ao catálogo comercial. |
@@ -17,10 +17,10 @@
 | Resultado obtido | O teste falhou em `toString`: `true !== false`. O efeito HTTP anterior à correção não foi medido e não é afirmado aqui. |
 | Severidade / prioridade | Média / Alta: entrada inválida poderia avançar pela validação de rota; o banco ainda poderia rejeitá-la, mas esse efeito não foi medido antes da correção. |
 | Evidências | Saída RED registrada em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); commits `83d519e`, `68de98e`, `a421b47`. |
-| Status / responsável | **Pronto para reteste**; correção e reteste técnico automatizado registrados. Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) aberta; reteste manual CT-013, responsável de revisão e encerramento pendentes. |
-| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 (na época; hoje são 8 casos) e inclui `POST status=toString` com HTTP 400. Revisão/fechamento pelo grupo pendente. |
+| Status / responsável | **Encerrado na P2** após reteste manual aprovado no EX-021 (CT-013), que rejeitou `status=toString` com HTTP 400. A Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) permanece aberta até revisão do grupo; não foi fechada. |
+| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 (na época; hoje são 8 casos) e inclui `POST status=toString` com HTTP 400. Reteste manual em 25/11/2026, EX-021: aprovado; Issue #1 continua aberta até revisão do grupo. |
 
-Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e mantida aberta para revisão humana. O caso manual CT-013 permanece não executado; não fechar a Issue antes da revisão do grupo/professor.
+Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e mantida aberta para revisão humana. O reteste manual CT-013 está registrado como aprovado no EX-021. A Issue #1 permanece aberta até revisão do grupo/professor.
 
 ## D-002 — Novo envio com WhatsApp já cadastrado sobrescreve empresa e e-mail do cliente
 

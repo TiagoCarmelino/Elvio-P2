@@ -1,6 +1,6 @@
 # Catálogo inicial de casos manuais — P2
 
-**Versão:** 0.2, 24/11/2026. **Estado:** 24 casos especificados; CT-001, CT-003 e CT-004 executados manualmente por Tiago (3/24), os demais ainda pendentes. Cada caso deve ser executável por outra pessoa com as dependências e a massa descritas. Fonte: Apêndice E e §§9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Resultados humanos registrados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md), sem substituir a rastreabilidade ou misturar a automação do agente.
+**Versão:** 0.3, 25/11/2026. **Estado:** os 24 casos foram executados manualmente por Tiago (24/24), com resultados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e rastreabilidade em [RASTREABILIDADE.md](./RASTREABILIDADE.md). Cada caso deve ser executável por outra pessoa com as dependências e a massa descritas. Fonte: Apêndice E e §§9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Resultados humanos registrados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md), sem substituir a rastreabilidade ou misturar a automação do agente.
 
 Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env.local` ignorado pelo Git. Antes de executar casos que alteram dados, identificar solicitação de teste e restaurar a seed local se necessário; nunca usar produção. Casos de API podem ser executados manualmente no Postman, com variáveis locais.
 
@@ -234,6 +234,6 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ## Execução
 
-**Situação em 24/11/2026: 3 de 24 casos executados por Tiago** (CT-001, CT-003 e CT-004; ver registros EX-001–EX-003). CT-004 teve defeito D-002 apesar de aprovado quanto ao objetivo principal. Os outros 21 casos permanecem pendentes. Os resultados esperados acima são especificações, não evidência de aprovação. Cada execução recebe `EX-xxx`, captura/log e vínculo de defeito apenas a partir de execução real.
+**Situação em 25/11/2026: 24 de 24 casos executados por Tiago (EX-001–EX-024).** CT-004 foi aprovado quanto ao objetivo principal, com D-002 observado; CT-013/EX-021 retestou D-001 com aprovação. Os resultados esperados acima continuam sendo especificações; os resultados observados e evidências estão no registro humano e na matriz de rastreabilidade.
 
 As explorações do agente estão discriminadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md), com casos completos, parciais e não executados. Elas não são execuções humanas e não devem ser copiadas para o Apêndice F como se o grupo tivesse executado/conferido o resultado.

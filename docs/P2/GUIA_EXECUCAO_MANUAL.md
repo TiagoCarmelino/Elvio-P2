@@ -1,10 +1,10 @@
 # Guia prático de execução dos 24 casos manuais
 
-**Estado:** três execuções manuais registradas por Tiago (**3/24**): CT-001, CT-003 e CT-004. CT-004 está aprovado quanto ao objetivo principal, com D-002 encontrado. Este guia operacionaliza os casos restantes do catálogo em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md), Apêndices E/F/H e seções 9.5–9.7 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Estado:** os 24 casos foram executados manualmente por Tiago (24/24), conforme o registro [EX-001–EX-024](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md). Este guia permanece como roteiro de reprodução/conferência dos casos do catálogo, Apêndices E/F/H e §§9.5–9.7 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 **Executor desta rodada:** Tiago Gabriel Carmelino conduzirá e confirmará suas próprias execuções. Mateus Betini permanece integrante do grupo; não lhe atribuir execução, revisão ou evidência sem participação efetiva registrada.
 
-O agente já realizou explorações e automações separadas; consulte [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Esses resultados e suas capturas/logs não preenchem os `EX-xxx` humanos nem alteram o contador humano 3/24.
+O agente também realizou explorações e automações separadas; consulte [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md). Esses resultados e capturas/logs não preenchem os `EX-xxx` humanos, que estão registrados em trilha própria.
 
 ## Antes de cada execução
 

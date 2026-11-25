@@ -1,3 +1,13 @@
+## Registro das execuções humanas CT-001–CT-024 — 25/11/2026
+
+> As notas anteriores abaixo mantêm o estado conhecido na data indicada; para o estado atual, vale esta atualização e os documentos vinculados.
+
+- Recebido o registro externo das execuções EX-001 a EX-024, todas realizadas por Tiago Gabriel Carmelino. O documento integral foi incorporado em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md), preservando entradas, resultados, datas e observações do registro-fonte; valor da senha fictícia inválida foi omitido.
+- Prints e PDF foram copiados para [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/), mantendo nomes. As capturas já existentes foram comparadas por SHA-256; as cópias coincidentes foram preservadas. A captura de DevTools do EX-004 que expõe o cookie de sessão foi excluída; a evidência alternativa do painel foi mantida.
+- [RASTREABILIDADE.md](./RASTREABILIDADE.md) agora liga CT-001–CT-024 aos respectivos EX, resultado e evidências. [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) registra os 24 casos e D-001 encerrado na P2 após reteste aprovado em EX-021/CT-013; a Issue #1 permanece aberta até revisão do grupo. D-002 continua Em análise (Issue #3), sem correção nesta P2.
+- Observações de restauração registradas: CT-004 voltou ao status Novo às 14:25 de 25/11; a validade da seed foi restaurada para 15 dias no EX-024. Os demais campos da proposta foram mantidos conforme o registro-fonte.
+- Conferência documental: todos os EX-001–EX-024 têm pelo menos uma evidência citada existente na pasta humana. Não foram executados testes, comandos Supabase ou alterações no banco. Revisão humana do conjunto e os quatro cenários AC-01–AC-04 ainda dependem dos participantes.
+
 ## Preparação da rodada final automatizada — 24/11/2026
 
 - Criado scripts/p2-rodada-final.ps1 para executar cobertura unitária/LCOV, integração local, Selenium, Newman (coleção verificada estaticamente com 27 requisições) e TNF-01–TNF-06 em sequência. O runner valida URLs HTTP loopback, captura versões/ambiente/commit, salva log e resumo por suíte e grava screenshot Selenium/JSON TNF na pasta versionada por data/hora/commit. Não inicia reset do banco.
