@@ -17,7 +17,7 @@
 - [x] Registrar D-001 na [Issue #1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) e atualizar CSV.
 - [x] Registrar D-002, Status Em análise, severidade/prioridade Média, Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3), CSV e evidências de CT-004; decisão desta P2: não corrigir, recomendar a correção no plano de melhoria e no TCC; sem correção nesta P2; correção recomendada no plano de melhoria e no TCC.
 - [x] Atualizar catálogo com pré-condições explícitas dos CT-004/010/014/018/019; classificar logs de exploração do agente como não usados para evidência final.
-- [ ] Grupo revisar o resultado do EX-021 e decidir sobre o fechamento da Issue #1; ela permanece aberta até essa revisão. Exportar o relatório PDF final.
+- [x] Grupo revisou o resultado do EX-021 e a Issue #1 (D-001) foi fechada no GitHub em 25/11/2026. Exportar o relatório PDF final.
 - [ ] Retestar e executar regressão dos casos afetados após cada correção; registrar reaberturas reais.
 - [x] Após o PR #2, revalidar `test:local` (8/8) e Selenium (7/7, incluindo SEL-05 atualizado) na rodada final de 25/11/2026, commit `2ad8845`; evidências em `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/`.
 - [x] Executar AC-01–AC-04 com participante externo PART-01; os quatro foram aceitos. Respostas e evidências estão no [registro da sessão](./REGISTRO_ACEITACAO_PART-01_20261125.md).

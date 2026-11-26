@@ -17,10 +17,10 @@
 | Resultado obtido | O teste falhou em `toString`: `true !== false`. O efeito HTTP anterior à correção não foi medido e não é afirmado aqui. |
 | Severidade / prioridade | Média / Alta: entrada inválida poderia avançar pela validação de rota; o banco ainda poderia rejeitá-la, mas esse efeito não foi medido antes da correção. |
 | Evidências | Saída RED registrada em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md); commits `83d519e`, `68de98e`, `a421b47`. |
-| Status / responsável | **Encerrado na P2** após reteste manual aprovado no EX-021 (CT-013), que rejeitou `status=toString` com HTTP 400. A Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) permanece aberta até revisão do grupo; não foi fechada. |
-| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 (na época; hoje são 8 casos) e inclui `POST status=toString` com HTTP 400. Reteste manual em 25/11/2026, EX-021: aprovado; Issue #1 continua aberta até revisão do grupo. |
+| Status / responsável | **Encerrado na P2** após reteste manual aprovado no EX-021 (CT-013), que rejeitou `status=toString` com HTTP 400. A Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) foi fechada no GitHub em 25/11/2026, após revisão do grupo. |
+| Reteste e conclusão | Após `a421b47`, o unitário passou 1/1; `test:local` passou 5/5 (na época; hoje são 8 casos) e inclui `POST status=toString` com HTTP 400. Reteste manual em 25/11/2026, EX-021: aprovado; Issue #1 fechada no GitHub em 25/11/2026 após revisão do grupo. |
 
-Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e mantida aberta para revisão humana. O reteste manual CT-013 está registrado como aprovado no EX-021. A Issue #1 permanece aberta até revisão do grupo/professor.
+Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a correção e fechada no GitHub em 25/11/2026, após revisão do grupo. O reteste manual CT-013 está registrado como aprovado no EX-021. A Issue #3 de D-002 continua aberta; seu status permanece Em análise.
 
 ## D-002 — Novo envio com WhatsApp já cadastrado sobrescreve empresa e e-mail do cliente
 
@@ -38,7 +38,7 @@ Issue [#1](https://github.com/TiagoCarmelino/Elvio-P2/issues/1) criada após a c
 | Impacto | Perda do histórico de empresa/e-mail exibidos para solicitações anteriores. O registro observado ocorreu por envio público com WhatsApp já cadastrado. |
 | Severidade / prioridade | Média / Média. |
 | Evidências | [CT-001 antes](./EVIDENCIAS_HUMANAS/CT-001_EX-001_20261123_1838_painel.png), [CT-003 antes](./EVIDENCIAS_HUMANAS/CT-003_EX-002_20261123_1850_painel.png), [painel depois](./EVIDENCIAS_HUMANAS/CT-004_EX-003_20261123_1903_painel.png), [detalhe CT-001 alterado](./EVIDENCIAS_HUMANAS/CT-004_EX-003_20261123_1920_detalhe_CT001_sobrescrito.png). Rascunho recebido em [DEFEITO_D-002_rascunho.md](./EVIDENCIAS_HUMANAS/DEFEITO_D-002_rascunho.md). |
-| Status / responsável | **Em análise**; Tiago Gabriel Carmelino. Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3). |
+| Status / responsável | **Em análise**; Tiago Gabriel Carmelino. Issue [#3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3) permanece aberta. |
 | Reteste e conclusão | Não será corrigido na P2; correção recomendada no plano de melhoria contínua e no TCC. Não há reteste registrado. |
 | Observação técnica para análise | A revisão de código indicou como causa provável o `on conflict (whatsapp) do update` na migração `supabase/migrations/202609010001_initial_commercial_schema.sql`, atualizando dados do cliente. A causa é uma hipótese da revisão e ainda não foi confirmada tecnicamente. A decisão de escopo é não corrigir na P2; a correção fica recomendada no plano de melhoria contínua e no TCC. |
 

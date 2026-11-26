@@ -105,7 +105,7 @@ Conta administrativa local documentada: `administrador.p2@local.test`. A senha f
 ## 14. Problemas conhecidos
 
 - D-002 (Issue #3, status Em análise; não será corrigido na P2, correção recomendada no plano de melhoria e no TCC): envio com WhatsApp já cadastrado alterou empresa/e-mail exibidos em solicitação anterior. A decisão é não corrigir o defeito na P2; a correção está recomendada no plano de melhoria e no TCC. Não haverá reteste desta correção nesta P2.
-- D-001 (Encerrado na P2 após reteste manual aprovado em EX-021/CT-013); Issue #1 permanece aberta até revisão do grupo.
+- D-001 (Encerrado na P2 após reteste manual aprovado em EX-021/CT-013); Issue #1 foi fechada no GitHub em 25/11/2026, após revisão do grupo.
 - Execuções manuais: 24/24 registradas por Tiago (EX-001–EX-024); CT-004 encontrou D-002, ainda Em análise e sem correção nesta P2.
 - Aceitação: quatro cenários aguardam participante real.
 - A execução da coleção Postman pós-merge e a revalidação de Selenium/integração após mudanças recentes precisam ser conferidas antes da entrega final.
