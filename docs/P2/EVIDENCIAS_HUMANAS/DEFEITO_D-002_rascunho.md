@@ -14,7 +14,7 @@
 | Severidade | Média |
 | Prioridade | Média |
 | Evidências | `CT-001_EX-001_20261123_1838_painel.png` (antes), `CT-003_EX-002_20261123_1850_painel.png` (antes), `CT-004_EX-003_20261123_1903_painel.png` (depois), `CT-004_EX-003_20261123_1920_detalhe_CT001_sobrescrito.png` (detalhe da primeira solicitação após o segundo envio) |
-| Status inicial do rascunho | Novo (rascunho original; status atual: Em análise) |
+| Status inicial e atual | Novo no registro de 23/11. Em análise na Issue #3. |
 | Responsável | Tiago Gabriel Carmelino |
-| Reteste e conclusão | Pendente |
+| Reteste e conclusão | A correção está recomendada para o TCC. D-002 permanece Em análise nesta P2. |
 | Observação técnica (para análise) | Causa provável indicada na revisão de código: a migração `supabase/migrations/202609010001_initial_commercial_schema.sql` usa `on conflict (whatsapp) do update`, atualizando nome, e-mail e empresa do cliente a cada envio. A correção depende de decidir a regra de negócio (manter o cadastro original, guardar os dados de contato por solicitação ou exigir confirmação). |

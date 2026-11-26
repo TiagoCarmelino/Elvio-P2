@@ -1,7 +1,5 @@
 # README da pasta 00 — Identificação e execução
 
-Este README acompanha a preparação da entrega P2 e deve ser copiado para `00_IDENTIFICACAO_E_README` na pasta oficial fornecida pelo professor. Campos marcados para preenchimento continuam pendentes.
-
 ## 1. Integrantes
 
 - Turma: `26-2-COMP-7-08-A`
@@ -82,11 +80,11 @@ Os resultados atuais têm datas e limites em `docs/P2/PROGRESSO.md`; não consid
 
 ## 11. Acesso ao pipeline
 
-Workflow: [P2 CI — GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions/workflows/p2-ci.yml). A falha intencional do run #7 e sua reversão com run #8 estão registradas em `docs/P2/TDD_CI_QUALIDADE.md`. Conferir a revisão/commit de cada execução ao apresentar resultados.
+Os runs [#21](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45681826995) e #22 passaram no [workflow P2 CI](https://github.com/TiagoCarmelino/Elvio-P2/actions/workflows/p2-ci.yml). A falha intencional do run #7 e sua reversão com run #8 estão registradas em `docs/P2/TDD_CI_QUALIDADE.md`. Conferir a revisão/commit de cada execução ao apresentar resultados.
 
 ## 12. Localização dos documentos
 
-Documentação, matriz de conformidade, requisitos, casos, rastreabilidade, evidências, defeitos, métricas e relatórios de preparação estão em `docs/P2/`. Fontes principais:
+Documentação, matriz de conformidade, requisitos, casos, rastreabilidade, evidências, defeitos, métricas e registros de teste estão em `docs/P2/`. Fontes principais:
 
 - `docs/P2/PROGRESSO.md`
 - `docs/P2/MATRIZ_CONFORMIDADE.md`
@@ -98,18 +96,20 @@ Documentação, matriz de conformidade, requisitos, casos, rastreabilidade, evid
 - `docs/P2/CONTROLE_P2.xlsx`
 - `docs/P2/EVIDENCIAS_HUMANAS/`
 
+Na pasta de entrega, o relatório final fica em `13_RELATORIO_FINAL`. A apresentação em PPTX/PDF e o vídeo de contingência ficam em `14_APRESENTACAO_E_VIDEO_CONTINGENCIA`. O vídeo será incluído na entrega de 26/11/2026.
+
 ## 13. Credenciais fictícias
 
 Conta administrativa local documentada: `administrador.p2@local.test`. A senha fictícia local fica apenas no `.env.local`, na variável `P2_LOCAL_ADMIN_PASSWORD`; não incluir seu valor neste README, no repositório nem na pasta de entrega. Não usar contas ou senhas reais.
 
 ## 14. Problemas conhecidos
 
-- D-002 (Issue #3, status Em análise; não será corrigido na P2, correção recomendada no plano de melhoria e no TCC): envio com WhatsApp já cadastrado alterou empresa/e-mail exibidos em solicitação anterior. A decisão é não corrigir o defeito na P2; a correção está recomendada no plano de melhoria e no TCC. Não haverá reteste desta correção nesta P2.
+- D-002 está Em análise na [Issue #3](https://github.com/TiagoCarmelino/Elvio-P2/issues/3). O envio com WhatsApp já cadastrado alterou empresa e e-mail exibidos em uma solicitação anterior. A correção está recomendada no plano de melhoria e no TCC.
 - D-001 (Encerrado na P2 após reteste manual aprovado em EX-021/CT-013); Issue #1 foi fechada no GitHub em 25/11/2026, após revisão do grupo.
-- Execuções manuais: 24/24 registradas por Tiago (EX-001–EX-024); CT-004 encontrou D-002, ainda Em análise e sem correção nesta P2.
-- Aceitação: quatro cenários aguardam participante real.
-- A execução da coleção Postman pós-merge e a revalidação de Selenium/integração após mudanças recentes precisam ser conferidas antes da entrega final.
-- A autorização do professor foi informada como “Aprovado (autorizado em aula)” em 20/08/2026, verbalmente em aula durante a apresentação da proposta. O grupo não formalizou uma segunda opção: considerou desenvolver/adotar outro sistema acadêmico sem especificar um sistema e descartou a alternativa em favor do WG Hidráulica por ser um TCC real já desenvolvido, com código-fonte disponível, persistência e integrações (§5.3). Confirmar com o professor se essa justificativa atende ao Apêndice A.
+- Execuções manuais: 24/24 aprovadas por Tiago (EX-001–EX-024). O CT-004 foi aprovado quanto ao objetivo principal, com o D-002 registrado.
+- Aceitação: PART-01 aceitou os quatro cenários (4/4).
+- A rodada automática final passou em `2ad8845`. O SonarQube aprovou o Quality Gate e os runs #21 e #22 do GitHub Actions passaram. TNF-06 atende parcialmente por falta de observação humana em celular.
+- O professor aprovou o uso do sistema verbalmente em aula em 20/08/2026, sem ajustes solicitados. O Apêndice A registra a justificativa da escolha e a alternativa genérica considerada pelo grupo.
 
 ## 15. Contato do grupo
 

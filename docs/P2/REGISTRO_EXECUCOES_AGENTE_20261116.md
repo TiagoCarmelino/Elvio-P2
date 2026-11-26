@@ -31,7 +31,7 @@ A primeira versão do teste Selenium para CT-003 falhou porque esperava um eleme
 
 ## Estado dos CT-001 a CT-024
 
-Classificação do agente em 16/11/2026: **16 casos cobertos no escopo observado e 8 parciais; nenhum caso ficou sem qualquer verificação exploratória**. `Coberto` não significa aprovação manual. Naquela data, 0/24 execuções humanas; após a rodada de Tiago em 23/11/2026, o total humano passou a 3/24 (EX-001–EX-003), conforme [registro humano](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md).
+Classificação do agente em 16/11/2026: **16 casos cobertos no escopo observado e 8 parciais; nenhum caso ficou sem qualquer verificação exploratória**. `Coberto` não significa aprovação manual. Naquela data, 0/24 execuções humanas; em 23/11, Tiago executou EX-001–EX-003 e, em 25/11, concluiu as 24 execuções humanas, conforme [registro humano](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md).
 
 Os passos e resultados esperados oficiais estão em [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); a tabela abaixo registra o resultado observado e os desvios em relação àquele procedimento. Os dados de interface foram sintéticos. Foram registrados especificamente: CT-001 nome `Cliente P2 Agente 16112026` e WhatsApp `14999000126`; CT-003 descrições de 9 e 10 caracteres em solicitações separadas; CT-004 reutilizou o WhatsApp sintético de CT-001; CT-007 criou a conta local `p2.ct007.nao-admin@local.test` (senha omitida); CT-011 usou UUID fictício `ffffffff-ffff-4fff-8fff-fffffffffff1`; CT-013 tentou `desconhecido`; CT-015 reenviou `orcamento`; CT-017 enviou quantidade 0 e preço -R$ 0,01 em requisições separadas; CT-020 criou itens 2 × R$ 30,00 e 3 × R$ 20,00 sobre a fixture seed; CT-024 usou solicitação sem itens. Para os outros casos, as suítes usaram suas fixtures/payloads locais, que não coincidem integralmente com os dados manuais prescritos; por isso foram classificados como parciais quando essa diferença afeta o oráculo.
 
@@ -43,7 +43,7 @@ Os passos e resultados esperados oficiais estão em [CASOS_MANUAIS.md](./CASOS_M
 | CT-002 | Coberto pelo agente | API-02 e PM-06 rejeitaram entrada inválida; API comparou IDs da lista antes/depois. |
 | CT-003 | Coberto pelo agente | UI rejeitou 9 e aceitou 10; o válido persistiu. Capturas Selenium e tentativa inicial do oráculo preservadas. |
 | CT-004 | Coberto pelo agente, API/DB | Reenvio com o mesmo WhatsApp retornou HTTP 201; consulta local antes/depois observou 1 cliente e 2 solicitações, com vínculo pelo mesmo cliente. Não percorreu o formulário visual. `ct004-same-whatsapp.log`, `ct004-db-check.log`. |
-| CT-005 | Coberto pelo agente | Login fictício e abertura/lista do painel passaram na integração local e SEL-03. Ainda não é execução humana. |
+| CT-005 | Coberto pelo agente | Login fictício e abertura/lista do painel passaram na integração local e SEL-03. Resultado da exploração de 16/11. |
 | CT-006 | Parcial, via API | API-06 confirmou redirecionamento por credencial incorreta e ausência de cookie administrativo; interação de formulário não repetida manualmente no navegador. |
 | CT-007 | Coberto pelo agente, API/UI | Criada conta fictícia local fora da lista administrativa; login redirecionou com `nao-autorizado`, sem cookie administrativo; endpoint protegido retornou 401. Não foi usada senha real. `ct007-nonadmin.log`. |
 | CT-008 | Coberto pelo agente | Interface sem sessão bloqueou `/sistema`; teste local confirmou 401 na API protegida. |
@@ -66,11 +66,8 @@ Os passos e resultados esperados oficiais estão em [CASOS_MANUAIS.md](./CASOS_M
 
 ## Cenários de aceitação AC-01 a AC-04
 
-**Aguardando participante real. 0/4 sessões executadas; nenhuma decisão, observação de participante ou aceite foi registrado.** As tarefas e critérios permanecem no [protocolo](./ACEITACAO_E_NAO_FUNCIONAIS.md). O registro em branco está preparado na seção final desse arquivo. Tiago e Mateus devem escolher facilitador/observador e convidar representante que não tenha produzido os casos; não usar a automação como participante.
+Em 16/11/2026 a exploração cobriu os fluxos técnicos. A sessão de aceitação ocorreu em 25/11/2026, com [4/4 cenários aceitos por PART-01](./REGISTRO_ACEITACAO_PART-01_20261125.md).
 
-## Execução humana ainda necessária
+## Execuções humanas realizadas
 
-1. Tiago Gabriel Carmelino conduzirá CT-001–CT-024 com o [guia](./GUIA_EXECUCAO_MANUAL.md), preenchendo executor/data/commit/resultado obtido e salvando capturas próprias após cada execução real. Mateus Betini não recebe atribuições ou evidências sem participação efetiva. Cada execução recebe `EX-xxx` somente após ocorrer de fato.
-2. Confirmar ou descartar a massa sintética adicional criada pelos testes nesta stack local; não apagar nada sem revisar os IDs e preservar a evidência necessária.
-3. Executar AC-01–AC-04 com participante real, consentimento apropriado, observador, tempos e decisão explícita por cenário; registrar ressalvas literalmente e restaurar itens depois da sessão.
-4. Revisar e repetir casos afetados se o TCC/código mudar antes da entrega. Os resultados atuais do agente não substituem a execução final dos integrantes.
+Tiago executou os 24 casos manuais em 23 e 25/11/2026. Resultados e evidências constam no [registro humano](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md).

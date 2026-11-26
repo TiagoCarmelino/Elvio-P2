@@ -1,59 +1,59 @@
 # Matriz de conformidade — Projeto Integrado P2
 
 **Referência:** transcrição integral das 26 páginas em [P2_UNISAGRADO_texto_completo_para_Codex.txt](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Em ambiguidades de formatação, prevalece o [PDF oficial](./57402f9d-2b95-418b-850a-b87c479c7b4f.pdf).  
-**Sistema:** cópia P2 do Sistema Web WG Hidráulica; branch padrão `p2-unisagrado` publicada no repositório GitHub privado; o grupo ainda deve conceder acesso ao professor.
-**Revisão:** 25/11/2026, após registro das 24 execuções humanas. `Concluído` exige artefato e resultado observado; `Parcial` indica trabalho preparado sem todos os resultados; `Pendente` não recebeu evidência.
+**Sistema:** cópia P2 do Sistema Web WG Hidráulica, publicada no repositório privado com a branch padrão `p2-unisagrado`.
+**Revisão:** 26/11/2026, com os resultados finais e a organização da entrega.
 
 ## Condições de escolha e ambiente (seções 4, 5, 8 e 9.1)
 
 | Exigência | Estado | Evidência e lacuna |
 |---|---|---|
-| Grupo de 2 ou 3, participação de todos e diário contínuo | Parcial | Turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`) e Tiago Gabriel Carmelino/Mateus Betini preenchidos no Apêndice A. O diário inclui atividades datadas com evidência; tempo e colaboração não registrados, além de participação futura do grupo, continuam pendentes de revisão/validação humana. |
-| Duas opções de sistema e ficha do Apêndice A | Parcial | Ficha preenchida. O grupo informa que apresentou e obteve aprovação verbal em 20/08/2026; não formalizou uma segunda opção específica. A alternativa genérica de desenvolver/adotar outro sistema acadêmico foi descartada em favor do TCC WG Hidráulica por atender ao §5.3. Confirmar com o professor se essa justificativa supre a exigência de duas opções. |
-| Autorização do sistema pelo professor | Parcial | O usuário confirmou que o professor autorizou o uso do WG Hidráulica. A evidência/documento, data, eventuais ajustes e registro no Apêndice A ainda não foram anexados; confirmação do usuário não substitui esse registro exigido. |
-| Código-fonte, versão executável local e instruções | Parcial | Código, Git, Node, pnpm, Docker, Supabase, migrações, seed e README do TCC existem. O README específico de entrega P2 será preparado; disponibilidade durante o semestre depende do grupo. |
-| Quatro fluxos relevantes, dois com entrada de dados | Concluído para seleção | Solicitação pública, login, status, itens do orçamento e proposta existem no código. Execução completa em interface ainda precisa evidência. |
-| Persistência, comunicação entre camadas e dados fictícios | Concluído para preparação | Supabase local, funções RPC e seed fictícia; o teste de integração local observou autenticação e leitura real. Repetições de mutação e restauração devem ser documentadas. |
+| Grupo de 2 ou 3, participação de todos e diário contínuo | Registrado | Tiago Gabriel Carmelino e Mateus Betini, turma `26-2-COMP-7-08-A`, Grupo 8 (`GRPATVSALA 8`). O Apêndice L registra as contribuições com suas respectivas fontes. |
+| Duas opções de sistema e ficha do Apêndice A | Parcial | O grupo considerou genericamente desenvolver ou adotar outro sistema acadêmico. Escolheu o WG Hidráulica e não formalizou uma segunda opção específica. O Apêndice A registra a decisão. |
+| Autorização do sistema pelo professor | Registrado | O professor aprovou o uso do sistema verbalmente, em aula, em 20/08/2026, sem ajustes solicitados. Origem do código e autorização constam no Apêndice A. |
+| Código-fonte, versão executável local e instruções | Documentado | Código, dependências e instruções de instalação, configuração e execução no [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md). |
+| Quatro fluxos relevantes, dois com entrada de dados | Verificado | Solicitação pública, login, status, itens de orçamento e proposta foram exercitados nos casos manuais e na automação final. |
+| Persistência, comunicação entre camadas e dados fictícios | Verificado | Supabase local, RPC e seed fictícia. A integração HTTP e os registros manuais documentam a persistência e a restauração dos dados de teste. |
 | Isolamento de produção e ramo próprio | Concluído na cópia | Branch local `p2-unisagrado`, `.env.local` ignorado e URLs loopback. O TCC original não foi alterado. |
-| Ferramentas obrigatórias | Parcial | Node 24.22.3, pnpm 12.18.0, Docker Desktop e Supabase CLI disponíveis; em 23/11 a branch foi atualizada por `git pull` até `219210a`. Acesso do professor e aceite de `node:test` ainda pendem. CI remoto inclui a falha intencional e a reversão documentadas, além do run #21 verde; a coleção Postman pós-merge passou na rodada final (27 requisições/51 verificações). |
+| Ferramentas obrigatórias | Documentado | Node 24.22.3, pnpm 12.18.0, Docker Desktop, Supabase, `node:test`, Selenium, Postman/Newman, GitHub Actions e SonarQube. A rodada final e os runs #21 e #22 passaram. |
 
 ## Produtos P01–P14 (seções 6 e 7)
 
 | Produto | Estado | Situação verificável / próximo passo |
 |---|---|---|
-| P01 — ficha e autorização | Parcial | Apêndice A preenchido com turma, Grupo 8, integrantes, WG Hidráulica, repositório, decisão “Aprovado (autorizado em aula)” e data informada 20/08/2026. A segunda opção não foi formalizada; consultar o professor quanto à suficiência da justificativa. Registrar ajustes e eventual autorização do responsável pelo código se exigidos. |
-| P02 — requisitos, escopo e riscos | Parcial | Requisitos e riscos P2 definidos em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); confirmar escopo com grupo/professor. |
-| P03 — plano de testes | Parcial | Estratégia e critérios em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); responsáveis e calendário dependem do grupo. |
-| P04 — catálogo de casos | Parcial | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md) especifica 24 casos e explicita as dependências de CT-004/010/014/018/019 conforme §9.5. Revisão humana do catálogo permanece pendente; os 24 casos têm execuções registradas. |
-| P05 — matriz de rastreabilidade | Parcial | [RASTREABILIDADE.md](./RASTREABILIDADE.md) liga requisitos, riscos, casos, automação e as 24 execuções humanas EX-001–EX-024, evidências e defeitos D-001/D-002. |
-| P06 — evidências manuais | Parcial | 24 casos humanos registrados por Tiago (CT-001–CT-024), com execuções EX-001–EX-024 e evidências em [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/). CT-004 encontrou D-002, Em análise; não será corrigido na P2 e a correção está recomendada no plano de melhoria e no TCC. A captura de cookie do EX-004 foi intencionalmente omitida por conter segredo de sessão; há evidência alternativa do painel. |
-| P07 — defeitos em Jira/GitHub Issues | Parcial | D-001: **Encerrado na P2** após reteste manual aprovado em EX-021/CT-013; Issue #1 foi fechada no GitHub em 25/11/2026 após revisão do grupo. D-002: **Em análise**, severidade/prioridade média; Issue #3 permanece aberta. Decisão: não corrigir na P2; correção recomendada no plano de melhoria e no TCC; vinculado ao [CSV](./DEFEITOS_EXPORTACAO.csv). Exportação PDF e revisão final pendentes. |
-| P08 — automação | Parcial | Rodada final de 25/11/2026, commit `2ad8845`: unitários/LCOV 8/8, integração/API 8/8, Selenium 7/7, Newman 27 requisições/51 verificações e TNF 6/6, todas aprovadas; evidências em `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/`. As 24 execuções manuais EX-001–EX-024 permanecem separadas. Aceite do professor sobre `node:test` como equivalente a JUnit continua pendente. |
-| P09 — aceitação e não funcionais | Parcial | AC-01–AC-04 realizados com PART-01 e 4/4 aceitos; [registro e evidências](./REGISTRO_ACEITACAO_PART-01_20261125.md). Rodada final local automatizada em 25/11/2026, commit `2ad8845`: TNF-01–05 Atende e TNF-06 Atende parcialmente (observação humana móvel pendente); critérios e interpretações ainda requerem validação do grupo/professor. |
-| P10 — métricas | Parcial | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx) contém fórmulas e fontes, 24/24 execuções humanas e a rodada automática final registrada; interpretação e revisão final pelo grupo ainda são necessárias. |
-| P11 — TDD, CI/CD e melhoria | Parcial | Ciclo RED/GREEN/REFACTOR e LCOV local permanecem documentados. O Apêndice J registra falha CI intencional no commit `6014a43` (run #7) e reversão com run #8 verde no commit `9b1bf7e`; evidências/prints em [EVIDENCIAS_CI](./EVIDENCIAS_CI/) e URLs em [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). R-SEG-01: verificação executada pelo Claude Code a pedido de Tiago às 15:52 (dois GET, ambos 401 com o plugin); Tiago repetiu às 18:06 de 23/11/2026, no PowerShell, com 401 nas duas requisições — evidência oficial em [EVIDENCIAS_HUMANAS/R-SEG-01](./EVIDENCIAS_HUMANAS/R-SEG-01/). A observação não é defeito. |
-| P12 — relatório final | Parcial | Texto do relatório final redigido; DOCX/PDF permanecem como artefatos de preparação e requerem atualização/exportação final, conferência de integridade e revisão/assinatura do grupo. |
-| P13 — apresentação e demonstração | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação (10 slides) em [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e [ARTEFATOS_PREPARACAO/](./ARTEFATOS_PREPARACAO/). Integrantes, ensaio, resultados finais e vídeo de contingência pendem. |
-| P14 — diário de participação | Parcial | Apêndice L registra atividades datadas com evidências e atividades de Mateus informadas pelo grupo, sem inventar datas ou tempos. O grupo deve revisar/validar e continuar o diário. |
+| P01 — ficha e autorização | Registrado | Apêndice A com origem do código e aprovação verbal em aula em 20/08/2026, sem ajustes solicitados. A alternativa genérica de outro sistema foi considerada e descartada. |
+| P02 — requisitos, escopo e riscos | Documentado | Seis RF, três RNF, exclusões e nove riscos priorizados em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md). |
+| P03 — plano de testes | Documentado | Plano versão 1.0, de 25/11/2026, com estratégia, critérios, ambiente, responsabilidades e cronograma. |
+| P04 — catálogo de casos | Documentado | [Catálogo](./CASOS_MANUAIS.md) de 24 casos com técnicas e pré-condições dos CT-004/010/014/018/019. |
+| P05 — matriz de rastreabilidade | Documentado | [Matriz](./RASTREABILIDADE.md) liga requisitos, riscos, casos, automação, as 24 execuções humanas e seus defeitos e evidências. |
+| P06 — evidências manuais | Concluído | 24/24 execuções manuais aprovadas por Tiago. CT-004 cumpriu o objetivo principal e revelou D-002. A evidência de EX-004 está no painel, com o cookie de sessão preservado em sigilo. [Registro](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e [evidências](./EVIDENCIAS_HUMANAS/). |
+| P07 — defeitos em Jira/GitHub Issues | Registrado | D-001 encerrado após reteste em EX-021/CT-013, com Issue #1 fechada em 25/11. D-002 segue Em análise na Issue #3, com correção recomendada no plano de melhoria e no TCC. [Registro](./DEFEITOS.md) e [CSV](./DEFEITOS_EXPORTACAO.csv). |
+| P08 — automação | Rodada aprovada | Rodada final em `2ad8845`: 8/8 no comando unitário/LCOV, integração/API 8/8, Selenium 7/7, Newman 27 requisições/51 verificações e TNF 6/6. [Evidências](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/). |
+| P09 — aceitação e não funcionais | Parcial | PART-01 aceitou os quatro cenários. TNF-01–05 atendem. TNF-06 atende parcialmente por falta de observação humana em celular. [Registro](./REGISTRO_ACEITACAO_PART-01_20261125.md) e [TNF](./ACEITACAO_E_NAO_FUNCIONAIS.md). |
+| P10 — métricas | Documentado | [Planilha](./CONTROLE_P2.xlsx) com oito indicadores, 24/24 execuções manuais e os resultados da rodada automática final. |
+| P11 — TDD, CI/CD e melhoria | Documentado | Ciclo RED/GREEN/REFACTOR, falha controlada no run #7, reversão verde no #8, runs #21 e #22 verdes e SonarQube final com Quality Gate aprovado. [Apêndice J e evidências](./TDD_CI_QUALIDADE.md). |
+| P12 — relatório final | Pronto | Relatório final na pasta 13, com os três apontamentos de Mateus incorporados. |
+| P13 — apresentação e demonstração | Parcial | PPTX e PDF prontos na pasta 14. Vídeo de contingência a incluir na entrega de 26/11. [Roteiro](./ROTEIRO_APRESENTACAO_P2.md). |
+| P14 — diário de participação | Documentado | [Diário](./FORMULARIOS_HUMANOS.md#apêndice-l--diário-de-participação) atualizado com as contribuições de Tiago e Mateus e suas evidências. |
 
 ## Quantidades mínimas (seção 10, página 15)
 
-Os números abaixo distinguem a rodada automática final de 25/11/2026 das execuções humanas. Um teste com muitas afirmações continua sendo um único caso automatizado. `node:test` depende de aceite do professor como equivalente a JUnit.
+Os números abaixo distinguem a rodada automática final de 25/11/2026 das execuções humanas. Um teste com muitas afirmações continua sendo um único caso automatizado.
 
 | Item | Mínimo | Confirmado no levantamento | Situação |
 |---|---:|---:|---|
-| Requisitos testáveis | 8 (≥6 RF, ≥2 RNF) | 9: 6 RF e 3 RNF | Especificados em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md); aprovação humana pendente. |
-| Riscos priorizados | 8 | 9 | Priorizados no plano; revisão humana pendente. |
-| Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md); revisão humana pendente. |
+| Requisitos testáveis | 8 (≥6 RF, ≥2 RNF) | 9: 6 RF e 3 RNF | Especificados em [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md). |
+| Riscos priorizados | 8 | 9 | Priorizados no plano. |
+| Casos manuais especificados | 24 | 24 | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md). |
 | Execuções manuais completas | 24 | 24 de 24 | EX-001–EX-024 registrados por Tiago, com resultados e evidências vinculados caso a caso. CT-004 aprovado quanto ao objetivo principal, com D-002 observado; D-001 retestado e aprovado no EX-021. |
-| Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial; nesta retomada, o comando isolado aprovou 8/8 testes no total (inclui 1 contrato simulado fora da cota) | Quantidade atendida se `node:test` for aceito como framework equivalente. |
-| Testes de integração/API automatizados | 5 | 8 casos reais, 8/8 aprovados nesta retomada em `test:local` | Mínimo numérico demonstrado por automação do agente; `fetch` simulado continua fora da cota; não são execução manual humana. |
+| Testes unitários automatizados | 6 | 7 candidatos: 2 autenticação + 4 triagem + 1 status comercial; nesta retomada, o comando isolado aprovou 8/8 testes no total (inclui 1 contrato simulado fora da cota) | Sete testes unitários implementados em `node:test`. O contrato simulado é contado separadamente. |
+| Testes de integração/API automatizados | 5 | 8 casos reais aprovados na rodada final em `2ad8845` | Mínimo numérico demonstrado por automação do agente; `fetch` simulado continua fora da cota; não são execução manual humana. |
 | Testes Selenium sistema/interface | 4 | 7 casos, 7/7 aprovados na rodada final de 25/11/2026 (`2ad8845`) | Evidência automatizada final; não é execução manual humana. |
 | Cenários de aceitação | 4 | 4 executados, 4 aceitos | PART-01 externo; consentimento confirmado às 15:10 após AC-01; registro, respostas e evidências vinculados. |
-| Testes não funcionais | 6 em ≥3 categorias | 6/6 aprovados na rodada automática final de 25/11/2026 (`2ad8845`) em segurança, desempenho e compatibilidade/usabilidade | TNF-01–05 Atende; TNF-06 Atende parcialmente por faltar observação humana móvel. Critérios ainda aguardam validação do grupo/professor. |
-| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; execução manual 24/24 | Painel recalculado sobre 24/24 execuções humanas (24 aprovadas, nenhuma reprovada); D-002 foi observado em CT-004. Cenários AC-01–AC-04 aceitos por PART-01; revisão final do grupo permanece pendente. |
+| Testes não funcionais | 6 em ≥3 categorias | 6/6 aprovados na rodada automática final de 25/11/2026 (`2ad8845`) em segurança, desempenho e compatibilidade/usabilidade | TNF-01–05 Atende; TNF-06 Atende parcialmente por faltar observação humana móvel. |
+| Métricas | 8 | 8 fórmulas/indicadores preparados na planilha; execução manual 24/24 | Painel recalculado sobre 24/24 execuções humanas (24 aprovadas, nenhuma reprovada); D-002 foi observado em CT-004. Cenários AC-01–AC-04 aceitos por PART-01. |
 | Evolução TDD | 1 ciclo | 1 ciclo documentado e retestado | RED, GREEN e REFACTOR em três commits sucessivos; ver [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md). |
-| Pipeline CI/CD | 1 | Workflow comprovado; run #7 falhou intencionalmente e run #8 passou após reversão. Run #21 verde: [GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45681826995). |
+| Pipeline CI/CD | 1 | Workflow comprovado com runs #21 e #22 verdes | Falha controlada no run #7 e reversão verde no run #8. [GitHub Actions](https://github.com/TiagoCarmelino/Elvio-P2/actions/workflows/p2-ci.yml). |
 | Análise de qualidade | 2 execuções | Análises Sonar locais, com rodada final em 25/11/2026, commit `2ad8845`, LCOV importado e Quality Gate aprovado | Cobertura global 27,1%; consultar [registro Sonar final](./EVIDENCIAS_AUTOMACAO/20261125/sonar/REGISTRO.txt) sobre limites de escopo. O Gate não equivale a aprovação acadêmica. |
 
 ### Classificação dos testes existentes
@@ -86,29 +86,29 @@ Os casos unitários e o único teste agrupado de `tests/local-flows.integration.
 
 | Exigência | Estado | Ação/evidência necessária |
 |---|---|---|
-| IDs, critérios de aceitação e exclusões | Parcial | Definidos no plano; confirmar com responsável e professor. |
-| Equivalência, limites, positivos, negativos, alternativas e exceções | Parcial | Indicar técnica em cada caso; revisar casos de fronteira contra valores do código e do banco. |
-| Execução controlada, reteste e regressão | Pendente | Executar casos passo a passo, anexar captura/log e relacionar defeito real quando houver. |
-| Postman com variáveis, contratos, erros e encadeamento | Parcial | Coleção atual tem 27 requisições e 51 verificações, mapeadas como PM-01–PM-27; todas passaram na rodada final de 25/11/2026 (commit `2ad8845`), com log em `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/04-postman-newman.log`. |
-| Selenium com localizadores estáveis, espera e captura | Parcial | Sete fluxos aprovados pelo agente no Chrome; capturas de sucesso e a falha inicial do oráculo CT-003 foram preservadas em [EVIDENCIAS_AGENTE/20261116/](./EVIDENCIAS_AGENTE/20261116/). Não são execuções manuais humanas. |
+| IDs, critérios de aceitação e exclusões | Documentado | Identificadores, critérios e exclusões no [plano](./ESCOPO_E_PLANO.md). |
+| Equivalência, limites, positivos, negativos, alternativas e exceções | Documentado | Técnicas indicadas no catálogo de 24 casos manuais. |
+| Execução controlada, reteste e regressão | Documentado | 24/24 execuções manuais aprovadas, restaurações registradas e reteste de D-001 aprovado em EX-021. |
+| Postman com variáveis, contratos, erros e encadeamento | Documentado | 27 requisições e 51 verificações mapeadas como PM-01–PM-27 e aprovadas na rodada final de 25/11/2026. |
+| Selenium com localizadores estáveis, espera e captura | Aprovado | 7/7 na rodada final em `2ad8845`. [Log](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/03-selenium.log). |
 | Aceitação por representante | Concluído nesta sessão | PART-01, pessoa externa ao curso, executou AC-01–AC-04 e decidiu Aceito nos quatro; respostas/evidências vinculadas. Consentimento confirmado após AC-01. |
-| Não funcionais compatíveis e seguros | Parcial | Rodada final automatizada 25/11/2026 (`2ad8845`): TNF-01–05 Atende, TNF-06 Atende parcialmente; observação humana móvel e validação dos critérios pelo grupo/professor pendentes. |
-| Métricas e interpretação | Parcial | Oito fórmulas da planilha foram preparadas; 24 execuções humanas estão registradas (24/24). Conferir a interpretação e incorporar os gráficos ao relatório após revisão do grupo/aceitação; não usar dados inventados. |
+| Não funcionais compatíveis e seguros | Parcial | TNF-01–05 atendem. TNF-06 atende parcialmente por falta de observação humana em celular. |
+| Métricas e interpretação | Documentado | Oito indicadores na planilha, com os resultados manuais e automatizados na versão final. |
 | TDD demonstrado | Concluído localmente | D-001 detectado por RED, corrigido por GREEN e simplificado em REFACTOR; commits e saídas reais documentados. |
-| CI/CD com gatilho, instalação, teste e resultado | Parcial | Falha intencional run [#7](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244036937) em `6014a43`; após reversão, run [#8](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45244667066) passou no commit `9b1bf7e`. Registros e cinco capturas em [EVIDENCIAS_CI](./EVIDENCIAS_CI/). Falta revisar acesso professor e discutir se integração/UI deve ser adicionada ao workflow. |
-| Qualidade inicial/final e plano de melhoria | Parcial | Rodada final SonarQube local em 25/11/2026, commit `2ad8845`, importou LCOV e passou Quality Gate (OK); cobertura total 27,1% no escopo de 1.020 linhas. Evidência e limitações documentadas; revisão do grupo/professor permanece pendente. |
+| CI/CD com gatilho, instalação, teste e resultado | Documentado | Falha controlada no run #7 (`6014a43`), reversão verde no run #8 (`9b1bf7e`) e runs #21 e #22 verdes. [Evidências](./EVIDENCIAS_CI/). |
+| Qualidade inicial/final e plano de melhoria | Documentado | SonarQube final em `2ad8845` com LCOV, Quality Gate aprovado e 27,1% de cobertura no escopo total. [Registro](./EVIDENCIAS_AUTOMACAO/20261125/sonar/REGISTRO.txt). |
 
 ## Entrega, relatório e participação (seções 11–16 e Apêndices A–M)
 
 | Exigência | Estado | Dependência |
 |---|---|---|
-| Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Pendente humano | Turma, número do grupo, acesso à pasta fornecida pelo professor e publicação final. Não criar pasta alternativa como entrega oficial. |
-| README da pasta 00 na ordem exigida | Parcial | [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md) contém as 15 seções na ordem de §11.4 e não expõe senhas. Contatos do grupo e eventual atualização no Drive oficial pendentes. |
-| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | XLSX, coleção/ambiente JSON e CSV com D-001 e D-002 preparados; DOCX/PDF e PPTX/PDF de preparação existem, marcados como rascunho; dependem de resultados reais, grupo e revisão humana. Vídeo ainda pendente. |
-| Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Parcial | Rascunho DOCX/PDF estruturado conforme o enunciado; completar resultados reais, anexos, links e validação final antes de gerar a versão submetível. |
-| Apêndices A–M com todos os campos | Parcial | B, C, D, E e H começam a ser representados nos documentos P2; F, G, I, J, K, L, M exigem registros reais ou assinatura. |
-| Apresentação de 12–15 minutos, até 5 minutos de perguntas, todos falando, vídeo de contingência | Parcial | Roteiro de 13 minutos e deck PPTX/PDF de preparação existem; fala de todos, ensaio, demonstração final e vídeo dependem do grupo. |
-| Ética, dados fictícios, links acessíveis, comprovante de entrega e horário oficial | Parcial | Isolamento local e dados sintéticos atendidos; revisão de licenças, orientação sobre IA, verificação anônima dos links, assinatura e submissão cabem ao grupo. |
+| Pasta oficial no Google Drive com nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e subpastas 00–16 | Organizada | Subpastas 00–16 montadas e enviadas ao Google Drive em 26/11. [Estrutura](./ESTRUTURA_ENTREGA.md). |
+| README da pasta 00 na ordem exigida | Pronto | [README](./ENTREGA/00_IDENTIFICACAO_E_README/README.md) com as 15 seções do §11.4, incluindo contatos e localização dos arquivos finais. |
+| Arquivos finais: DOCX/PDF, planilha editável, Postman JSON, defeitos CSV/PDF, PPTX/PDF e vídeo MP4/link | Parcial | Relatório, apresentação PPTX/PDF, planilha editável, coleção/ambiente Postman e exportação CSV de defeitos. Vídeo de contingência a incluir na pasta 14. |
+| Relatório com capa, folha, sumário, seções 1–13, referências e anexos | Pronto | Relatório final na pasta 13. |
+| Apêndices A–M com todos os campos | Parcial | Registros do Apêndice A ao L referenciados na [estrutura da entrega](./ESTRUTURA_ENTREGA.md). Declaração final (Apêndice M) pronta para receber as assinaturas em 26/11. |
+| Apresentação de 12–15 minutos, até 5 minutos de perguntas, todos falando, vídeo de contingência | Parcial | PPTX/PDF prontos na pasta 14. Vídeo de contingência a incluir na entrega. [Roteiro](./ROTEIRO_APRESENTACAO_P2.md). |
+| Ética, dados fictícios, links acessíveis, comprovante de entrega e horário oficial | Documentado | Testes em ambiente local com dados fictícios. O [checklist](./CHECKLIST_FINAL.md) descreve o procedimento de verificação de acesso, comprovante e backup no fechamento. |
 
 ## Regras de atualização
 

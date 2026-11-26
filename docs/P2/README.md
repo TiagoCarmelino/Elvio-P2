@@ -2,13 +2,15 @@
 
 Este repositório é o **ambiente de testes e preparação da P2 do projeto do Elvio (WG Hidráulica)**, mantido na branch `p2-unisagrado`. Destina-se à validação acadêmica com dados fictícios e ambiente local isolado. Não é ambiente de produção nem substitui o repositório original do TCC, que continua em desenvolvimento e não foi alterado.
 
-O repositório GitHub está privado e usa `p2-unisagrado` como branch padrão. O grupo precisa conceder acesso ao professor e confirmar as permissões de leitura antes da avaliação. A visibilidade não foi alterada.
+O repositório GitHub é privado e usa `p2-unisagrado` como branch padrão. As instruções de acesso estão no [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md).
 
 ## Estado da entrega
 
-O trabalho está em preparação. A auditoria registra lacunas e resultados históricos na [matriz de conformidade](./MATRIZ_CONFORMIDADE.md), na [auditoria técnica](./AUDITORIA_P2.md) e no [PROGRESSO.md](./PROGRESSO.md). A falha controlada e a reversão no GitHub Actions foram comprovadas no run #7 (vermelho intencional) e #8 (verde). Os 24 casos manuais foram executados e registrados por Tiago (EX-001–EX-024); D-002 foi observado em CT-004 e D-001 teve reteste aprovado em EX-021. Permanecem revisão da sessão de aceitação (4/4 aceitos por PART-01), formalização/revisão da autorização, diário do grupo, compartilhamento com o professor, aceite de `node:test` e execução da coleção Postman atual. Selenium e integração precisam ser revalidados após o merge do PR #2. Os documentos em `ARTEFATOS_PREPARACAO/` continuam rascunhos e não devem ser submetidos como versões finais.
+O professor aprovou o uso do WG Hidráulica verbalmente, em aula, em 20/08/2026, sem ajustes solicitados. Tiago registrou **24/24 execuções manuais aprovadas** e PART-01 aceitou **4/4 cenários**. A rodada automática final no commit `2ad8845` passou em todas as suítes. O SonarQube final aprovou o Quality Gate e os runs #21 e #22 do GitHub Actions passaram.
 
 O README na ordem oficial do §11.4, destinado à pasta `00_IDENTIFICACAO_E_README`, está em [ENTREGA/00_IDENTIFICACAO_E_README/README.md](./ENTREGA/00_IDENTIFICACAO_E_README/README.md). O Apêndice A e o diário L editáveis estão em [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md).
+
+A Issue #1 (D-001) foi fechada após reteste e revisão do grupo. D-002 está Em análise na Issue #3. TNF-06 atende parcialmente por falta de observação humana em celular. O relatório final, a apresentação em PPTX/PDF e a declaração final estão prontos. O vídeo de contingência e as assinaturas serão incluídos na entrega de 26/11. [Estrutura da entrega](./ESTRUTURA_ENTREGA.md) e [checklist](./CHECKLIST_FINAL.md).
 
 ## Requisitos locais
 
@@ -126,7 +128,7 @@ pnpm run build
 
 ## CI GitHub Actions
 
-O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-unisagrado` e executa testes isolados, cobertura LCOV, lint, TypeScript e build. O Apêndice J registra a falha controlada intencional do run #7 e o run #8 verde após reversão. Isso comprova o pipeline isolado; não substitui integração, Selenium, Postman ou testes manuais. Consulte a aba **Actions** após cada envio e registre URL, commit, resultado e artefatos em `docs/P2/PROGRESSO.md`.
+O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-unisagrado` e executa testes isolados, cobertura LCOV, lint, TypeScript e build. O Apêndice J registra a falha controlada no run #7, a reversão verde no run #8 e os runs #21 e #22 verdes. Isso comprova o pipeline isolado; não substitui integração, Selenium, Postman ou testes manuais. Consulte a aba **Actions** após cada envio e registre URL, commit, resultado e artefatos em `docs/P2/PROGRESSO.md`.
 
 ## Documentação P2
 
@@ -141,7 +143,7 @@ O workflow em `.github/workflows/p2-ci.yml` está configurado para a branch `p2-
 - [Rastreabilidade](./RASTREABILIDADE.md)
 - [Estrutura da entrega oficial](./ESTRUTURA_ENTREGA.md)
 
-O grupo deve transferir somente materiais revisados para a pasta oficial indicada pelo professor. Não preencher evidências, métricas, participantes, aprovações ou resultados humanos por inferência.
+[Relatório e entrega](./ENTREGA_E_RELATORIO.md) reúne as fontes dos resultados e indica a localização dos arquivos finais.
 
 ## Rodada final automatizada
 

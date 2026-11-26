@@ -1,28 +1,28 @@
 # Estrutura da entrega oficial da P2
 
-Esta é uma **lista de organização da cópia de trabalho**, não substitui a pasta do Google Drive do professor. O grupo deve usar a pasta fornecida e o nome `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA`; não publicar outra pasta nem repositório sem autorização. Os arquivos atuais são mantidos em um único lugar canônico em `docs/P2`; copiar para o Drive só na montagem final. Não duplicar variantes com sufixos “final-final”.
+A pasta de entrega com as subpastas 00–16 foi montada e enviada ao Google Drive em 26/11/2026. A tabela indica o conteúdo de cada subpasta do modelo oficial `P2_TQS_2026_TURMA_GRUPOXX_NOME-DO-SISTEMA` e a fonte de referência.
 
 ## Mapa das subpastas obrigatórias 00–16
 
-| Pasta oficial | Conteúdo final | Fonte canônica nesta cópia | Estado |
-|---|---|---|---|
-| `00_IDENTIFICACAO_E_README` | README na ordem de §11.4; ficha A; autorização/licença; contatos e credenciais fictícias por canal restrito | [README oficial preparado](./ENTREGA/00_IDENTIFICACAO_E_README/README.md), Apêndice A em [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md), `package.json` | README da pasta 00 preparado na ordem oficial; Apêndice A contém turma/grupo/integrantes/sistema/repositório/decisão e data informada de 20/08/2026. A segunda opção foi considerada genericamente, mas não formalizada; contatos foram preenchidos. Confirmar com o professor se aceita essa justificativa. |
-| `01_SISTEMA_ALVO` | Código ou link acessível, licença e instruções de instalação | Repositório P2 e [README P2](./README.md) | Repositório/branch P2 publicados e atualizados por pull; confirmar permissão do professor. Preservar TCC original. |
-| `02_REQUISITOS_ESCOPO_RISCOS` | Requisitos, exclusões e matriz de riscos | [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md) | Preparado; validar com grupo/professor. |
-| `03_PLANO_DE_TESTES` | Plano com escopo, estratégia, ambiente, papéis, critérios e cronograma | [ESCOPO_E_PLANO.md](./ESCOPO_E_PLANO.md) | Responsáveis, calendário e aprovação pendentes. |
-| `04_CASOS_E_RASTREABILIDADE` | Catálogo E e matriz H | [CASOS_MANUAIS.md](./CASOS_MANUAIS.md), [RASTREABILIDADE.md](./RASTREABILIDADE.md), [GUIA_EXECUCAO_MANUAL.md](./GUIA_EXECUCAO_MANUAL.md) | 24 casos especificados e executados por Tiago (24/24); dependências dos CT-004/010/014/018/019 descritas como pré-condições explícitas. |
-| `05_EXECUCAO_MANUAL` | Registros F, capturas e logs nomeados por caso/execução | Evidências humanas dos 24 CTs em [EVIDENCIAS_HUMANAS](./EVIDENCIAS_HUMANAS/) | 24/24 execuções manuais comprovadas por Tiago; não preencher com automação. |
-| `06_DEFEITOS` | Issues e exportação final | [DEFEITOS.md](./DEFEITOS.md), [DEFEITOS_EXPORTACAO.csv](./DEFEITOS_EXPORTACAO.csv) | D-001 encerrado na P2 após reteste aprovado em EX-021; Issue #1 foi fechada no GitHub em 25/11/2026 após revisão do grupo. D-002/Issue #3: Em análise, sem correção nesta P2; correção recomendada no plano de melhoria/TCC. Exportação PDF pendente. |
-| `07_AUTOMACAO_UNITARIA` | Fontes, comando, log e cobertura de unitários | `tests/auth.test.mjs`, `tests/triage.test.mjs`, `tests/commercial-status.test.mjs`, `coverage/p2/lcov.info` | 8 testes unitários/contratos isolados no comando; 7 candidatos unitários, aceitar framework com professor. |
-| `08_INTEGRACAO_API` | Testes API e exportações Postman/ambiente/evidências | `tests/p2-api.integration.test.mjs`, `tests/local-flows.integration.test.mjs`, [postman/](./postman) | Rodada final pós-merge aprovada: integração/API 8/8 e Postman 27 requisições/51 verificações; logs em `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/`. |
-| `09_SISTEMA_INTERFACE` | Selenium, instruções, logs e capturas de falha | `tests/p2-selenium.selenium.mjs` | Rodada final automatizada pós-PR #2 em 25/11/2026: Selenium 7/7; log `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/03-selenium.log`. |
-| `10_ACEITACAO_NAO_FUNCIONAIS` | 4 cenários AC, 6 registros TNF e evidências | [ACEITACAO_E_NAO_FUNCIONAIS.md](./ACEITACAO_E_NAO_FUNCIONAIS.md), [REGISTRO_ACEITACAO_PART-01_20261125.md](./REGISTRO_ACEITACAO_PART-01_20261125.md), [EVIDENCIAS_ACEITACAO/](./EVIDENCIAS_ACEITACAO/), [EVIDENCIA_TNF_EXPLORATORIA.json](./EVIDENCIA_TNF_EXPLORATORIA.json) e [rodada final](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/) | AC-01–AC-04 aceitos (4/4) por PART-01; Rodada final automática 25/11/2026: TNF-01–05 Atende e TNF-06 Atende parcialmente; observação humana móvel pendente. |
-| `11_METRICAS_E_QUALIDADE` | XLSX editável, fontes/logs, exportações e interpretação | [CONTROLE_P2.xlsx](./CONTROLE_P2.xlsx), [EVIDENCIA_AUDITORIA_SONAR.json](./EVIDENCIA_AUDITORIA_SONAR.json) | Aba Defeitos usa os seis estados de §9.7; planilha atualizada com 24 execuções humanas, 55 casos automatizados da rodada final e indicadores recalculados. Revisão/interpretação pelo grupo ainda necessária. |
-| `12_TDD_CICD_MELHORIA` | Evidência RED/GREEN/REFACTOR, YAML, logs, análise inicial/final e plano | [TDD_CI_QUALIDADE.md](./TDD_CI_QUALIDADE.md), `.github/workflows/p2-ci.yml`, JSON Sonar, [evidências CI](./EVIDENCIAS_CI/) | TDD local e falha CI intencional (#7)/reversão verde (#8) documentados; revisão professor e Postman no CI pendentes. |
-| `13_RELATORIO_FINAL` | Relatório DOCX/PDF idênticos, atualizado com evidências e apêndices | artefatos de preparação no diretório de entrega local | Texto do relatório final redigido; DOCX/PDF de preparação em ARTEFATOS_PREPARACAO ainda requerem exportação/atualização, revisão e assinatura do grupo. Não entregar arquivos ainda marcados como rascunho. |
-| `14_APRESENTACAO_E_VIDEO_CONTINGENCIA` | PPTX/PDF e vídeo MP4/link acessível | [ROTEIRO_APRESENTACAO_P2.md](./ROTEIRO_APRESENTACAO_P2.md) e deck de preparação | Roteiro e deck PPTX/PDF de preparação existem; ensaio, vídeo, identificação e participação pendentes. Não entregar o rascunho. |
-| `15_DIARIO_DE_PARTICIPACAO` | Apêndice L com contribuições/tempos reais | [FORMULARIOS_HUMANOS.md](./FORMULARIOS_HUMANOS.md) | Diário preenchido apenas com atividades com data e evidência verificável em commits/registros; duração e colaboradores não registrados permanecem explícitos. Revisar/confirmar pelo grupo. |
-| `16_BACKUP_ENTREGA` | Cópia assinada da entrega e comprovante PDF | A criar pelo grupo após confirmar Drive, arquivos e assinatura | Não criar ou assinar sem data, integrantes e entrega real. |
+| Pasta oficial | Conteúdo e referências |
+|---|---|
+| `00_IDENTIFICACAO_E_README` | [README da pasta 00](./ENTREGA/00_IDENTIFICACAO_E_README/README.md) na ordem do §11.4 com identificação, contatos e instruções para credenciais fictícias. [Apêndice A](./FORMULARIOS_HUMANOS.md) com origem do código e aprovação verbal em aula em 20/08/2026, sem ajustes solicitados. |
+| `01_SISTEMA_ALVO` | Código da cópia P2 na branch `p2-unisagrado` e [instruções de instalação](./README.md). |
+| `02_REQUISITOS_ESCOPO_RISCOS` | Requisitos, exclusões e riscos priorizados no [plano, versão 1.0](./ESCOPO_E_PLANO.md). |
+| `03_PLANO_DE_TESTES` | Estratégia, ambiente, responsabilidades, critérios e cronograma no [plano de testes](./ESCOPO_E_PLANO.md). |
+| `04_CASOS_E_RASTREABILIDADE` | 24 casos manuais com pré-condições e referências de execução no [catálogo](./CASOS_MANUAIS.md) e na [rastreabilidade](./RASTREABILIDADE.md). |
+| `05_EXECUCAO_MANUAL` | 24/24 execuções manuais aprovadas por Tiago. [Registro](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e [capturas](./EVIDENCIAS_HUMANAS/). |
+| `06_DEFEITOS` | [Registro de defeitos](./DEFEITOS.md) e [CSV](./DEFEITOS_EXPORTACAO.csv). D-001 encerrado após reteste aprovado em EX-021; Issue #1 fechada em 25/11. D-002/Issue #3 segue Em análise, com correção recomendada para o TCC. |
+| `07_AUTOMACAO_UNITARIA` | Rodada final em `2ad8845`: 8/8 no comando unitário/LCOV, com sete unitários e um contrato simulado. [Evidências da rodada](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/). |
+| `08_INTEGRACAO_API` | Integração/API 8/8 e Newman com 27 requisições e 51 verificações aprovadas. [Coleção e ambiente Postman](./postman/) e [evidências](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/). |
+| `09_SISTEMA_INTERFACE` | Selenium 7/7 na rodada final de 25/11. [Log](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/03-selenium.log). |
+| `10_ACEITACAO_NAO_FUNCIONAIS` | [Aceitação 4/4 por PART-01](./REGISTRO_ACEITACAO_PART-01_20261125.md) e [resultados dos TNF](./ACEITACAO_E_NAO_FUNCIONAIS.md). TNF-06 atende parcialmente por falta de observação humana em celular. |
+| `11_METRICAS_E_QUALIDADE` | [Planilha editável](./CONTROLE_P2.xlsx), com 24 execuções manuais, 55 casos automatizados e indicadores recalculados. [SonarQube final](./EVIDENCIAS_AUTOMACAO/20261125/sonar/REGISTRO.txt) com Quality Gate aprovado. |
+| `12_TDD_CICD_MELHORIA` | [TDD, CI e plano de melhoria](./TDD_CI_QUALIDADE.md): falha intencional no run #7, reversão verde no #8 e runs #21 e #22 verdes. |
+| `13_RELATORIO_FINAL` | Relatório final pronto, com os três apontamentos da revisão de Mateus incorporados. |
+| `14_APRESENTACAO_E_VIDEO_CONTINGENCIA` | Apresentação PPTX/PDF pronta. Vídeo de contingência a incluir na entrega de 26/11. [Roteiro](./ROTEIRO_APRESENTACAO_P2.md). |
+| `15_DIARIO_DE_PARTICIPACAO` | [Apêndice L](./FORMULARIOS_HUMANOS.md#apêndice-l--diário-de-participação), com contribuições, durações registradas ou aproximadas e evidências. |
+| `16_BACKUP_ENTREGA` | Backup e comprovante conforme o procedimento de fechamento e assinatura do [checklist](./CHECKLIST_FINAL.md). |
 
 ## Regras de montagem
 
@@ -30,5 +30,4 @@ Esta é uma **lista de organização da cópia de trabalho**, não substitui a p
 - Não inclua `.env.local`, `.env.sonar.local`, chaves, senhas, cookies, dados reais, `.scannerwork` ou conteúdo transitório ignorado.
 - Preserve o PDF do professor e o texto transcrito como referências; não os altere.
 - Para cada evidência, mantenha o caso/execução/hash/data no nome ou metadados e um link na rastreabilidade. Links deverão ser acessíveis sem conta privilegiada, segundo orientação do professor.
-- Antes do envio, conte arquivos, abra DOCX/PDF/XLSX/PPTX, confirme acesso/links e gere backup somente depois de fechar conteúdo e receber assinaturas.
-- A transferência para Drive, permissão, ensaio, comprovante e submissão continuam ações humanas.
+- No fechamento da entrega, conferir arquivos e links e guardar o comprovante e a cópia assinada na pasta 16.

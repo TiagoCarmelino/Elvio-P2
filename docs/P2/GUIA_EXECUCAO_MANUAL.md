@@ -1,6 +1,6 @@
 # Guia prático de execução dos 24 casos manuais
 
-**Estado:** os 24 casos foram executados manualmente por Tiago (24/24), conforme o registro [EX-001–EX-024](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md). Este guia permanece como roteiro de reprodução/conferência dos casos do catálogo, Apêndices E/F/H e §§9.5–9.7 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
+**Estado:** os 24 casos foram executados manualmente e aprovados por Tiago (24/24), conforme o registro [EX-001–EX-024](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md). Este guia permanece como roteiro de reprodução/conferência dos casos do catálogo, Apêndices E/F/H e §§9.5–9.7 do [enunciado](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 **Executor desta rodada:** Tiago Gabriel Carmelino conduzirá e confirmará suas próprias execuções. Mateus Betini permanece integrante do grupo; não lhe atribuir execução, revisão ou evidência sem participação efetiva registrada.
 
@@ -49,7 +49,7 @@ O agente também realizou explorações e automações separadas; consulte [REGI
 
 ## Registro e critérios de encerramento
 
-| Campo a preencher por execução | Valor real a registrar |
+| Campo de registro por execução | Valor real a registrar |
 |---|---|
 | Identificação | `EX-xxx`, CT correspondente e executor(es) |
 | Versão | Hash Git, branch, versão do app e data/hora local |

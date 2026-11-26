@@ -1,6 +1,6 @@
-# Catálogo inicial de casos manuais — P2
+# Catálogo de casos manuais — P2
 
-**Versão:** 0.3, 25/11/2026. **Estado:** os 24 casos foram executados manualmente por Tiago (24/24), com resultados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e rastreabilidade em [RASTREABILIDADE.md](./RASTREABILIDADE.md). Cada caso deve ser executável por outra pessoa com as dependências e a massa descritas. Fonte: Apêndice E e §§9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt). Resultados humanos registrados em [REGISTRO_EXECUCOES_HUMANAS_TIAGO.md](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md), sem substituir a rastreabilidade ou misturar a automação do agente.
+**Revisão:** 25/11/2026. **Estado:** os 24 casos foram executados e aprovados por Tiago Gabriel Carmelino, com D-002 observado no CT-004. Os resultados e evidências estão no [registro manual](./REGISTRO_EXECUCOES_HUMANAS_TIAGO.md) e na [rastreabilidade](./RASTREABILIDADE.md). Cada caso pode ser reproduzido com as dependências e a massa descritas. Fonte: Apêndice E e §§9.5–9.7 do [manual transcrito](../P2_UNISAGRADO_texto_completo_para_Codex.txt).
 
 Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env.local` ignorado pelo Git. Antes de executar casos que alteram dados, identificar solicitação de teste e restaurar a seed local se necessário; nunca usar produção. Casos de API podem ser executados manualmente no Postman, com variáveis locais.
 
@@ -8,7 +8,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-001 — Envio válido pelo formulário
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** site e Supabase locais ativos; telefone fictício novo.
 - **Entrada:** nome `Cliente P2 A`, telefone fictício com ≥8 caracteres, descrição `Reparo de cilindro hidráulico de teste`.
 - **Passos:** 1. Abrir `/contato`. 2. Preencher obrigatórios. 3. Enviar. 4. Entrar no painel local e procurar a solicitação.
@@ -17,7 +17,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-002 — Nome inválido
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; partição inválida e limite inferior; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; partição inválida e limite inferior; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** Postman apontado ao site local.
 - **Entrada:** `name=A`; WhatsApp e descrição válidos.
 - **Passos:** 1. Enviar `POST /api/solicitacoes` com JSON fictício. 2. Consultar lista autenticada.
@@ -26,7 +26,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-003 — Limite da descrição
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valor limite 9/10 caracteres; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valor limite 9/10 caracteres; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** banco local restaurado; dados restantes válidos.
 - **Entrada:** descrição de 9 caracteres e depois de 10 caracteres, com telefones fictícios diferentes.
 - **Passos:** 1. Enviar solicitação com 9 caracteres. 2. Conferir rejeição. 3. Enviar com 10 caracteres. 4. Consultar painel.
@@ -35,7 +35,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-004 — Cliente com WhatsApp já conhecido
 
-- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; alternativa; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; alternativa; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** **CT-001 concluído e aprovado** na mesma base local; utilizar o cadastro/solicitação fictícia criado por CT-001/EX-001 e anotar WhatsApp, empresa e e-mail originalmente exibidos. Se a base for restaurada, repetir CT-001 antes deste caso.
 - **Entrada:** mesmo WhatsApp fictício; descrição diferente.
 - **Passos:** 1. Enviar nova solicitação válida. 2. Consultar painel. 3. Conferir as duas solicitações e o cliente no banco local.
@@ -46,7 +46,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-005 — Login administrativo válido
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** conta fictícia provisionada no Supabase local e e-mail listado em `ADMIN_EMAILS`.
 - **Entrada:** credenciais fictícias em `.env.local`.
 - **Passos:** 1. Abrir `/login`. 2. Preencher e-mail/senha. 3. Enviar. 4. Abrir `/sistema`.
@@ -55,7 +55,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-006 — Senha incorreta
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição inválida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição inválida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** conta fictícia existente.
 - **Entrada:** e-mail autorizado e senha inválida fictícia.
 - **Passos:** 1. Abrir `/login`. 2. Informar credenciais inválidas. 3. Enviar. 4. Tentar `/sistema`.
@@ -64,7 +64,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-007 — Conta autenticada fora da lista administrativa
 
-- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; exceção de autorização; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; exceção de autorização; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** segunda conta fictícia no Auth local, não listada em `ADMIN_EMAILS`.
 - **Entrada:** credenciais da conta não autorizada.
 - **Passos:** 1. Autenticar pelo formulário. 2. Observar redirecionamento. 3. Acessar API de lista sem cookie administrativo.
@@ -73,7 +73,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-008 — Visitante sem sessão
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição inválida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição inválida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** janela privada, sem cookies.
 - **Entrada:** acesso direto a `/sistema` e `/api/painel/solicitacoes`.
 - **Passos:** 1. Abrir página protegida. 2. Chamar API protegida.
@@ -84,7 +84,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-009 — Lista com solicitação da seed
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** seed local aplicada e administrador autenticado.
 - **Entrada:** solicitação fictícia `P2_LOCAL_REQUEST_ID`.
 - **Passos:** 1. Abrir `/sistema`. 2. Aguardar carregamento. 3. Localizar cliente e status.
@@ -93,7 +93,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-010 — Detalhe da solicitação
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; transição de navegação; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; transição de navegação; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** **CT-009 concluído e aprovado** na mesma base local; administrador autenticado e solicitação/ID fictício de CT-009 disponíveis. Registrar o ID e manter a mesma massa até terminar CT-010.
 - **Entrada:** ID da solicitação fictícia.
 - **Passos:** 1. Selecionar `Ver detalhes`. 2. Conferir descrição, cliente, contato, origem e status.
@@ -102,7 +102,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-011 — ID inexistente
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; exceção; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; exceção; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** administrador autenticado.
 - **Entrada:** UUID fictício não existente.
 - **Passos:** 1. Abrir `/sistema/solicitacoes/<uuid-inexistente>`. 2. Conferir mensagem e retorno ao painel.
@@ -113,7 +113,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-012 — Mudança válida de status
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; transição de estados; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; transição de estados; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** administrador autenticado; status inicial anotado em solicitação fictícia.
 - **Entrada:** mudança de `orcamento` para `negociacao`.
 - **Passos:** 1. Abrir detalhe. 2. Escolher `Negociação`. 3. Atualizar lista ou API. 4. Restaurar status inicial ao final.
@@ -122,7 +122,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-013 — Status fora do catálogo
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; partição inválida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; partição inválida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** cookie administrativo e status original anotado.
 - **Entrada:** `status=desconhecido` no endpoint de status local.
 - **Passos:** 1. Enviar POST inválido. 2. Consultar status.
@@ -131,7 +131,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-014 — Histórico após transição
 
-- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; transição de estados; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Integração/funcional; transição de estados; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** **CT-012 concluído e aprovado** na mesma solicitação local. Manter anotados o ID, o status inicial, o estado novo e os eventos produzidos; não restaurar/limpar a solicitação antes de consultar o histórico para CT-014.
 - **Entrada:** ID da solicitação e estados anterior/novo.
 - **Passos:** 1. Abrir a linha do tempo. 2. Consultar endpoint de histórico. 3. Comparar registros.
@@ -140,7 +140,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-015 — Repetição do mesmo status
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; alternativa/idempotência; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; alternativa/idempotência; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** status e contagem do histórico anotados.
 - **Entrada:** POST com o status atual.
 - **Passos:** 1. Enviar mudança redundante. 2. Consultar status e histórico.
@@ -151,7 +151,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-016 — Adicionar item válido
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** administrador autenticado, solicitação fictícia aberta.
 - **Entrada:** item `Peça fictícia P2`, quantidade 2, valor unitário R$ 30,00.
 - **Passos:** 1. Preencher formulário do item. 2. Salvar. 3. Conferir lista.
@@ -160,7 +160,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-017 — Quantidade e valor inválidos
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valores limite; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valores limite; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** sessão administrativa local.
 - **Entrada:** quantidade 0, depois valor unitário -0,01.
 - **Passos:** 1. Enviar cada payload ao endpoint de itens. 2. Consultar lista.
@@ -169,7 +169,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-018 — Editar item existente
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** **CT-016 concluído e aprovado**; o item temporário deve existir na mesma solicitação. Anotar ID do item, descrição, quantidade e valor de CT-016; se a base for restaurada, repetir CT-016 antes do CT-018.
 - **Entrada:** alterar quantidade para 3, manter valor unitário R$ 30,00.
 - **Passos:** 1. Selecionar `Editar`. 2. Ajustar quantidade. 3. Salvar. 4. Consultar API.
@@ -178,7 +178,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-019 — Remover item com confirmação
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; alternativa; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** **CT-016 concluído e aprovado**, com o item ainda existente; para testar o fluxo após edição, executar CT-018 e usar o mesmo item/ID. Anotar solicitação e item alvo. Não remover nem limpar a massa antes do CT-019.
 - **Entrada:** selecionar `Remover` e confirmar no diálogo.
 - **Passos:** 1. Abrir confirmação. 2. Conferir identificação do item. 3. Confirmar. 4. Recarregar.
@@ -187,7 +187,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-020 — Total com dois itens
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; cálculo e partição válida; alta; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; cálculo e partição válida; alta; Tiago Gabriel Carmelino.
 - **Pré-condições:** solicitação temporária sem outros itens; adicionar apenas os dois itens do caso e anotar valores.
 - **Entrada:** 2 × R$ 30,00 e 3 × R$ 20,00.
 - **Passos:** 1. Consultar itens. 2. Conferir subtotais. 3. Conferir total. 4. Remover itens temporários.
@@ -198,7 +198,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-021 — Salvar condições válidas
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** solicitação fictícia com item; condições originais anotadas.
 - **Entrada:** validade 30 dias, prazo `15 dias úteis`, condição e observação fictícias.
 - **Passos:** 1. Preencher condições. 2. Salvar. 3. Recarregar. 4. Restaurar condições originais.
@@ -207,7 +207,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-022 — Validade fora dos limites
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valores limite 0/1/365/366; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; valores limite 0/1/365/366; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** sessão administrativa e proposta original anotada.
 - **Entrada:** 0 e 366 dias (inválidos); 1 e 365 dias (válidos).
 - **Passos:** 1. Enviar cada valor. 2. Consultar dados. 3. Restaurar valor inicial.
@@ -216,7 +216,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-023 — Download de proposta PDF
 
-- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** Sistema/funcional; partição válida; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** solicitação com item e condições salvas; administrador autenticado.
 - **Entrada:** solicitação fictícia da seed.
 - **Passos:** 1. Acionar download. 2. Abrir PDF localmente. 3. Conferir cliente, item, valores e condições.
@@ -225,7 +225,7 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ### CT-024 — Proposta sem item
 
-- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; exceção; média; a definir.
+- **Nível/tipo; técnica; prioridade; responsável:** API/funcional; exceção; média; Tiago Gabriel Carmelino.
 - **Pré-condições:** solicitação temporária fictícia sem itens, administrador autenticado.
 - **Entrada:** ID da solicitação vazia.
 - **Passos:** 1. Solicitar PDF. 2. Conferir resposta. 3. Restaurar dados de teste.
@@ -234,6 +234,6 @@ Os valores `P2_LOCAL_REQUEST_ID` e demais credenciais fictícias estão no `.env
 
 ## Execução
 
-**Situação em 25/11/2026: 24 de 24 casos executados por Tiago (EX-001–EX-024).** CT-004 foi aprovado quanto ao objetivo principal, com D-002 observado; CT-013/EX-021 retestou D-001 com aprovação. Os resultados esperados acima continuam sendo especificações; os resultados observados e evidências estão no registro humano e na matriz de rastreabilidade.
+**Situação em 25/11/2026: 24 de 24 casos executados e aprovados por Tiago (EX-001–EX-024).** CT-004 foi aprovado quanto ao objetivo principal, com D-002 observado; CT-013/EX-021 retestou D-001 com aprovação. Os resultados esperados acima continuam sendo especificações; os resultados observados e evidências estão no registro humano e na matriz de rastreabilidade.
 
 As explorações do agente estão discriminadas em [REGISTRO_EXECUCOES_AGENTE_20261116.md](./REGISTRO_EXECUCOES_AGENTE_20261116.md), com casos completos, parciais e não executados. Elas não são execuções humanas e não devem ser copiadas para o Apêndice F como se o grupo tivesse executado/conferido o resultado.

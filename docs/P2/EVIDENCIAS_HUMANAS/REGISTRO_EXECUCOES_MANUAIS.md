@@ -1,6 +1,6 @@
 # Registro das execuções manuais — Tiago Gabriel Carmelino
 
-Ambiente comum: Windows; navegador Google Chrome (confirmar versão em chrome://settings/help); app local em http://localhost:3000, executado a partir da pasta principal (branch `p2-unisagrado`); Supabase local. Código da aplicação: merge `219210a` (os commits posteriores alteraram só documentação).
+Ambiente comum: Windows; navegador Google Chrome (versão sem registro nesta evidência); app local em http://localhost:3000, executado a partir da pasta principal (branch `p2-unisagrado`); Supabase local. Código da aplicação: merge `219210a` (os commits posteriores alteraram só documentação).
 
 ---
 

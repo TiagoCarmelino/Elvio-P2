@@ -439,4 +439,4 @@ Ambiente comum: Windows; navegador Google Chrome (confirmar versão em chrome://
 - **Condições da proposta da solicitação da seed:** a validade voltou a 15 dias ao final do EX-024. Os demais campos das condições preenchidos no CT-021/CT-023 foram mantidos de propósito, porque sustentam a evidência do PDF gerado no CT-023.
 
 
-**Contagem humana comprovada:** 24 de 24 casos (EX-001–EX-024), todos executados por Tiago Gabriel Carmelino. Isso não representa execução dos quatro cenários de aceitação, que permanecem dependentes de participante real.
+**Contagem humana comprovada:** 24 de 24 casos aprovados (EX-001–EX-024), todos executados por Tiago Gabriel Carmelino. Na [sessão de aceitação de 25/11/2026](./REGISTRO_ACEITACAO_PART-01_20261125.md), PART-01 aceitou 4/4 cenários.
