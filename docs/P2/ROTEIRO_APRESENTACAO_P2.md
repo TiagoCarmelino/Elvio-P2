@@ -33,6 +33,8 @@
 - O GitHub Actions foi realmente executado? **Sim. O run #7 foi intencionalmente vermelho e o run #8 passou após reversão; são runs separados do ciclo TDD local.**
 - Quais critérios de aceitação e aprovação ainda não foram obtidos?
 
+Atualização de 25/11/2026: a rodada automática final no commit `2ad8845` passou em todas as suítes: unitários/LCOV 8/8, integração/API 8/8, Selenium 7/7, Newman 27 requisições/51 verificações e TNF 6/6. O SonarQube importou LCOV e teve Quality Gate aprovado; cobertura global 27,1% e limitações de escopo estão registradas em `EVIDENCIAS_AUTOMACAO/20261125/sonar/`. O GitHub Actions run [#21](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45681826995) está verde. TNF-01–05 atendem e TNF-06 atende parcialmente por faltar observação humana móvel. O texto do relatório está redigido, mas DOCX/PDF seguem rascunhos. Os resultados de 16/11 descritos abaixo são históricos, não substituem a rodada final.
+
 ## Estado dos resultados que podem ser citados
 
 Atualização para a apresentação (23/11/2026): CI #7 falhou intencionalmente em `6014a43` (7/8); após reversão, CI #8 passou em `9b1bf7e` (8/8, lint, TypeScript, build e artefatos). Resultados locais anteriores: `test:local` 8/8 e Selenium 7/7 em 16/11, antes dos ajustes integrados pelo PR #2; retestar se forem apresentados como validação do código atual. A coleção Newman executada naquela data era a antiga (6 requisições/12 verificações); a versão atual tem 27/51 e ainda não foi executada. TNF exploratórios 6/6 (16/11); Sonar local 27,1% global (13/11). Esses dados são históricos/automatizados e não são execuções manuais nem aceitação humana.

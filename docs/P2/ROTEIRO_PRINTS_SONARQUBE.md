@@ -1,6 +1,6 @@
 # Roteiro de capturas do SonarQube — rodada final P2
 
-Este roteiro prepara a coleta de evidência visual após a rodada final. Nenhuma análise SonarQube foi iniciada nesta preparação. Usar somente a instância local em http://127.0.0.1:9000 e associar cada captura ao commit efetivamente analisado.
+A rodada final SonarQube local foi concluída em 25/11/2026 no commit `2ad8845`; o Quality Gate foi aprovado e as capturas existentes estão em `EVIDENCIAS_AUTOMACAO/20261125/sonar/`. Este roteiro serve para conferir ou gerar capturas complementares. Usar somente a instância local em http://127.0.0.1:9000 e associar cada captura ao commit efetivamente analisado.
 
 1. Antes da análise, registre git rev-parse --short HEAD e confirme que coverage/p2/lcov.info foi gerado pela rodada que será analisada. Não reutilize o arquivo de uma execução anterior.
 2. Execute o scanner local conforme docs/P2/TDD_CI_QUALIDADE.md, usando token local por variável de ambiente. Não capture token, senha, .env.sonar.local ou dados pessoais.

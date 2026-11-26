@@ -151,4 +151,4 @@ Depois de concluir as execuções manuais, restaurar a fixture e confirmar que a
 powershell -NoProfile -File scripts/p2-rodada-final.ps1
 ```
 
-O script exige `.env.local`, rejeita URLs fora de HTTP loopback e grava log por suíte com timestamp e commit em `docs/P2/EVIDENCIAS_AUTOMACAO/<data>/<hora>-<commit>/`. A última etapa executa TNF-01–TNF-06; TNF-03/04 fazem 20 medições por operação e registram máximo e mediana. O runner não foi executado nesta preparação. Consulte também o [roteiro de capturas SonarQube](./ROTEIRO_PRINTS_SONARQUBE.md).
+O script exige `.env.local`, rejeita URLs fora de HTTP loopback e grava log por suíte com timestamp e commit em `docs/P2/EVIDENCIAS_AUTOMACAO/<data>/<hora>-<commit>/`. A última etapa executa TNF-01–TNF-06; TNF-03/04 fazem 20 medições por operação e registram máximo e mediana. A rodada final foi executada em 25/11/2026 no commit `2ad8845`; resultados e logs estão em `EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/`. Consulte também o [roteiro de capturas SonarQube](./ROTEIRO_PRINTS_SONARQUBE.md).

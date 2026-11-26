@@ -1,7 +1,19 @@
+## Participação do Mateus e fechamento documental — 25/11/2026
+
+- O Apêndice L registra as atividades de Mateus Betini informadas pelo grupo: participação na escolha e apresentação do WG Hidráulica em 20/08/2026; revisão de documentos ao longo do projeto; revisão do relatório final em 25/11/2026 com três apontamentos repassados por Tiago e incorporados. O registro não acrescenta datas, horas ou detalhes além dos informados.
+
+## Fechamento da rodada automática final, SonarQube e relatório — 25/11/2026
+
+- A rodada final em commit `2ad8845` foi concluída com todas as suítes aprovadas: unitários com LCOV **8/8**, integração/API **8/8**, Selenium **7/7**, Newman **27 requisições/51 verificações** e não funcionais **6/6**. Logs e resumo em [EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845](./EVIDENCIAS_AUTOMACAO/20261125/160236-2ad8845/).
+- TNF-01–05 atendem; TNF-06 atende parcialmente (390×844 sem rolagem horizontal; observação humana móvel não realizada). TNF-03/04 usaram 20 amostras cada; máximos e medianas foram registrados sem chamar o máximo de p95. Exploração histórica foi preservada separadamente.
+- SonarQube final local, commit `2ad8845`, importou LCOV e teve Quality Gate **OK/aprovado**. A cobertura global do projeto permanece 27,1% no escopo total; a evidência documenta a cobertura limitada e a condição de código novo com poucas linhas. Ver [registro Sonar final](./EVIDENCIAS_AUTOMACAO/20261125/sonar/REGISTRO.txt).
+- GitHub Actions [run #21](https://github.com/TiagoCarmelino/Elvio-P2/actions/runs/45681826995) foi informado como verde e registrado. Não houve publicação feita nesta atualização.
+- O texto do relatório final foi redigido e a revisão de Mateus em 25/11/2026 foi incorporada (commit da seção 2.3, contagem de casos por requisito na seção 5 e divergência D-001/Issue #1). Os arquivos DOCX/PDF ainda estão identificados como rascunhos e precisam ser atualizados/exportados e revisados antes da entrega oficial.
+
 ## Complemento — relato do observador Mateus, 25/11/2026
 
 - Incorporado ao [registro de aceitação](./REGISTRO_ACEITACAO_PART-01_20261125.md), ao protocolo e ao [diário de participação](./FORMULARIOS_HUMANOS.md) o relato repassado por Tiago às 15:26, com as palavras de Mateus. A atividade do diário limita-se à observação da sessão AC-01–AC-04, aproximadamente das 15:00 às 15:23, e a esse relato.
-- Não foram atribuídas outras atividades a Mateus.
+- O diário também registra as atividades adicionais de Mateus informadas pelo grupo, conforme a seção do Apêndice L acima.
 
 ## Sessão de aceitação AC-01–AC-04 registrada — 25/11/2026
 
